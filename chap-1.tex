@@ -7,15 +7,16 @@ In this chapter details of the dataset are introduced and a basic analysis is pe
 
 \section{Introduction to dataset}
 % how the dataset is made up --> use the information of the competition.
-The data that is used in this thesis is made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. It consists out of data from smart meters about the 1/2 hour granulated electricity consumption of $3248$ households located in the United Kingdom in the year $2017$. Each smart meter collected thus a total of $17520$ measurements. Not all the $3248$ smart meters consist of full data as can be seen in Figure \ref{fig:amountNaN} in appendix \ref{app:A}. It can be clearly seen that there are $12$ steps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined at different times during the year. Additionally, missing values are introduced due to errors in sending/receiving from smart meters.\\
-Next to the electricity consumption of the different households, also information is available about the average, minimum and maximum temperature of the day on the location of the smart meter. This data is available at a daily resolution. Also, through voluntary surveys, incomplete information is collected about a number of smart meters. This concerns e.g. dwelling type, number of occupants, number of bedrooms etc. Table \ref{tab:attributes} displays all the attributes in appendix \ref{app:A}.\\
+The data that is used in this thesis is made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. It consists out of data from smart meters about the 1/2 hour granulated electricity consumption of $3248$ households located in the United Kingdom in the year $2017$. Each smart meter collected thus a total of $17520$ measurements that are performed by the the leading international energy provider, E.ON UK plc. Not all the $3248$ smart meters consist of full data as can be seen in Figure \ref{fig:amountNaN} in appendix \ref{app:A}. It can be clearly seen that there are $12$ steps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined at different times during the year. Additionally, missing values are introduced due to errors in sending/receiving from smart meters.\\
+Next to the electricity consumption of the different households, also information is available about the average, minimum and maximum temperature of the day on the location of the smart meter. This data is available at a daily resolution. Also, through voluntary surveys, incomplete information is collected about $2143$ smart meters. This concerns e.g. dwelling type, number of occupants, number of bedrooms etc. Table \ref{tab:attributes} displays all the attributes in appendix \ref{app:A}.\\
 
+%After substituting the missing values as discussed in \ref{s:missing_data}, all the available weeks are averaged out over all the $270$ smart meters that contain a full year of measurements. The result is given by Figure \ref{fig:averaged_week}. A difference that with belgian load profiles is the consumption peak after midnight. This is due to the higher use of the electric storage heaters used in the UK. These systems store electric energy when the electric tariff is low e.g. overnight and releases the heat when the tariff is high.
+%
 
+\section{Missing data} \label{s:missing_data}
+As discussed above the consumption dataset contains additionally to the missing months also missing data due to sending/receiving errors of the smart meters. When this happens the data of the whole day is lost. 
 
-
-
-\section{Missing data}
-First comes the introduction to this topic.
+\section{Normalization of the data}
 
 \section{Seasonality}
 
@@ -24,14 +25,19 @@ First comes the introduction to this topic.
 
 
 \section{Influence of household data}
+% try to investigate which attributes are the most important drivers of the consumptionload. Attributes with
+% a low influence can be ignored.
 
 
 \section{Comparing weekdays with weekends}
 
 \section{Impact of holidays}
+% important that look at holidays in the UK. Holidays
 
 
 \section{ARIMA}
+% Idea is to use the simple ARIMA model as a base line forecasting model. 
+% see datacamp and youtube Lola
 
 
 \section{Conclusion}
