@@ -17,21 +17,26 @@ Next to the electricity consumption of the different households, also informatio
 % some meters don't have a lot of missing values, but have very untraditional output. Two cases are looked into
 % 1. big deviation from the average meter. 
 % 2. a full day of zeros is included. 
+% 3. the moving average changes spectaculair --> fundamental change in the energy consumption
+% witch is hard to forecast for. (not consistent with a normal consumption pattern)
+% Weird meters that are identified: 2985, 2984,
+% Normal meters: 2979, 2982
 
 
 \section{Missing data} \label{s:missing_data}
 As discussed above the consumption dataset contains additionally to the missing months also missing data due to sending/receiving errors of the smart meters. When this happens the data of the whole day is lost. Three methods to impute the missing values are compared. 
 
+\section{Removal of outliers}
+
+\section{Normalization of the data}
+% normalize as done in ppt
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar.\cite{Lago2020} The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur.    
+
+%\cite{NarjesFallah2018}
 
 \section{Seasonality}
 % plot the moving average of the year. Clearly see the impact of the summer and winter.
 % This is a trend that can be taken into account when predicting.
-
-
-
-\section{Standardization of the data}
-% normalize as done in ppt
-
 
 \section{Influence of temperature}
 % use the correlations. https://realpython.com/numpy-scipy-pandas-correlation-python/
@@ -51,6 +56,13 @@ As discussed above the consumption dataset contains additionally to the missing 
 \section{ARIMA}
 % Idea is to use the simple ARIMA model as a base line forecasting model. 
 % see datacamp and youtube Lola
+% ARIMA assumes stationary data.
+Assumptions of ARIMA...
+
+\textbf{Stationarity}\\
+% https://machinelearningmastery.com/remove-trends-seasonality-difference-transform-python/
+When data is modelled it is assumed that the statistics of the data are consistent or stationary. This means the mean and standard deviation is not changing in time. However, because time series are often subdued to a trend or seasonality this assumption of stationarity is violated. In order to model not stationary observations by a stationary model as ARIMA, trends and seasonal effects should be removed. A way to check the stationarity of your observations, the ``Dicky-Fuller test'' can be used.
+A way to remove non-stationarity is by using ``Difference Transform''. Here the trend and seasonality is subtracted from the observations leaving behind a stationary dataset.
 
 
 \section{Conclusion}

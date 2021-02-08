@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  5 FEB 2021 15:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  8 FEB 2021 23:26
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -934,7 +934,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `kulemtfpf' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<logokul.pdf, id=179, 159.33528pt x 56.90298pt>
+<logokul.pdf, id=175, 159.33528pt x 56.90298pt>
 File: logokul.pdf Graphic file (type pdf)
 <use logokul.pdf>
 Package pdftex.def Info: logokul.pdf  used on input line 47.
@@ -1062,81 +1062,70 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
 
  []
 
-[3
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3
 
 
 
 
-]) [4]
+])
+[4]
 \openout2 = `chap-2.aux'.
 
  (chap-2.tex
 
-LaTeX Warning: Citation `wiki' on page 5 undefined on input line 10.
+LaTeX Warning: Reference `tab:wrong' on page 5 undefined on input line 11.
 
 
-LaTeX Warning: Citation `pratchett06:_good_omens' on page 5 undefined on input 
-line 11.
+LaTeX Warning: Reference `tab:ok' on page 5 undefined on input line 11.
 
-File: logokul.pdf Graphic file (type pdf)
-<use logokul.pdf>
-Package pdftex.def Info: logokul.pdf  used on input line 18.
-(pdftex.def)             Requested size: 159.33487pt x 56.90283pt.
-[5
+) [5
 
 
 
 
 ]
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 5
-9.
- ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmss.fd"
-File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmss' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
- [6] [7]) [8]
 \openout2 = `chap-3.aux'.
 
- (chap-3.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9
+ (chap-3.tex [6
 
 
 
 
 ]
-[10]) [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+[8]) [9]
 \openout2 = `chap-4.aux'.
 
- (chap-4.tex [12
+ (chap-4.tex [10
 
 
 
 
-] [13]
+] [11]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14])
-[15]
+ [12])
+[13]
 \openout2 = `chap-5.aux'.
 
- (chap-5.tex [16
+ (chap-5.tex [14
 
 
 
 
-] [17]
+] [15]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [18])
-[19]
+ [16])
+[17]
 \openout2 = `conclusion.aux'.
 
- (conclusion.tex [20
+ (conclusion.tex [18
 
 
 
@@ -1144,19 +1133,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Underfull \vbox (badness 1308) has occurred while \output is active []
 
- [21])
-[22] [23
+ [19])
+[20] [21
 
 
 
-] [24]
+] [22]
 \openout2 = `app-A.aux'.
 
  (app-A.tex
 
-LaTeX Warning: Citation `h2g2' on page 25 undefined on input line 5.
+LaTeX Warning: Citation `h2g2' on page 23 undefined on input line 5.
 
-<Pictures//amountNaN.png, id=425, 843.15pt x 683.55376pt>
+<Pictures//amountNaN.png, id=401, 843.15pt x 683.55376pt>
 File: Pictures//amountNaN.png Graphic file (type png)
 <use Pictures//amountNaN.png>
 Package pdftex.def Info: Pictures//amountNaN.png  used on input line 11.
@@ -1167,23 +1156,20 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 )
 Underfull \vbox (badness 7925) has occurred while \output is active []
 
- [25
+ [23
 
 
- <./Pictures//amountNaN.png>] [26]
+ <./Pictures//amountNaN.png>] [24]
 \openout2 = `app-n.aux'.
 
- (app-n.tex [27
+ (app-n.tex [25
 
 
 
 
-]) [28] (masterproef.bbl
+]) [26] (masterproef.bbl
 bibitemlist
-
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
-
-) [29
+) [27
 
 
 
@@ -1201,34 +1187,34 @@ LaTeX Warning: Empty `thebibliography' environment on input line 3.
  (masterproef.aux (intro.aux) (chap-1.aux) (chap-2.aux) (chap-3.aux)
 (chap-4.aux) (chap-5.aux) (conclusion.aux) (app-A.aux) (app-n.aux))
 Package rerunfilecheck Info: File `masterproef.out' has not changed.
-(rerunfilecheck)             Checksum: 57F16C1FE3493686C64CB9550F0D0C2C;2676.
+(rerunfilecheck)             Checksum: 764BCB43A60F448AEDE2C12113660BF7;2637.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 15944 strings out of 479799
- 246531 string characters out of 2879599
- 916398 words of memory out of 3000000
- 32341 multiletter control sequences out of 15000+200000
- 617645 words of font info for 134 fonts, out of 3000000 for 9000
+ 15892 strings out of 479799
+ 245645 string characters out of 2879599
+ 916188 words of memory out of 3000000
+ 32309 multiletter control sequences out of 15000+200000
+ 614590 words of font info for 130 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,11n,86p,1096b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTe
-X/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-m
-athit.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Fi
+ 80i,12n,86p,1096b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTe
+X/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/
+lm-ec.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Program Fi
 les/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:/Program Files/MiKTeX/fonts/type1/pub
 lic/lm/lmbx10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:
 /Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Program Files/MiKTe
 X/fonts/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/
 lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Prog
-ram Files/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/Program Files/MiKTeX/font
-s/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/
-uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (39 pages, 341084 bytes).
+ram Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/font
+s/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvet
+ic/uhvr8a.pfb>
+Output written on masterproef.pdf (37 pages, 314401 bytes).
 PDF statistics:
- 519 PDF objects out of 1000 (max. 8388607)
- 116 named destinations out of 1000 (max. 500000)
- 22891 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 489 PDF objects out of 1000 (max. 8388607)
+ 107 named destinations out of 1000 (max. 500000)
+ 20835 words of extra memory for PDF output out of 24883 (max. 10000000)
 
