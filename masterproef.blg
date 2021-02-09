@@ -24,46 +24,46 @@ The style file: abbrv.bst
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: Time_Series.bib
 Warning--I didn't find a database entry for "h2g2"
-Warning--empty journal in NarjesFallah2018
-You've used 2 entries,
+Warning--there's a number but no volume in loadforecastingmoor
+You've used 3 entries,
             2118 wiz_defined-function locations,
-            519 strings with 4247 characters,
-and the built_in function-call counts, 588 in all, are:
-= -- 49
-> -- 35
+            527 strings with 4338 characters,
+and the built_in function-call counts, 1009 in all, are:
+= -- 95
+> -- 53
 < -- 0
-+ -- 14
-- -- 12
-* -- 39
-:= -- 108
-add.period$ -- 5
-call.type$ -- 2
-change.case$ -- 12
++ -- 21
+- -- 18
+* -- 79
+:= -- 175
+add.period$ -- 8
+call.type$ -- 3
+change.case$ -- 18
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 18
-empty$ -- 45
-format.name$ -- 12
-if$ -- 115
+cite$ -- 4
+duplicate$ -- 29
+empty$ -- 77
+format.name$ -- 18
+if$ -- 200
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 1
-newline$ -- 12
-num.names$ -- 4
-pop$ -- 17
+int.to.str$ -- 3
+missing$ -- 2
+newline$ -- 17
+num.names$ -- 6
+pop$ -- 20
 preamble$ -- 1
-purify$ -- 10
+purify$ -- 15
 quote$ -- 0
-skip$ -- 15
+skip$ -- 20
 stack$ -- 0
-substring$ -- 19
-swap$ -- 1
+substring$ -- 65
+swap$ -- 3
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 12
 warning$ -- 1
-while$ -- 5
-width$ -- 3
-write$ -- 20
+while$ -- 10
+width$ -- 4
+write$ -- 32
 (There were 2 warnings)

@@ -1,15 +1,19 @@
 \begin{thebibliography}{1}
 
+\bibitem{loadforecastingmoor}
+M.~Espinoza, J.~Suykens, R.~Belmans, and B.~{De Moor}.
+\newblock {Electric Load Forecasting}.
+\newblock {\em IEEE control systems magazine}, (October 2007):43--57, 2007.
+
+\bibitem{Hoverstad2015}
+B.~A. Hoverstad, A.~Tidemann, H.~Langseth, and P.~Ozturk.
+\newblock {Short-Term Load Forecasting With Seasonal Decomposition Using
+  Evolution for Parameter Tuning}.
+\newblock {\em IEEE Transactions on Smart Grid}, 6(4):1904--1913, 2015.
+
 \bibitem{Lago2020}
 J.~Lago.
 \newblock {A ratios and clustering based approach to forecast electricity
   consumption}, 2020.
-
-\bibitem{NarjesFallah2018}
-S.~{Narjes Fallah}, R.~{Chand Deo}, M.~Shojafar, M.~Conti, and S.~Shamshirband.
-\newblock {Computational Intelligence Approaches for Energy Load Forecasting in
-  Smart Energy Management Grids: State of the Art, Future Challenges, and
-  Research Directions}.
-\newblock 11:596, 2018.
 
 \end{thebibliography}

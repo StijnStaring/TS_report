@@ -13,7 +13,7 @@ Next to the electricity consumption of the different households, also informatio
 %After substituting the missing values as discussed in \ref{s:missing_data}, all the available weeks are averaged out over all the $270$ smart meters that contain a full year of measurements. The result is given by Figure \ref{fig:averaged_week}. A difference that with belgian load profiles is the consumption peak after midnight. This is due to the higher use of the electric storage heaters used in the UK. These systems store electric energy when the electric tariff is low e.g. overnight and releases the heat when the tariff is high.
 %
 
-\subsection{Removing outliers}
+\section{Removing outliers}
 % some meters don't have a lot of missing values, but have very untraditional output. Two cases are looked into
 % 1. big deviation from the average meter. 
 % 2. a full day of zeros is included. 
@@ -22,35 +22,52 @@ Next to the electricity consumption of the different households, also informatio
 % Weird meters that are identified: 2985, 2984,
 % Normal meters: 2979, 2982
 
-
-\section{Missing data} \label{s:missing_data}
+\section{Preprocessing}
+\subsection{Missing data} \label{s:missing_data}
 As discussed above the consumption dataset contains additionally to the missing months also missing data due to sending/receiving errors of the smart meters. When this happens the data of the whole day is lost. Three methods to impute the missing values are compared. 
 
-\section{Removal of outliers}
 
-\section{Normalization of the data}
+\subsection{Normalization of the data}
 % normalize as done in ppt
-Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar.\cite{Lago2020} The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur.    
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar.\cite{Lago2020} The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur.  
+
+\subsection{Removing of fundamental changes in the consumption load}  
+This occurs for example when an extra person lives in the house or when systems are installed that use a lot of electricity.
+This changes are identified by looking at the maximum difference of the minimum and maximum consumption for each individual meter.
+
+
 
 %\cite{NarjesFallah2018}
 
-\section{Seasonality}
+\section{Basic analysis}
+% Aggregation of the different signals is necessary in order to be able to make predictions.
+Finally, the average is taken over all the remaining $211$ time-series to obtain a single signal. A single consumption time-serie is too much subdued to complex and personal decisions that can explain increases or decreases of the consumption. It is extremely hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual'' distribution substation as discussed in \cite{Hoverstad2015}. Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
+
+\subsection{Seasonality}
 % plot the moving average of the year. Clearly see the impact of the summer and winter.
 % This is a trend that can be taken into account when predicting.
 
-\section{Influence of temperature}
+%To conclude, we find that all the forecasting algorithms
+%considered in this paper produce more accurate forecasts
+%when combined with a preprocessing stage that extracts the
+%seasonality before forecasting, compared to applying the same
+%algorithms directly on the raw data. \cite{Hoverstad2015}
+
+
+
+\subsection{Influence of temperature}
 % use the correlations. https://realpython.com/numpy-scipy-pandas-correlation-python/
 
 
-\section{Influence of household data}
+\subsection{Influence of household data}
 % try to investigate which attributes are the most important drivers of the consumptionload. Attributes with
 % a low influence can be ignored.
 
 
-\section{Comparing weekdays with weekends}
+\subsection{Comparing weekdays with weekends}
 
-\section{Impact of holidays}
-% important that look at holidays in the UK. Holidays
+\subsection{Impact of holidays}
+% important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
 
 
 \section{ARIMA}
