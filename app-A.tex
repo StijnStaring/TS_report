@@ -4,7 +4,7 @@ Appendices hold useful data which is not essential to understand the work
 done in the master's thesis. An example is a (program) source.
 An appendix can also have sections as well as figures and references\cite{h2g2}.
 
-\section{More Lorem}
+\section{Introduction to the dataset}
 
 \begin{figure}[h!]
 	\centering
@@ -12,7 +12,6 @@ An appendix can also have sections as well as figures and references\cite{h2g2}.
 	\caption{The amount of NaN values in all the 3248 smart meters.}
 	\label{fig:amountNaN}
 \end{figure}
-\subsection{Lorem 15--17}
 
 \begin{table}[h]
 	\centering
@@ -48,11 +47,21 @@ An appendix can also have sections as well as figures and references\cite{h2g2}.
 	\label{tab:attributes}
 \end{table}
 
+\section{Missing values}
 
-\subsection{Lorem 18--19}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mv_mean.png}
+	\caption{Resulting month of March after substitution of the missing values by the mean value of the measurements. }
+	\label{fig:mv_mean}
+\end{figure}
 
-
-\section{Lorem 51}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{mv_s.png}
+	\caption{Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.}
+	\label{fig:mv_s}
+\end{figure}
 
 
 %%% Local Variables: 
