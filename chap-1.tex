@@ -94,20 +94,20 @@ These changes are identified by looking at the maximum difference of the minimum
 Finally, the average is taken over all the remaining $211$ time-series to obtain a single signal. An individual household consumption time-serie is too much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is extremely hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
 
 \subsection{Seasonality}
-In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation of the template consumption instead which is less challenging than performing a forecast out of the blue. These templates or filter are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. \textbf{read paper again...}
+In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation of the template consumption instead which is less challenging than performing a forecast out of the blue. These templates or filter are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks.   \textbf{read paper again...}
 
-\begin{equation}\label{eq:norm}
-	normalized value = \frac{x - x_{min}}{x_{max} - x_{min}}
+\begin{equation}\label{eq:daily_filter}
+	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{di} i \in [1,48]
 \end{equation} 
 
-\begin{equation}\label{eq:norm}
-	normalized value = \frac{x - x_{min}}{x_{max} - x_{min}}
+\begin{equation}\label{eq:weekly_filter}
+	\bar{y}_j = \frac{1}{W} \sum_{w=1}^W y_{wj}  j \in [1,336]
 \end{equation} 
 
 
-Figure \ref{daily_filter} shows 
+Figure \ref{daily_filter} shows the daily filter in appendix \ref{app:A}. 
 
-Figure \ref{weekly_filter}
+Figure \ref{weekly_filter} show the weekly filter.
 
 
 
