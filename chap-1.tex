@@ -7,6 +7,7 @@ In this chapter details of the dataset are introduced and a basic analysis is pe
 
 \section{Introduction to dataset}
 % how the dataset is made up --> use the information of the competition.
+\textbf{update pictures}
 The data that is used in this thesis is made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. It consists out of data from smart meters about the 1/2 hour granulated electricity consumption of $3248$ households located in the United Kingdom in the year $2017$. The definition of a household are all the people who occupy a single housing unit, regardless of their relationship to one another. Each smart meter collected thus a total of $17520$ measurements that are performed by the the leading international energy provider, E.ON UK plc. Not all the $3248$ smart meters consist of full data as can be seen in Figure \ref{fig:amountNaN} in appendix \ref{app:A}. It can be clearly seen that there are $12$ steps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined at different times during the year. Additionally, missing values are introduced due to errors in sending/receiving from smart meters.\\
 Next to the electricity consumption of the different households, also information is available about the average, minimum and maximum temperature of the day on the location of the smart meter. This data is available at a daily resolution. Also, through voluntary surveys, incomplete information is collected about $2143$ smart meters. This concerns e.g. dwelling type, number of occupants, number of bedrooms etc. Table \ref{tab:attributes} displays all the attributes in appendix \ref{app:A}.\\
 
@@ -70,52 +71,43 @@ In order to ascertain which method of the two performs the best, a reference dat
 
 From Figure \ref{fig:mv_result} it can be seen that using method $ 2 $ which estimates the missing values by the mean consumption value of the same moment on the next and previous day, outperforms method $ 1 $ which takes the mean of the signal. Therefore, all the missing values in the consumption dataset are estimated using method $ 2 $ with the only exception the first of January and thirty-one December. If one of these two days are missing, the method $ 1 $ is used because of the absence of two neighbouring days. 
 
-\subsection{Removing outliers}
-% some meters don't have a lot of missing values, but have very untraditional output. Two cases are looked into
-% 1. big deviation from the average meter. 
-% 2. a full day of zeros is included. 
-% 3. the moving average changes spectaculair --> fundamental change in the energy consumption
-% whitch is hard to forecast for. (not consistent with a normal consumption pattern)
-% Weird meters that are identified: 2985, 2984,
-% Normal meters: 2979, 2982
-% idea to check also for outliers on monthly/weekly scale? 
-After the missing values are replaced by estimations, the outliers of the electricity consumption signals are identified.
-This is done by looking  at the z-scores of the yearly consumptions. A z-score is calculated using equation \ref{eq:z-score} and assumes that the yearly consumptions are normally distributed around the average consumption. Consumptions that have a very low probability to occur are removed by imposing that $ |z-score| < 3 $.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{equation}
-	z-score = \frac{x-\mu}{\sigma}
-\end{equation}                      
+\subsection{Zero days}
 
-Figure \ref{fig:z-score} gives the obtained z-values. It can be seen that $ 6 $ meters with an unlikely high or low consumption are removed. 
+When processing the consumption data, some untraditional meter measurements were identified. For example there were $ 9 $ meters that had multiple days with zero day consumption measurements. Because it is unlikely that a household produces exactly zero kWh on a day all these $ 9 $ meters were removed. The consumption time-serie of one of the meters is displayed in Figure \ref{fig:zero_con} in appendix \ref{app:A}.\\
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{z-score.png}
-	\caption{Z-scores calculated from the yearly consumptions.}
-	\label{fig:z-score}
+	\includegraphics[width=0.6\textwidth]{zero_con.png}
+	\vspace*{-5pt}
+	\caption{One of the $9$ identified meters with multiple zero daily consumptions}
+	\label{fig:zero_con}
 \end{figure}
 
-After the removal of the the outliers still some untraditional meter measurements were identified. For example there were $ 9 $ meters that had multiple days with zero day consumption measurements. Because it is unlikely that a household produces exactly zero kWh on a day all these $ 9 $ meters were removed. The consumption time-serie of one of the meters is displayed in Figure \ref{fig:zero_con} in appendix \ref{app:A}.\\
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 Also, there has been looked if there were fundamental changes in the electricity consumption of certain meters. This is further discussed in section \ref{s:Removing of fundamental changes in the consumption load}.
 
 
 \subsection{Normalization of the data}
-% normalize as done in ppt
+% normalize as done in ppt --> deviding by the yearly consumption.
 % downside of this normalilzation that outshooters will have influence.
-Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its maximum and minimum value according to equation \ref{eq:norm}. 
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year.
 
 \begin{equation}\label{eq:norm}
-	normalized value = \frac{x - x_{min}}{x_{max} - x_{min}}
-\end{equation}  
+	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}
+\end{equation} 
 
-As discussed in section \ref{s:Basic analysis} the average is taken over all the normalized time-series to obtain a single signal.\textbf{Ask if this is good??}  Because the maximum is taken into account during the normalization, measurement out shooters have an influence on the normalization. 
+As discussed in section \ref{s:Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
 
 
 \subsection{Removing of fundamental changes in the consumption load}  
-% done after normalization.
+% want to do assumption that there is no fundamental change in training data.
 After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity, during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamentel_change} in appendix \ref{app:A}.
-These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature, it is assumed that a fundamental change in electricity consumption took place. It is desired that the mean consumption doesn't change much during the year. Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line shows the cutoff and the smart meters above this line are removed. In total $ 211 $ smart meters remain to be used in the ``Basic analysis''. In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
+These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature, it is assumed that a fundamental change in electricity consumption took place. It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used doesn't expect fundamental changes and can thus lead to disturbance when it is kept in the training data. Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line shows the cutoff and the smart meters above this line are removed. In total $ 251 $ smart meters remain. In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
 
 \begin{figure}[h!]
 	\centering
@@ -128,9 +120,13 @@ These changes are identified by looking at the maximum difference of the minimum
 
 %\cite{NarjesFallah2018}
 
-\section{Basic analysis}\label{s:Basic analysis}
+\section{Analysis}\label{s:Analysis}
 % Aggregation of the different signals is necessary in order to be able to make predictions.
-Finally, the average is taken over all the remaining $211$ time-series to obtain a single signal. An individual household consumption time-serie is too much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is extremely hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
+Finally, the average is taken over all the remaining $251$ time-series to obtain a single signal. This is done to investigate the dependence of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be introduced that will be used as null-hypothesis in chapter \ref{cha:Evaluating results}to assess if the developed models lead to an improvement.
+
+% An individual household consumption time-serie is much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. 
+ 
+
 
 \subsection{Seasonality}
 In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation of the template consumption instead which is less challenging than performing a forecast out of the blue. These templates or filter are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks.   \textbf{read paper again...}
@@ -144,11 +140,17 @@ In this section the seasonality of the consumption data is discussed. In \cite{H
 \end{equation} 
 
 
-Figure \ref{daily_filter} shows the daily filter in appendix \ref{app:A}. 
 
-Figure \ref{weekly_filter} show the weekly filter.
+Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. 
 
-
+Figure \ref{fig:weekly_filter} shows the weekly filter.
+S
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{weekly_filter.png}
+	\caption{Figure that shows the seasonality of the electrical load during the week.}
+	\label{fig:weekly_filter}
+\end{figure}
 
 % plot the moving average of the year. Clearly see the impact of the summer and winter.
 % This is a trend that can be taken into account when predicting.
@@ -182,7 +184,7 @@ Assumptions concerning Pearson correlation are that samples used for the correla
 
 This figure shows the classic cone-shaped pattern of heteroscedasticity. On days when it is warm there is overall similar human behaviour in lowering the electricity consumption. However, on colder days the variation in consumption is higher. Because the assumptions of the Pearson correlation are not fulfilled, care should be taken with its output.\\
 
-Applying the Pearson correlation on Figure \ref{fig:pearson} gives a correlation value of $ -0.85 $. This means there is a reasonable linearly decreasing relation.\\
+Applying the Pearson correlation on Figure \ref{fig:pearson} gives a correlation value of $ -0.87 $. This means there is a reasonable linearly decreasing relation.\\
 
 
 \textbf{Spearman correlation}\\
@@ -190,7 +192,7 @@ Spearman correlation is a ``Rank correlation''. This means that the ordering of 
 
 In order to use the spearman correlation data has to be ordinal, which means that it can be ordered. The spearman correlation gives information about the monotonicity relation between the variables. $ \rho = 1 $ corresponds to a monotonically increasing relation.\\
 
-Applying the Spearman correlation  gives a correlation value of $ -0.87$, which means there is a reasonable negative monotonicity relation.\\
+Applying the Spearman correlation  gives a correlation value of $ -0.89$, which means there is a reasonable negative monotonicity relation.\\
 
 \textbf{Kendal correlation}
 The ``Kendal correlation'' is also a rank based correlation. Here it is looked at the pairs of observation that are concordant, discordant or neither. A correlation coefficient close to one occurs when both variables have the same ranking and similar a coefficient close to minus one occurs when rankings in one variable are the reverse of the other. Equation \ref{eq:kendall} gives the equation to calculate the ``Kendal correlation coefficient''.
@@ -209,31 +211,22 @@ The ``Kendal correlation'' is also a rank based correlation. Here it is looked a
 	\item if both $ (x_i = x_j ) $ and $ (y_i = y_j ) $ $\rightarrow $ not included in either $ n^x $ or $ n^y $
 \end{itemize}
 
-Applying the Kendal correlation  gives a correlation value of $ -0.66$, which means there is a reasonable negative monotonicity relation.\\
+Applying the Kendal correlation  gives a correlation value of $ -0.67$, which means there is a reasonable negative monotonicity relation.\\
 
 % There is a clear dependency between temperature and electricity consumption, which means that electricity is used for heating.  
 
 
 \subsection{Comparing weekdays with weekends}
-
+Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. It can be seen that the consumption of the average weekday is very similar to a weekend day. 
 
 
 \subsection{Impact of holidays}
 % important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
+In order to look at the impact of a holiday all the holidays all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency.
+
+\section{Baseline model}
 
 
-
-\section{ARIMA}
-% Idea is to use the simple ARIMA model as a base line forecasting model. 
-% see datacamp and youtube Lola
-% ARIMA assumes stationary data.
-What is ARIMA. 
-Assumptions of ARIMA...
-
-\textbf{Stationarity}\\
- https://machinelearningmastery.com/remove-trends-seasonality-difference-transform-python/
-When data is modelled it is assumed that the statistics of the data are consistent or stationary. This means the mean and standard deviation is not changing in time. However, because time series are often subdued to a trend or seasonality this assumption of stationarity is violated. In order to model not stationary observations by a stationary model as ARIMA, trends and seasonal effects should be removed. A way to check the stationarity of your observations, the ``Dicky-Fuller test'' can be used.
-A way to remove non-stationarity is by using ``Difference Transform''. Here the trend and seasonality is subtracted from the observations leaving behind a stationary dataset.
 
 
 \section{Conclusion}
