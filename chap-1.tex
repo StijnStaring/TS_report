@@ -31,7 +31,7 @@ Next to the electricity consumption of the different households, also informatio
 		information & average temperature\\
 		& max temperature\\
 		& min temperature\\
-		granularity& daily\\ \hline
+		granularity& daily\\ \hline \hline
 		\textbf{addInfo.csv}&\\ \hline
 		\# households &2143 \\ \bottomrule		    
 	\end{tabular}
@@ -144,7 +144,7 @@ In this section the seasonality of the consumption data is discussed. In \cite{H
 Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. 
 
 Figure \ref{fig:weekly_filter} shows the weekly filter.
-S
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{weekly_filter.png}
@@ -222,9 +222,20 @@ Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_fil
 
 \subsection{Impact of holidays}
 % important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
-In order to look at the impact of a holiday all the holidays all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency.
+In order to look at the impact of a holiday all the holidays all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency. The resulting average holiday and business day with similar temperature is given in Figure \ref{fig:bvsh}. It can be seen that the consumption of a holiday is reasonably similar to business day.  \textbf{This is maybe not so important and can be left out...}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{bvsh.png}
+	\caption{Figure with the comparison between holidays and business days.}
+	\label{fig:bvsh}
+\end{figure}
+
+
+%\subsection{Identification of driving attributes} --> can possibly do regression 
 
 \section{Baseline model}
+The baseline 24 hour forecasting model that is chosen is just the current day.
 
 
 

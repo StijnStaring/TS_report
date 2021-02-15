@@ -29,7 +29,7 @@
 \contentsline {subsection}{\numberline {2.3.3}Comparing weekdays with weekends}{11}{subsection.2.3.3}%
 \contentsline {subsection}{\numberline {2.3.4}Impact of holidays}{11}{subsection.2.3.4}%
 \contentsline {section}{\numberline {2.4}Baseline model}{11}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Conclusion}{11}{section.2.5}%
+\contentsline {section}{\numberline {2.5}Conclusion}{12}{section.2.5}%
 \contentsline {chapter}{\chapternumberline {3}Clustering of the load profiles}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}The First Topic of this Chapter}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Tables}{13}{section.3.2}%
@@ -37,8 +37,8 @@
 \contentsline {chapter}{\chapternumberline {4}State of the art forecasting techniques}{15}{chapter.4}%
 \contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{15}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Item 1}{15}{subsection.4.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{15}{section*.19}%
-\contentsline {subsubsection}{Sub-item 2}{15}{section*.20}%
+\contentsline {subsubsection}{Sub-item 1}{15}{section*.20}%
+\contentsline {subsubsection}{Sub-item 2}{15}{section*.21}%
 \contentsline {subsection}{\numberline {4.1.2}Item 2}{16}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}The Second Topic}{16}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Conclusion}{16}{section.4.3}%
@@ -49,8 +49,8 @@
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{21}{chapter.6}%
 \contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{21}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Item 1}{21}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{21}{section*.21}%
-\contentsline {subsubsection}{Sub-item 2}{21}{section*.22}%
+\contentsline {subsubsection}{Sub-item 1}{21}{section*.22}%
+\contentsline {subsubsection}{Sub-item 2}{21}{section*.23}%
 \contentsline {subsection}{\numberline {6.1.2}Item 2}{22}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}The Second Topic}{22}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Conclusion}{23}{section.6.3}%
@@ -64,4 +64,4 @@
 \contentsline {subsection}{\numberline {B.0.1}Removing outliers}{35}{subsection.B.0.1}%
 \contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{35}{subsection.B.0.2}%
 \contentsline {section}{\numberline {B.1}ARIMA}{35}{section.B.1}%
-\contentsline {chapter}{Bibliography}{37}{appendix*.31}%
+\contentsline {chapter}{Bibliography}{37}{appendix*.32}%
