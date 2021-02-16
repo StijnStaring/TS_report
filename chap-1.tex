@@ -95,7 +95,7 @@ Also, there has been looked if there were fundamental changes in the electricity
 \subsection{Normalization of the data}
 % normalize as done in ppt --> deviding by the yearly consumption.
 % downside of this normalilzation that outshooters will have influence.
-Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year.
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption as was done in \cite{Lago2020}. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year.
 
 \begin{equation}\label{eq:norm}
 	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}
@@ -122,7 +122,7 @@ These changes are identified by looking at the maximum difference of the minimum
 
 \section{Analysis}\label{s:Analysis}
 % Aggregation of the different signals is necessary in order to be able to make predictions.
-Finally, the average is taken over all the remaining $251$ time-series to obtain a single signal. This is done to investigate the dependence of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be introduced that will be used as null-hypothesis in chapter \ref{cha:Evaluating results}to assess if the developed models lead to an improvement.
+Finally, the average is taken over all the remaining $...$ time-series to obtain a single signal. This is done to investigate the dependency of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be discussed that will be used as null-hypothesis in chapter \ref{cha:Evaluating results}to assess if the developed models lead to an improvement.
 
 % An individual household consumption time-serie is much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. 
  
@@ -222,7 +222,7 @@ Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_fil
 
 \subsection{Impact of holidays}
 % important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
-In order to look at the impact of a holiday all the holidays all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency. The resulting average holiday and business day with similar temperature is given in Figure \ref{fig:bvsh}. It can be seen that the consumption of a holiday is reasonably similar to business day.  \textbf{This is maybe not so important and can be left out...}
+In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency. The resulting average holiday and business day with is given in Figure \ref{fig:bvsh}. It can be seen that the consumption of a holiday is reasonably similar to business day.  \textbf{This is maybe not so important and can be left out...}
 
 \begin{figure}[h!]
 	\centering
@@ -232,10 +232,44 @@ In order to look at the impact of a holiday all the holidays all the holidays of
 \end{figure}
 
 
-%\subsection{Identification of driving attributes} --> can possibly do regression 
+
+\subsection{Identification of driving attributes}
+In this section the influence of the extra knowledge about the kind of household where the smart meter is located, is investigated. This is not done by using a single averaged signal as was the case in the previous analysis sections. Now, every meter with additional information is considered. In Figure \ref{fig:bp_dwellingtype} the monthly consumption of the month December in function of dwelling type is shown. The month December is chosen, because this month is known for every smart meter. Missing values of the smart meters are substituted by method two, as discussed in section \ref{s:missing_data}. The amount of meters used for every visualization can be seen in Table \ref{tab:attributes}.
+
+% Boxplots and consumptions are plotted. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{bp_dwellingtype.png}
+	\caption{Figure with the comparison of the different dwelling types.}
+	\label{fig:bp_dwellingtype}
+\end{figure}
+
+
+
+
+
+Similar as was done in Figure \ref{fig:bp_dwellingtype} is also done for the other characteristics of the smart meters. The conclusions are listed below. As can be seen in Table \ref{tab:attributes}, some characteristics have not much data or the data is not much distribute over the different options of a characteristic. If this is the case, no reliable conclusions could be drawn.
+
+\begin{itemize}
+	\item There is a lot of variance in the monthly consumption of a detached house, but it has mostly a higher consumption than other dwelling types
+	\item A ``real'' house (detached, semi-detached or terraced) tends to have higher monthly consumptions than a flat or bungalow.  
+	\item The order of monthly consumption according to the mean and median values: Flat < Bungalow < Semi-detached < Terraced < Detached
+	\item More occupants means more monthly consumption
+	\item More rooms in the house means more monthly consumption
+	\item Almost all houses use gas as heating fuel
+	\item Almost all houses use gas as hot water fuel
+	\item The age of the boiler has no clear effect on the monthly consumption
+	\item The vast majority of the lofts are insulated
+	\item The majority of walls are insulated
+	\item The vast majority heats till a temperature between $ 18 $ and $ 20  $ degrees
+	\item The majority of people has an efficient lighting percentage between $ 75\% $ and $ 100\% $
+	
+\end{itemize}
+
 
 \section{Baseline model}
-The baseline 24 hour forecasting model that is chosen is just the current day.
+A naive baseline 24 hour forecasting model that is chosen is using the last 24 hour as prediction.
 
 
 

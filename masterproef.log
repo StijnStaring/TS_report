@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  15 FEB 2021 21:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  16 FEB 2021 20:23
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1086,7 +1086,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 60--61
  []
 
 [4]
-<Pictures//mv_result.png, id=324, 738.50906pt x 512.66531pt>
+<Pictures//mv_result.png, id=326, 738.50906pt x 512.66531pt>
 File: Pictures//mv_result.png Graphic file (type png)
 <use Pictures//mv_result.png>
 Package pdftex.def Info: Pictures//mv_result.png  used on input line 67.
@@ -1100,7 +1100,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 78--79
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5 <./Pictures//mv_result.png>]
-<Pictures//zero_con.png, id=337, 809.0225pt x 681.54625pt>
+<Pictures//zero_con.png, id=339, 809.0225pt x 681.54625pt>
 File: Pictures//zero_con.png Graphic file (type png)
 <use Pictures//zero_con.png>
 Package pdftex.def Info: Pictures//zero_con.png  used on input line 82.
@@ -1115,7 +1115,7 @@ LaTeX Warning: Reference `fig:fundamentel_change' on page 6 undefined on input
 line 109.
 
 [6 <./Pictures//zero_con.png>]
-<Pictures//fund_change.png, id=353, 864.22874pt x 683.55376pt>
+<Pictures//fund_change.png, id=356, 864.22874pt x 683.55376pt>
 File: Pictures//fund_change.png Graphic file (type png)
 <use Pictures//fund_change.png>
 Package pdftex.def Info: Pictures//fund_change.png  used on input line 114.
@@ -1124,7 +1124,7 @@ Package pdftex.def Info: Pictures//fund_change.png  used on input line 114.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7 <./Pictures//fund_change.png>]
-<Pictures//weekly_filter.png, id=367, 864.22874pt x 731.73375pt>
+<Pictures//weekly_filter.png, id=370, 864.22874pt x 731.73375pt>
 File: Pictures//weekly_filter.png Graphic file (type png)
 <use Pictures//weekly_filter.png>
 Package pdftex.def Info: Pictures//weekly_filter.png  used on input line 150.
@@ -1139,7 +1139,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 166--167
  []
 
 [8]
-<Pictures//pearson.png, id=379, 890.32625pt x 683.55376pt>
+<Pictures//pearson.png, id=382, 890.32625pt x 683.55376pt>
 File: Pictures//pearson.png Graphic file (type png)
 <use Pictures//pearson.png>
 Package pdftex.def Info: Pictures//pearson.png  used on input line 180.
@@ -1181,7 +1181,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--215
 
  []
 
-<Pictures//bvsh.png, id=398, 890.32625pt x 731.73375pt>
+<Pictures//bvsh.png, id=401, 890.32625pt x 731.73375pt>
 File: Pictures//bvsh.png Graphic file (type png)
 <use Pictures//bvsh.png>
 Package pdftex.def Info: Pictures//bvsh.png  used on input line 229.
@@ -1189,54 +1189,64 @@ Package pdftex.def Info: Pictures//bvsh.png  used on input line 229.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [11] [12 <./Pictures//bvsh.png>]
+<Pictures//bp_dwellingtype.png, id=405, 1103.12125pt x 497.86pt>
+File: Pictures//bp_dwellingtype.png Graphic file (type png)
+<use Pictures//bp_dwellingtype.png>
+Package pdftex.def Info: Pictures//bp_dwellingtype.png  used on input line 243.
+
+(pdftex.def)             Requested size: 398.0pt x 179.62448pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[11] [12 <./Pictures//bvsh.png> <./Pictures//bp_dwellingtype.png>]) [13]
 \openout2 = `chap-2.aux'.
 
- (chap-2.tex
 
-LaTeX Warning: Reference `tab:wrong' on page 13 undefined on input line 11.
-
-
-LaTeX Warning: Reference `tab:ok' on page 13 undefined on input line 11.
-
-) [13
+(chap-2.tex [14
 
 
 
 
 ]
+
+LaTeX Warning: Reference `tab:wrong' on page 15 undefined on input line 11.
+
+
+LaTeX Warning: Reference `tab:ok' on page 15 undefined on input line 11.
+
+) [15]
 \openout2 = `chap-3.aux'.
 
- (chap-3.tex [14
+ (chap-3.tex [16
 
 
 
 
-] [15] [16]) [17]
+] [17] [18]) [19]
 \openout2 = `chap-4.aux'.
 
- (chap-4.tex [18
+ (chap-4.tex [20
 
 
 
 
-]) [19]
+]) [21]
 \openout2 = `chap-5.aux'.
 
  (chap-5.tex
-[20
+[22
 
 
 
 
-] [21]
+] [23]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22])
-[23]
+ [24])
+[25]
 \openout2 = `conclusion.aux'.
 
- (conclusion.tex [24
+ (conclusion.tex [26
 
 
 
@@ -1244,19 +1254,19 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 Underfull \vbox (badness 1308) has occurred while \output is active []
 
- [25])
-[26] [27
+ [27])
+[28] [29
 
 
 
-] [28]
+] [30]
 \openout2 = `app-A.aux'.
 
  (app-A.tex
 
-LaTeX Warning: Citation `h2g2' on page 29 undefined on input line 5.
+LaTeX Warning: Citation `h2g2' on page 31 undefined on input line 5.
 
-<Pictures//amountNaN.png, id=489, 843.15pt x 683.55376pt>
+<Pictures//amountNaN.png, id=508, 843.15pt x 683.55376pt>
 File: Pictures//amountNaN.png Graphic file (type png)
 <use Pictures//amountNaN.png>
 Package pdftex.def Info: Pictures//amountNaN.png  used on input line 11.
@@ -1264,7 +1274,7 @@ Package pdftex.def Info: Pictures//amountNaN.png  used on input line 11.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//mv_mean.png, id=490, 835.12pt x 729.72626pt>
+<Pictures//mv_mean.png, id=509, 835.12pt x 729.72626pt>
 File: Pictures//mv_mean.png Graphic file (type png)
 <use Pictures//mv_mean.png>
 Package pdftex.def Info: Pictures//mv_mean.png  used on input line 54.
@@ -1272,14 +1282,14 @@ Package pdftex.def Info: Pictures//mv_mean.png  used on input line 54.
 
 Underfull \vbox (badness 7925) has occurred while \output is active []
 
- [29
+ [31
 
 
  <./Pictures//amountNaN.png>]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//mv_s.png, id=496, 835.12pt x 729.72626pt>
+<Pictures//mv_s.png, id=515, 835.12pt x 729.72626pt>
 File: Pictures//mv_s.png Graphic file (type png)
 <use Pictures//mv_s.png>
 Package pdftex.def Info: Pictures//mv_s.png  used on input line 61.
@@ -1287,7 +1297,7 @@ Package pdftex.def Info: Pictures//mv_s.png  used on input line 61.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//fundamental_change.png, id=497, 850.17625pt x 681.54625pt>
+<Pictures//fundamental_change.png, id=516, 850.17625pt x 681.54625pt>
 File: Pictures//fundamental_change.png Graphic file (type png)
 <use Pictures//fundamental_change.png>
 Package pdftex.def Info: Pictures//fundamental_change.png  used on input line 7
@@ -1296,7 +1306,7 @@ Package pdftex.def Info: Pictures//fundamental_change.png  used on input line 7
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//f_c.png, id=498, 850.17625pt x 681.54625pt>
+<Pictures//f_c.png, id=517, 850.17625pt x 681.54625pt>
 File: Pictures//f_c.png Graphic file (type png)
 <use Pictures//f_c.png>
 Package pdftex.def Info: Pictures//f_c.png  used on input line 82.
@@ -1304,7 +1314,7 @@ Package pdftex.def Info: Pictures//f_c.png  used on input line 82.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//daily_filter.png, id=499, 864.22874pt x 731.73375pt>
+<Pictures//daily_filter.png, id=518, 864.22874pt x 731.73375pt>
 File: Pictures//daily_filter.png Graphic file (type png)
 <use Pictures//daily_filter.png>
 Package pdftex.def Info: Pictures//daily_filter.png  used on input line 91.
@@ -1312,16 +1322,16 @@ Package pdftex.def Info: Pictures//daily_filter.png  used on input line 91.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [30] [31 <./Pictures//mv_mean.png>] [32 <./Pictures//mv_s.png>] [33 <./Pictur
-es//fundamental_change.png> <./Pictures//f_c.png>] [34 <./Pictures//daily_filte
+) [32] [33 <./Pictures//mv_mean.png>] [34 <./Pictures//mv_s.png>] [35 <./Pictur
+es//fundamental_change.png> <./Pictures//f_c.png>] [36 <./Pictures//daily_filte
 r.png>]
 \openout2 = `app-n.aux'.
 
  (app-n.tex
 
-LaTeX Warning: Reference `eq:z-score' on page 35 undefined on input line 16.
+LaTeX Warning: Reference `eq:z-score' on page 37 undefined on input line 16.
 
-<Pictures//z-score.png, id=528, 788.9475pt x 683.55376pt>
+<Pictures//z-score.png, id=547, 788.9475pt x 683.55376pt>
 File: Pictures//z-score.png Graphic file (type png)
 <use Pictures//z-score.png>
 Package pdftex.def Info: Pictures//z-score.png  used on input line 26.
@@ -1330,17 +1340,17 @@ Package pdftex.def Info: Pictures//z-score.png  used on input line 26.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `s:Basic analysis' on page 35 undefined on input line 
+LaTeX Warning: Reference `s:Basic analysis' on page 37 undefined on input line 
 41.
 
-[35
+[37
 
 
 
 
-]) [36 <./Pictures//z-score.png>] (masterproef.bbl
+]) [38 <./Pictures//z-score.png>] (masterproef.bbl
 bibitemlist
-) [37
+) [39
 
 
 
@@ -1358,7 +1368,7 @@ bibitemlist
  (masterproef.aux (intro.aux) (chap-1.aux) (chap-2.aux) (chap-3.aux)
 (chap-4.aux) (chap-5.aux) (conclusion.aux) (app-A.aux) (app-n.aux))
 Package rerunfilecheck Info: File `masterproef.out' has not changed.
-(rerunfilecheck)             Checksum: D1861E25DFA518141DE7E749659FA357;2334.
+(rerunfilecheck)             Checksum: E167D4D2DAEE29CA486EC5A78515DE02;2334.
 
 
 LaTeX Warning: There were undefined references.
@@ -1368,11 +1378,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16088 strings out of 479799
- 249175 string characters out of 2879599
- 922107 words of memory out of 3000000
- 32428 multiletter control sequences out of 15000+200000
- 636669 words of font info for 158 fonts, out of 3000000 for 9000
+ 16095 strings out of 479799
+ 249384 string characters out of 2879599
+ 922266 words of memory out of 3000000
+ 32434 multiletter control sequences out of 15000+200000
+ 636503 words of font info for 156 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,86p,1295b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
@@ -1393,9 +1403,9 @@ onts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
 lmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program
  Files/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/font
 s/type1/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (47 pages, 1437518 bytes).
+Output written on masterproef.pdf (49 pages, 1463186 bytes).
 PDF statistics:
- 642 PDF objects out of 1000 (max. 8388607)
- 138 named destinations out of 1000 (max. 500000)
- 26999 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 663 PDF objects out of 1000 (max. 8388607)
+ 142 named destinations out of 1000 (max. 500000)
+ 27004 words of extra memory for PDF output out of 29859 (max. 10000000)
 
