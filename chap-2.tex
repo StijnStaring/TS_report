@@ -40,14 +40,36 @@ Transer model
 Classical ways to deal with uncertainty.\\
 
 
-In this paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which batches a group of customers load profiles into a pool of inputs. LSTM is applied to mittigate the short term memory of the RNN. Pooling of households historical loads to serve as input of the ``Deep Recurrent Neural Network'' is proposed to increase the data volume and diversity of load forecasting, which mitigates the effect of overfitting. Additionally, there is been made use of early stopping. Due to the pooling of different households during learning the ``Deep Recurrent Neural Network'' is able to learn common uncertainties.\\
-Different steps that were done: data cleaning and preprocessing $\rightarrow$ data pooling $\rightarrow$ data sampling $\rightarrow$ data training $\rightarrow$ benchmarking. Performance of the method was evaluated based on \begin{enumerate}
-	\item performance of proposed method with respect to 
+In this paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which collects a group of customers load profiles into a pool of training inputs. Pooling of households historical loads to serve as input of the ``Deep Recurrent Neural Network'', is proposed to increase the data volume and diversity of load forecasting, which mitigates the effect of overfitting present in a DRNN. Also, due to the pooling of different households during training the DRNN is able to learn common uncertainties. From the pool of inputs every epoch a randomly chosen batch of load signals are fed to the network. LSTM is applied to mittigate the short term memory of the RNN. Additionally, there is been made use of early stopping to further avoid overfitting. To implement early stopping there has been looked at the ``MSE'' for k iterations, obtained by cross-validation. When the variance of this sequence gets smaller than a specified variable, training stops. When the training ends, performance is tested on each household by using the learned network to perform a feed-forward prediction of the electrical load.\\
+
+An overview of the different steps that were done during the proposed method are: data cleaning and preprocessing $\rightarrow$ data pooling $\rightarrow$ data sampling $\rightarrow$ data training $\rightarrow$ benchmarking.\\
+
+Performance of the proposed method was finally evaluated based on: 
+\begin{enumerate}
+	\item performance of the proposed method with respect to Vanilla RNN, SVR and DRNN (without pooling)
+	\item the effect of the neural network depth and pooling
 \end{enumerate}
 
-step one
+The proposed DRNN with pooling outperforms all other four methods based on following three metrics:
 
-step two
+\begin{equation}
+	RMSE = \sqrt{\frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}}
+\end{equation}
+\begin{equation}
+	NRMSE = \frac{RMSE}{y_{max}-y_{min}}
+\end{equation}
+\begin{equation}
+	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N}
+\end{equation}
+
+The effect of the depth of the DRNN and the pooling method is depicted in Figure \ref{fig:Shi2018_result}. It can be seen that without the pooling method the DRNN only benefits from extra layers till three are used. This is because from that point, overfitting will reduce the generalization capacity of the DRNN. With the pooling technique, extra layers stays beneficial. It can thus be concluded that introducing extra hidden layers is a good choice to model the non-linear realations, but this can only be done efficiently when overfitting is mittigated by the use of a pooling strategy.The RNN with pooling used for benchmarking consisted out of five layers and thirty hidden units in each layer.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1\textwidth]{Shi2018_result.png}
+	\caption{Influence of the number of layers and the pooling method.}
+	\label{fig:Shi2018_result}
+\end{figure}
 
 
 

@@ -39,12 +39,12 @@
 \contentsline {subsection}{\numberline {3.1.4}Problems}{16}{subsection.3.1.4}%
 \contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{16}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Tables}{17}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusion}{17}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Conclusion}{18}{section.3.4}%
 \contentsline {chapter}{\chapternumberline {4}Clustering of the load profiles}{19}{chapter.4}%
 \contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{19}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Item 1}{19}{subsection.4.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{19}{section*.21}%
-\contentsline {subsubsection}{Sub-item 2}{19}{section*.22}%
+\contentsline {subsubsection}{Sub-item 1}{19}{section*.22}%
+\contentsline {subsubsection}{Sub-item 2}{19}{section*.23}%
 \contentsline {subsection}{\numberline {4.1.2}Item 2}{20}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}The Second Topic}{20}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Conclusion}{20}{section.4.3}%
@@ -55,8 +55,8 @@
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{25}{chapter.6}%
 \contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{25}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Item 1}{25}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{25}{section*.23}%
-\contentsline {subsubsection}{Sub-item 2}{25}{section*.24}%
+\contentsline {subsubsection}{Sub-item 1}{25}{section*.24}%
+\contentsline {subsubsection}{Sub-item 2}{25}{section*.25}%
 \contentsline {subsection}{\numberline {6.1.2}Item 2}{26}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}The Second Topic}{26}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Conclusion}{27}{section.6.3}%
@@ -70,4 +70,4 @@
 \contentsline {subsection}{\numberline {B.0.1}Removing outliers}{39}{subsection.B.0.1}%
 \contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{39}{subsection.B.0.2}%
 \contentsline {section}{\numberline {B.1}ARIMA}{39}{section.B.1}%
-\contentsline {chapter}{Bibliography}{41}{appendix*.33}%
+\contentsline {chapter}{Bibliography}{41}{appendix*.34}%
