@@ -31,38 +31,43 @@
 \contentsline {subsection}{\numberline {2.3.5}Identification of driving attributes}{11}{subsection.2.3.5}%
 \contentsline {section}{\numberline {2.4}Baseline model}{13}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Conclusion}{13}{section.2.5}%
-\contentsline {chapter}{\chapternumberline {3}Clustering of the load profiles}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}The First Topic of this Chapter}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Tables}{15}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Conclusion}{15}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}State of the art forecasting techniques}{17}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{17}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Item 1}{17}{subsection.4.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{17}{section*.21}%
-\contentsline {subsubsection}{Sub-item 2}{17}{section*.22}%
-\contentsline {subsection}{\numberline {4.1.2}Item 2}{18}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}The Second Topic}{18}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Conclusion}{18}{section.4.3}%
-\contentsline {chapter}{\chapternumberline {5}Forecasting of time-series}{21}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The First Topic of this Chapter}{21}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Item 1}{21}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Conclusion}{21}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {6}Evaluating results}{23}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{23}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Item 1}{23}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{23}{section*.23}%
-\contentsline {subsubsection}{Sub-item 2}{23}{section*.24}%
-\contentsline {subsection}{\numberline {6.1.2}Item 2}{24}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}The Second Topic}{24}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Conclusion}{25}{section.6.3}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{27}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{31}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{31}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{32}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{32}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{32}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Old things}{37}{appendix.B}%
-\contentsline {subsection}{\numberline {B.0.1}Removing outliers}{37}{subsection.B.0.1}%
-\contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{37}{subsection.B.0.2}%
-\contentsline {section}{\numberline {B.1}ARIMA}{37}{section.B.1}%
-\contentsline {chapter}{Bibliography}{39}{appendix*.33}%
+\contentsline {chapter}{\chapternumberline {3}State of the art short-term residential load forecasting techniques}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Introduction to Neural Networks}{15}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}MLP}{16}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}CNN}{16}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}RNN}{16}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Problems}{16}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{16}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Tables}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Conclusion}{17}{section.3.4}%
+\contentsline {chapter}{\chapternumberline {4}Clustering of the load profiles}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{19}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Item 1}{19}{subsection.4.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{19}{section*.21}%
+\contentsline {subsubsection}{Sub-item 2}{19}{section*.22}%
+\contentsline {subsection}{\numberline {4.1.2}Item 2}{20}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}The Second Topic}{20}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Conclusion}{20}{section.4.3}%
+\contentsline {chapter}{\chapternumberline {5}Forecasting of time-series}{23}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The First Topic of this Chapter}{23}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Item 1}{23}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Conclusion}{23}{section.5.2}%
+\contentsline {chapter}{\chapternumberline {6}Evaluating results}{25}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{25}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Item 1}{25}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{25}{section*.23}%
+\contentsline {subsubsection}{Sub-item 2}{25}{section*.24}%
+\contentsline {subsection}{\numberline {6.1.2}Item 2}{26}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}The Second Topic}{26}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Conclusion}{27}{section.6.3}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{29}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{33}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{34}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{34}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{34}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Old things}{39}{appendix.B}%
+\contentsline {subsection}{\numberline {B.0.1}Removing outliers}{39}{subsection.B.0.1}%
+\contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{39}{subsection.B.0.2}%
+\contentsline {section}{\numberline {B.1}ARIMA}{39}{section.B.1}%
+\contentsline {chapter}{Bibliography}{41}{appendix*.33}%

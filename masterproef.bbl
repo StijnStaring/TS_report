@@ -16,4 +16,14 @@ J.~Lago.
 \newblock {A ratios and clustering based approach to forecast electricity
   consumption}, 2020.
 
+\bibitem{Nielsen2015}
+M.~A. Nielsen.
+\newblock {Neural Networks and Deep Learning}, 2015.
+
+\bibitem{Shi2018}
+H.~Shi, M.~Xu, and R.~Li.
+\newblock {Deep Learning for Household Load Forecasting-A Novel Pooling Deep
+  RNN}.
+\newblock {\em IEEE Transactions on Smart Grid}, 9(5):5271--5280, 2018.
+
 \end{thebibliography}

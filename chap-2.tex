@@ -1,8 +1,64 @@
-\chapter{Clustering of the load profiles}
-\label{cha:2}
+\chapter{State of the art short-term residential load forecasting techniques}
+\label{cha:State of the art short-term residential load forecasting techniques}
+Forecasting the electrical load of the different individual households has a couple of challenges. There should be dealt with the missing values, as discussed in section \ref{s:missing_data}. Also, the different time-series are influenced by exogenous factors as weather conditions and the day of the year. The dependency on exogenous variables can be a very non-linear relation and can have different effects on different households. For example depending on a house has solar panels, the consumption could be altered much. Only three indications of the temperature are given on a daily basis. Some additional information is know of certain households, but this data is very incomplete. Next, the individual load series have a high volatility and uncertainty with respect to a load signal on transmission level which shows more consistent seasonality and straight forward dependency on weather and calendar variables. This is because the contingency of the individual load data is mitigated due to averaging out of the uncertainty. Ofcourse, the obvious disadvantage is that only forecasts on this aggregated level can be made which is not the goal of our investigation.\\ To tackle the high non-linearity that is inherent to residential load forecasting in literature often ``Neural Networks'' to deal with this.
 
-\section{The First Topic of this Chapter}
-% have first to normalize. 
+\section{Introduction to Neural Networks}
+A  standard multilayer feedforward neuralnetwork with locally bounded piecewise continuous activation function can approximate any continuous function to any degree of accuracy if and only if the network's activation function is not a polynomial, as stated by \textbf{Leshno et al} in \textbf{1993}. This theorem proofs that a ``universal approximator'' exists for continuous functions, but it lacks the recipe to construct it. In \cite{Nielsen2015} it is shown that a feedforward network with a single layer is enough to approximate any function by a specified accuracy if the hidden layer has the possibility to add an unlimited amount of hidden neurons in its layer. It is discussed that when a function is discontinuous, which means that it makes sudden, sharps jumps, it is not possible to approximate the function by any prescribed accuracy. However, in practise a continuous approximation is often good enough.\\
+
+Neural networks are suitable of learning very non-linear mappings between inputs and outputs. The difference between ``Deep Neural Networks'' and ``Shallow Neural Networks'' is the amount of layers of neurons are used inside the network. These layers of neurons, that are not inputs or outputs are called ``hidden neurons''. Because a ``Deep Neural Network'' has a a hierarchical layout of the different hidden layers, it not only learning features from the non-linear combinations of inputs, but uses other layers to learn features of combinations of features learned in lower hidden layers. This is possible because higher hidden layers get the outputs of lower hidden layers as input. As discussed in  \cite{Shi2018} due to this characteristic, deep learning is suitable to learn multiple uncertainties with differing sharing levels over different households e.g. the amount of sunshine. However, because of the higher expressiveness (and often the amount of the to learn parameters), a ``Deep Neural Network'' with respect to a ``Shallow Neural Network'', suffers more of overfitting as is discussed in section \ref{s:Problems}.
+
+\subsection{MLP}
+figure, activation function, equations
+
+\subsection{CNN}
+
+\subsection{RNN}
+
+\subsection{Problems}\label{s:Problems}
+Vanishing gradient problem --> short memory. Overfitting. Explosion of the gradient possible. tanh 
+ ``Deep Recurrent Neural Network'' --> more parameters --> more overfitting
+
+
+\textbf{Overfitting}\\
+Early stopping --> can be seen as regularization
+Training with regularization.
+Dropout regularization 
+Pruning
+
+\textbf{Vanishing gradient}\\
+LTSM --> vanishing gradient problem is not solved! Mittigated. 
+GRU
+Attention model
+Transer model
+
+
+\section{Short-Term residential electrical load forecasting}
+%Things should get out of paper:
+%Problem that was solved.
+%Method
+%Result
+Classical ways to deal with uncertainty.\\
+
+
+In this paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which batches a group of customers load profiles into a pool of inputs. LSTM is applied to mittigate the short term memory of the RNN. Pooling of households historical loads to serve as input of the ``Deep Recurrent Neural Network'' is proposed to increase the data volume and diversity of load forecasting, which mitigates the effect of overfitting. Additionally, there is been made use of early stopping. Due to the pooling of different households during learning the ``Deep Recurrent Neural Network'' is able to learn common uncertainties.\\
+Different steps that were done: data cleaning and preprocessing $\rightarrow$ data pooling $\rightarrow$ data sampling $\rightarrow$ data training $\rightarrow$ benchmarking. Performance of the method was evaluated based on \begin{enumerate}
+	\item performance of proposed method with respect to 
+\end{enumerate}
+
+step one
+
+step two
+
+
+
+
+
+
+
+
+
+
+
 
 
 

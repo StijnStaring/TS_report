@@ -1,6 +1,6 @@
 \chapter{Data analysis}
 \label{cha:1}
-In this chapter details of the dataset are introduced and a basic analysis is performed. This includes assessing missing data, seasonality,  influence of temperature and household data, comparing weekdays and weekends, applying an ARIMA model for forecasting.
+In this chapter details of the dataset are introduced and an analysis is performed. Things discussed about the dataset concern assessing missing data, removing zero days, normalizing the data and removing time-series with identified fundamental changes The analysis looks at the seasonality,  influence of temperature, comparing weekdays with weekends, impact of holidays and the driving households characteristics. Finally the definition of a suitable baseline model is given, which will be used during the evaluation with more elaborate models in chapter \ref{cha:Evaluating results}.
 
 % Look at the comments during the meeting 'writing the WTK thesis'.
 % Make sure that write every part sufficient substantiated.
@@ -104,10 +104,11 @@ Normalization is necessary because while absolute consumption differs, relative 
 As discussed in section \ref{s:Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
 
 
-\subsection{Removing of fundamental changes in the consumption load}  
+\subsection{Removing of fundamental changes in the consumption load} 
+\textbf{maybe have to remove this section.} 
 % want to do assumption that there is no fundamental change in training data.
-After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity, during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamentel_change} in appendix \ref{app:A}.
-These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature, it is assumed that a fundamental change in electricity consumption took place. It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used doesn't expect fundamental changes and can thus lead to disturbance when it is kept in the training data. Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line shows the cutoff and the smart meters above this line are removed. In total $ 251 $ smart meters remain. In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
+After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity, during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamental_change} in appendix \ref{app:A}.
+These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature and previous present appliances, it is assumed that a fundamental change in electricity consumption took place. It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used expects the household situation to be the same for the entire year and the time-series with a fundamental change can thus lead to a disturbance when it is kept in the training data. Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line on $ 0.00125 $shows the cutoff and the smart meters above this line are removed. This cut off value chosen on sight. In total $ 239 $ smart meters remain. In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
 
 \begin{figure}[h!]
 	\centering
@@ -122,7 +123,7 @@ These changes are identified by looking at the maximum difference of the minimum
 
 \section{Analysis}\label{s:Analysis}
 % Aggregation of the different signals is necessary in order to be able to make predictions.
-Finally, the average is taken over all the remaining $...$ time-series to obtain a single signal. This is done to investigate the dependency of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be discussed that will be used as null-hypothesis in chapter \ref{cha:Evaluating results}to assess if the developed models lead to an improvement.
+Finally, the average is taken over all the remaining $...$ time-series to obtain a single signal. This is done to investigate the dependency of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be discussed that will be used as null-hypothesis in chapter \ref{cha:Evaluating results} to assess if the developed models lead to an improvement.
 
 % An individual household consumption time-serie is much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. 
  

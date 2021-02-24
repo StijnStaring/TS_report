@@ -27,11 +27,11 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{31}{figure.caption.25}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{33}{figure.caption.27}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{34}{figure.caption.28}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{35}{figure.caption.29}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{35}{figure.caption.30}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{36}{figure.caption.31}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{33}{figure.caption.25}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{35}{figure.caption.27}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{36}{figure.caption.28}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{37}{figure.caption.29}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{37}{figure.caption.30}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{38}{figure.caption.31}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{38}{figure.caption.32}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{40}{figure.caption.32}%
