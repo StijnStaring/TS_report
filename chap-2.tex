@@ -8,28 +8,49 @@ A  standard multilayer feedforward neuralnetwork with locally bounded piecewise 
 Neural networks are suitable of learning very non-linear mappings between inputs and outputs. The difference between ``Deep Neural Networks'' and ``Shallow Neural Networks'' is the amount of layers of neurons are used inside the network. These layers of neurons, that are not inputs or outputs are called ``hidden neurons''. Because a ``Deep Neural Network'' has a a hierarchical layout of the different hidden layers, it not only learning features from the non-linear combinations of inputs, but uses other layers to learn features of combinations of features learned in lower hidden layers. This is possible because higher hidden layers get the outputs of lower hidden layers as input. As discussed in  \cite{Shi2018} due to this characteristic, deep learning is suitable to learn multiple uncertainties with differing sharing levels over different households e.g. the amount of sunshine. However, because of the higher expressiveness (and often the amount of the to learn parameters), a ``Deep Neural Network'' with respect to a ``Shallow Neural Network'', suffers more of overfitting as is discussed in section \ref{s:Problems}.
 
 \subsection{MLP}
-figure, activation function, equations
+The simples configuration of deep networks are multilayer perceptrons and they are made up out of multiple fully connected layers of neurons. Figure \ref{fig:MLP} shows a MLP with one hidden layer.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{MLP.png}
+	\caption{Figure of a MLP (source \cite{Czum2020}).}
+	\label{fig:MLP}
+\end{figure}
+
+All layers are connected to the next layer by the means of an affine function together with a non-linear activation function represented by sigma as shown by equation \ref{eq:NN}.
+
+\begin{equation}\label{eq:NN}
+	L^{N+1} = \sigma(W^{(N)}L^{N}+b^{(N)})
+\end{equation}
+
 
 \subsection{CNN}
 
+
 \subsection{RNN}
+They are distinguished by their memory as they take information from prior inputs to influence the current input and output. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence.
+
 
 \subsection{Problems}\label{s:Problems}
-Vanishing gradient problem --> short memory. Overfitting. Explosion of the gradient possible. tanh 
- ``Deep Recurrent Neural Network'' --> more parameters --> more overfitting
+Neural Networks have a high expressiveness but comes at the cost of overfitting and a vanishing gradient.
+when the NN is learning from training data, every epoch the error between the input and output of the training exemples is reduced. In the beginning the generalization error reduces simultaneously with the generalization error. The generalization error is the error that the model makes on data that is not in the training set. However, on a certain point during the training the generalization error increases while the training error still decreases. This means that the model is no longer learning ``intelligent'' general rules and patterns in the data, but is just remembering the training data and will therefore not apply in general. This is often the case in a model with high expressiveness because the model is less pushed to make generalizations and has the ability to just to remember the training data. Solutions to overfitting can be regularization which includes the parameter norms as a cost in the objective function. Typical choices for resembling the size of a parameter are the $ L_1 $ and the $ L_2 $ norms. Other methods that can be used are: early stopping, dropout and pruning.
 
+It should also be noted that the gradient can increase very much, which in literature is called gradient explosion. The solution strategy for this is applying gradient clipping.\\
 
-\textbf{Overfitting}\\
-Early stopping --> can be seen as regularization
-Training with regularization.
-Dropout regularization 
-Pruning
+The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen in Figure \ref{fig:grad_exp}.\\ 
 
-\textbf{Vanishing gradient}\\
-LTSM --> vanishing gradient problem is not solved! Mittigated. 
-GRU
-Attention model
-Transer model
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{grad_exp.png}
+	\caption{Exponential decrease of the gradient size in RNNs (source \cite{Teuwen2019}).}
+	\label{fig:grad_exp}
+\end{figure}
+
+%\textbf{Vanishing gradient}\\
+%LTSM --> vanishing gradient problem is not solved! Mittigated. 
+%GRU
+%Attention model
+%Transer model
 
 
 \section{Short-Term residential electrical load forecasting}

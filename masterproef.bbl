@@ -26,4 +26,14 @@ H.~Shi, M.~Xu, and R.~Li.
   RNN}.
 \newblock {\em IEEE Transactions on Smart Grid}, 9(5):5271--5280, 2018.
 
+\bibitem{Teuwen2019}
+J.~Teuwen and N.~Moriakov.
+\newblock {\em {Convolutional neural networks}}.
+\newblock Elsevier Inc., 2019.
+
+\bibitem{Czum2020}
+M.~{Zhang, Aston Lipton, Zachary Li} and A.~Smola.
+\newblock {\em {Dive Into Deep Learning}}, volume~17.
+\newblock 2020.
+
 \end{thebibliography}

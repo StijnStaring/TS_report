@@ -34,40 +34,40 @@
 \contentsline {chapter}{\chapternumberline {3}State of the art short-term residential load forecasting techniques}{15}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Introduction to Neural Networks}{15}{section.3.1}%
 \contentsline {subsection}{\numberline {3.1.1}MLP}{16}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}CNN}{16}{subsection.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}RNN}{16}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Problems}{16}{subsection.3.1.4}%
-\contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{16}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Tables}{17}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Conclusion}{18}{section.3.4}%
-\contentsline {chapter}{\chapternumberline {4}Clustering of the load profiles}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{19}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Item 1}{19}{subsection.4.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{19}{section*.22}%
-\contentsline {subsubsection}{Sub-item 2}{19}{section*.23}%
-\contentsline {subsection}{\numberline {4.1.2}Item 2}{20}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}The Second Topic}{20}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Conclusion}{20}{section.4.3}%
-\contentsline {chapter}{\chapternumberline {5}Forecasting of time-series}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}The First Topic of this Chapter}{23}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Item 1}{23}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Conclusion}{23}{section.5.2}%
-\contentsline {chapter}{\chapternumberline {6}Evaluating results}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{25}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Item 1}{25}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{25}{section*.24}%
-\contentsline {subsubsection}{Sub-item 2}{25}{section*.25}%
-\contentsline {subsection}{\numberline {6.1.2}Item 2}{26}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}The Second Topic}{26}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Conclusion}{27}{section.6.3}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{29}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{33}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{33}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{34}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{34}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{34}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Old things}{39}{appendix.B}%
-\contentsline {subsection}{\numberline {B.0.1}Removing outliers}{39}{subsection.B.0.1}%
-\contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{39}{subsection.B.0.2}%
-\contentsline {section}{\numberline {B.1}ARIMA}{39}{section.B.1}%
-\contentsline {chapter}{Bibliography}{41}{appendix*.34}%
+\contentsline {subsection}{\numberline {3.1.2}CNN}{17}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}RNN}{17}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}Problems}{17}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{18}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Tables}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Conclusion}{19}{section.3.4}%
+\contentsline {chapter}{\chapternumberline {4}Clustering of the load profiles}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The First Topic of this Chapter}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Item 1}{21}{subsection.4.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{21}{section*.24}%
+\contentsline {subsubsection}{Sub-item 2}{21}{section*.25}%
+\contentsline {subsection}{\numberline {4.1.2}Item 2}{22}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}The Second Topic}{22}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Conclusion}{22}{section.4.3}%
+\contentsline {chapter}{\chapternumberline {5}Forecasting of time-series}{25}{chapter.5}%
+\contentsline {section}{\numberline {5.1}The First Topic of this Chapter}{25}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Item 1}{25}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Conclusion}{25}{section.5.2}%
+\contentsline {chapter}{\chapternumberline {6}Evaluating results}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{27}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Item 1}{27}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{27}{section*.26}%
+\contentsline {subsubsection}{Sub-item 2}{27}{section*.27}%
+\contentsline {subsection}{\numberline {6.1.2}Item 2}{28}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}The Second Topic}{28}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Conclusion}{29}{section.6.3}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{31}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{35}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{35}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{36}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{36}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{36}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Old things}{41}{appendix.B}%
+\contentsline {subsection}{\numberline {B.0.1}Removing outliers}{41}{subsection.B.0.1}%
+\contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{41}{subsection.B.0.2}%
+\contentsline {section}{\numberline {B.1}ARIMA}{41}{section.B.1}%
+\contentsline {chapter}{Bibliography}{43}{appendix*.36}%
