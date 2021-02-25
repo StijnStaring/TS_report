@@ -1,6 +1,7 @@
 \chapter{State of the art short-term residential load forecasting techniques}
 \label{cha:State of the art short-term residential load forecasting techniques}
 Forecasting the electrical load of the different individual households has a couple of challenges. There should be dealt with the missing values, as discussed in section \ref{s:missing_data}. Also, the different time-series are influenced by exogenous factors as weather conditions and the day of the year. The dependency on exogenous variables can be a very non-linear relation and can have different effects on different households. For example depending on a house has solar panels, the consumption could be altered much. Only three indications of the temperature are given on a daily basis. Some additional information is know of certain households, but this data is very incomplete. Next, the individual load series have a high volatility and uncertainty with respect to a load signal on transmission level which shows more consistent seasonality and straight forward dependency on weather and calendar variables. This is because the contingency of the individual load data is mitigated due to averaging out of the uncertainty. Ofcourse, the obvious disadvantage is that only forecasts on this aggregated level can be made which is not the goal of our investigation.\\ To tackle the high non-linearity that is inherent to residential load forecasting in literature often ``Neural Networks'' to deal with this.
+\textbf{See also paper TA2 --> aggregated vs individual forecasting.}
 
 \section{Introduction to Neural Networks}
 A  standard multilayer feedforward neuralnetwork with locally bounded piecewise continuous activation function can approximate any continuous function to any degree of accuracy if and only if the network's activation function is not a polynomial, as stated by \textbf{Leshno et al} in \textbf{1993}. This theorem proofs that a ``universal approximator'' exists for continuous functions, but it lacks the recipe to construct it. In \cite{Nielsen2015} it is shown that a feedforward network with a single layer is enough to approximate any function by a specified accuracy if the hidden layer has the possibility to add an unlimited amount of hidden neurons in its layer. It is discussed that when a function is discontinuous, which means that it makes sudden, sharps jumps, it is not possible to approximate the function by any prescribed accuracy. However, in practise a continuous approximation is often good enough.\\
@@ -17,32 +18,56 @@ The simples configuration of deep networks are multilayer perceptrons and they a
 	\label{fig:MLP}
 \end{figure}
 
-All layers are connected to the next layer by the means of an affine function together with a non-linear activation function represented by sigma as shown by equation \ref{eq:NN}.
+All layers are connected to the next layer by the means of an affine function together with a non-linear activation function represented by sigma as shown by equation \ref{eq:NN} with $ \textbf{L}^{(N)} $ the vector with outputs of the Nthe layer, $ \textbf{W}^(N) $ the Nth weight matrix and $ \textbf{b}^{(N)} $ the Nth bias. 
+
+%It can be noted that the MLP network is invariant.
 
 \begin{equation}\label{eq:NN}
-	L^{N+1} = \sigma(W^{(N)}L^{N}+b^{(N)})
+	\textbf{L}^{N+1} = \sigma(\textbf{W}^{(N)}\textbf{L}^{N}+\textbf{b}^{(N)})
 \end{equation}
 
 
 \subsection{CNN}
-
+\textbf{See oneNote}
 
 \subsection{RNN}
-They are distinguished by their memory as they take information from prior inputs to influence the current input and output. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence.
+A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $. 
+
+\begin{equation}\label{eq:RNN}
+	\textbf{H}^{t+1} = \sigma(\textbf{W}_1\textbf{X}^{t}+\textbf{W}_2\textbf{H}^{t}+\textbf{b})
+\end{equation}
+
+The this equation $\textbf{X}^t$ corresponds to one example at time step $ t $ with dimensionality $ d $. 
+Also a deep RNN is possible, where multiple hidden state per time step are used. \\
+
+The mapping from the hidden state to an output is executed by making use of Equation \ref{eq:RNNout} with $ \textbf{O}^t\in \mathbb{R}^{q\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_3\in \mathbb{R}^{q\times h} $ and $ \textbf{b}\in \mathbb{R}^{q\times 1} $.
+\begin{equation}\label{eq:RNNout}
+	\textbf{O}^{t} = \textbf{W}_3\textbf{H}^{t}+\textbf{b}
+\end{equation}
 
 
-\subsection{Problems}\label{s:Problems}
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\textwidth]{RNN.png}
+	\caption{Figure of the logical flow of a vanilla RNN with a hidden state (source \cite{Czum2020}).}
+	\label{fig:RNN}
+\end{figure}
+
+
+
+
+\subsection{Difficulties \& Solutions of neural networks}\label{s:Problems}
 Neural Networks have a high expressiveness but comes at the cost of overfitting and a vanishing gradient.
 when the NN is learning from training data, every epoch the error between the input and output of the training exemples is reduced. In the beginning the generalization error reduces simultaneously with the generalization error. The generalization error is the error that the model makes on data that is not in the training set. However, on a certain point during the training the generalization error increases while the training error still decreases. This means that the model is no longer learning ``intelligent'' general rules and patterns in the data, but is just remembering the training data and will therefore not apply in general. This is often the case in a model with high expressiveness because the model is less pushed to make generalizations and has the ability to just to remember the training data. Solutions to overfitting can be regularization which includes the parameter norms as a cost in the objective function. Typical choices for resembling the size of a parameter are the $ L_1 $ and the $ L_2 $ norms. Other methods that can be used are: early stopping, dropout and pruning.
 
 It should also be noted that the gradient can increase very much, which in literature is called gradient explosion. The solution strategy for this is applying gradient clipping.\\
 
-The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen in Figure \ref{fig:grad_exp}.\\ 
+The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies often proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen for LSTM in Figure \ref{fig:grad_exp}. $ \tau $ gives the number of epochs.\\ 
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{grad_exp.png}
-	\caption{Exponential decrease of the gradient size in RNNs (source \cite{Teuwen2019}).}
+	\caption{Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite{Teuwen2019}).}
 	\label{fig:grad_exp}
 \end{figure}
 
@@ -54,11 +79,19 @@ The second problem is the vanishing gradient problem which originates because wh
 
 
 \section{Short-Term residential electrical load forecasting}
+\textbf{Pooling paper}
 %Things should get out of paper:
 %Problem that was solved.
 %Method
 %Result
 Classical ways to deal with uncertainty.\\
+Residential electrical load series have a high amount of volatility and uncertainty due to the contingency of the electrical consumption. Classical ways to deal with this are discussed in \cite{Shi2018} and listed as follows:
+\begin{enumerate}
+	\item Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset.
+	\item Aggregating the residential loads to cancel out the uncertainties. The aggregated signal will show more regular patterns which means that is easier to predict.The downside is that the aggregated forecast will do a poor job of serving as forecast for a household
+	\item A spectral analysis e.g. wavelet analysis, Fourier transforms and empirical mode decomposition aim at seperating a load serie into a regular pattern, an uncertain signal and noise. Because the amount of regularity is low in a residential load serie, this method is infeasible.
+\end{enumerate}
+
 
 
 In this paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which collects a group of customers load profiles into a pool of training inputs. Pooling of households historical loads to serve as input of the ``Deep Recurrent Neural Network'', is proposed to increase the data volume and diversity of load forecasting, which mitigates the effect of overfitting present in a DRNN. Also, due to the pooling of different households during training the DRNN is able to learn common uncertainties. From the pool of inputs every epoch a randomly chosen batch of load signals are fed to the network. LSTM is applied to mittigate the short term memory of the RNN. Additionally, there is been made use of early stopping to further avoid overfitting. To implement early stopping there has been looked at the ``MSE'' for k iterations, obtained by cross-validation. When the variance of this sequence gets smaller than a specified variable, training stops. When the training ends, performance is tested on each household by using the learned network to perform a feed-forward prediction of the electrical load.\\
