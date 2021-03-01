@@ -11,6 +11,12 @@ B.~A. Hoverstad, A.~Tidemann, H.~Langseth, and P.~Ozturk.
   Evolution for Parameter Tuning}.
 \newblock {\em IEEE Transactions on Smart Grid}, 6(4):1904--1913, 2015.
 
+\bibitem{Kim2019}
+T.~Y. Kim and S.~B. Cho.
+\newblock {Predicting residential energy consumption using CNN-LSTM neural
+  networks}.
+\newblock {\em Energy}, 182:72--81, 2019.
+
 \bibitem{Kong2019}
 W.~Kong, Z.~Y. Dong, Y.~Jia, D.~J. Hill, Y.~Xu, and Y.~Zhang.
 \newblock {Short-Term Residential Load Forecasting Based on LSTM Recurrent

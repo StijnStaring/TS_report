@@ -142,14 +142,12 @@ In this section the seasonality of the consumption data is discussed. In \cite{H
 
 
 
-Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. 
-
-Figure \ref{fig:weekly_filter} shows the weekly filter.
+Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. Figure \ref{fig:weekly_filter} shows the weekly filter.
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{weekly_filter.png}
-	\caption{Figure that shows the seasonality of the electrical load during the week.}
+	\caption{Figure that shows the seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. }
 	\label{fig:weekly_filter}
 \end{figure}
 
@@ -217,13 +215,16 @@ Applying the Kendal correlation  gives a correlation value of $ -0.67$, which me
 % There is a clear dependency between temperature and electricity consumption, which means that electricity is used for heating.  
 
 
-\subsection{Comparing weekdays with weekends}
-Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. It can be seen that the consumption of the average weekday is very similar to a weekend day. 
+\subsection{Comparing weekdays with weekends} \label{s:Comparing weekdays with weekends}
+Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. The reader is reminded that in order to get this graph, all the remaining household loads after preprocessing are averaged after which all the weeks are again averaged. It can be seen that the consumption of the average business day is similar to a weekend day concerning the two main peaks during the day and the sharp peak at midnight. However, it can be seen that the first peak during the day is higher and goes less down again. This effect can be seen both during a sunday and saterday, but is most visible during a sunday. To proof previous statements similarity is measured by calculating the hourly difference of the $ 21 $ combinations that can be made of two different days. Figure \ref{label} shows in red the error of combinations between business days or weekends and in blue the error of combinations between a business day and weekend day.
+\textbf{Put figure}
+
+
 
 
 \subsection{Impact of holidays}
 % important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
-In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to remove the temperature dependency. The resulting average holiday and business day with is given in Figure \ref{fig:bvsh}. It can be seen that the consumption of a holiday is reasonably similar to business day.  \textbf{This is maybe not so important and can be left out...}
+In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to mitigate the temperature dependency. The resulting average holiday and business day is given in Figure \ref{fig:bvsh}. It can be seen that the consumption of a holiday behaves similar as a weekend day. Figure shows the average error between a holiday vs business day and a holiday vs weekend day. The error is calculated as discussed in section \ref{s:Comparing weekdays with weekends}.    \textbf{Check again if the legend is not swapped.}
 
 \begin{figure}[h!]
 	\centering
@@ -234,7 +235,7 @@ In order to look at the impact of a holiday, all the holidays of the English and
 
 
 
-\subsection{Identification of driving attributes}
+\subsection{Identification of driving attributes} \label{s:Identification of driving attributes}
 In this section the influence of the extra knowledge about the kind of household where the smart meter is located, is investigated. This is not done by using a single averaged signal as was the case in the previous analysis sections. Now, every meter with additional information is considered. In Figure \ref{fig:bp_dwellingtype} the monthly consumption of the month December in function of dwelling type is shown. The month December is chosen, because this month is known for every smart meter. Missing values of the smart meters are substituted by method two, as discussed in section \ref{s:missing_data}. The amount of meters used for every visualization can be seen in Table \ref{tab:attributes}.
 
 % Boxplots and consumptions are plotted. 
@@ -250,7 +251,7 @@ In this section the influence of the extra knowledge about the kind of household
 
 
 
-Similar as was done in Figure \ref{fig:bp_dwellingtype} is also done for the other characteristics of the smart meters. The conclusions are listed below. As can be seen in Table \ref{tab:attributes}, some characteristics have not much data or the data is not much distribute over the different options of a characteristic. If this is the case, no reliable conclusions could be drawn.
+Similar as was done in Figure \ref{fig:bp_dwellingtype} is also done for the other characteristics of the smart meters. The conclusions are listed below. As can be seen in Table \ref{tab:attributes}, some characteristics have not much data or the data is not much distribute over the different options of a characteristic. If this is the case, no reliable conclusions could be drawn. \textbf{Add concrete numbers!!}
 
 \begin{itemize}
 	\item There is a lot of variance in the monthly consumption of a detached house, but it has mostly a higher consumption than other dwelling types
