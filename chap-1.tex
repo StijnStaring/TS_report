@@ -1,5 +1,5 @@
 \chapter{Data analysis}
-\label{cha:1}
+\label{cha:Data analysis}
 In this chapter details of the dataset are introduced and an analysis is performed. Things discussed about the dataset concern assessing missing data, removing zero days, normalizing the data and removing time-series with identified fundamental changes The analysis looks at the seasonality,  influence of temperature, comparing weekdays with weekends, impact of holidays and the driving households characteristics. Finally the definition of a suitable baseline model is given, which will be used during the evaluation with more elaborate models in chapter \ref{cha:Evaluating results}.
 
 % Look at the comments during the meeting 'writing the WTK thesis'.
@@ -55,6 +55,7 @@ Because of the additional information about the attributes that are summed up in
 Following steps discuss the preprocessing done on the consumption time-series containing measurements for the entire year. 
 
 \subsection{Missing data} \label{s:missing_data}
+\textbf{It should be made clear that this section about missing values is only applied during the data analysis.}
 As discussed above the consumption dataset contains additionally to the missing months also missing data due to sending/receiving errors of the smart meters. When this happens the data of the whole day is lost. It should be emphasized that a missing value should not always directly be seen as an error. It can be that the smart meter was put off because the inhabitants were on a holiday for example. The nan values then also gives information about the consumption behaviour, namely that it is possible that the inhabitants go on vacation and the electrical load will in this case normally correspond to a constant base load. However, the assumption is made that in the case of the ``consumption.csv'' missing data corresponds to a sending/receiving error of the smart meter. This assumption is valid because when full year data is assessed, the missing values always perfectly correspond to a day of missing values. It is therefore highly likely that the organizers of the competition manually deleted days in the consumption to increase the difficulty of the forecasting and to model sending/receiving errors of the smart meters. That the missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
 
  Two methods to impute the missing values are compared. Method one substitutes the missing values of a time-serie by the mean of all the measurements done by the meter. Method two replaces the missing values by the mean consumption value of the same moment on the next and previous day. If the next or previous day is also missing, the closest known day is used. The resulting signals can be seen in Figure \ref{fig:mv_mean} and Figure \ref{fig:mv_s} in appendix \ref{app:A}.\\
@@ -93,6 +94,8 @@ Also, there has been looked if there were fundamental changes in the electricity
 
 
 \subsection{Normalization of the data}
+\label{s:Normalization of the data}
+\textbf{it should be made clear that this normalization is only here used.}
 % normalize as done in ppt --> deviding by the yearly consumption.
 % downside of this normalilzation that outshooters will have influence.
 Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption as was done in \cite{Lago2020}. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year.
@@ -286,11 +289,6 @@ Similar as was done in Figure \ref{fig:bp_dwellingtype} is also done for the oth
 	\item The majority of people has an efficient lighting percentage between $ 75\% $ and $ 100\% $
 	
 \end{itemize}
-
-
-\section{Baseline model}
-A naive baseline 24 hour forecasting model that is chosen is using the last 24 hour as prediction.
-
 
 
 

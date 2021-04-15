@@ -1,23 +1,95 @@
-\chapter{Clustering of the load profiles}
-\label{cha:n}
-Do a literature study about forecasting. What is the current state of the art methods to do forecasting. 
+\chapter{Forecasting the daily electricity consumption}
+\label{cha:Forecasting the daily electricity consumption}
+In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\\textbf{update --> discussing data}
+First baseline models are looked into in Section \ref{s:Baseline models}. This are models that are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed for different design choices. Finally, a parameter search is conducted.\\
+ 
 
-\section{The First Topic of this Chapter}
-\subsection{Item 1}
-\subsubsection{Sub-item 1}
-\lipsum[80]
 
-\subsubsection{Sub-item 2}
-\lipsum[81]
+- data that is used 
+- inputs that are used
+- predicting each time one sample
 
-\subsection{Item 2}
-\lipsum[82]
 
-\section{The Second Topic}
-\lipsum[83-85]
+ Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
+\section{Pre-processing}
+- split of data in 10 months of training data, 1 month of validation data and 1 month of test data
+- Now should not compare different time series between each other as was the case in Chapter \ref{cha:Data analysis}, Section \ref{s:Normalization of the data}. Therefore in this chapter a min-max normalization technique is used instead of the total consumption of $ 2017 $.
+- The missing values in the historic electricity consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. 
+- The missing values of the temperature are substituted by ...
+- The three series that are chosen to predict on are chosen on basis of the least amount of missing values. 
+-say what the missing rates are of these three series.
+different inputs... 
+
+\section{Baseline models}\label{s:Baseline models}
+- explain about VM machine in azure and the machine specifications that are used there.
+
+- predict all $ 48 $ samples at once.
+		Three series that are chosen:
+ID0x1e84e4d5cf1f463147f3e4d566167597423d7769 
+--> 8 missing days in december
+ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e
+--> 0 missing days in december
+ID0xc3b2f61a72e188cfd44483fce1bc11d6a628766d
+--> 8 missing days in december
+
+Base model
+Can't plot the Mape figure because sometimes the real value is equal to zero. 99 time-series have sometimes a zero consumption during half an hour.
+The different base models can behave quite different on the different time-series. Sometimes the closest day works better than previous week or day and sometimes works much worse. Doesn't make a lot of sense to average the base models over all the possible time-series. 
+
+Experiment of forecasting three time-series
+
+Looking at the bar plots
+
+Mean forecast behaves best  for the three time series and for all the different metrics.
+%MAPE_forecast behaves often second best:
+%--> serie 0xc3b: RMSE, NRMS, MSE, MAE,
+%-->serie 0x78a: no times second best
+%-->serie 0x1e: MAE, 
+%
+%In serie 0xc3b the closest, day and week perform similar and worse.
+%In serie 0x78a all behave similar bad except for the mean technique
+%In serie 0x1e the closest day forecast performs much better than the prev day and week method. This method is again very serie dependent.
+In this serie the prev week and day behave worse than the other techniques. Similar day and MAPE work here clearly better.
+
+Three other techniques which is best, depends a lot about which time serie is forecasted. 
+When look at mse --> the amount that mean performs better gets bigger. Indication that mean is better in predicting also when occuring peak,
+Because this is what the mse penalizing more severly than the other methods. Verify this with the individual plots in the tekst.
+This is possibly due to the square. The MAE gives a more all similar behaviour than the other metrics.
+
+Looking at the day plots
+The previous day and week and similar forecast have typically much peaks but shifted.
+The MAPE and the mean forecasts follow more the trends.
+
+Important that when do predictions --> only look at the values in December where there is a day forecast for all the different techniques. This is in order to make a fair prediction. 
+serie 0x78a--> all 31 days
+serie 0x1e--> 12 days
+serie 0xc3b --> 12 days
+Disadvantage of previous day, previous week and similar week is that there can be not a forecast available! 
+This is mostly the case for prev day and prev week. This issue is not occuring for the mean and MAPE options. 
+
+Experiment to look at all the time series
+All the 261 time-series are set to be equally important. In every time-serie a comparison with the performance of the worst technique is made.
+The worst forecasting technique is set to have a value one and the rest of the techniques get a value how much better they perform than the worst signal. Which technique performs worst, depends on every time-serie.
+If the mean performance is better for one technique than the other this means that the to expect performance for a random time-serie for one technique is better than the other technique. This is because this techniques behaved  more often or more proportional better than the worst technique in comparison of the other technique over all the time series. 
+
+
+for one technique the performance in comparison with the worst technique 
+Was on average better than the other technique. 
+
+
+\section{Neural network models}\label{s:Neural network models}
+
+\subsection{LSTM}
+
+\subsection{GRU}
+
+\subsection{Parameter search}
+
+\subsection{Evaluation of different designs}
+
 
 \section{Conclusion}
-\lipsum[86-88]
+
 
 %%% Local Variables: 
 %%% mode: latex

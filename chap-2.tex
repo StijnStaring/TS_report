@@ -76,6 +76,7 @@ The second problem is the vanishing gradient problem which originates because wh
 Next, a LSTM (long short term memory) neural network will be assessed to model the Santa Fe data set instead of the MLP regression neural network that was used in the previous section . A LSTM has as advantage over a standard RNN that I can better handle the vanishing gradient problem and LSTM is not suffering as much of a short term memory. Therefore, it can  longer take important aspects of the presented time-serie into account when working on a new forecasting. LSTM makes use of three gates to learn which data of the sequence is important and should be remembered. In connection of these gates is a cell state which serves as a memory state and a connection to transport relative information throughout the different time steps. The forget gate decides what information should be kept or removed from the input and hidden state. The input gate updates the cell state and the output state decides what the next hidden state will be.\\
 In order to train a LSTM neural network there are more parameters that have to be learned.  There are now four different weight matrices. One form the forget gate, two from the input gate and one from the output gate. It can be noted that in order to train all these weights, this network is more data hungry than a simple RNN. When the lag value gets bigger, so do all the different weight matrices and the calculation load.\\
 
+\textbf{Add here a picture of the the LSTM and the corresponding formula's!!}
  
 
 
@@ -178,16 +179,8 @@ At last, also an analysis is performed to investigate the influence of the diffe
 \textbf{CNN-GRU paper}\\
 \cite{Sajjad2020}
 
+\textbf{See oneNote for the summary of the paper and say that it is showed that CNN-GRU performs even better than CNN-LSTM}
 
-
-
-
-
-
-\section{Tables}
-Tables are used to present data neatly arranged. A table is normally
-not a spreadsheet! Compare \tref{tab:wrong} en \tref{tab:ok}: which table do
-you prefer?
 
 %\begin{table}
 %  \centering
