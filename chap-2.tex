@@ -1,12 +1,12 @@
 \chapter{State of the art short-term residential load forecasting techniques}
 \label{cha:State of the art short-term residential load forecasting techniques}
-Forecasting the electrical load of the different individual households has a couple of challenges. There should be dealt with the missing values, as discussed in section \ref{s:missing_data}. Also, the different time-series are influenced by exogenous factors as weather conditions and the day of the year. The dependency on exogenous variables can be a very non-linear relation and can have different effects on different households. For example depending on a house has solar panels, the consumption could be altered much. Only three indications of the temperature are given on a daily basis. Some additional information is know of certain households, but this data is very incomplete. Next, the individual load series have a high volatility and uncertainty with respect to a load signal on transmission level which shows more consistent seasonality and straight forward dependency on weather and calendar variables. This is because the contingency of the individual load data is mitigated due to averaging out of the uncertainty. Ofcourse, the obvious disadvantage is that only forecasts on this aggregated level can be made which is not the goal of our investigation.\\ To tackle the high non-linearity that is inherent to residential load forecasting in literature often ``Neural Networks'' to deal with this.
+Forecasting the electrical load of the different individual households has a couple of challenges. There should be dealt with the missing values, as discussed in section \ref{s:missing_data}. Also, the different time-series are influenced by exogenous factors as weather conditions and the day of the year. The dependency on exogenous variables can be a very non-linear relation and can have different effects on different households. For example depending on a house has solar panels, the consumption could be altered much. Only three indications of the temperature are given on a daily basis. Some additional information is know of certain households, but this data is very incomplete. Next, the individual load series have a high volatility and uncertainty with respect to a load signal on transmission level which shows more consistent seasonality and straight forward dependency on weather and calendar variables. This is because the contingency of the individual load data is mitigated due to averaging out of the uncertainty. Ofcourse, the obvious disadvantage is that only forecasts on this aggregated level can be made which is not the goal of our investigation.\\ To tackle the high non-linearity that is inherent to residential load forecasting in literature often ``Neural Networks'' are used.
 \textbf{See also paper TA2 --> aggregated vs individual forecasting.}
 
 \section{Introduction to Neural Networks}
 A  standard multilayer feedforward neuralnetwork with locally bounded piecewise continuous activation function can approximate any continuous function to any degree of accuracy if and only if the network's activation function is not a polynomial, as stated by \textbf{Leshno et al} in \textbf{1993}. This theorem proofs that a ``universal approximator'' exists for continuous functions, but it lacks the recipe to construct it. In \cite{Nielsen2015} it is shown that a feedforward network with a single layer is enough to approximate any function by a specified accuracy if the hidden layer has the possibility to add an unlimited amount of hidden neurons in its layer. It is discussed that when a function is discontinuous, which means that it makes sudden, sharps jumps, it is not possible to approximate the function by any prescribed accuracy. However, in practise a continuous approximation is often good enough.\\
 
-Neural networks are suitable of learning very non-linear mappings between inputs and outputs. The difference between ``Deep Neural Networks'' and ``Shallow Neural Networks'' is the amount of layers of neurons are used inside the network. These layers of neurons, that are not inputs or outputs are called ``hidden neurons''. Because a ``Deep Neural Network'' has a a hierarchical layout of the different hidden layers, it not only learning features from the non-linear combinations of inputs, but uses other layers to learn features of combinations of features learned in lower hidden layers. This is possible because higher hidden layers get the outputs of lower hidden layers as input. As discussed in  \cite{Shi2018} due to this characteristic, deep learning is suitable to learn multiple uncertainties with differing sharing levels over different households e.g. the amount of sunshine. However, because of the higher expressiveness (and often the amount of the to learn parameters), a ``Deep Neural Network'' with respect to a ``Shallow Neural Network'', suffers more of overfitting as is discussed in section \ref{s:Problems}.
+Neural networks are suitable of learning very non-linear mappings between inputs and outputs. The difference between ``Deep Neural Networks'' and ``Shallow Neural Networks'' is the amount of layers of neurons are used inside the network. These layers of neurons, that are not inputs or outputs are called ``hidden neurons''. Because a ``Deep Neural Network'' has a hierarchical layout of the different hidden layers, it not only learning features from the non-linear combinations of inputs, but uses other layers to learn features of combinations of features learned in lower hidden layers. This is possible because higher hidden layers get the outputs of lower hidden layers as input. As discussed in  \cite{Shi2018} due to this characteristic, deep learning is suitable to learn multiple uncertainties with differing sharing levels over different households e.g. the amount of sunshine. However, because of the higher expressiveness (and often the amount of the to learn parameters), a ``Deep Neural Network'' with respect to a ``Shallow Neural Network'', suffers more of overfitting as is discussed in section \ref{s:Problems}.
 
 \subsection{MLP}
 The simples configuration of deep networks are multilayer perceptrons and they are made up out of multiple fully connected layers of neurons. Figure \ref{fig:MLP} shows a MLP with one hidden layer.
@@ -40,10 +40,10 @@ A recurrent Neural Network is a specialized neural network to better deal with s
 The this equation $\textbf{X}^t$ corresponds to one example at time step $ t $ with dimensionality $ d $. 
 Also a deep RNN is possible, where multiple hidden state per time step are used. \\
 
-The mapping from the hidden state to an output is executed by making use of Equation \ref{eq:RNNout} with $ \textbf{O}^t\in \mathbb{R}^{q\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_3\in \mathbb{R}^{q\times h} $ and $ \textbf{b}\in \mathbb{R}^{q\times 1} $.
-\begin{equation}\label{eq:RNNout}
-	\textbf{O}^{t} = \textbf{W}_3\textbf{H}^{t}+\textbf{b}
-\end{equation}
+%The mapping from the hidden state to an output is executed by making use of Equation \ref{eq:RNNout} with $ \textbf{O}^t\in \mathbb{R}^{q\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_3\in \mathbb{R}^{q\times h} $ and $ \textbf{b}\in \mathbb{R}^{q\times 1} $.
+%\begin{equation}\label{eq:RNNout}
+%	\textbf{O}^{t} = \textbf{W}_3\textbf{H}^{t}+\textbf{b}
+%\end{equation}
 
 
 \begin{figure}[h!]
@@ -62,7 +62,7 @@ when the NN is learning from training data, every epoch the error between the in
 
 It should also be noted that the gradient can increase very much, which in literature is called gradient explosion. The solution strategy for this is applying gradient clipping.\\
 
-The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies often proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen for LSTM in Figure \ref{fig:grad_exp}. $ \tau $ gives the number of epochs.\\ 
+The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies often proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen for LSTM in Figure \ref{fig:grad_exp}. $ \tau $ gives the number of epochs.\\ \textbf{Can put further explanation in attachment --> see assignament ANN}
 
 \begin{figure}[h!]
 	\centering
@@ -70,6 +70,15 @@ The second problem is the vanishing gradient problem which originates because wh
 	\caption{Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite{Teuwen2019}).}
 	\label{fig:grad_exp}
 \end{figure}
+
+
+\textbf{LSTM}\\
+Next, a LSTM (long short term memory) neural network will be assessed to model the Santa Fe data set instead of the MLP regression neural network that was used in the previous section . A LSTM has as advantage over a standard RNN that I can better handle the vanishing gradient problem and LSTM is not suffering as much of a short term memory. Therefore, it can  longer take important aspects of the presented time-serie into account when working on a new forecasting. LSTM makes use of three gates to learn which data of the sequence is important and should be remembered. In connection of these gates is a cell state which serves as a memory state and a connection to transport relative information throughout the different time steps. The forget gate decides what information should be kept or removed from the input and hidden state. The input gate updates the cell state and the output state decides what the next hidden state will be.\\
+In order to train a LSTM neural network there are more parameters that have to be learned.  There are now four different weight matrices. One form the forget gate, two from the input gate and one from the output gate. It can be noted that in order to train all these weights, this network is more data hungry than a simple RNN. When the lag value gets bigger, so do all the different weight matrices and the calculation load.\\
+
+ 
+
+
 
 %\textbf{Vanishing gradient}\\
 %LTSM --> vanishing gradient problem is not solved! Mittigated. 
@@ -87,7 +96,7 @@ The second problem is the vanishing gradient problem which originates because wh
 Classical ways to deal with uncertainty.\\
 Residential electrical load series have a high amount of volatility and uncertainty due to the contingency of the electrical consumption. Classical ways to deal with this are discussed in \cite{Shi2018} and listed as follows:
 \begin{enumerate}
-	\item Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset.
+	\item Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset. \textbf{But the uncertainty on the whole is reduced --> on single household stays the same!!}
 	\item Aggregating the residential loads to cancel out the uncertainties. The aggregated signal will show more regular patterns which means that is easier to predict.The downside is that the aggregated forecast will do a poor job of serving as forecast for a household
 	\item A spectral analysis e.g. wavelet analysis, Fourier transforms and empirical mode decomposition aim at seperating a load serie into a regular pattern, an uncertain signal and noise. Because the amount of regularity is low in a residential load serie, this method is infeasible.
 \end{enumerate}
@@ -115,7 +124,7 @@ The proposed DRNN with pooling outperforms all other four methods based on follo
 \begin{equation}
 	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N}
 \end{equation}
-
+\textbf{Actually LSTM network}
 The amount of which the PDRNN outperformed the other methods can be seen in Table \ref{tab:pooling_result}. The effect of the depth of the DRNN and the pooling method is depicted in Figure \ref{fig:Shi2018_result}. It can be seen that without the pooling method the DRNN only benefits from extra layers till three are used. This is because from that point, overfitting will reduce the generalization capacity of the DRNN. With the pooling technique, extra layers stays beneficial. It can thus be concluded that introducing extra hidden layers is a good choice to model the non-linear relations, but this can only be done efficiently when overfitting is mittigated by the use of a pooling strategy.The RNN with pooling used for benchmarking consisted out of five layers and thirty hidden units in each layer.
 
 \begin{figure}[h!]
@@ -167,6 +176,7 @@ At last, also an analysis is performed to investigate the influence of the diffe
 \end{figure}
 
 \textbf{CNN-GRU paper}\\
+\cite{Sajjad2020}
 
 
 

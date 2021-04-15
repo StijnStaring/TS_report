@@ -17,31 +17,31 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{5}{figure.caption.14}%
 \contentsline {figure}{\numberline {2.2}{\ignorespaces One of the $9$ identified meters with multiple zero daily consumptions\relax }}{6}{figure.caption.15}%
 \contentsline {figure}{\numberline {2.3}{\ignorespaces The maximum differences between the minimum and maximum weekly rolling averages for all the different time-series.\relax }}{7}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. \relax }}{9}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Relation between normalized daily consumption and daily temperature.\relax }}{10}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Error between different pairs of weekdays.\relax }}{12}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Figure with the comparison between holidays and business days.\relax }}{13}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Error between a holiday and other days of the week.\relax }}{13}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. \relax }}{8}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Error between different pairs of weekdays.\relax }}{9}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Figure with the comparison between holidays and business days.\relax }}{10}{figure.caption.19}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Error between a holiday and other days of the week.\relax }}{11}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Relation between normalized daily consumption and daily temperature.\relax }}{12}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Figure with the comparison of the different dwelling types.\relax }}{14}{figure.caption.22}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of a MLP (source \cite {Czum2020}).\relax }}{18}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source \cite {Czum2020}).\relax }}{19}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite {Teuwen2019}).\relax }}{21}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{23}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{24}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{25}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{26}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between LSTM and CNN-LSTM. source(\cite {Kim2019})\relax }}{27}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of a MLP (source \cite {Czum2020}).\relax }}{16}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source \cite {Czum2020}).\relax }}{17}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite {Teuwen2019}).\relax }}{19}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{21}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{22}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{23}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{25}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between LSTM and CNN-LSTM. source(\cite {Kim2019})\relax }}{25}{figure.caption.30}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{43}{figure.caption.35}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{45}{figure.caption.37}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{46}{figure.caption.38}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{46}{figure.caption.39}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{47}{figure.caption.40}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{47}{figure.caption.41}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{41}{figure.caption.35}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{43}{figure.caption.37}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{44}{figure.caption.38}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{44}{figure.caption.39}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{45}{figure.caption.40}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{45}{figure.caption.41}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{50}{figure.caption.42}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{48}{figure.caption.42}%

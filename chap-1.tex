@@ -107,7 +107,9 @@ As discussed in section \ref{s:Analysis} the average is taken over all the norma
 \subsection{Removing of fundamental changes in the consumption load} 
 % want to do assumption that there is no fundamental change in training data.
 After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamental_change} in appendix \ref{app:A}.
-These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature and previous present appliances, it is assumed that a fundamental change in electricity consumption took place. It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used expects the household situation to be the same for the entire year and the time-series with a fundamental change can thus lead to a disturbance when it is kept in the training data. Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line on shows the cutoff and the smart meters above this line are defined as outliers and removed. The definition of an outlier that is used is the interquartile range. In total $ 256 $ smart meters remain. 
+These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature and previous present appliances, it is assumed that a fundamental change in electricity consumption took place. 
+%It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used expects the household situation to be the same for the entire year and the time-series with a fundamental change can thus lead to a disturbance when it is kept in the training data.
+ Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line on shows the cutoff and the smart meters above this line are defined as outliers and removed. The definition of an outlier that is used is the one and a half times the interquartile range. In total $ 256 $ smart meters remain. 
 
 %In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
 
@@ -131,7 +133,7 @@ Finally, the average is taken over all the remaining $256$ time-series to obtain
 
 
 \subsection{Seasonality}
-In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation from the template consumption instead of performing a forecast out of the blue. These templates or filters are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks. 
+In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation from the template consumption instead of performing a forecast out of the blue. However in \cite{Hoverstad2015} they made forecasts of an aggregated signal which has a reasonably amount of regularity which is not the case for electrical consumption of individual households. These templates or filters are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks. 
 
 \begin{equation}\label{eq:daily_filter}
 	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{di}, \hspace{10mm} i \in [1,48]
@@ -157,6 +159,39 @@ Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. Fi
 
 
 In the daily and weekly filters there can clearly be seen a consumption peek after midnight. This is due to heat storage systems that use electricity in the hours of low tariff and that release heat during high electricity tariffs. 
+
+\subsection{Comparing weekdays with weekends} \label{s:Comparing weekdays with weekends}
+Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. The reader is reminded that in order to get this graph, all the remaining household loads after preprocessing are averaged after which all the weeks are again averaged using equation \ref{eq:weekly_filter}. It can be seen that the consumption of the average business day is similar to a weekend day concerning the two main peaks during the day (7 am and 6 pm) and the sharp peak at midnight. However, it can be seen that the first peak during the day is higher and goes less down again during the weekend. This effect can be seen both during a Sunday and Saterday, but is most visible during a sunday. To proof previous statements similarity is measured by calculating the hourly difference of the $ 21 $ combinations that can be made of two different days. Figure \ref{fig:similarity_weekday} shows in blue and orange the error of combinations between business days or weekend days and in green the error of combinations between a business day and weekend day. The error value is calculated by summing the hourly errors between two days. It can be clearly seen that when a business day and weekend day are combined the error (green) is bigger and thus similarity smaller. Another thing that can be noticed is that the left cluster of green dots corresponds to a Saterday and the right to a Sunday. It can be noticed that Saterdays are more similar to a business day than a Sunday. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{similarity_weekdays.png}
+	\caption{Error between different pairs of weekdays.}
+	\label{fig:similarity_weekdays}
+\end{figure}
+
+
+
+
+\subsection{Impact of holidays}
+% important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
+In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to mitigate the temperature dependency. The resulting average holiday and business day is given in Figure \ref{fig:bvsh}. A holiday behaves similar to a weekend day with the first peak load going higher and goes less down over time. Figure \ref{fig:sim_weekdays} shows that a holiday behaves the most similar to a Sunday .
+
+It can be seen that the consumption of a holiday behaves similar as a weekend day. Figure shows the average error between a holiday vs business day and a holiday vs weekend day. The error is calculated as discussed in section \ref{s:Comparing weekdays with weekends}. 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{bvsh.png}
+	\caption{Figure with the comparison between holidays and business days.}
+	\label{fig:bvsh}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=1.0\textwidth]{sim_weekdays.png}
+	\caption{Error between a holiday and other days of the week.}
+	\label{fig:sim_weekdays}
+\end{figure}
 
 
 \subsection{Influence of temperature}
@@ -216,39 +251,6 @@ Applying the Kendal correlation  gives a correlation value of $ -0.67$, which me
 
 % There is a clear dependency between temperature and electricity consumption, which means that electricity is used for heating.  
 
-
-\subsection{Comparing weekdays with weekends} \label{s:Comparing weekdays with weekends}
-Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. The reader is reminded that in order to get this graph, all the remaining household loads after preprocessing are averaged after which all the weeks are again averaged using equation \ref{eq:weekly_filter}. It can be seen that the consumption of the average business day is similar to a weekend day concerning the two main peaks during the day and the sharp peak at midnight. However, it can be seen that the first peak during the day is higher and goes less down again during the weekend. This effect can be seen both during a Sunday and Saterday, but is most visible during a sunday. To proof previous statements similarity is measured by calculating the hourly difference of the $ 21 $ combinations that can be made of two different days. Figure \ref{fig:similarity_weekday} shows in blue and orange the error of combinations between business days or weekend days and in green the error of combinations between a business day and weekend day. The error value is calculated by summing the hourly errors between two days. It can be clearly seen that when a business day and weekend day are combined the error (green) is bigger and thus similarity smaller. Another thing that can be noticed is that the left cluster of green dots corresponds to a Saterday and the right to a Sunday. It can be noticed that Saterdays are more similar to a business day than a Sunday. 
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{similarity_weekdays.png}
-	\caption{Error between different pairs of weekdays.}
-	\label{fig:similarity_weekdays}
-\end{figure}
-
-
-
-
-\subsection{Impact of holidays}
-% important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
-In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to mitigate the temperature dependency. The resulting average holiday and business day is given in Figure \ref{fig:bvsh}. A holiday behaves similar to a weekend day with the first peak load going higher and goes less down over time. Figure \ref{fig:sim_weekdays} shows that a holiday behaves the most similar to a Sunday .
-
-It can be seen that the consumption of a holiday behaves similar as a weekend day. Figure shows the average error between a holiday vs business day and a holiday vs weekend day. The error is calculated as discussed in section \ref{s:Comparing weekdays with weekends}. 
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{bvsh.png}
-	\caption{Figure with the comparison between holidays and business days.}
-	\label{fig:bvsh}
-\end{figure}
-
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=1.0\textwidth]{sim_weekdays.png}
-	\caption{Error between a holiday and other days of the week.}
-	\label{fig:sim_weekdays}
-\end{figure}
 
 
 \subsection{Identification of driving attributes} \label{s:Identification of driving attributes}
