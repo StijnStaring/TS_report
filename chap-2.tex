@@ -116,13 +116,13 @@ Performance of the proposed method was finally evaluated based on a test set of 
 
 The proposed DRNN with pooling outperforms all other four methods based on following three metrics:
 
-\begin{equation}
+\begin{equation}\label{eq:RMSE}
 	RMSE = \sqrt{\frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:NRMSE}
 	NRMSE = \frac{RMSE}{y_{max}-y_{min}}
 \end{equation}
-\begin{equation}
+\begin{equation}\label{eq:MAE}
 	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N}
 \end{equation}
 \textbf{Actually LSTM network}
@@ -172,7 +172,7 @@ At last, also an analysis is performed to investigate the influence of the diffe
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{CNN-LSTM_results_T.png}
-	\caption{Comparison between LSTM and CNN-LSTM. source(\cite{Kim2019})}
+	\caption{Comparison between LSTM and CNN-LSTM. (source: \cite{Kim2019})}
 	\label{tab:LSTM_lit_results}
 \end{figure}
 

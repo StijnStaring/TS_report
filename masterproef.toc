@@ -40,20 +40,21 @@
 \contentsline {section}{\numberline {3.3}Conclusion}{27}{section.3.3}%
 \contentsline {chapter}{\chapternumberline {4}Forecasting the daily electricity consumption}{29}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Pre-processing}{29}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Baseline models}{30}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Neural network models}{31}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}LSTM}{31}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}GRU}{31}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Parameter search}{31}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Evaluation of different designs}{31}{subsection.4.3.4}%
-\contentsline {section}{\numberline {4.4}Conclusion}{31}{section.4.4}%
+\contentsline {subsection}{\numberline {4.1.1}Data}{29}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Baseline models}{31}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Neural network models}{32}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}LSTM}{32}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}GRU}{32}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Parameter search}{32}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Evaluation of different designs}{32}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Conclusion}{32}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{33}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusion}{33}{section.5.1}%
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{35}{chapter.6}%
 \contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{35}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Item 1}{35}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{35}{section*.31}%
-\contentsline {subsubsection}{Sub-item 2}{35}{section*.32}%
+\contentsline {subsubsection}{Sub-item 1}{35}{section*.34}%
+\contentsline {subsubsection}{Sub-item 2}{35}{section*.35}%
 \contentsline {subsection}{\numberline {6.1.2}Item 2}{36}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}The Second Topic}{36}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Conclusion}{37}{section.6.3}%
@@ -67,4 +68,4 @@
 \contentsline {subsection}{\numberline {B.0.1}Removing outliers}{49}{subsection.B.0.1}%
 \contentsline {subsection}{\numberline {B.0.2}Normalization of the data}{49}{subsection.B.0.2}%
 \contentsline {section}{\numberline {B.1}ARIMA}{49}{section.B.1}%
-\contentsline {chapter}{Bibliography}{51}{appendix*.41}%
+\contentsline {chapter}{Bibliography}{51}{appendix*.44}%
