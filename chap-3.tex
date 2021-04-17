@@ -22,7 +22,7 @@ In order to reduce the calculation load to do the parameter search in Section \r
 		\includegraphics[width=1\linewidth]{Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png}
 		\caption{Serie $ 3 $}
 	\end{subfigure}
-	\caption{The three selected series. }
+	\caption{The consumption of $ 2017 $ for the three selected series. }
 \end{figure}
 
 \begin{table}
@@ -44,10 +44,10 @@ In order to reduce the calculation load to do the parameter search in Section \r
     Maximum average temperature [$\degree C$] & $ 23.99 $  & $ 24.51 $   & $ 22.95 $ \\ 
     Minimum average temperature [$\degree C$] & $ -1.07 $  &  $ -1.28 $  & $ -1.42 $ \\
     Missing average temperature days &  $ 0 $ & $ 0 $  & $ 0 $  \\ 
-    Amount of holidays in $ 2017 $ & $ 8 $  &  $ 8 $  & $ 8 $ \\
+    Amount of holidays in $ 2017 $ & $ 8 $  &  $ 8 $  & $ 8 $ \\\bottomrule
   \end{tabular}
   \caption{summarizing characteristics about the selected series.}
-  \label{tab:ok}
+  \label{tab:summ_data}
 \end{table}
 
 The three time series are divided in a training, validation and test set. As validation and test set are respectively the months November and December chosen. Because in this chapter the time series are not aggregated to a single signal as was the case in Section \ref{s:Analysis} the min-max normalization can be used. The missing values in the consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. Similar, the missing values of the temperature are substituted by first looking at the temperature yesterday, then tomorrow and as last the mean temperature.\\
@@ -66,6 +66,7 @@ Table \ref{tab:CPU} shows the different features of the hired machine.
 
 
 \section{Baseline models}\label{s:Baseline models}
+\subsection{Models}
 As earlier discussed, the baseline models are characterised by a low calculation load during training and therefore serve as a baseline to compare more complex models with. The different baseline models tried are listed as follows:
 \begin{itemize}
 	\item Model 1: ``closest day forecast''
@@ -75,7 +76,7 @@ As earlier discussed, the baseline models are characterised by a low calculation
 	\item Model 5: ``MAPE forecast''
 \end{itemize} 
 
-For all the models listed here, the training set for the forecast of the next day are all the days before this day of the year $ 2017 $. These models can therefore be categorized as ``lazy models'' because they only do work when they are asked a query. In contrast, the models discussed in Section \ref{s:Neural network models} generalize the training data without knowing the actual query. The 24 hour predictions made by all $ 5 $ are done all at once, which means that predictions done for an earlier hour of the day, are not taken into account.\\
+For all the models listed here, the training set for the forecast of the next day are all the days before this day of the year $ 2017 $. These models can therefore be categorized as ``lazy learning models'' because they only do work when they are asked a query. In contrast, the models discussed in Section \ref{s:Neural network models} generalize the training data without knowing the actual query. They belong to the ``eager learning methods'' class. The 24 hour predictions made by the $ 5 $ models are done all at once. This is in contrast to the models described in Section \ref{s:Neural network models}, where the prediction is made sample per sample and where the predictions done for an earlier hour of the day are taken into account.\\
 
 \textbf{Model 1: ``closest day forecast''}\\
 This model looks for the most similar day in the training set based on following metrics to make a prediction:
@@ -83,21 +84,28 @@ This model looks for the most similar day in the training set based on following
 \begin{itemize}
 	\item Holiday
 	\item Day of the week
-	\item Difference average temperature
 \end{itemize}
+
+ All the days in the training are categorized according to these metrics. Then it is looked in which category the desired day belongs i.e. which day of the week and if it is a holiday. Inside the selected category, an assessment of the difference in average temperature is made for all days with respect to the desired day. It is assumed that the average temperature of the desired day is already available, which is a very plausible assumption. Finally, the day with the closest euclidean distance in temperature is selected and the electrical consumption signal is copied to serve as the prediction of the desired day. It should be noted that there are only a maximum of $ 8 $ holidays as can be seen in Table \ref{tab:summ_data}. Therefore, when a holiday should be predicted all Sundays are also included in the training set because a Sunday behaves most similar to a holiday as can be seen in Figure \ref{fig:sim_weekdays}.\\
  
- It is assumed that the average temperature of the next day is available, which is a very plausible assumption.
-
-The models listed above don't make use of a validation set. Therefore all 
-
-- all in once forecast
-- no val
-
-\textbf{Model1: ``closest day forecast''}\\
-
-
-- show all four plots --> MAPE was not possible because of the division by zero
-
+ \textbf{Model 2: ``1 day ago forecast''}\\
+ This model simply looks at the consumption of the day before the desired day. The philosophy of the model is that the most recent consumption data serves as a a good predictor.
+ 
+ \textbf{Model 3: ``7 days ago forecast''}\\
+ This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.
+ 
+ \textbf{Model 4: ``Mean forecast''}\\
+ In the mean forecast the different days are again categorized as was done in Model $ 1 $, but instead of selecting a single day out of the group of days, a mean day is calculated and used as prediction of the desired day. No extra Sundays are included to forecast a holiday.\\
+ 
+ \textbf{Model 5: ``MAPE forecast'' }\\
+ This model solves for each half hour of the desired day a small non-linear optimization problem displayed by (Eq. \ref{eq:model_mape}). This model served as baseline model in paper \cite{Kong2019}. 
+ 
+ \begin{equation}\label{eq:model_mape}
+ 	objective = \sum_{i=1}^K \zeta_{pi}\abs{\frac{(\hat{y}-p_i)}{pi}}
+ \end{equation}
+ 
+ Again a group of days of size $ M $, corresponding the desired day is selected based on the metrics of weekday and if the desired day is a holiday. Also Sundays are added to the group of holidays for this model. Next, the consumption at time $ t $ is extracted out of this group of days, which gives a list of length $ M $ with historic consumption values. From these values an empirical probability mass function $ \zeta_{pi} $ is derived by making use of a histogram using ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and taken as the midpoint of two bin edges. From the count in the histogram the probability mass function for each discretized value is found. $ \hat{y} $ is found by minimizing equation \ref{eq:model_mape}.\\
+ 
 The metrics used to evaluate the predictions performance of the base line are $ RMSE $ (Eq. \ref{eq:RMSE}), $ NRMSE $ (Eq. \ref{eq:NRMSE}), $ MAE $ (Eq. \ref{eq:MAE}), $ MSE $ (Eq. \ref{eq:MSE}) and $ MAPE $ (Eq. \ref{eq:MAPE}).
 
 \begin{equation}\label{eq:MSE}
@@ -108,18 +116,71 @@ The metrics used to evaluate the predictions performance of the base line are $ 
 	MAPE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}/y_t}{N}
 \end{equation}
 
+\subsection{Results of baseline models}
+The results of the different forecasts of the month December are summarized by Table \ref{tab:summ_data_serie1}, \ref{tab:summ_data_serie2} and \ref{tab:summ_data_serie3}. In order to make a fair comparison only the days of December where all models could produce a forecast are included in the error metrics. 
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccccr@{}} \toprule
+		\textbf{Error metric}	& \textbf{Closest day} & \textbf{$ 1 $ day} & \textbf{$ 7 $ days} & \textbf{mean} & \textbf{MAPE}\\\midrule
+		Mean absolute error& $0.2049 $&$ 0.1954 $  & $0.1896 $ & $ 0.1542 $ & $ 0.1920 $\\
+		Mean squared error& $0.1148 $&$ 0.1090 $  & $0.1011 $ & $ 0.0701 $ & $ 0.1079 $\\
+		Normalized root mean squared error& $0.1591 $&$ 0.1550$  & $0.1493$ & $ 0.1243$ & $ 0.1542$\\
+		Root mean square error& $0.3389 $&$ 0.3302$  & $0.3180$ & $ 0.2648$ & $ 0.3285$\\
+		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+	\end{tabular}
+	\caption{Evaluation results for Serie $ 1 $ tested on $ 31 $ days of December.}
+	\label{tab:summ_data_serie1}
+\end{table}
+% @{} just makes sure that the cell does not go further than the end of the text.
+% c = center of cell, l = left, r = right
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccccr@{}} \toprule
+		\textbf{Error metric}	& \textbf{Closest day} & \textbf{$ 1 $ day} & \textbf{$ 7 $ days} & \textbf{mean} & \textbf{MAPE}\\\midrule
+		Mean absolute error& $0.0559 $&$ 0.075 $  & $0.0693 $ & $ 0.0473 $ & $ 0.0507 $\\
+		Mean squared error& $0.0123 $&$ 0.0264 $  & $0.0188 $ & $ 0.0085 $ & $ 0.0125 $\\
+		Normalized root mean squared error& $0.0823 $&$ 0.1205$  & $0.1017$ & $ 0.0681$ & $ 0.0828$\\
+		Root mean square error& $0.1111 $&$ 0.1625$  & $0.1373$ & $ 0.0919$ & $ 0.1117$\\
+		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+	\end{tabular}
+	\caption{Evaluation results for Serie $ 2 $ tested on $ 12 $ days of December.}
+	\label{tab:summ_data_serie2}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccccr@{}} \toprule
+		\textbf{Error metric}	& \textbf{Closest day} & \textbf{$ 1 $ day} & \textbf{$ 7 $ days} & \textbf{mean} & \textbf{MAPE}\\\midrule
+		Mean absolute error& $0.1267 $&$ 0.1370 $  & $0.1323 $ & $ 0.1038 $ & $ 0.1130 $\\
+		Mean squared error& $0.0824 $&$ 0.0846 $  & $0.0895 $ & $ 0.0521 $ & $ 0.0743 $\\
+		Normalized root mean squared error& $0.1453 $&$ 0.1472$  & $0.1514$ & $ 0.1155$ & $ 0.1380$\\
+		Root mean square error& $0.2871 $&$ 0.2909$  & $0.2991$ & $ 0.2282$ & $ 0.2726$\\
+		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+	\end{tabular}
+	\caption{Evaluation results for Serie $ 3 $ tested on $ 12 $ days of December.}
+	\label{tab:summ_data_serie3}
+\end{table}
+
+% if mape performs best for the mape metric --> use both mean and mape as baseline models
+A general rule of the mean forecast outperforming the other methods can be concluded out of all the above tables. The order of the other forecasting techniques are more serie dependent. This will consequently be the model that is chosen as baseline model. It can be seen by inspecting the predictions that model $ 1 $,$ 2 $ and $ 3 $, which copy the consumption of another day, show more peaks in their prediction than model $ 4 $ and $ 5 $ that make use of the mean and MAPE techniques. Also, a practical downside of model $ 1 $,$ 2 $ and $ 3 $ is that it is possible that they give no output e.g. no temperature or consumption yesterday is available. \\
+
+Figure \ref{label} shows the average performance of the baseline models on all $ 261 $ time series in the ``consumption.csv'' of Table \ref{tab:available_data} that contain a full year of measurements. The MAPE metric is not used because $ 99 $ series contain a true half hour consumption of zero, which would lead to a division by zero. 
 
 
 
-Base model
-Can't plot the Mape figure because sometimes the real value is equal to zero. 99 time-series have sometimes a zero consumption during half an hour.
+
+- show all four plots --> MAPE was not possible because of the division by zero
+- show pictures --> three peak
+- show picture --> two mean
+
+
 The different base models can behave quite different on the different time-series. Sometimes the closest day works better than previous week or day and sometimes works much worse. Doesn't make a lot of sense to average the base models over all the possible time-series. 
 
 Experiment of forecasting three time-series
 
 Looking at the bar plots
 
-Mean forecast behaves best  for the three time series and for all the different metrics.
 %MAPE_forecast behaves often second best:
 %--> serie 0xc3b: RMSE, NRMS, MSE, MAE,
 %-->serie 0x78a: no times second best
@@ -159,6 +220,7 @@ Was on average better than the other technique.
 \section{Neural network models}\label{s:Neural network models}
 - predicting each time one sample
 - discuss the inputs to the models
+-assumption is made that you are waiting untill midnight to do the prediction of the next day...
 Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
 \subsection{LSTM}
 - model
@@ -167,7 +229,7 @@ Typical variables used in a forecasting model are: past electricity consumption 
 
 \subsection{GRU}
 
-\subsection{Parameter search} \ref{s:Parameter search}
+\subsection{Parameter search}\label{s:Parameter search}
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
 
 \subsection{Temperature model}
