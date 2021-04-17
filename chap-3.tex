@@ -92,7 +92,7 @@ This model looks for the most similar day in the training set based on following
  This model simply looks at the consumption of the day before the desired day. The philosophy of the model is that the most recent consumption data serves as a a good predictor.
  
  \textbf{Model 3: ``7 days ago forecast''}\\
- This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.
+ This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.\\
  
  \textbf{Model 4: ``Mean forecast''}\\
  In the mean forecast the different days are again categorized as was done in Model $ 1 $, but instead of selecting a single day out of the group of days, a mean day is calculated and used as prediction of the desired day. No extra Sundays are included to forecast a holiday.\\
@@ -127,7 +127,7 @@ The results of the different forecasts of the month December are summarized by T
 		Mean squared error& $0.1148 $&$ 0.1090 $  & $0.1011 $ & $ 0.0701 $ & $ 0.1079 $\\
 		Normalized root mean squared error& $0.1591 $&$ 0.1550$  & $0.1493$ & $ 0.1243$ & $ 0.1542$\\
 		Root mean square error& $0.3389 $&$ 0.3302$  & $0.3180$ & $ 0.2648$ & $ 0.3285$\\
-		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+		Mean absolute percentage error & $ 0.5709 $&$ 0.6163 $  & $ 0.5840 $ & $ 0.4594 $ & $ 0.4138 $\\\bottomrule
 	\end{tabular}
 	\caption{Evaluation results for Serie $ 1 $ tested on $ 31 $ days of December.}
 	\label{tab:summ_data_serie1}
@@ -142,7 +142,7 @@ The results of the different forecasts of the month December are summarized by T
 		Mean squared error& $0.0123 $&$ 0.0264 $  & $0.0188 $ & $ 0.0085 $ & $ 0.0125 $\\
 		Normalized root mean squared error& $0.0823 $&$ 0.1205$  & $0.1017$ & $ 0.0681$ & $ 0.0828$\\
 		Root mean square error& $0.1111 $&$ 0.1625$  & $0.1373$ & $ 0.0919$ & $ 0.1117$\\
-		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+		Mean absolute percentage error & $ 1.601 $&$ 2.1993 $  & $ 2.3123 $ & $ 1.6657 $ & $ 0.7841 $\\\bottomrule
 	\end{tabular}
 	\caption{Evaluation results for Serie $ 2 $ tested on $ 12 $ days of December.}
 	\label{tab:summ_data_serie2}
@@ -156,74 +156,61 @@ The results of the different forecasts of the month December are summarized by T
 		Mean squared error& $0.0824 $&$ 0.0846 $  & $0.0895 $ & $ 0.0521 $ & $ 0.0743 $\\
 		Normalized root mean squared error& $0.1453 $&$ 0.1472$  & $0.1514$ & $ 0.1155$ & $ 0.1380$\\
 		Root mean square error& $0.2871 $&$ 0.2909$  & $0.2991$ & $ 0.2282$ & $ 0.2726$\\
-		Mean absolute percentage error & $ $&$  $  & $ $ & $  $ & $  $\\\bottomrule
+		Mean absolute percentage error & $ 0.8609 $&$ 1.3153 $  & $ 0.9271 $ & $ 0.8094  $ & $ 0.4792 $\\\bottomrule
 	\end{tabular}
 	\caption{Evaluation results for Serie $ 3 $ tested on $ 12 $ days of December.}
 	\label{tab:summ_data_serie3}
 \end{table}
 
 % if mape performs best for the mape metric --> use both mean and mape as baseline models
-A general rule of the mean forecast outperforming the other methods can be concluded out of all the above tables. The order of the other forecasting techniques are more serie dependent. This will consequently be the model that is chosen as baseline model. It can be seen by inspecting the predictions that model $ 1 $,$ 2 $ and $ 3 $, which copy the consumption of another day, show more peaks in their prediction than model $ 4 $ and $ 5 $ that make use of the mean and MAPE techniques. Also, a practical downside of model $ 1 $,$ 2 $ and $ 3 $ is that it is possible that they give no output e.g. no temperature or consumption yesterday is available. \\
+The rule that the mean forecast outperforms the other methods can be concluded out of all the above tables when not looking to the MAPE metric. The order of the other forecasting techniques are in this case more serie dependent. The MAPE minimization technique logically performs for all time series best on the MAPE error metric. The mean forecast and the MAPE forecast will consequently be the models that are chosen as baseline models. It can be seen by inspecting the predictions that model $ 1 $,$ 2 $ and $ 3 $, which copy the consumption of another day, show more peaks in their prediction than model $ 4 $ and $ 5 $ that make use of the mean and MAPE techniques. Predictions of of the last mentioned models can be seen in Figure \ref{fig:baseline models 4 and 5} Also, a practical downside of model $ 1 $,$ 2 $ and $ 3 $ is that it is possible that they give no output e.g. when no temperature or consumption yesterday is available. \\
 
-Figure \ref{label} shows the average performance of the baseline models on all $ 261 $ time series in the ``consumption.csv'' of Table \ref{tab:available_data} that contain a full year of measurements. The MAPE metric is not used because $ 99 $ series contain a true half hour consumption of zero, which would lead to a division by zero. 
-
-
-
-
-- show all four plots --> MAPE was not possible because of the division by zero
-- show pictures --> three peak
-- show picture --> two mean
-
-
-The different base models can behave quite different on the different time-series. Sometimes the closest day works better than previous week or day and sometimes works much worse. Doesn't make a lot of sense to average the base models over all the possible time-series. 
-
-Experiment of forecasting three time-series
-
-Looking at the bar plots
-
-%MAPE_forecast behaves often second best:
-%--> serie 0xc3b: RMSE, NRMS, MSE, MAE,
-%-->serie 0x78a: no times second best
-%-->serie 0x1e: MAE, 
-%
-%In serie 0xc3b the closest, day and week perform similar and worse.
-%In serie 0x78a all behave similar bad except for the mean technique
-%In serie 0x1e the closest day forecast performs much better than the prev day and week method. This method is again very serie dependent.
-In this serie the prev week and day behave worse than the other techniques. Similar day and MAPE work here clearly better.
-
-Three other techniques which is best, depends a lot about which time serie is forecasted. 
-When look at mse --> the amount that mean performs better gets bigger. Indication that mean is better in predicting also when occuring peak,
-Because this is what the mse penalizing more severly than the other methods. Verify this with the individual plots in the tekst.
-This is possibly due to the square. The MAE gives a more all similar behaviour than the other metrics.
-
-Looking at the day plots
-The previous day and week and similar forecast have typically much peaks but shifted.
-The MAPE and the mean forecasts follow more the trends.
-
-Important that when do predictions --> only look at the values in December where there is a day forecast for all the different techniques. This is in order to make a fair prediction. 
-serie 0x78a--> all 31 days
-serie 0x1e--> 12 days
-serie 0xc3b --> 12 days
-Disadvantage of previous day, previous week and similar week is that there can be not a forecast available! 
-This is mostly the case for prev day and prev week. This issue is not occuring for the mean and MAPE options. 
-
-Experiment to look at all the time series
-All the 261 time-series are set to be equally important. In every time-serie a comparison with the performance of the worst technique is made.
-The worst forecasting technique is set to have a value one and the rest of the techniques get a value how much better they perform than the worst signal. Which technique performs worst, depends on every time-serie.
-If the mean performance is better for one technique than the other this means that the to expect performance for a random time-serie for one technique is better than the other technique. This is because this techniques behaved  more often or more proportional better than the worst technique in comparison of the other technique over all the time series. 
+\begin{figure}[ht]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.png_1618425095.png}
+		\caption{Model 4: ``Mean forecast''}
+	\end{subfigure}	
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.png_1618425124.png}
+		\caption{Model 5: ``MAPE forecast''}
+	\end{subfigure}
+	\caption{Daily predictions of two baseline models. (Blue: True / Orange: Prediction) }
+	\label{fig:baseline models 4 and 5}
+\end{figure}
 
 
-for one technique the performance in comparison with the worst technique 
-Was on average better than the other technique. 
+Table \ref{tab:summ_data_rel_performance} shows the average performance of the baseline models on all $ 261 $ time series in the ``consumption.csv'' of Table \ref{tab:available_data} that contain a full year of measurements. The MAPE metric is not used because $ 99 $ series contain a true half hour consumption of zero, which would lead to a division by zero. The resulting error metric of every time serie is divided by the error of the model that performs worst. Then the average is taken over all the time series. The closer the averaged value is to one, the more often this model was behaving worst. By applying this normalization, the NRMSE leads to the same result as for RMSE. Therefore, only RMSE is mentioned. 
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccccr@{}} \toprule
+		\textbf{Error metric}	& \textbf{Closest day} & \textbf{$ 1 $ day} & \textbf{$ 7 $ days} & \textbf{mean} & \textbf{MAPE}\\\midrule
+		Mean absolute error& $0.950 $&$ 0.8298 $  & $0.8224 $ & $ 0.7274 $ & $ 0.7918 $\\
+		Mean squared error& $0.8377 $&$ 0.7771 $  & $0.7363 $ & $ 0.4996 $ & $ 0.6907 $\\
+		Root mean square error& $0.9084 $&$ 0.8621$  & $0.8426$ & $ 0.6993$ & $ 0.8155$\\\bottomrule
+	\end{tabular}
+	\caption{Relative performance over all the $ 261 $ time series.}
+	\label{tab:summ_data_rel_performance}
+\end{table}
+
+From Table \ref{tab:summ_data_rel_performance} it can again be concluded that the model performing a mean forecast attains the best results. The second best general applicable model over all the three metrics is the MAPE forecast model.
 
 
 \section{Neural network models}\label{s:Neural network models}
+In this section more LSTM and GRU models, that are specialized in time series learning, are presented in different variations. The inputs to theses models are given by Table \ref{tab:inputs}.
+
+
+These models are implemented so that they sequentially predict each half hour of consumption, taking into account the previous   
+
+
 - predicting each time one sample
 - discuss the inputs to the models
 -assumption is made that you are waiting untill midnight to do the prediction of the next day...
 Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
+
 \subsection{LSTM}
 - model
+- use the flowchart that have sent in mail
 - as metric for the model during training --> chosen for mse.
 
 
@@ -231,6 +218,8 @@ Typical variables used in a forecasting model are: past electricity consumption 
 
 \subsection{Parameter search}\label{s:Parameter search}
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
+
+- make a table of the different parameters that are varied. 
 
 \subsection{Temperature model}
 A MLP model for developing a regresion model to forecast a temperature signal. 

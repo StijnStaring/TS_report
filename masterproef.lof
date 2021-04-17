@@ -34,17 +34,18 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{27}{figure.caption.30}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The consumption of $ 2017 $ for the three selected series. \relax }}{30}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{34}{figure.caption.37}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{47}{figure.caption.39}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{49}{figure.caption.41}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{50}{figure.caption.42}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{50}{figure.caption.43}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{51}{figure.caption.44}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{51}{figure.caption.45}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{47}{figure.caption.41}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{49}{figure.caption.43}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{50}{figure.caption.44}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{50}{figure.caption.45}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{51}{figure.caption.46}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{51}{figure.caption.47}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{54}{figure.caption.46}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{54}{figure.caption.48}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{56}{figure.caption.47}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{56}{figure.caption.49}%
