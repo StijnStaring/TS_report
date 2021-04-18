@@ -65,6 +65,7 @@ Table \ref{tab:CPU} shows the different features of the hired machine.
 \end{table}
 
 
+\textbf{- Make a table that summarizes the environment to do simulations.(baseline and othe models) (can be put in the appendix)}
 \section{Baseline models}\label{s:Baseline models}
 \subsection{Models}
 As earlier discussed, the baseline models are characterised by a low calculation load during training and therefore serve as a baseline to compare more complex models with. The different baseline models tried are listed as follows:
@@ -197,19 +198,27 @@ From Table \ref{tab:summ_data_rel_performance} it can again be concluded that th
 
 
 \section{Neural network models}\label{s:Neural network models}
-In this section more LSTM and GRU models, that are specialized in time series learning, are presented in different variations. The inputs to theses models are given by Table \ref{tab:inputs}.
+In this section LSTM and GRU models, which are models that are specialized in time series learning, are presented in different variations. The inputs to theses models are similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
+\begin{itemize}
+	\item historic training values (min-max normalization)
+	\item average daily temperature (min-max normalization)
+	\item which day of the week (one hot encoding)
+	\item which time of the day (one hot encoding)
+	\item is it a holiday (one hot encoding)
+\end{itemize}
 
+How far there will be looked back into the history of the electrical consumption is decided by the lag value. This value corresponds to the number of historic time steps that will be taken into account. The LSTM and GRU models are developed using the Keras package backed by Tensorflow in Python. The Keras model expects an matrix $ X $ as input with three dimensions: sample number, amount of timesteps, amount of features. The amount of timesteps equals the lag value.
 
-These models are implemented so that they sequentially predict each half hour of consumption, taking into account the previous   
+When we look at one sample of the $ X $ matrix e.g. $ (1,lag\hspace{1.5mm}value, features) $, we get a 2D matix. On the first column an amount of $ lag\hspace{1.5mm}value $ of previous consumption values is stored. The further down the rows of the first column, the closer time gets to the actual value that needs to be predicted. This is also the case for the temperature, but because only the temperature is known on daily basis and history of the electricity consumption is known for every 30 minutes, the temperature value is often the same in the second column of the 2D matrix. The historic consumption and daily average temperature input are normalized by scaling them between $ 0 $ and $ 1 $, using a min-max normalization.
+In the next $ 7 $ columns of the 2D matrix, information is given about which day of the week it is. This is encoded making use of a one hot encoding.For every row one of the 7 columns which corresponds with the day of the week gets a one and the rest will be set to zero. Very similar the information about the time of the day is indicated. There are 48 columns and for every row only one column gets a one to indicate the time of the day. This makes that the 2D matrix has $ 59  $columns which corresponds to the amount of features. Every 2D matrix in $ X $ serves as input to forecast a single next half hour electrical consumption.\\
 
+When the 24 hour prediction is made, the assumption is taken that information about the real electrical consumption is known until the moment of prediction. In case of this thesis, that means until midnight the previous day. Because the model predicts only $ 30 $ minutes into the future, previous predictions are taken as inputs for the next.
 
-- predicting each time one sample
-- discuss the inputs to the models
--assumption is made that you are waiting untill midnight to do the prediction of the next day...
-Typical variables used in a forecasting model are: past electricity consumption loads, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}.
 
 \subsection{LSTM}
+The ``long short-term memory model'' 
 - model
+- stateless vs not stateless
 - use the flowchart that have sent in mail
 - as metric for the model during training --> chosen for mse.
 

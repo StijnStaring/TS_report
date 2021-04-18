@@ -99,10 +99,10 @@ Also, there has been looked if there were fundamental changes in the electricity
 \textbf{it should be made clear that this normalization is only here used.}
 % normalize as done in ppt --> deviding by the yearly consumption.
 % downside of this normalilzation that outshooters will have influence.
-Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption as was done in \cite{Lago2020}. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year.
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption as was done in \cite{Lago2020}. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year
 
 \begin{equation}\label{eq:norm}
-	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}
+	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}.
 \end{equation} 
 
 As discussed in section \ref{s:Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
@@ -140,11 +140,11 @@ Finally, the average is taken over all the remaining $256$ time-series to obtain
 In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation from the template consumption instead of performing a forecast out of the blue. However in \cite{Hoverstad2015} they made forecasts of an aggregated signal which has a reasonably amount of regularity which is not the case for electrical consumption of individual households. These templates or filters are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks. 
 
 \begin{equation}\label{eq:daily_filter}
-	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{di}, \hspace{10mm} i \in [1,48]
+	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{di}, \hspace{10mm} i \in [1,48],
 \end{equation} 
 
 \begin{equation}\label{eq:weekly_filter}
-	\bar{y}_j = \frac{1}{W} \sum_{w=1}^W y_{wj}, \hspace{10mm}  j \in [1,336]
+	\bar{y}_j = \frac{1}{W} \sum_{w=1}^W y_{wj}, \hspace{10mm}  j \in [1,336].
 \end{equation} 
 
 
@@ -206,10 +206,10 @@ In following section the correlation between the temperature and the electricity
 
 
 \textbf{Pearson correlation}\\
-The Pearson correlation is a measurement of the linear dependency between two variables which is based on the covariance variable. A Pearson correlation value gives information concerning the magnitude of the association and the corresponding direction of it. A Pearson value of one and minus one give respectively a perfect positive and negative linear relation between the variables. A value of zero, corresponds to independent behaviour. Following formula is used when calculating the Pearson correlation. 
+The Pearson correlation is a measurement of the linear dependency between two variables which is based on the covariance variable. A Pearson correlation value gives information concerning the magnitude of the association and the corresponding direction of it. A Pearson value of one and minus one give respectively a perfect positive and negative linear relation between the variables. A value of zero, corresponds to independent behaviour. Following formula is used when calculating the Pearson correlation
 
 \begin{equation}\label{eq:pearson}
-	\rho_{X,Y} = \frac{\sigma_{x,y}}{\sigma_x\sigma_y}
+	\rho_{X,Y} = \frac{\sigma_{x,y}}{\sigma_x\sigma_y}.
 \end{equation}
 
 Assumptions concerning Pearson correlation are that samples used for the correlation should be independent drawn, come in pairs, follow homoscedasticity and there are no outliers. Outliers are especially undesirable when there are not a lot of samples. The variables should be normal distributed, linear related to each other and be continuous.\\

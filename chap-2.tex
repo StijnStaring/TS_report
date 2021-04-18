@@ -18,23 +18,23 @@ The simples configuration of deep networks are multilayer perceptrons and they a
 	\label{fig:MLP}
 \end{figure}
 
-All layers are connected to the next layer by the means of an affine function together with a non-linear activation function represented by sigma as shown by equation \ref{eq:NN} with $ \textbf{L}^{(N)} $ the vector with outputs of the Nthe layer, $ \textbf{W}^(N) $ the Nth weight matrix and $ \textbf{b}^{(N)} $ the Nth bias. 
+All layers are connected to the next layer by the means of an affine function together with a non-linear activation function represented by sigma as shown by equation \ref{eq:NN} with $ \textbf{L}^{(N)} $ the vector with outputs of the Nthe layer, $ \textbf{W}^(N) $ the Nth weight matrix and $ \textbf{b}^{(N)} $ the Nth bias
 
 %It can be noted that the MLP network is invariant.
 
 \begin{equation}\label{eq:NN}
-	\textbf{L}^{N+1} = \sigma(\textbf{W}^{(N)}\textbf{L}^{N}+\textbf{b}^{(N)})
+	\textbf{L}^{N+1} = \sigma(\textbf{W}^{(N)}\textbf{L}^{N}+\textbf{b}^{(N)}).
 \end{equation}
 
 
 \subsection{CNN}
 \textbf{See oneNote}
 
-\subsection{RNN}
-A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $. 
+\subsection{RNN}\label{s:RNN}
+A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $ 
 
 \begin{equation}\label{eq:RNN}
-	\textbf{H}^{t+1} = \sigma(\textbf{W}_1\textbf{X}^{t}+\textbf{W}_2\textbf{H}^{t}+\textbf{b})
+	\textbf{H}^{t+1} = \tanh(\textbf{W}_1\textbf{X}^{t}+\textbf{W}_2\textbf{H}^{t}+\textbf{b}).
 \end{equation}
 
 The equation $\textbf{X}^t$ corresponds to one example at time step $ t $ with dimensionality $ d $. 
@@ -49,7 +49,7 @@ Also a deep RNN is possible, where multiple hidden state per time step are used.
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1.0\textwidth]{RNN.png}
-	\caption{Figure of the logical flow of a vanilla RNN with a hidden state (source \cite{Czum2020}).}
+	\caption{Figure of the logical flow of a vanilla RNN with a hidden state (source: \cite{Czum2020}).}
 	\label{fig:RNN}
 \end{figure}
 
@@ -67,25 +67,81 @@ The second problem is the vanishing gradient problem which originates because wh
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{grad_exp.png}
-	\caption{Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite{Teuwen2019}).}
+	\caption{Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source: \cite{Teuwen2019}).}
 	\label{fig:grad_exp}
 \end{figure}
 
 
-\textbf{LSTM}\\
-Next, a LSTM (long short term memory) neural network will be assessed to model the Santa Fe data set instead of the MLP regression neural network that was used in the previous section . A LSTM has as advantage over a standard RNN that I can better handle the vanishing gradient problem and LSTM is not suffering as much of a short term memory. Therefore, it can  longer take important aspects of the presented time-serie into account when working on a new forecasting. LSTM makes use of three gates to learn which data of the sequence is important and should be remembered. In connection of these gates is a cell state which serves as a memory state and a connection to transport relative information throughout the different time steps. The forget gate decides what information should be kept or removed from the input and hidden state. The input gate updates the cell state and the output state decides what the next hidden state will be.\\
-In order to train a LSTM neural network there are more parameters that have to be learned.  There are now four different weight matrices. One form the forget gate, two from the input gate and one from the output gate. It can be noted that in order to train all these weights, this network is more data hungry than a simple RNN. When the lag value gets bigger, so do all the different weight matrices and the calculation load.\\
+\subsection{LSTM}\label{s:LSTM}
 
-\textbf{Add here a picture of the the LSTM and the corresponding formula's!!}
- 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=1.0\textwidth]{LSTM_cell.png}
+	\caption{A LSTM cell that is repeated over time (source: \cite{Olah}).}
+	\label{fig:LSTM_cell}
+\end{figure}
+
+As discussed in Section \ref{s:Problems} the LSTM is an updated version of the conventional RNN first proposed by \textbf{Hochreiter \& Schmidhuber} in $ 1997 $ to deal with the short term memory it suffers from. A LSTM can longer take important aspects of the presented time series into account while outputting a current prediction. To do this a LSTM makes use of three gates: forget gate $ \textbf{f}_t $, input gate $ \textbf{i}_t $ and an output gate $ \textbf{o}_t $. When comparing the three gates with equation \ref{eq:RNN}, it is clear that every gate is by itself a recurrent neural network, with the only difference that a sigmoid function is used instead of a hyperbolic tangent. The core concept of the LSTM is that it makes use of a memory cell that is passed on through the different time steps. The memory cell contains important information that is seen before in the data and should be taken into account at the current new output. The three gates can delete, write and read information from this memory cell. It can also be noted that equation \ref{LSTM_rnn} is exactly equal to the conventional RNN described by equation \ref{eq:RNN}. Equation \ref{LSTM_rnn} processes the hidden states $ H_t $ and the new input $ X_t $ to propose an update $ \tilde{\textbf{c}}_t $ to the previous memory cell. The input gate (Eq. \ref{LSTM_input}) decides what will be preserved of the proposal and actually updated. The forget gate (Eq. \ref{LSTM_forget}) decides what will be preserved from the original memory cell $ \textbf{c}_t $. When both the old memory cell and the proposal are pruned, they are combined to one new memory cell. This new memory cell is together with the output gate (Eq. \ref{LSTM_output}) used to output new hidden states. \\
+
+In order to train a LSTM neural network there are considerably more parameters that have to be learned. There are now four different weight matrices for both the hidden states and the inputs. Because by this increase of weights also the expressiveness of the model has increased with respect to the vanilla recurrent neural network of Section \ref{s:RNN}. Therefore, overfitting of the data should be extra monitored. Further, it can also be noted when looking to the LSTM equations that when the parameter that determines the amount of hidden states this will have a higher effect on the calculation load of a LSTM than the vanilla RNN. This is similar when more inputs are added.
+
+
+The LSTM equations are given as follows as they were found in \cite{Teuwen2019}:
+\begin{equation}\label{LSTM_forget}
+	\textbf{f}_{t} = \sigma(\textbf{W}_{fH}\textbf{H}_{t-1}+\textbf{W}_{fX}\textbf{X}_{t-1}+\textbf{b}_{f}),
+\end{equation}
+\begin{equation}\label{LSTM_input}
+	\textbf{i}_{t} = \sigma(\textbf{W}_{iH}\textbf{H}_{t-1}+\textbf{W}_{iX}\textbf{X}_{t-1}+\textbf{b}_{i}),
+\end{equation}
+\begin{equation}\label{LSTM_output}
+	\textbf{o}_{t} = \sigma(\textbf{W}_{oH}\textbf{H}_{t-1}+\textbf{W}_{oX}\textbf{X}_{t-1}+\textbf{b}_{o}),
+\end{equation}
+\begin{equation}\label{LSTM_rnn}
+	\tilde{\textbf{c}}_{t} = \tanh(\textbf{W}_{cH}\textbf{H}_{t-1}+\textbf{W}_{cX}\textbf{X}_{t-1}+\textbf{b}_{c}),
+\end{equation}
+\begin{equation}\label{LSTM_memory}
+	\textbf{c}_t = \textbf{f}_t\times\textbf{c}_{t-1}+\textbf{i}_t\times\tilde{\textbf{c}}_t,
+\end{equation}
+\begin{equation}\label{LSTM_next}
+	\textbf{H}_t = \textbf{o}_t\times\tanh(\textbf{c}_t).
+\end{equation}
+
+
+\subsection{GRU}\label{s:GRU}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=0.6\textwidth]{GRU_cell.png}
+	\caption{A GRU cell that is repeated over time (source: \cite{Olah}).}
+	\label{fig:GRU_cell}
+\end{figure}
+% Gated recurrent units
+add here some information about gru --> one note
+%Gated recurrent units (GRUs) [10] were later introduced as a simpler alternative to
+%LSTM, and have also become quite popular.
+There many different versions of the LSTM and GRU implementations. It has been shown in in [21](see paper), that the performance of are all similar. 
+
+% GRUs are simpler than LSTM, as they use one less gate and eliminate the concept of a seperate cell and hidden state
+the need for distinguishing between hidden states and memory cells.
+
+The GRU equations are given as follows as was found in \cite{Teuwen2019}:
+Which of these variants is best? Do the differences matter? Greff, et al. (2015) 
+
+\begin{equation}
+	\textbf{z}_{t} = \sigma(\textbf{W}_{zH}\textbf{H}_{t-1}+\textbf{W}_{zX}\textbf{X}_{t-1}+\textbf{b}_{z}),
+\end{equation}
+\begin{equation}
+	\textbf{r}_{t} = \sigma(\textbf{W}_{rH}\textbf{H}_{t-1}+\textbf{W}_{rX}\textbf{X}_{t-1}+\textbf{b}_{r}),
+\end{equation}
+\begin{equation}
+	\tilde{\textbf{H}}_{t}=\tanh(\textbf{W}_{HH}(\textbf{r}_t\times\textbf{H}_{t-1})+\textbf{W}_{HX}\textbf{X}_t+\textbf{b}_H),
+\end{equation}
+\begin{equation}
+	\textbf{H}_t=\textbf{z}_t\times\textbf{H}_{t-1}+(1-\textbf{z}_t)\times\tilde{\textbf{H}}_t.
+\end{equation}
 
 
 
-%\textbf{Vanishing gradient}\\
-%LTSM --> vanishing gradient problem is not solved! Mittigated. 
-%GRU
-%Attention model
-%Transer model
+
 
 
 \section{Short-Term residential electrical load forecasting}

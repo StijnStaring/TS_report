@@ -18,6 +18,8 @@ A level-1 auxiliary file: conclusion.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
 A level-1 auxiliary file: app-A.aux
 Reallocating 'name_of_file' (item size: 1) to 10 items.
+A level-1 auxiliary file: app-B.aux
+Reallocating 'name_of_file' (item size: 1) to 10 items.
 A level-1 auxiliary file: app-n.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: abbrv.bst
@@ -27,45 +29,45 @@ Warning--I didn't find a database entry for "h2g2"
 Warning--there's a number but no volume in loadforecastingmoor
 Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
-You've used 10 entries,
+You've used 11 entries,
             2118 wiz_defined-function locations,
-            576 strings with 5476 characters,
-and the built_in function-call counts, 3413 in all, are:
-= -- 322
-> -- 188
+            581 strings with 5539 characters,
+and the built_in function-call counts, 3606 in all, are:
+= -- 338
+> -- 195
 < -- 1
-+ -- 74
-- -- 64
-* -- 264
-:= -- 583
-add.period$ -- 28
-call.type$ -- 10
-change.case$ -- 60
++ -- 77
+- -- 66
+* -- 269
+:= -- 614
+add.period$ -- 30
+call.type$ -- 11
+change.case$ -- 64
 chr.to.int$ -- 0
-cite$ -- 13
-duplicate$ -- 104
-empty$ -- 255
-format.name$ -- 64
-if$ -- 682
+cite$ -- 14
+duplicate$ -- 111
+empty$ -- 277
+format.name$ -- 66
+if$ -- 724
 int.to.chr$ -- 0
-int.to.str$ -- 10
+int.to.str$ -- 11
 missing$ -- 10
-newline$ -- 51
-num.names$ -- 20
-pop$ -- 68
+newline$ -- 55
+num.names$ -- 22
+pop$ -- 76
 preamble$ -- 1
-purify$ -- 52
+purify$ -- 55
 quote$ -- 0
-skip$ -- 71
+skip$ -- 81
 stack$ -- 0
-substring$ -- 218
-swap$ -- 12
+substring$ -- 223
+swap$ -- 13
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 36
+type$ -- 40
 warning$ -- 3
-while$ -- 32
-width$ -- 12
-write$ -- 104
+while$ -- 34
+width$ -- 13
+write$ -- 111
 (There were 4 warnings)

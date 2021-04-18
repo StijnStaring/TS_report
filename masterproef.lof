@@ -25,27 +25,29 @@
 \contentsline {figure}{\numberline {2.9}{\ignorespaces Figure with the comparison of the different dwelling types.\relax }}{14}{figure.caption.22}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of a MLP (source \cite {Czum2020}).\relax }}{18}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source \cite {Czum2020}).\relax }}{19}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source \cite {Teuwen2019}).\relax }}{20}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{23}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{24}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{25}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{26}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{27}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source: \cite {Czum2020}).\relax }}{19}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source: \cite {Teuwen2019}).\relax }}{20}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces A LSTM cell that is repeated over time (source: \cite {Olah}).\relax }}{21}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces A GRU cell that is repeated over time (source: \cite {Olah}).\relax }}{22}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{25}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{26}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{27}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{28}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{29}{figure.caption.32}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The consumption of $ 2017 $ for the three selected series. \relax }}{30}{figure.caption.31}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{34}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The consumption of $ 2017 $ for the three selected series. \relax }}{32}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{36}{figure.caption.39}%
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{47}{figure.caption.41}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{49}{figure.caption.43}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{50}{figure.caption.44}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{50}{figure.caption.45}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{51}{figure.caption.46}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{51}{figure.caption.47}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{49}{figure.caption.43}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{51}{figure.caption.45}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{52}{figure.caption.46}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{52}{figure.caption.47}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{53}{figure.caption.48}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{53}{figure.caption.49}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{54}{figure.caption.48}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{56}{figure.caption.50}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{56}{figure.caption.49}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{58}{figure.caption.51}%
