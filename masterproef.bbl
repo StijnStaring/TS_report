@@ -1,9 +1,21 @@
 \begin{thebibliography}{10}
 
+\bibitem{Chung2014}
+J.~Chung, C.~Gulcehre, K.~Cho, and Y.~Bengio.
+\newblock {Empirical Evaluation of Gated Recurrent Neural Networks on Sequence
+  Modeling}.
+\newblock pages 1--9, 2014.
+
 \bibitem{loadforecastingmoor}
 M.~Espinoza, J.~Suykens, R.~Belmans, and B.~{De Moor}.
 \newblock {Electric Load Forecasting}.
 \newblock {\em IEEE control systems magazine}, (October 2007):43--57, 2007.
+
+\bibitem{Greff2017}
+K.~Greff, R.~K. Srivastava, J.~Koutnik, B.~R. Steunebrink, and J.~Schmidhuber.
+\newblock {LSTM: A Search Space Odyssey}.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
+  28(10):2222--2232, 2017.
 
 \bibitem{Hammer2000}
 B.~Hammer.

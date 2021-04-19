@@ -38,8 +38,9 @@
 \contentsline {subsection}{\numberline {3.1.4}Difficulties \& Solutions of neural networks}{20}{subsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.1.5}LSTM}{21}{subsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.1.6}GRU}{23}{subsection.3.1.6}%
-\contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{23}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Conclusion}{29}{section.3.3}%
+\contentsline {subsection}{\numberline {3.1.7}Performance results between different models}{23}{subsection.3.1.7}%
+\contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{24}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Conclusion}{30}{section.3.3}%
 \contentsline {chapter}{\chapternumberline {4}Forecasting the daily electricity consumption}{31}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Pre-processing}{31}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Data}{31}{subsection.4.1.1}%

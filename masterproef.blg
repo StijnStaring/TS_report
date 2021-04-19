@@ -26,48 +26,50 @@ The style file: abbrv.bst
 Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: Time_Series.bib
 Warning--I didn't find a database entry for "h2g2"
+Warning--I didn't find a database entry for "bibid"
+Warning--empty journal in Chung2014
 Warning--there's a number but no volume in loadforecastingmoor
 Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
-You've used 12 entries,
+You've used 14 entries,
             2118 wiz_defined-function locations,
-            591 strings with 5688 characters,
-and the built_in function-call counts, 3905 in all, are:
-= -- 370
-> -- 202
-< -- 1
-+ -- 80
-- -- 68
-* -- 293
-:= -- 663
-add.period$ -- 33
-call.type$ -- 12
-change.case$ -- 68
+            606 strings with 6095 characters,
+and the built_in function-call counts, 4758 in all, are:
+= -- 453
+> -- 253
+< -- 2
++ -- 100
+- -- 86
+* -- 362
+:= -- 804
+add.period$ -- 39
+call.type$ -- 14
+change.case$ -- 83
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 122
-empty$ -- 304
-format.name$ -- 68
-if$ -- 785
+cite$ -- 18
+duplicate$ -- 149
+empty$ -- 359
+format.name$ -- 86
+if$ -- 958
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 11
-newline$ -- 60
-num.names$ -- 24
-pop$ -- 78
+int.to.str$ -- 14
+missing$ -- 13
+newline$ -- 70
+num.names$ -- 28
+pop$ -- 93
 preamble$ -- 1
-purify$ -- 58
+purify$ -- 71
 quote$ -- 0
-skip$ -- 88
+skip$ -- 108
 stack$ -- 0
-substring$ -- 253
-swap$ -- 14
-text.length$ -- 1
+substring$ -- 310
+swap$ -- 20
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 44
-warning$ -- 3
-while$ -- 38
-width$ -- 14
-write$ -- 122
-(There were 4 warnings)
+type$ -- 52
+warning$ -- 4
+while$ -- 47
+width$ -- 16
+write$ -- 143
+(There were 6 warnings)

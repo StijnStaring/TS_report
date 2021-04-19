@@ -31,7 +31,7 @@ All layers are connected to the next layer by the means of an affine function to
 \textbf{See oneNote}
 
 \subsection{RNN}\label{s:RNN}
-A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Cited from \cite{bibid}: ``Hidden states are technically speaking inputs to whatever we do at a given step, and they can only be computed by looking at data at previous time steps''. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $ 
+A recurrent Neural Network is a specialized neural network to deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Cited from \cite{bibid}: ``Hidden states are technically speaking inputs to whatever we do at a given step, and they can only be computed by looking at data at previous time steps''. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $ 
 
 \begin{equation}\label{eq:RNN}
 	\textbf{H}^{t+1} = \tanh(\textbf{W}_1\textbf{X}^{t}+\textbf{W}_2\textbf{H}^{t}+\textbf{b}).
@@ -114,20 +114,7 @@ The LSTM equations are given as follows as they were found in \cite{Teuwen2019}:
 	\caption{A GRU cell that is repeated over time (source: \cite{Olah}).}
 	\label{fig:GRU_cell}
 \end{figure}
-
-Gated 
-
-% Gated recurrent units
-add here some information about gru --> one note
-%Gated recurrent units (GRUs) [10] were later introduced as a simpler alternative to
-%LSTM, and have also become quite popular.
-There many different versions of the LSTM and GRU implementations. It has been shown in in [21](see paper), that the performance of are all similar. 
-
-% GRUs are simpler than LSTM, as they use one less gate and eliminate the concept of a seperate cell and hidden state
-the need for distinguishing between hidden states and memory cells.
-
-The GRU equations are given as follows as was found in \cite{Teuwen2019}:
-Which of these variants is best? Do the differences matter? Greff, et al. (2015) 
+A gated recurrent unit neural network is a newer, simplified version of the LSTM that deals with the short term memory problem of a vanilla recurrent neural network. It was introduced by \textbf{Cho et al.} in $ 2014 $. The LSTM is changed by merging the forget and input gate into an update gate. Also, the seperate memory cell and hidden states are combined. The different performance between the variations of the LSTM neural network are discussed in Section \ref{s:Performance results between different models}. The GRU equations are given as follows as was found in \cite{Teuwen2019}:
 
 \begin{equation}
 	\textbf{z}_{t} = \sigma(\textbf{W}_{zH}\textbf{H}_{t-1}+\textbf{W}_{zX}\textbf{X}_{t-1}+\textbf{b}_{z}),
@@ -142,10 +129,16 @@ Which of these variants is best? Do the differences matter? Greff, et al. (2015)
 	\textbf{H}_t=\textbf{z}_t\times\textbf{H}_{t-1}+(1-\textbf{z}_t)\times\tilde{\textbf{H}}_t.
 \end{equation}
 
+\subsection{Performance results between different models}\label{s:Performance results between different models}
+Paper \cite{Chung2014} conducts an empirical evaluation of the GRU and compares it with the older LSTM. It was found that it outperformed the vanilla RNN and attained similar performance as the LSTM on the task of polyphonic music modeling and speech signal modeling. 
+According to \cite{Olah}, the next step in sequence modelling can be the use of attention models or grid LSTM's.
+
+There exists a lot of variations of the LSTM neural networks. Paper \cite{Greff2017} discusses a large-scale analysis of eight LSTM variants on the tasks of: speech recognition, handwritting recognition and polyphonic music modelling. The hyperparameters of the models were optimized using a random search method. It was found that none of the assessed variants of the conventional LSTM architecture could significantly outperform the latter. However, it was stated that the LSTM variants in some occasions were able to simpify the LSTM and its calculation load and number of parameters without the lose of performance.  Next, it was found that the forget and output gate were the most crucial gates of the LSTM network. When one of the two was removed, a significant lose of performance occurred. From the hyperparameter search is was found that the \textit{learning rate} is the most important hyperparameter, followed by the \textit{network size}. The use of a momentum term, which takes previous values of the weights into account when updating, was found to be unimportant in their setting, of online gradient descent. 
+
+An analysis of the hyperparameter interaction was made and it showed that it was quite small. The largest interaction could be found between the learning rate and the size of the network. Therefore, during the hyperparameter search parameters can be varied individually which can drastically reduce the amount of runs have to performed to get the effect on the model. 
 
 
-%chrome-extension://dagcmkpagjlhakfdhnbomgmjdpkdklff/enhanced-reader.html?openApp&pdf=https%3A%2F%2Farxiv.org%2Fpdf%2F1412.3555.pdf
-
+It was found that the learning 
 
 \section{Short-Term residential electrical load forecasting}
 \textbf{Pooling paper}

@@ -228,6 +228,10 @@ The ``long short-term memory model''
 \subsection{Parameter search}\label{s:Parameter search}
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
 
+- refer back to paper LSTM: A Search Space Odyssey. There they performed a parameter search and they say that the parameters can assumed to be reasonably independent and learning rate the most important parameter. Can be learned seperately. See section \ref{s:Performance results between different models}.
+
+- as was suggested in \cite{Greff2017}, first the learning parameter is tuned. 
+
 - make a table of the different parameters that are varied. 
 \subsection{Bidirectional LSTM}
 In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future consumptions.
