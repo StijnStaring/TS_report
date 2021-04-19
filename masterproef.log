@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  18 APR 2021 19:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  19 APR 2021 11:11
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1191,11 +1191,11 @@ Package: lipsum 2019/01/02 v2.2 150 paragraphs of Lorem Ipsum dummy text
 File: lipsum.ltd.tex 2019/01/02 v2.2 The Lorem ipsum dummy text
 ))
 
-Package lipsum Warning: \setlipsumdefault on line 44
+Package lipsum Warning: \setlipsumdefault on line 45
 (lipsum)                \setlipsumdefault  should be substituted by
 (lipsum)                \SetLipsumDefault .
 
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 48
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 49
 .
 ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1215,29 +1215,29 @@ LaTeX Warning: Label `eq:norm' multiply defined.
 ))
 \openout1 = `masterproef.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 48.
-LaTeX Font Info:    ... okay on input line 48.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 48.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
+LaTeX Font Info:    ... okay on input line 49.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 49.
 LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 4
-8.
+9.
  ("C:\Program Files\MiKTeX\tex/latex/cbfonts-fd\lgrcmr.fd"
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 48.
+LaTeX Font Info:    ... okay on input line 49.
 
 
 ******************************************************
@@ -1277,14 +1277,14 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 )
-LaTeX Info: Redefining \microtypecontext on input line 48.
+LaTeX Info: Redefining \microtypecontext on input line 49.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 48.
+LaTeX Info: Redefining \showhyphens on input line 49.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1293,7 +1293,7 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 48.
+Package hyperref Info: Link coloring ON on input line 49.
 
 ("C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty"
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1308,25 +1308,25 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 48.
-LaTeX Info: Redefining \ref on input line 48.
-LaTeX Info: Redefining \pageref on input line 48.
-LaTeX Info: Redefining \nameref on input line 48.
+LaTeX Info: Redefining \nameref on input line 49.
+LaTeX Info: Redefining \ref on input line 49.
+LaTeX Info: Redefining \pageref on input line 49.
+LaTeX Info: Redefining \nameref on input line 49.
 (masterproef.out) (masterproef.out)
 \@outlinefile=\write4
 \openout4 = `masterproef.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \celsius on input line 48.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 48.
+LaTeX Info: Redefining \celsius on input line 49.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 49.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 48.
-Package gensymb Info: Using \Omega for \ohm on input line 48.
+LaTeX Info: Redefining \ohm on input line 49.
+Package gensymb Info: Using \Omega for \ohm on input line 49.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -1337,27 +1337,27 @@ Package microtype Info: Loading generic protrusion settings for font family
 <logokul.pdf, id=159, 159.33528pt x 56.90298pt>
 File: logokul.pdf Graphic file (type pdf)
 <use logokul.pdf>
-Package pdftex.def Info: logokul.pdf  used on input line 48.
+Package pdftex.def Info: logokul.pdf  used on input line 49.
 (pdftex.def)             Requested size: 159.33542pt x 56.90543pt.
 LaTeX Font Info:    Font shape `T1/kulemtfpf/b/n' in size <12> not available
 (Font)              Font shape `T1/kulemtfpf/bx/n' tried instead on input line 
-48.
+49.
 LaTeX Font Info:    Font shape `T1/kulemtfpf/b/n' in size <14.4> not available
 (Font)              Font shape `T1/kulemtfpf/bx/n' tried instead on input line 
-48.
+49.
 [-1
 
 
 {C:/Users/Stijn/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <D:/AI_time_seri
 es_repos/kulemt-tds/tex/latex/kulemt/logokul.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-8.
+9.
 
 ("C:\Program Files\MiKTeX\tex/latex/lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-8.
+9.
 
 ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1441,10 +1441,10 @@ Package microtype Info: Character `029' is missing
 
 ]) (masterproef.lot) [7]
 
-LaTeX Warning: Citation `h2g2' on page viii undefined on input line 103.
+LaTeX Warning: Citation `h2g2' on page viii undefined on input line 104.
 
 
-Overfull \hbox (0.86812pt too wide) in paragraph at lines 103--103
+Overfull \hbox (0.86812pt too wide) in paragraph at lines 104--104
 []|\T1/lmr/m/n/10.95 (-20) ``The Answer to the Ultimate Question of Life, the U
 niverse, and Everything''
  []
@@ -1642,6 +1642,10 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 [18 <./Pictures//MLP.png>]
+
+LaTeX Warning: Citation `bibid' on page 19 undefined on input line 34.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 40--42
 
  []
@@ -1649,34 +1653,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--42
 <Pictures//RNN.png, id=540, 639.13782pt x 306.39468pt>
 File: Pictures//RNN.png Graphic file (type png)
 <use Pictures//RNN.png>
-Package pdftex.def Info: Pictures//RNN.png  used on input line 51.
+Package pdftex.def Info: Pictures//RNN.png  used on input line 45.
 (pdftex.def)             Requested size: 398.0pt x 190.79492pt.
 [19 <./Pictures//RNN.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 63--64
-
- []
-
-<Pictures//grad_exp.png, id=554, 395.22656pt x 191.21437pt>
-File: Pictures//grad_exp.png Graphic file (type png)
-<use Pictures//grad_exp.png>
-Package pdftex.def Info: Pictures//grad_exp.png  used on input line 69.
-(pdftex.def)             Requested size: 318.40121pt x 154.04541pt.
-<Pictures//LSTM_cell.png, id=557, 525.46312pt x 203.25937pt>
-File: Pictures//LSTM_cell.png Graphic file (type png)
-<use Pictures//LSTM_cell.png>
-Package pdftex.def Info: Pictures//LSTM_cell.png  used on input line 79.
-(pdftex.def)             Requested size: 398.0pt x 153.96077pt.
-
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[20 <./Pictures//grad_exp.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+[20]
+<Pictures//grad_exp.png, id=567, 395.22656pt x 191.21437pt>
+File: Pictures//grad_exp.png Graphic file (type png)
+<use Pictures//grad_exp.png>
+Package pdftex.def Info: Pictures//grad_exp.png  used on input line 68.
+(pdftex.def)             Requested size: 318.40121pt x 154.04541pt.
+<Pictures//LSTM_cell.png, id=570, 525.46312pt x 203.25937pt>
+File: Pictures//LSTM_cell.png Graphic file (type png)
+<use Pictures//LSTM_cell.png>
+Package pdftex.def Info: Pictures//LSTM_cell.png  used on input line 78.
+(pdftex.def)             Requested size: 398.0pt x 153.96077pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
-[21 <./Pictures//LSTM_cell.png>]
-<Pictures//GRU_cell.png, id=585, 246.9225pt x 167.87718pt>
+[21 <./Pictures//grad_exp.png>]
+<Pictures//GRU_cell.png, id=590, 246.9225pt x 167.87718pt>
 File: Pictures//GRU_cell.png Graphic file (type png)
 <use Pictures//GRU_cell.png>
 Package pdftex.def Info: Pictures//GRU_cell.png  used on input line 113.
@@ -1685,43 +1685,13 @@ Package pdftex.def Info: Pictures//GRU_cell.png  used on input line 113.
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[22 <./Pictures//GRU_cell.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-[23]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
+[22 <./Pictures//LSTM_cell.png>] [23 <./Pictures//GRU_cell.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 166--167
 
  []
 
 
-LaTeX Warning: Reference `tab:pooling_result' on page 24 undefined on input lin
-e 185.
-
-<Pictures//pooling_result.png, id=613, 376.40625pt x 255.20343pt>
-File: Pictures//pooling_result.png Graphic file (type png)
-<use Pictures//pooling_result.png>
-Package pdftex.def Info: Pictures//pooling_result.png  used on input line 189.
-(pdftex.def)             Requested size: 398.0pt x 269.86403pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//Shi2018_result.png, id=616, 549.55313pt x 499.11469pt>
-File: Pictures//Shi2018_result.png Graphic file (type png)
-<use Pictures//Shi2018_result.png>
-Package pdftex.def Info: Pictures//Shi2018_result.png  used on input line 196.
-(pdftex.def)             Requested size: 398.0pt x 361.47949pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--208
+Underfull \hbox (badness 10000) in paragraph at lines 168--169
 
  []
 
@@ -1730,28 +1700,30 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [25 <./Pictures//pooling_result.png>]
-<Pictures//prev_appr.png, id=637, 437.38406pt x 349.305pt>
-File: Pictures//prev_appr.png Graphic file (type png)
-<use Pictures//prev_appr.png>
-Package pdftex.def Info: Pictures//prev_appr.png  used on input line 211.
-(pdftex.def)             Requested size: 398.0pt x 317.85738pt.
+LaTeX Warning: Reference `tab:pooling_result' on page 25 undefined on input lin
+e 188.
 
+<Pictures//pooling_result.png, id=628, 376.40625pt x 255.20343pt>
+File: Pictures//pooling_result.png Graphic file (type png)
+<use Pictures//pooling_result.png>
+Package pdftex.def Info: Pictures//pooling_result.png  used on input line 192.
+(pdftex.def)             Requested size: 398.0pt x 269.86403pt.
+<Pictures//Shi2018_result.png, id=631, 549.55313pt x 499.11469pt>
+File: Pictures//Shi2018_result.png Graphic file (type png)
+<use Pictures//Shi2018_result.png>
+Package pdftex.def Info: Pictures//Shi2018_result.png  used on input line 199.
+(pdftex.def)             Requested size: 398.0pt x 361.47949pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `tab:CNN-LSTM_results' on page 26 undefined on input l
-ine 218.
+Underfull \hbox (badness 10000) in paragraph at lines 204--205
 
+ []
 
-LaTeX Warning: Reference `fig:LSTM-CNN_results' on page 26 undefined on input l
-ine 219.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--220
+[25 <./Pictures//pooling_result.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 206--211
 
  []
 
@@ -1760,31 +1732,54 @@ Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
 [26 <./Pictures//Shi2018_result.png>]
-Underfull \vbox (badness 2359) has occurred while \output is active []
-
- [27 <./Pictures//prev_appr.png>]
-<Pictures//CNN-LSTM_results_F.png, id=655, 709.90219pt x 295.85532pt>
-File: Pictures//CNN-LSTM_results_F.png Graphic file (type png)
-<use Pictures//CNN-LSTM_results_F.png>
-Package pdftex.def Info: Pictures//CNN-LSTM_results_F.png  used on input line 2
-23.
-(pdftex.def)             Requested size: 398.0pt x 165.87195pt.
-<Pictures//CNN-LSTM_results_T.png, id=658, 552.56438pt x 296.60812pt>
-File: Pictures//CNN-LSTM_results_T.png Graphic file (type png)
-<use Pictures//CNN-LSTM_results_T.png>
-Package pdftex.def Info: Pictures//CNN-LSTM_results_T.png  used on input line 2
-30.
-(pdftex.def)             Requested size: 398.0pt x 213.63914pt.
+<Pictures//prev_appr.png, id=651, 437.38406pt x 349.305pt>
+File: Pictures//prev_appr.png Graphic file (type png)
+<use Pictures//prev_appr.png>
+Package pdftex.def Info: Pictures//prev_appr.png  used on input line 214.
+(pdftex.def)             Requested size: 398.0pt x 317.85738pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
+
+LaTeX Warning: Reference `tab:CNN-LSTM_results' on page 27 undefined on input l
+ine 221.
+
+
+LaTeX Warning: Reference `fig:LSTM-CNN_results' on page 27 undefined on input l
+ine 222.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--223
+
+ []
+
+[27]
+<Pictures//CNN-LSTM_results_F.png, id=663, 709.90219pt x 295.85532pt>
+File: Pictures//CNN-LSTM_results_F.png Graphic file (type png)
+<use Pictures//CNN-LSTM_results_F.png>
+Package pdftex.def Info: Pictures//CNN-LSTM_results_F.png  used on input line 2
+26.
+(pdftex.def)             Requested size: 398.0pt x 165.87195pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<Pictures//CNN-LSTM_results_T.png, id=666, 552.56438pt x 296.60812pt>
+File: Pictures//CNN-LSTM_results_T.png Graphic file (type png)
+<use Pictures//CNN-LSTM_results_T.png>
+Package pdftex.def Info: Pictures//CNN-LSTM_results_T.png  used on input line 2
+33.
+(pdftex.def)             Requested size: 398.0pt x 213.63914pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 Overfull \vbox (13.59999pt too high) has occurred while \output is active []
 
 
-[28 <./Pictures//CNN-LSTM_results_F.png>] [29 <./Pictures//CNN-LSTM_results_T.p
-ng>]
+[28 <./Pictures//prev_appr.png>]) [29 <./Pictures//CNN-LSTM_results_F.png> <./P
+ictures//CNN-LSTM_results_T.png>]
 \openout2 = `chap-3.aux'.
 
  (chap-3.tex [30
@@ -1818,7 +1813,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-<Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png, id=681, 618.390
+<Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png, id=690, 618.390
 3pt x 530.2209pt>
 File: Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png Graphic fil
 e (type png)
@@ -1833,7 +1828,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 15.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 15.
-<Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png, id=682, 625.617
+<Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png, id=691, 625.617
 3pt x 530.2209pt>
 File: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png Graphic fil
 e (type png)
@@ -1841,7 +1836,7 @@ e (type png)
 Package pdftex.def Info: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7
 769.png  used on input line 18.
 (pdftex.def)             Requested size: 127.36292pt x 107.93547pt.
-<Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png, id=683, 612.849
+<Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png, id=692, 612.849
 6pt x 530.2209pt>
 File: Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png Graphic fil
 e (type png)
@@ -1927,7 +1922,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 167--168
 
 [35]
 <Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.png_16
-18425095.png, id=733, 722.7pt x 578.16pt>
+18425095.png, id=742, 722.7pt x 578.16pt>
 File: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.p
 ng_1618425095.png Graphic file (type png)
 <use Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.pn
@@ -1936,7 +1931,7 @@ Package pdftex.def Info: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b5
 9fe1e_Day339_pred.png_1618425095.png  used on input line 171.
 (pdftex.def)             Requested size: 199.0pt x 159.2018pt.
 <Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.png_16
-18425124.png, id=734, 722.7pt x 578.16pt>
+18425124.png, id=743, 722.7pt x 578.16pt>
 File: Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.p
 ng_1618425124.png Graphic file (type png)
 <use Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.pn
@@ -2002,7 +1997,7 @@ Underfull \vbox (badness 1308) has occurred while \output is active []
 
 LaTeX Warning: Citation `h2g2' on page 49 undefined on input line 5.
 
-<Pictures//amountNaN.png, id=807, 843.15pt x 683.55376pt>
+<Pictures//amountNaN.png, id=818, 843.15pt x 683.55376pt>
 File: Pictures//amountNaN.png Graphic file (type png)
 <use Pictures//amountNaN.png>
 Package pdftex.def Info: Pictures//amountNaN.png  used on input line 11.
@@ -2010,7 +2005,7 @@ Package pdftex.def Info: Pictures//amountNaN.png  used on input line 11.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//mv_mean.png, id=808, 835.12pt x 729.72626pt>
+<Pictures//mv_mean.png, id=819, 835.12pt x 729.72626pt>
 File: Pictures//mv_mean.png Graphic file (type png)
 <use Pictures//mv_mean.png>
 Package pdftex.def Info: Pictures//mv_mean.png  used on input line 54.
@@ -2025,7 +2020,7 @@ Underfull \vbox (badness 7925) has occurred while \output is active []
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//mv_s.png, id=814, 835.12pt x 729.72626pt>
+<Pictures//mv_s.png, id=825, 835.12pt x 729.72626pt>
 File: Pictures//mv_s.png Graphic file (type png)
 <use Pictures//mv_s.png>
 Package pdftex.def Info: Pictures//mv_s.png  used on input line 61.
@@ -2033,7 +2028,7 @@ Package pdftex.def Info: Pictures//mv_s.png  used on input line 61.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//fundamental_change.png, id=815, 876.27374pt x 681.54625pt>
+<Pictures//fundamental_change.png, id=826, 876.27374pt x 681.54625pt>
 File: Pictures//fundamental_change.png Graphic file (type png)
 <use Pictures//fundamental_change.png>
 Package pdftex.def Info: Pictures//fundamental_change.png  used on input line 7
@@ -2042,7 +2037,7 @@ Package pdftex.def Info: Pictures//fundamental_change.png  used on input line 7
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//f_c.png, id=816, 876.27374pt x 681.54625pt>
+<Pictures//f_c.png, id=827, 876.27374pt x 681.54625pt>
 File: Pictures//f_c.png Graphic file (type png)
 <use Pictures//f_c.png>
 Package pdftex.def Info: Pictures//f_c.png  used on input line 82.
@@ -2050,7 +2045,7 @@ Package pdftex.def Info: Pictures//f_c.png  used on input line 82.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<Pictures//daily_filter.png, id=817, 890.32625pt x 731.73375pt>
+<Pictures//daily_filter.png, id=828, 890.32625pt x 731.73375pt>
 File: Pictures//daily_filter.png Graphic file (type png)
 <use Pictures//daily_filter.png>
 Package pdftex.def Info: Pictures//daily_filter.png  used on input line 91.
@@ -2069,7 +2064,7 @@ undamental_change.png>] [53 <./Pictures//f_c.png> <./Pictures//daily_filter.png
 
 
 ]
-<Pictures//histogram_mape.png, id=846, 1078.0275pt x 743.6583pt>
+<Pictures//histogram_mape.png, id=857, 1078.0275pt x 743.6583pt>
 File: Pictures//histogram_mape.png Graphic file (type png)
 <use Pictures//histogram_mape.png>
 Package pdftex.def Info: Pictures//histogram_mape.png  used on input line 10.
@@ -2081,7 +2076,7 @@ Package pdftex.def Info: Pictures//histogram_mape.png  used on input line 10.
 
 LaTeX Warning: Reference `eq:z-score' on page 57 undefined on input line 16.
 
-<Pictures//z-score.png, id=857, 788.9475pt x 683.55376pt>
+<Pictures//z-score.png, id=868, 788.9475pt x 683.55376pt>
 File: Pictures//z-score.png Graphic file (type png)
 <use Pictures//z-score.png>
 Package pdftex.def Info: Pictures//z-score.png  used on input line 26.
@@ -2105,7 +2100,7 @@ bibitemlist
 Class memoir Warning: The material used in the headers is too large
 (27.2pt) for the given head height (13.6pt), it is recommended to
 either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 130.
+(in both cases you will find help in the memoir manual). on input line 131.
 
 [59
 
@@ -2134,16 +2129,16 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17620 strings out of 479799
- 275615 string characters out of 2879599
- 943368 words of memory out of 3000000
- 33782 multiletter control sequences out of 15000+200000
+ 17626 strings out of 479799
+ 275723 string characters out of 2879599
+ 942583 words of memory out of 3000000
+ 33785 multiletter control sequences out of 15000+200000
  671369 words of font info for 198 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,86p,1822b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
-iKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/
-lm-mathex.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Pro
+ 80i,12n,86p,1876b,581s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/M
+iKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips
+/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Pro
 gram Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program Files/MiKTeX/fonts/e
 nc/dvips/lm/lm-ts1.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 /Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX
@@ -2151,18 +2146,19 @@ nc/dvips/lm/lm-ts1.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
 m/lmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Prog
 ram Files/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/font
 s/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmm
-i8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/p
-ublic/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/P
-rogram Files/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/f
-onts/type1/public/lm/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/
-lmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program
- Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/
-MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1
-/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (69 pages, 3350397 bytes).
+i8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Program F
+iles/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type
+1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Program Files/MiKTeX/
+fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm
+/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/u
+rw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a
+.pfb>
+Output written on masterproef.pdf (69 pages, 3358223 bytes).
 PDF statistics:
- 995 PDF objects out of 1000 (max. 8388607)
- 224 named destinations out of 1000 (max. 500000)
+ 1009 PDF objects out of 1200 (max. 8388607)
+ 227 named destinations out of 1000 (max. 500000)
  36830 words of extra memory for PDF output out of 42996 (max. 10000000)
 

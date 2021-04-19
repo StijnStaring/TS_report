@@ -3,7 +3,7 @@
 Forecasting the electrical load of the different individual households has a couple of challenges. There should be dealt with the missing values, as discussed in section \ref{s:missing_data}. Also, the different time-series are influenced by exogenous factors as weather conditions and the day of the year. The dependency on exogenous variables can be a very non-linear relation and can have different effects on different households. For example depending on a house has solar panels, the consumption could be altered much. Only three indications of the temperature are given on a daily basis. Some additional information is know of certain households, but this data is very incomplete. Next, the individual load series have a high volatility and uncertainty with respect to a load signal on transmission level which shows more consistent seasonality and straight forward dependency on weather and calendar variables. This is because the contingency of the individual load data is mitigated due to averaging out of the uncertainty. Ofcourse, the obvious disadvantage is that only forecasts on this aggregated level can be made which is not the goal of our investigation.\\ To tackle the high non-linearity that is inherent to residential load forecasting in literature often ``Neural Networks'' are used.
 \textbf{See also paper TA2 --> aggregated vs individual forecasting.}
 
-\section{Introduction to Neural Networks}
+\section{Introduction to Neural Networks}\label{s:Introduction to Neural Networks}
 A  standard multilayer feedforward neuralnetwork with locally bounded piecewise continuous activation function can approximate any continuous function to any degree of accuracy if and only if the network's activation function is not a polynomial, as stated by \textbf{Leshno et al} in \textbf{1993}. This theorem proofs that a ``universal approximator'' exists for continuous functions, but it lacks the recipe to construct it. In \cite{Nielsen2015} it is shown that a feedforward network with a single layer is enough to approximate any function by a specified accuracy if the hidden layer has the possibility to add an unlimited amount of hidden neurons in its layer. It is discussed that when a function is discontinuous, which means that it makes sudden, sharps jumps, it is not possible to approximate the function by any prescribed accuracy. However, in practise a continuous approximation is often good enough.\\
 
 Neural networks are suitable of learning very non-linear mappings between inputs and outputs. The difference between ``Deep Neural Networks'' and ``Shallow Neural Networks'' is the amount of layers of neurons are used inside the network. These layers of neurons, that are not inputs or outputs are called ``hidden neurons''. Because a ``Deep Neural Network'' has a hierarchical layout of the different hidden layers, it not only learning features from the non-linear combinations of inputs, but uses other layers to learn features of combinations of features learned in lower hidden layers. This is possible because higher hidden layers get the outputs of lower hidden layers as input. As discussed in  \cite{Shi2018} due to this characteristic, deep learning is suitable to learn multiple uncertainties with differing sharing levels over different households e.g. the amount of sunshine. However, because of the higher expressiveness (and often the amount of the to learn parameters), a ``Deep Neural Network'' with respect to a ``Shallow Neural Network'', suffers more of overfitting as is discussed in section \ref{s:Problems}.
@@ -31,7 +31,7 @@ All layers are connected to the next layer by the means of an affine function to
 \textbf{See oneNote}
 
 \subsection{RNN}\label{s:RNN}
-A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $ 
+A recurrent Neural Network is a specialized neural network to better deal with sequential information. While traditional deep neural networks assume that inputs and outputs are independent of each other, the output of recurrent neural networks depend on the prior elements within the sequence. In order to take past information from previous inputs into account, a hidden variable $ h_t $ is used. By making use of this variable which makes a summary of the previous seen information, an exponential increase in the number of model parameters is avoided. Cited from \cite{bibid}: ``Hidden states are technically speaking inputs to whatever we do at a given step, and they can only be computed by looking at data at previous time steps''. Equation \ref{eq:RNN} shows how the previous hidden state and the current information are merged in the next hidden state with $ \textbf{X}^t\in \mathbb{R}^{d\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_1\in \mathbb{R}^{h\times d} $, $\textbf{W}_2\in \mathbb{R}^{h\times h} $ and $ \textbf{b}\in \mathbb{R}^{h\times 1} $ 
 
 \begin{equation}\label{eq:RNN}
 	\textbf{H}^{t+1} = \tanh(\textbf{W}_1\textbf{X}^{t}+\textbf{W}_2\textbf{H}^{t}+\textbf{b}).
@@ -40,29 +40,28 @@ A recurrent Neural Network is a specialized neural network to better deal with s
 The equation $\textbf{X}^t$ corresponds to one example at time step $ t $ with dimensionality $ d $. 
 Also a deep RNN is possible, where multiple hidden state per time step are used. \\
 
-%The mapping from the hidden state to an output is executed by making use of Equation \ref{eq:RNNout} with $ \textbf{O}^t\in \mathbb{R}^{q\times 1} $, $ \textbf{H}^t\in \mathbb{R}^{h\times 1} $, $ \textbf{W}_3\in \mathbb{R}^{q\times h} $ and $ \textbf{b}\in \mathbb{R}^{q\times 1} $.
-%\begin{equation}\label{eq:RNNout}
-%	\textbf{O}^{t} = \textbf{W}_3\textbf{H}^{t}+\textbf{b}
-%\end{equation}
-
-
-\begin{figure}[h!]
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=1.0\textwidth]{RNN.png}
 	\caption{Figure of the logical flow of a vanilla RNN with a hidden state (source: \cite{Czum2020}).}
 	\label{fig:RNN}
 \end{figure}
 
-
+As was discussed in Section \ref{s:Introduction to Neural Networks} a standard neural network can act as a ``universal approximator'' when given enough hidden states. A similar result exist for a recurrent neural network which states that it is capable to approximate a sequence-to-sequence mapping to  an arbitrary accuracy as discussed in \cite{Hammer2000}. However, as discussed in \cite{Teuwen2019} even if expressiveness of the simple model is very powerful in theory, this doesn't indicate that such a representation can be learn in a reasonably amount of time from a dataset. As will be discussed in Section \ref{s:Problems}, the main drawback of the vanilla recurrent neural network is that it forgets fast, important information in function of the amount of time steps. When using ``backpropagation through time'' for updating the weights, the gradients that corresponds to inputs seen a lot of time steps ago will become very small due to the multiplication of small gradients over the time steps. Therefore, there contribution of updating the weights of the recurrent neural network will be very small and thus this information will be ``forgotten''.
 
 
 \subsection{Difficulties \& Solutions of neural networks}\label{s:Problems}
 Neural Networks have a high expressiveness but comes at the cost of overfitting and a vanishing gradient.
 when the NN is learning from training data, every epoch the error between the input and output of the training exemples is reduced. In the beginning the generalization error reduces simultaneously with the generalization error. The generalization error is the error that the model makes on data that is not in the training set. However, on a certain point during the training the generalization error increases while the training error still decreases. This means that the model is no longer learning ``intelligent'' general rules and patterns in the data, but is just remembering the training data and will therefore not apply in general. This is often the case in a model with high expressiveness because the model is less pushed to make generalizations and has the ability to just to remember the training data. Solutions to overfitting can be regularization which includes the parameter norms as a cost in the objective function. Typical choices for resembling the size of a parameter are the $ L_1 $ and the $ L_2 $ norms. Other methods that can be used are: early stopping, dropout and pruning.
 
-It should also be noted that the gradient can increase very much, which in literature is called gradient explosion. The solution strategy for this is applying gradient clipping.\\
+It should also be noted that the gradient can increase very much over the different time steps, which in literature is called gradient explosion. The solution strategy for this is applying gradient clipping by norm or by value. Gradient clipping by norm means that when the two norm of the gradient $ \bm{\xi} $ exceeds a threshold value $ \theta $, the two norm of the gradient is scaled to equal the threshold value. The mathematical formulation is given by equation \ref{eq:clipping}:
 
-The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values who exponentially decrease. Therefore at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies often proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen for LSTM in Figure \ref{fig:grad_exp}. $ \tau $ gives the number of epochs.\\ \textbf{Can put further explanation in attachment --> see assignament ANN}
+\begin{equation}\label{eq:clipping}
+	\bm{\xi}= min(1,\frac{\theta}{\| \bm{\xi} \|})\times\bm{\xi}.
+\end{equation}
+
+
+The second problem is the vanishing gradient problem which originates because while using the backpropagation algorithm to calculate the gradient which is used in different update methods of the weights, the gradient is calculated at the end of the NN and propagated back using every time the previous calculated gradient values which exponentially decreases in function of the time steps. Therefore, at the first layers of the network, the gradient has become so small that the weights are almost not updated anymore. In a RNN setting this corresponds to having a short term memory which means that initial inputs that were presented to the NN are being forgotten. Mitigation strategies often proposed in literature are LSTM and GRU. Both techniques have in common that they can learn which data in the sequence is important and should be retained and which information can be thrown away. It is important to state that LSTM and GRU are not solving the vanishing gradient problem as explained in \cite{Teuwen2019}. The gradient is still exponentially decreasing, but the effect is less pronounced as can be seen for LSTM in Figure \ref{fig:grad_exp}. When the forget gate, that sits inside a LSTM cell outputs a value that is close to one, the exponential decay will have also a base close to one. $ \tau $ gives the number of epochs. Also, the complexity of the recurrent models grows linearly with the amount of time steps that are processed in the sequence. As discussed in \cite{Teuwen2019}, the amount of memory and calculation effort needed to do a gradient update also increases linearly with the amount of time steps. Memory and calculation load can be mitigated by making use of ``truncated backpropagation through time''. \\ \textbf{Can put further explanation in attachment --> see assignament ANN}.
 
 \begin{figure}[h!]
 	\centering
@@ -108,12 +107,16 @@ The LSTM equations are given as follows as they were found in \cite{Teuwen2019}:
 
 
 \subsection{GRU}\label{s:GRU}
+
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.6\textwidth]{GRU_cell.png}
 	\caption{A GRU cell that is repeated over time (source: \cite{Olah}).}
 	\label{fig:GRU_cell}
 \end{figure}
+
+Gated 
+
 % Gated recurrent units
 add here some information about gru --> one note
 %Gated recurrent units (GRUs) [10] were later introduced as a simpler alternative to
@@ -141,7 +144,7 @@ Which of these variants is best? Do the differences matter? Greff, et al. (2015)
 
 
 
-
+%chrome-extension://dagcmkpagjlhakfdhnbomgmjdpkdklff/enhanced-reader.html?openApp&pdf=https%3A%2F%2Farxiv.org%2Fpdf%2F1412.3555.pdf
 
 
 \section{Short-Term residential electrical load forecasting}

@@ -5,6 +5,11 @@ M.~Espinoza, J.~Suykens, R.~Belmans, and B.~{De Moor}.
 \newblock {Electric Load Forecasting}.
 \newblock {\em IEEE control systems magazine}, (October 2007):43--57, 2007.
 
+\bibitem{Hammer2000}
+B.~Hammer.
+\newblock {On the approximation capability of recurrent neural networks}.
+\newblock {\em Neurocomputing}, 31(1-4):107--123, mar 2000.
+
 \bibitem{Hoverstad2015}
 B.~A. Hoverstad, A.~Tidemann, H.~Langseth, and P.~Ozturk.
 \newblock {Short-Term Load Forecasting With Seasonal Decomposition Using
