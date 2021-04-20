@@ -38,7 +38,7 @@
 \contentsline {subsection}{\numberline {3.1.4}Difficulties \& Solutions of neural networks}{20}{subsection.3.1.4}%
 \contentsline {subsection}{\numberline {3.1.5}LSTM}{21}{subsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.1.6}GRU}{23}{subsection.3.1.6}%
-\contentsline {subsection}{\numberline {3.1.7}Performance results between different models}{23}{subsection.3.1.7}%
+\contentsline {subsection}{\numberline {3.1.7}Performance of different parameter settings and variations of LSTM neural network models from literature}{23}{subsection.3.1.7}%
 \contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{24}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Conclusion}{30}{section.3.3}%
 \contentsline {chapter}{\chapternumberline {4}Forecasting the daily electricity consumption}{31}{chapter.4}%
@@ -48,33 +48,39 @@
 \contentsline {subsection}{\numberline {4.2.1}Models}{33}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Results of baseline models}{35}{subsection.4.2.2}%
 \contentsline {section}{\numberline {4.3}Neural network models}{37}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}LSTM}{38}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}GRU}{38}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Parameter search}{38}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Bidirectional LSTM}{38}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Temperature model}{38}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Evaluation of different designs}{38}{subsection.4.3.6}%
-\contentsline {section}{\numberline {4.4}Conclusion}{38}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{39}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusion}{39}{section.5.1}%
-\contentsline {chapter}{\chapternumberline {6}Evaluating results}{41}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{41}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Item 1}{41}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{41}{section*.41}%
-\contentsline {subsubsection}{Sub-item 2}{41}{section*.42}%
-\contentsline {subsection}{\numberline {6.1.2}Item 2}{42}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}The Second Topic}{42}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Conclusion}{43}{section.6.3}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{45}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{49}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{49}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{50}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{50}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{50}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{55}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Baseline models}{55}{section.B.1}%
-\contentsline {appendix}{\chapternumberline {C}Old things}{57}{appendix.C}%
-\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{57}{subsection.C.0.1}%
-\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{57}{subsection.C.0.2}%
-\contentsline {section}{\numberline {C.1}ARIMA}{57}{section.C.1}%
-\contentsline {chapter}{Bibliography}{59}{appendix*.52}%
+\contentsline {subsection}{\numberline {4.3.1}Different practical considerations of the models in Keras}{37}{subsection.4.3.1}%
+\contentsline {subsubsection}{Inputs}{37}{section*.41}%
+\contentsline {subsubsection}{Stateless versus Stateful}{38}{section*.42}%
+\contentsline {subsubsection}{Initialization}{39}{section*.45}%
+\contentsline {subsubsection}{Overfitting avoidance in Keras}{40}{section*.46}%
+\contentsline {subsubsection}{Metrics to evaluate the models}{40}{section*.47}%
+\contentsline {subsection}{\numberline {4.3.2}LSTM}{40}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}GRU}{40}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Parameter search}{40}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{40}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Temperature model}{41}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{41}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Conclusion}{41}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{43}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusion}{43}{section.5.1}%
+\contentsline {chapter}{\chapternumberline {6}Evaluating results}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{45}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Item 1}{45}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{45}{section*.48}%
+\contentsline {subsubsection}{Sub-item 2}{45}{section*.49}%
+\contentsline {subsection}{\numberline {6.1.2}Item 2}{46}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}The Second Topic}{46}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Conclusion}{47}{section.6.3}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{49}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{53}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{54}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{54}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{54}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{59}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Baseline models}{59}{section.B.1}%
+\contentsline {appendix}{\chapternumberline {C}Old things}{61}{appendix.C}%
+\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{61}{subsection.C.0.1}%
+\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{61}{subsection.C.0.2}%
+\contentsline {section}{\numberline {C.1}ARIMA}{61}{section.C.1}%
+\contentsline {chapter}{Bibliography}{63}{appendix*.59}%

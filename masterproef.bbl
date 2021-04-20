@@ -11,6 +11,11 @@ M.~Espinoza, J.~Suykens, R.~Belmans, and B.~{De Moor}.
 \newblock {Electric Load Forecasting}.
 \newblock {\em IEEE control systems magazine}, (October 2007):43--57, 2007.
 
+\bibitem{FneishMo}
+M.~Fneish.
+\newblock {Keras{\_}LSTM{\_}Diagram: Understanding Keras Recurrent Nets'
+  structure and data flow in a single diagram.}
+
 \bibitem{Greff2017}
 K.~Greff, R.~K. Srivastava, J.~Koutnik, B.~R. Steunebrink, and J.~Schmidhuber.
 \newblock {LSTM: A Search Space Odyssey}.

@@ -129,13 +129,13 @@ A gated recurrent unit neural network is a newer, simplified version of the LSTM
 	\textbf{H}_t=\textbf{z}_t\times\textbf{H}_{t-1}+(1-\textbf{z}_t)\times\tilde{\textbf{H}}_t.
 \end{equation}
 
-\subsection{Performance results between different models}\label{s:Performance results between different models}
+\subsection{Performance of different parameter settings and variations of LSTM neural network models from literature}\label{s:Performance results between different models}
 Paper \cite{Chung2014} conducts an empirical evaluation of the GRU and compares it with the older LSTM. It was found that it outperformed the vanilla RNN and attained similar performance as the LSTM on the task of polyphonic music modeling and speech signal modeling. 
 According to \cite{Olah}, the next step in sequence modelling can be the use of attention models or grid LSTM's.
 
 There exists a lot of variations of the LSTM neural networks. Paper \cite{Greff2017} discusses a large-scale analysis of eight LSTM variants on the tasks of: speech recognition, handwritting recognition and polyphonic music modelling. The hyperparameters of the models were optimized using a random search method. It was found that none of the assessed variants of the conventional LSTM architecture could significantly outperform the latter. However, it was stated that the LSTM variants in some occasions were able to simpify the LSTM and its calculation load and number of parameters without the lose of performance.  Next, it was found that the forget and output gate were the most crucial gates of the LSTM network. When one of the two was removed, a significant lose of performance occurred. From the hyperparameter search is was found that the \textit{learning rate} is the most important hyperparameter, followed by the \textit{network size}. The use of a momentum term, which takes previous values of the weights into account when updating, was found to be unimportant in their setting, of online gradient descent. 
 
-An analysis of the hyperparameter interaction was made and it showed that it was quite small. The largest interaction could be found between the learning rate and the size of the network. Therefore, during the hyperparameter search parameters can be varied individually which can drastically reduce the amount of runs have to performed to get the effect on the model. 
+An analysis of the hyperparameter interaction was made and it is showed that it was quite small. The largest interaction could be found between the learning rate and the size of the network. Therefore, during the hyperparameter search parameters can be varied individually which can drastically reduce the amount of runs have to performed to get the effect on the model. 
 
 
 It was found that the learning 

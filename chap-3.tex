@@ -198,32 +198,78 @@ From Table \ref{tab:summ_data_rel_performance} it can again be concluded that th
 
 
 \section{Neural network models}\label{s:Neural network models}
-In this section LSTM and GRU models, which are models that are specialized in time series learning, are presented in different variations. The inputs to theses models are similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
+\textbf{add initialization in intro!}
+In this section deep LSTM and GRU models, which are models that are specialized in time series learning, are presented in different variations. The term deep is used because multiple LSTM or GRU layers are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hour electrical consumption forecast of a single household. First the general context in which the deep LSTM and GRU models are trained is explained. This covers the inputs that are feeded to the models, measures taken to avoid overfitting, the explaination of a stateless model versus a stateful model and the metrics used for evaluation. Next, the specific LSTM and GRU models developed are discussed in respectively Section \ref{s:LSTM_implementation} and \ref{s:GRU_implementation}. Further, follows  the discussion of the conducted hyperparameter search in Section \ref{s:Parameter search}. Finally, the results are given and a comparison is made in Section \ref{s:Results and evaluation}.
+
+\subsection{Different practical considerations of the models in Keras}
+
+\subsubsection{Inputs}
+The inputs to theses models are similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
 \begin{itemize}
 	\item historic training values (min-max normalization)
 	\item average daily temperature (min-max normalization)
-	\item which day of the week (one hot encoding)
-	\item which time of the day (one hot encoding)
-	\item is it a holiday (one hot encoding)
+	\item which day of the week? (one hot encoding)
+	\item which time of the day? (one hot encoding)
+	\item is it a holiday? (one hot encoding)
 \end{itemize}
 
-How far there will be looked back into the history of the electrical consumption is decided by the lag value. This value corresponds to the number of historic time steps that will be taken into account. The LSTM and GRU models are developed using the Keras package backed by Tensorflow in Python. The Keras model expects an matrix $ X $ as input with three dimensions: sample number, amount of timesteps, amount of features. The amount of timesteps equals the lag value.
+How far there will be looked back into the history of the electrical consumption is decided by the lag value. This value corresponds to the number of historic time steps that will be taken into account. The LSTM and GRU models are developed using the Keras toolbox backed by Tensorflow in Python. The Keras model expects an matrix $ X $ as input with three dimensions: sample number, amount of timesteps, amount of features. The amount of timesteps equals the lag value.
 
-When we look at one sample of the $ X $ matrix e.g. $ (1,lag\hspace{1.5mm}value, features) $, we get a 2D matix. On the first column an amount of $ lag\hspace{1.5mm}value $ of previous consumption values is stored. The further down the rows of the first column, the closer time gets to the actual value that needs to be predicted. This is also the case for the temperature, but because only the temperature is known on daily basis and history of the electricity consumption is known for every 30 minutes, the temperature value is often the same in the second column of the 2D matrix. The historic consumption and daily average temperature input are normalized by scaling them between $ 0 $ and $ 1 $, using a min-max normalization.
-In the next $ 7 $ columns of the 2D matrix, information is given about which day of the week it is. This is encoded making use of a one hot encoding.For every row one of the 7 columns which corresponds with the day of the week gets a one and the rest will be set to zero. Very similar the information about the time of the day is indicated. There are 48 columns and for every row only one column gets a one to indicate the time of the day. This makes that the 2D matrix has $ 59  $columns which corresponds to the amount of features. Every 2D matrix in $ X $ serves as input to forecast a single next half hour electrical consumption.\\
+When we look at one sample of the $ X $ matrix e.g. $ (1,lag\hspace{1.5mm}value, features) $, we get a 2D matix. Timesteps corresponds to the rows of this matrix and features to the columns. Every column contains a different time serie that serves as input. On the first column an amount of $ lag\hspace{1.5mm}value $ of previous consumption values is stored. The further down the rows of the first column, the closer time gets to the actual value that needs to be predicted. This is also the case for the temperature, but because the temperature is only known on daily basis and history of the electricity consumption is known for every 30 minutes, the temperature value is often the same in the second column of the 2D matrix. The historic consumption and daily average temperature input are normalized by scaling between $ 0 $ and $ 1 $, using a min-max normalization.
 
-When the 24 hour prediction is made, the assumption is taken that information about the real electrical consumption is known until the moment of prediction. In case of this thesis, that means until midnight the previous day. Because the model predicts only $ 30 $ minutes into the future, previous predictions are taken as inputs for the next.
+In the next $ 7 $ columns of the 2D matrix, information is given about which day of the week it is. This is encoded making use of an one hot encoding.For every row one of the $ 7 $ columns which corresponds with the day of the week gets an one and the rest will be set to zero. Very similar the information about the time of the day is indicated. There are $ 48 $ columns and for every row only one column gets a one to indicate the time of the day. This makes that the 2D matrix has $ 59  $ columns which corresponds to the amount of features. Every 2D matrix in $ X $ serves as input to forecast a single next half hour electrical consumption.\\
+
+When the 24 hour prediction is made, the assumption is taken that information about the real electrical consumption is known until the moment of prediction. In case of this thesis, that means until midnight the previous day. Because the model predicts only $ 48 $ times $ 30 $ minutes into the future, previous predictions are taken as inputs for the next.\\
+
+\subsubsection{Stateless versus Stateful}
+% $ X $ as input with three dimensions: sample number, amount of timesteps, amount of features.
+Keras introduces a concept of stateless and stateful. As explained above the input given to a LSTM/GRU model is an array of data of three dimensions: sample number, amount of timesteps, amount of features. As explained in \cite{FneishMo} a stateless model interprets every row of $ X $, which is a 2D matrix of inputs, to contain in every column a serie that has nothing to do with the serie on the same column in a other sample of $ X $. When processing the next sample of $ X $, the hidden states and memory states are therefore again initialized to zero vectors. Because there is no relation between the input series over the different samples, it is logical to collect as much as possible samples for training and the input data is generated by moving a window every time one step down as can be seen in Figure \ref{fig:stateless_input}.\\
+
+In contrast with a stateless model, a stateful model doesn't reset its hidden states and memory states when going to the next sample in $ X $. This means that when all the series that are contained in the seperate 2D matrices are sticked behind each other, the initial input signals should be recovered. How this is done can be seen in Figure \ref{fig:stateful_input} for a \textit{lag value} of three.
+
+Using a stateful model introduces the additional complexity that the amount of training samples in $ X_{training} $ and $ X_{validation} $ should be dividable by the batch size that is chosen. A batch size is the amount of samples of $ X $ that are taken together in a batch. Additionally, this batch size also has to be used during prediction. The first problem is solved by removing samples of $ X $ at the beginning and the second issue can be workaround by transferring the trained weights to a new model with a different chosen batch size. This new model is then used during prediction.\\
+
+Also a batch size has to be specified in the Keras fit function. For a stateful model this is equal to the earlier chosen batch size for the training model. This batchsize determines how many outputs are compared with their reference to define an objective function that is used when calculating the gradients for weight update during backpropagation through time. Because here only one sample is predicted per 2D input matrix, the amount of samples of $ X $ correspond to the amount of outputs.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.2\textwidth]{stateless_input.png}
+	\caption{The generation of inputs for a stateless model. (source: \cite{FneishMo})}
+	\label{fig:stateless_input}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.2\textwidth]{stateful_input.png}
+	\caption{The generation of inputs for a stateful model. (source: \cite{FneishMo})}
+	\label{fig:stateful_input}
+\end{figure}
+
+\subsubsection{Initialization}
+When looking at the LSTM equations in Section \ref{s:LSTM}, four weightmatrices with an index \textit{H} and four weightmatrices with a index \textit{X} can be indentified. These are respectively the recurrent and kernel weights and they are both initialized in a different way. A recurrent weight matrix is initialized using a ``orthogonal'' initialization and the kernel weight matrix uses ``glorot uniform'' initialization. Both methods are during their generation of initial values randomly sampling a distribution.\\
+
+The biases $ \bm{b} $, memory states $ \bm{c}_t $ and hidden states $ \bm{H}_t $ of the LSTM equation are all initialized by zero arrays.\\
 
 
-\subsection{LSTM}
+\subsubsection{Overfitting avoidance in Keras}
+
+ Early stopping, dropout and recurrent dropout and  regularization (kernel, bais, activity and recurrent) is used to help to stop overfitting. 
+
+\subsubsection{Metrics to evaluate the models}
+
+
+\subsection{LSTM}\label{s:LSTM_implementation}
 The ``long short-term memory model'' 
-- model
+- model --> first lstm layers and then a dense layer.
+Use of flatten layer and return sequence equal to true --> \cite{Kong2019}
+
+
 - stateless vs not stateless
 - use the flowchart that have sent in mail
 - as metric for the model during training --> chosen for mse.
 
 
-\subsection{GRU}
+\subsection{GRU}\label{s:GRU_implementation}
 
 \subsection{Parameter search}\label{s:Parameter search}
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
@@ -233,6 +279,15 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 - as was suggested in \cite{Greff2017}, first the learning parameter is tuned. 
 
 - make a table of the different parameters that are varied. 
+
+%Whereas many algorithms presumably depend on a large hyperparameter space, it is known that in many cases only few parameter changes can be responsible for nearly all of the performance improvement. To this end, different techniques have been proposed that score parameters based on their importance. The functional analysis of variance (fANOVA) uses an empirical performance model (EPM) which is based on random forests in order to analyze how much of the performance variance in the configuration space is explained by single parameters or combinations of few parameters.
+%
+%Note that fANOVA’s result is ideally used for minimizing the hyperparameter search space and should not be seen as a flawless parameter configurator.
+%
+%More detailed information in : “An Efficient Approach for Assessing Hyperparameter Importance” by Frank Hutter, Holger Hoos and Kevin Leyton-Brown
+
+
+
 \subsection{Bidirectional LSTM}
 In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future consumptions.
 
@@ -240,8 +295,9 @@ In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future
 \subsection{Temperature model}
 A MLP model for developing a regresion model to forecast a temperature signal. 
 
+\subsection{Results and evaluation}\ref{s:Results and evaluation}
 
-\subsection{Evaluation of different designs}
+
 
 
 \section{Conclusion}
