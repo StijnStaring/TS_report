@@ -33,6 +33,12 @@ B.~A. Hoverstad, A.~Tidemann, H.~Langseth, and P.~Ozturk.
   Evolution for Parameter Tuning}.
 \newblock {\em IEEE Transactions on Smart Grid}, 6(4):1904--1913, 2015.
 
+\bibitem{Hutter2014}
+F.~Hutter, H.~Hoos, and K.~Leyton-Brown.
+\newblock {An efficient approach for assessing hyperparameter importance}.
+\newblock {\em 31st International Conference on Machine Learning, ICML 2014},
+  2:1130--1144, 2014.
+
 \bibitem{Kim2019}
 T.~Y. Kim and S.~B. Cho.
 \newblock {Predicting residential energy consumption using CNN-LSTM neural

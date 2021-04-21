@@ -31,8 +31,8 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces A GRU cell that is repeated over time (source: \cite {Olah}).\relax }}{23}{figure.caption.27}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{26}{figure.caption.28}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{27}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{28}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{29}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{29}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{30}{figure.caption.31}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{30}{figure.caption.32}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The consumption of $ 2017 $ for the three selected series. \relax }}{32}{figure.caption.33}%

@@ -51,16 +51,16 @@
 \contentsline {subsection}{\numberline {4.3.1}Different practical considerations of the models in Keras}{37}{subsection.4.3.1}%
 \contentsline {subsubsection}{Inputs}{37}{section*.41}%
 \contentsline {subsubsection}{Stateless versus Stateful}{38}{section*.42}%
-\contentsline {subsubsection}{Initialization}{39}{section*.45}%
+\contentsline {subsubsection}{Initialization}{40}{section*.45}%
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{40}{section*.46}%
 \contentsline {subsubsection}{Metrics to evaluate the models}{40}{section*.47}%
-\contentsline {subsection}{\numberline {4.3.2}LSTM}{41}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}GRU}{41}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.2}Deep LSTM}{41}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Deep GRU}{41}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Parameter search}{41}{subsection.4.3.4}%
 \contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{41}{subsection.4.3.5}%
 \contentsline {subsection}{\numberline {4.3.6}Temperature model}{41}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{41}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Conclusion}{41}{section.4.4}%
+\contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{42}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Conclusion}{42}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{43}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusion}{43}{section.5.1}%
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{45}{chapter.6}%
