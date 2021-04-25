@@ -278,7 +278,18 @@ During training also an error measure is used to accordingly update the weights 
 
 
 \subsection{Deep LSTM}\label{s:LSTM_implementation}
+% calculating the input data of the LSTM is done based on gpu in cloud: GPU - 1 x NVIDIA Tesla K80
+% training is done on cpu with 8 threads. 
+%test are done what performs fastest.
 There are four different implemlentations of a deep LSTM that are being tested as listed as follows:
+
+- make it very clear how the models work --> stateless one --> selecting a time serie from the original one --> input to LSTM --> final value is translated by a dense network. (show it graphical)
+
+- stateless two --> same but know also take al the intermediate outputs into account for translation 
+
+- statefull one --> sample per sample input --> takes actually only one serie into account and that is the whole serie till the day that should be predicted. The final output is then translated to a single value. (every output of the LSTM is translated to the dense network)
+
+- statefull 48 --> each model is focussed on predicting one time moment of the day. the statefull model is shown chuncks of data. 
 
 \begin{itemize}
 	\item Stateless
