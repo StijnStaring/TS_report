@@ -36,7 +36,7 @@ In order to reduce the calculation load to do the parameter search in Section \r
     Minimum daily consumption [kWh]& $ 7.51 $ & $ 1.83 $ &  $ 1.50 $   \\
     Total missing days (consumption) & $ 4 $ &$ 25 $ & $ 26 $\\
     Days in validation set (November)&  $ 30 $ & $ 29 $  & $ 29 $ \\
-    Days in Test set (December) & $ 31 $  $ 23 $  &    $ 31 $  & $ 23 $ \\
+    Days in Test set (December) & $ 31 $    &    $ 23 $  & $ 23 $ \\
     Days in training set (Rest)&   $ 300 $  &  $ 288 $   &  $ 287 $\\
     Mean average temperature [$\degree C$]& $ 10.37 $  &  $ 10.61 $  & $ 10.22 $ \\
     Standard deviation average temperature [$\degree C$]& $ 5.09 $  & $ 5.20 $   & $ 5.01 $ \\
@@ -290,6 +290,13 @@ There are four different implemlentations of a deep LSTM that are being tested a
 - statefull one --> sample per sample input --> takes actually only one serie into account and that is the whole serie till the day that should be predicted. The final output is then translated to a single value. (every output of the LSTM is translated to the dense network)
 
 - statefull 48 --> each model is focussed on predicting one time moment of the day. the statefull model is shown chuncks of data. 
+
+\textbf{From the code:}
+- during parameter search of stateless model 1 --> last 10 days of November are taken as validation set and only one epoch is looked at to reduce the calculation time. So no validation set is needed for early stopping. The real test set is the month December. The training data is shuffled. 
+The 48 input X_train --> length 15264 and with batch of 48 --> 318 weight update per epoch.
+
+It has been found that some models give a nan value for a long time and then do output a normall value. 
+
 
 \begin{itemize}
 	\item Stateless
