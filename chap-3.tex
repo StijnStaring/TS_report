@@ -293,8 +293,7 @@ There are four different implemlentations of a deep LSTM that are being tested a
 
 \textbf{From the code:}
 - during parameter search of stateless model 1 --> last 10 days of November are taken as validation set and only one epoch is looked at to reduce the calculation time. So no validation set is needed for early stopping. The real test set is the month December. The training data is shuffled. 
-The 48 input X_train --> length 15264 and with batch of 48 --> 318 weight update per epoch.
-
+The 48 input $X_train --> length 15264$ and with batch of 48 --> 318 weight update per epoch.
 It has been found that some models give a nan value for a long time and then do output a normall value. 
 
 
@@ -334,6 +333,30 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 - instead of grid search --> perform a random search hyperparameter tuning.
 
 - inspiration of the hyperparameter search comes from \cite{Shi2018}.
+- fill in correct values in tables
+- note that gradient norm clipping is used as explained in ... --> it was seen that the nan values in the prediction were because of a too big learning rate of 0.1 --> smaller learning rates didn't give a problem. 
+
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $0.950 $&$ 0.8298 $  & $0.8224 $\\
+		layers LSTM & $0.8377 $&$ 0.7771 $  & $0.7363$\\
+		Lag value & $0.9084 $&$ 0.8621$  & $0.8426$\\
+		Learning rate & $0.9084 $&$ 0.8621$  & $0.8426$\\\bottomrule
+	\end{tabular}
+	\caption{The best parameters for the three different series after phase $ 1 $ of the parameter search}
+	\label{tab:summ_data_rel_performance}
+\end{table}
+
+
+Discuss that it is typical that the learning rate size is an U-shape function with the error on the y-axis as was discussed in paper \cite{Greff2017}.
+
+https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/
+When plotted, the results of such a sensitivity analysis often show a “U” shape, where loss decreases (performance improves) as the learning rate is decreased with a fixed number of training epochs to a point where loss sharply increases again because the model fails to converge.
+
+
 
 
 

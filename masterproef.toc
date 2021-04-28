@@ -55,10 +55,10 @@
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{40}{section*.46}%
 \contentsline {subsubsection}{Metrics to evaluate the models}{40}{section*.47}%
 \contentsline {subsection}{\numberline {4.3.2}Deep LSTM}{41}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Deep GRU}{41}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Parameter search}{41}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{41}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Temperature model}{41}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.3}Deep GRU}{42}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Parameter search}{42}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{42}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Temperature model}{42}{subsection.4.3.6}%
 \contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{42}{subsection.4.3.7}%
 \contentsline {section}{\numberline {4.4}Conclusion}{42}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{43}{chapter.5}%
@@ -66,8 +66,8 @@
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{45}{chapter.6}%
 \contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{45}{section.6.1}%
 \contentsline {subsection}{\numberline {6.1.1}Item 1}{45}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{45}{section*.48}%
-\contentsline {subsubsection}{Sub-item 2}{45}{section*.49}%
+\contentsline {subsubsection}{Sub-item 1}{45}{section*.49}%
+\contentsline {subsubsection}{Sub-item 2}{45}{section*.50}%
 \contentsline {subsection}{\numberline {6.1.2}Item 2}{46}{subsection.6.1.2}%
 \contentsline {section}{\numberline {6.2}The Second Topic}{46}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Conclusion}{47}{section.6.3}%
@@ -83,4 +83,4 @@
 \contentsline {subsection}{\numberline {C.0.1}Removing outliers}{61}{subsection.C.0.1}%
 \contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{61}{subsection.C.0.2}%
 \contentsline {section}{\numberline {C.1}ARIMA}{61}{section.C.1}%
-\contentsline {chapter}{Bibliography}{63}{appendix*.59}%
+\contentsline {chapter}{Bibliography}{63}{appendix*.60}%
