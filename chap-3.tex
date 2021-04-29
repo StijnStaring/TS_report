@@ -1,6 +1,6 @@
 \chapter{Forecasting the daily electricity consumption}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\\textbf{update --> discussing data}
+In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\\textbf{update --> discussing data} The day we want to forecast is further indicated as the ``desired day''. 
 First pre-processing is done in Section \ref{s:Pre-processing} and the time series used are discussed. Afterwards the baseline models are looked into in Section \ref{s:Baseline models}. These models are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed with different design choices. Finally, a parameter search is conducted. Here, an analysis is made of the sensitivity of the choice of different parameters is made.\\
  
 \section{Pre-processing}\label{s:Pre-processing}
@@ -56,11 +56,13 @@ The simulations that are done in the chapter are performed on a virtual machine 
 Table \ref{tab:CPU} shows the different features of the hired machine. 
 \begin{table}[hb]
 	\centering
-	\begin{tabular}{|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}\hline
-		\textbf{Name}	& \textbf{Logical cores} & \textbf{RAM (GB)} & \textbf{Storage (GB)}\\\hline
-		F4s v2& $ 4 $&$ 8 $  & $ 32 $ \\\hline
+	\begin{tabular}{|p{5cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}\hline
+		\textbf{Name}	& \textbf{Logical cores} & \textbf{RAM (GB)} & \textbf{Storage (GB)} & \textbf{Cost}\\\hline
+		F4s v2 (CPU - Azure)& $ 4 $&$ 8 $  & $ 32 $ & $ \$ 0.194/hour $\\\hline
+		NVIDIA Tesla K80 (GPU - Azure)& $ 6 $&$ 56 $  & $ 380 $ & $\$ 1.166/hour$\\\hline
+		i7-5500U@ $ 2.40 $ GHz (CPU - local) & $ 4 $ & $ 12 $ & $ 32 $ & $ - $\\\bottomrule
 	\end{tabular}
-	\caption{Specifications of the virtual machine.}
+	\caption{Specifications of different CPU's and GPU tried.}
 	\label{tab:CPU}
 \end{table}
 
@@ -338,6 +340,13 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 
 - say that I know that it is less good to work in two phases to do the parameter search, but that it was done in order to reduce calculation time during the parameter search. 
 
+
+\subsubsection{Model 1: Stateless with no flatten layer}
+
+\textbf{Phase1:}\\
+Table \ref{tab:relative_performance_parameters_phase_one_model_one} shows the parameter search using the parameters listed in Table \ref{label}. The search was ran on a local machine (see Table \ref{tab:CPU}) for $ 9 $ hours and $ 48 $ minutes. It is clear that when the learning rate is varied this has the most impact on the average performance of the model. This results corresponds with paper \cite{Greff2017a} where it was concluded that this parameter is the most important when tuning a LSTM. Next, it can be seen that the lag value of $ 96 $ timesteps didn't lead to much more improvement with respect to looking at $ 48 $ historic time steps during every prediction. A reason for this can be because the day two days ago is very representative. It can be argued that the desired day a week ago would add more value because this better captures the human weekly routine this is missed when using a stateless model. In comparison Model $ 3 $ and $ 4 $ don't divide the historic signal in seperate subseries and therefore they are traversing the whole historic signal.\\
+An unexpected result that was found is that less LSTM units and only one LSTM layer in the case of Serie 1 give raise to a lower MAE. The reason for this could be the absence of overfitting. Therefore, in the next phase of the parameter search regulation is added and compared with the results obtained during phase one of the parameter search. 
+
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{@{}l||c|ccc@{}} \toprule
@@ -355,7 +364,7 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 			
 	\end{tabular}
 	\caption{Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search.}
-	\label{tab:relative_performance_parameters_phase_one}
+	\label{tab:relative_performance_parameters_phase_one_model_one}
 \end{table}
 
 
@@ -363,40 +372,66 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $0.950 $&$ 0.8298 $  & $0.8224 $\\
-		layers LSTM & $0.8377 $&$ 0.7771 $  & $0.7363$\\
-		Lag value & $0.9084 $&$ 0.8621$  & $0.8426$\\
-		Learning rate & $0.9084 $&$ 0.8621$  & $0.8426$\\\bottomrule
+		Units LSTM & $20 $&$ 50 $  & $20 $\\
+		layers LSTM & $1 $&$ 3 $  & $3$\\
+		Lag value & $96 $&$ 96$  & $48$\\
+		Learning rate & $0.01 $&$ 0.0001$  & $0.0001$\\\hline
+		MAE error 1   & $ 0.133 $ & $ 0.0426 $ & $ 0.100 $\\
+		MAE error 2   & $ 0.135 $ & $ 0.0433 $ & $ 0.100 $\\
+		MAE error 3   & $ 0.138 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
 	\end{tabular}
-	\caption{The varied parameters with their values that performed best for the three time series after phase $ 1 $ of the parameter search.}
+	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $.}
 	\label{tab:best_performing_para_phase1}
 \end{table}
 
 
-Discuss that it is typical that the learning rate size is an U-shape function with the error on the y-axis as was discussed in paper \cite{Greff2017}.
+%Discuss that it is typical that the learning rate size is an U-shape function with the error on the y-axis as was discussed in paper \cite{Greff2017}.
 
 %https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/
 %When plotted, the results of such a sensitivity analysis often show a “U” shape, where loss decreases (performance improves) as the learning rate is decreased with a fixed number of training epochs to a point where loss sharply increases again because the model fails to converge.
 
+\subsubsection{Model 2: Stateless with flatten layer}
 
-
-
-
-
-\begin{table}
-  \centering
-  \begin{tabular}{@{}llr@{}} \toprule
-    \multicolumn{2}{c}{Item} \\ \cmidrule(r){1-2}
-    Animal    & Description & Price (\$)\\ \midrule
-    Gnat      & per gram    & 13.65 \\
-              & each        & 0.01 \\
-    Gnu       & stuffed     & 92.50 \\
-    Emu       & stuffed     & 33.33 \\
-    Armadillo & frozen      & 8.99 \\ \bottomrule
-  \end{tabular}
-  \caption{A table with the correct layout.}
-  \label{tab:ok}
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l||c|ccc@{}} \toprule
+		\multicolumn{5}{c}{Model 2: Stateless (flatten layer)}\\\midrule\midrule
+		\textbf{Chosen parameter}	& \textbf{Value} & \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $ 20 $ & $0.446 $&$ 0.0622 $  & \\
+				   & $ 50 $  & 		  		&		   				& $0.319 $		\\\hline
+		layers LSTM & $ 1 $ & 		&		   & 		\\
+		            & $ 3 $ &  $21.3 $   	&$ 10.60 $  				& $9.98$\\\hline
+		Lag value & $ 48 $ & $7.51 $&$ 2.84 $		   & \\
+		            & $ 96 $ &          		& 		 & 	$1.76$	\\\hline
+		Learning rate & $ 10^{-2} $ &       &		 & 		\\
+		           & $  10^{-3} $ &$23.4 $    &$ 2.51$  			& $13.2$\\
+		          & $  10^{-4} $ &$43.0 $		&$ 12.8$    	& $17.9$\\\bottomrule
+		
+	\end{tabular}
+	\caption{Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 2 $ of the parameter search.}
+	\label{tab:relative_performance_parameters_phase_one_model_one}
 \end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $20 $&$ 50 $  & $50 $\\
+		layers LSTM & $3 $&$ 3 $  & $3$\\
+		Lag value & $96 $&$ 48$  & $96$\\
+		Learning rate & $0.001 $&$ 0.0001$  & $0.001$\\\hline
+		MAE error 1   & $ 0.137 $ & $ 0.0426 $ & $ 0.0973 $\\
+		MAE error 2   & $ 0.139 $ & $ 0.0430 $ & $ 0.107 $\\
+		MAE error 3   & $ 0.136 $ & $ 0.0424 $ & $ 0.100 $\\\bottomrule
+	\end{tabular}
+	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 2 $.}
+	\label{tab:best_performing_para_phase1}
+\end{table}
+
+
+
+
+
 
 
 \subsection{Bidirectional LSTM}
