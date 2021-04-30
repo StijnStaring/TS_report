@@ -343,8 +343,10 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 
 \subsubsection{Model 1: Stateless with no flatten layer}
 
+
+
 \textbf{Phase1:}\\
-Table \ref{tab:relative_performance_parameters_phase_one_model_one} shows the parameter search using the parameters listed in Table \ref{label}. The search was ran on a local machine (see Table \ref{tab:CPU}) for $ 9 $ hours and $ 48 $ minutes. It is clear that when the learning rate is varied this has the most impact on the average performance of the model. This results corresponds with paper \cite{Greff2017a} where it was concluded that this parameter is the most important when tuning a LSTM. Next, it can be seen that the lag value of $ 96 $ timesteps didn't lead to much more improvement with respect to looking at $ 48 $ historic time steps during every prediction. A reason for this can be because the day two days ago is very representative. It can be argued that the desired day a week ago would add more value because this better captures the human weekly routine this is missed when using a stateless model. In comparison Model $ 3 $ and $ 4 $ don't divide the historic signal in seperate subseries and therefore they are traversing the whole historic signal.\\
+Table \ref{tab:relative_performance_parameters_phase_one_model_one} shows the parameter search using the parameters listed in Table \ref{label}. The search was ran on a local machine (see Table \ref{tab:CPU}) for $ 9 $ hours and $ 48 $ minutes. It is clear that when the learning rate is varied this has the most impact on the average performance of the model. This result corresponds with paper \cite{Greff2017a} where it was concluded that this parameter is the most important when tuning a LSTM. Next, it can be seen that the lag value of $ 96 $ timesteps didn't lead to much more improvement with respect to looking at $ 48 $ historic time steps during every prediction. Only an average improvement of $ 4.25 \% $ is achieved for Serie 1 when a lag value of $ 48 $ is used. A reason for this can be because the day, two days ago, is not very representative. It can be argued that the desired day a week ago would add more value, because this better captures the human weekly routine. In comparison Model $ 3 $ and $ 4 $ don't divide the historic signal in seperate subseries and therefore they are traversing the whole historic signal before they make predictions.\\
 An unexpected result that was found is that less LSTM units and only one LSTM layer in the case of Serie 1 give raise to a lower MAE. The reason for this could be the absence of overfitting. Therefore, in the next phase of the parameter search regulation is added and compared with the results obtained during phase one of the parameter search. 
 
 \begin{table}[ht]
@@ -385,6 +387,16 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 \end{table}
 
 
+\textbf{Phase 2}\\
+In this section the learning rate and the lag value of the best performing model are combined with the most complex model with regulation. With most complex model it is meant that $ 50 $ LSTM units and $ 3 $ LSTM layers are used. First a sensitivity analysis is done to look which regulation has the most effect. Afterwards, the most promising values are used in a grid search. Finally, the results of phase two are compared with the best results of phase one. Note, that using this approach assumes that adding regulation can nullify the use of a too complex model. 
+
+- The LSTM dropout and regularization parameters are set the same for all the layers. 
+
+
+\textbf{Phase 3}\\
+Finally, during this phase special attention is devoted to the learning rate. As was displayed in Table \ref{tab:relative_performance_parameters_phase_one_model_one} changing the learning rate could lead to significant differences in model performance. Therefore, a sensitivity analysis is performed and the best learning rate is chosen for the final model. 
+
+
 %Discuss that it is typical that the learning rate size is an U-shape function with the error on the y-axis as was discussed in paper \cite{Greff2017}.
 
 %https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/
@@ -409,7 +421,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 		
 	\end{tabular}
 	\caption{Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 2 $ of the parameter search.}
-	\label{tab:relative_performance_parameters_phase_one_model_one}
+	\label{tab:relative_performance_parameters_phase_one_model_two}
 \end{table}
 
 \begin{table}[ht]
@@ -430,7 +442,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 
 
 
-
+\subsubsection{}
 
 
 

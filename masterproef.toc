@@ -11,7 +11,7 @@
 \contentsline {chapter}{Abstract}{v}{chapter*.4}%
 \babel@toc {english}{}
 \contentsline {chapter}{List of Figures and Tables}{vi}{chapter*.5}%
-\contentsline {chapter}{List of Abbreviations and Symbols}{viii}{chapter*.10}%
+\contentsline {chapter}{List of Abbreviations and Symbols}{ix}{chapter*.10}%
 \contentsline {chapter}{\chapternumberline {1}Introduction}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Importance of topic}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Problem formulation and link with previous studies}{1}{section.1.2}%
@@ -58,31 +58,31 @@
 \contentsline {subsection}{\numberline {4.3.3}Deep GRU}{42}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Parameter search}{42}{subsection.4.3.4}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{42}{section*.48}%
-\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{42}{section*.51}%
-\contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{42}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}Temperature model}{43}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{43}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Conclusion}{43}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{45}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusion}{45}{section.5.1}%
-\contentsline {chapter}{\chapternumberline {6}Evaluating results}{47}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{47}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Item 1}{47}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{47}{section*.55}%
-\contentsline {subsubsection}{Sub-item 2}{47}{section*.56}%
-\contentsline {subsection}{\numberline {6.1.2}Item 2}{48}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}The Second Topic}{48}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Conclusion}{49}{section.6.3}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{51}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{55}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{55}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{56}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{56}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{56}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{61}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Baseline models}{61}{section.B.1}%
-\contentsline {appendix}{\chapternumberline {C}Old things}{63}{appendix.C}%
-\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{63}{subsection.C.0.1}%
-\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{63}{subsection.C.0.2}%
-\contentsline {section}{\numberline {C.1}ARIMA}{63}{section.C.1}%
-\contentsline {chapter}{Bibliography}{65}{appendix*.66}%
+\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{44}{section*.51}%
+\contentsline {subsection}{\numberline {4.3.5}Bidirectional LSTM}{44}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Temperature model}{44}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Results and evaluation}{44}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Conclusion}{45}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{47}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusion}{47}{section.5.1}%
+\contentsline {chapter}{\chapternumberline {6}Evaluating results}{49}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{49}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Item 1}{49}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{49}{section*.54}%
+\contentsline {subsubsection}{Sub-item 2}{49}{section*.55}%
+\contentsline {subsection}{\numberline {6.1.2}Item 2}{50}{subsection.6.1.2}%
+\contentsline {section}{\numberline {6.2}The Second Topic}{50}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Conclusion}{51}{section.6.3}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{53}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{57}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{57}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{58}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{58}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{58}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{63}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Baseline models}{63}{section.B.1}%
+\contentsline {appendix}{\chapternumberline {C}Old things}{65}{appendix.C}%
+\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{65}{subsection.C.0.1}%
+\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{65}{subsection.C.0.2}%
+\contentsline {section}{\numberline {C.1}ARIMA}{65}{section.C.1}%
+\contentsline {chapter}{Bibliography}{67}{appendix*.65}%
