@@ -382,7 +382,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 		MAE error 2   & $ 0.135 $ & $ 0.0433 $ & $ 0.100 $\\
 		MAE error 3   & $ 0.138 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
 	\end{tabular}
-	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $.}
+	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $ based on the smallest sum of MAE errors during three runs.}
 	\label{tab:best_performing_para_phase1}
 \end{table}
 
@@ -401,6 +401,9 @@ Finally, during this phase special attention is devoted to the learning rate. As
 
 %https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/
 %When plotted, the results of such a sensitivity analysis often show a “U” shape, where loss decreases (performance improves) as the learning rate is decreased with a fixed number of training epochs to a point where loss sharply increases again because the model fails to converge.
+
+
+%From the original paper that suggested that dropout values should be taken between 0.2 and 0.5 percent
 
 \subsubsection{Model 2: Stateless with flatten layer}
 
