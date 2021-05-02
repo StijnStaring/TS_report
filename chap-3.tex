@@ -340,6 +340,8 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 
 - say that I know that it is less good to work in two phases to do the parameter search, but that it was done in order to reduce calculation time during the parameter search. 
 
+- for comparing performance in the same time serie --> mae is used. To compare performance between different time series --> MAPE is used. 
+
 
 \subsubsection{Model 1: Stateless with no flatten layer}
 
@@ -373,6 +375,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
 		Units LSTM & $20 $&$ 50 $  & $20 $\\
 		layers LSTM & $1 $&$ 3 $  & $3$\\
@@ -390,18 +393,74 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 \textbf{Phase 2}\\
 In this section the learning rate and the lag value of the best performing model are combined with the most complex model with regulation. With most complex model it is meant that $ 50 $ LSTM units and $ 3 $ LSTM layers are used. First a sensitivity analysis is done to look which regulation has the most effect. Afterwards, the most promising values are used in a grid search. Finally, the results of phase two are compared with the best results of phase one. Note, that using this approach assumes that adding regulation can nullify the use of a too complex model. 
 
-- The LSTM dropout and regularization parameters are set the same for all the layers. 
+- The LSTM dropout and regularization parameters are set the same for all the layers.
+- explain that l2 norm is used and what the weight regularization parameter exactly does and dropout. 
+- Now just the best performing model is chosen. Say that knows that that is not the ideal way to do it, because you ignore the interaction between the different regularization methods. 
+- each setting is again ran three times each time two epochs, batch size of $ 48 $, to reduce the influence of the random initialization. Say that each point is calculated as the mean error of three seperate runs.
+- make table with parameters that are varied during phase 2.
 
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=1\linewidth]{serie1_model1.png}
+		\caption{Model 1}
+	\end{subfigure}	
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=1\linewidth]{serie2_model1.png}
+		\caption{Model 1}
+	\end{subfigure}
+\begin{subfigure}{0.5\linewidth}
+	\includegraphics[width=1\linewidth]{serie3_model1.png}
+	\caption{Model 1}
+\end{subfigure}
+	\caption{Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit{r\_D}: regularization size of weights DENSE layer,  \textit{r\_r\_L}: regularization size of recurrent weight of LSTM, \textit{r\_L}: regularization size of input weights of LSTM, \textit{d\_L}: dropout rate of input connections LSTM, \textit{r\_d\_L}: dropout rate of recurrent connections LSTM, \textit{d\_D}: dropout rate of DENSE layer input connections, \textit{or}: best performing serie from phase one)}
+	\label{fig:sensitivity_model1}
+\end{figure}
+
+- for dense layer weights see ...
+- for recurrent weight matrix see ...
+- for kernel weight matrix see ...
+
+Out of the comparison of the models from phase one and two
 
 \textbf{Phase 3}\\
 Finally, during this phase special attention is devoted to the learning rate. As was displayed in Table \ref{tab:relative_performance_parameters_phase_one_model_one} changing the learning rate could lead to significant differences in model performance. Therefore, a sensitivity analysis is performed and the best learning rate is chosen for the final model. 
 
+- say that learning rates are also chosen according to pooling paper. 
+
+- although it seems that that the error decreases when the learning rate increases for Serie 1, the neural network becomes unstable and therefore output infinite loss when higher learning rates are chosen.
+
+- as discussed in paper \cite{Greff2017} the learning rate shows the U shape which means higher loss for too big and small learning rates. 
+
+%\begin{figure}[h]
+%	\centering
+%	\includegraphics[width=1.0\textwidth]{.png}
+%	\caption{The evolution of the MAE in function of the learning rate for the different series and model 1.}
+%	\label{fig:stateful_input}
+%\end{figure}
 
 %Discuss that it is typical that the learning rate size is an U-shape function with the error on the y-axis as was discussed in paper \cite{Greff2017}.
 
 %https://machinelearningmastery.com/learning-rate-for-deep-learning-neural-networks/
 %When plotted, the results of such a sensitivity analysis often show a “U” shape, where loss decreases (performance improves) as the learning rate is decreased with a fixed number of training epochs to a point where loss sharply increases again because the model fails to converge.
+\textbf{Final model}\\
 
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
+		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $20 $&$ 50 $  & $20 $\\
+		layers LSTM & $1 $&$ 3 $  & $3$\\
+		Lag value & $96 $&$ 96$  & $48$\\
+		Learning rate & $0.01 $&$ 0.0001$  & $0.0001$\\\hline
+		Regularization kernel LSTM   & $ 0 $ & $ 0.0426 $ & $ 0.100 $\\
+		Dropout LSTM   & $ 0 $ & $ 0.0433 $ & $ 0.100 $\\
+		Dropout DENSE   & $ 0 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
+	\end{tabular}
+	\caption{The values of the parameters of model 1 with respect to the different series that are obtained after the three phases of the parameter search.}
+	\label{tab:best_performing_para_final}
+\end{table}
 
 %From the original paper that suggested that dropout values should be taken between 0.2 and 0.5 percent
 
@@ -430,6 +489,7 @@ Finally, during this phase special attention is devoted to the learning rate. As
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\multicolumn{4}{c}{Model 2: Stateless (flatten layer)}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
 		Units LSTM & $20 $&$ 50 $  & $50 $\\
 		layers LSTM & $3 $&$ 3 $  & $3$\\
@@ -445,7 +505,25 @@ Finally, during this phase special attention is devoted to the learning rate. As
 
 
 
-\subsubsection{}
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=1\linewidth]{serie1_model2.png}
+		\caption{Model 2}
+	\end{subfigure}	
+	\begin{subfigure}{0.49\linewidth}
+		\includegraphics[width=1\linewidth]{serie2_model2.png}
+		\caption{Model 2}
+	\end{subfigure}
+	\begin{subfigure}{0.5\linewidth}
+		\includegraphics[width=1\linewidth]{serie3_model2.png}
+		\caption{Model 2}
+	\end{subfigure}
+	\caption{Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit{r\_D}: regularization size of weights DENSE layer,  \textit{r\_r\_L}: regularization size of recurrent weight of LSTM, \textit{r\_L}: regularization size of input weights of LSTM, \textit{d\_L}: dropout rate of input connections LSTM, \textit{r\_d\_L}: dropout rate of recurrent connections LSTM, \textit{d\_D}: dropout rate of DENSE layer input connections, \textit{or}: best performing serie from phase one)}
+	\label{fig:sensitivity_model2}
+\end{figure}
+
+
 
 
 
