@@ -342,6 +342,8 @@ Multithreading is used to use the full potential of the CPU listed in Table \ref
 
 - for comparing performance in the same time serie --> mae is used. To compare performance between different time series --> MAPE is used. 
 
+- when there are a lot of missing days in the test data: serie 1 (0 days) and the other two (8days) -->it is naturally that the model performs worse, the previous day it bases its forecast on is just an estimate. For the day that is forecasted are always days where the true reference signal is available. 
+
 
 \subsubsection{Model 1: Stateless with no flatten layer}
 
@@ -559,6 +561,14 @@ Finally, during this phase special attention is devoted to the learning rate. As
 	\caption{The evaluation of the error on the validation set in function of the learning rate size.}
 	\label{fig:learning_rate_model1}
 \end{figure}
+
+
+\subsubsection{Model 3: Stateful model}
+
+- should I let the stateful model predict on 
+- Also one of the reasons that the stateful model performs better can be because there are a lot more weight updates because the weights are updated after each time step. Not True!! Batch size is still 48 --> but the lag value is one.
+- Have to throw away the first day here though to make the training set dividable by 48. 
+
 
 
 \subsection{Bidirectional LSTM}
