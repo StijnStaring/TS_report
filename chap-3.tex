@@ -563,13 +563,15 @@ Finally, during this phase special attention is devoted to the learning rate. As
 \end{figure}
 
 
-\subsubsection{Model 3: Stateful model}
+\subsubsection{Model 3: Stateful model (1 timestep)}
 
 - should I let the stateful model predict on 
 - Also one of the reasons that the stateful model performs better can be because there are a lot more weight updates because the weights are updated after each time step. Not True!! Batch size is still 48 --> but the lag value is one.
 - Have to throw away the first day here though to make the training set dividable by 48. 
+- it seems reasonable to choose the batch size equal to 48 and not one. If one then focussed to much on the single values that have a lot of uncertainty on them. If you take 48, then you feed day per day and the whole day is looked at once, which is better to identify trends. 
+- downside --> obtaining the predictions takes longer. For each prediction of a day the model is first seeded. 
 
-
+\subsubsection{Model 4: Stateful model (48 timesteps)}
 
 \subsection{Bidirectional LSTM}
 In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future consumptions.
