@@ -58,14 +58,14 @@
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{41}{section*.48}%
 \contentsline {subsection}{\numberline {4.3.3}Model 2: Stateless with flatten layer}{42}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Model 3: Stateful}{42}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Parameter search}{43}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.5}Parameter search}{44}{subsection.4.3.5}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{44}{section*.52}%
-\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{47}{section*.57}%
-\contentsline {subsubsection}{Model 3: Stateful model (1 timestep)}{47}{section*.62}%
-\contentsline {subsubsection}{Model 4: Stateful model (48 timesteps)}{48}{section*.65}%
-\contentsline {subsection}{\numberline {4.3.6}Bidirectional LSTM}{48}{subsection.4.3.6}%
+\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{46}{section*.57}%
+\contentsline {subsubsection}{Model 3: Stateful model (1 timestep)}{46}{section*.62}%
+\contentsline {subsubsection}{Model 4: Stateful model (48 timesteps)}{47}{section*.65}%
+\contentsline {subsection}{\numberline {4.3.6}Bidirectional LSTM}{47}{subsection.4.3.6}%
 \contentsline {subsection}{\numberline {4.3.7}Temperature model}{48}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Conclusion}{49}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Conclusion}{48}{section.4.4}%
 \contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{53}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Conclusion}{53}{section.5.1}%
 \contentsline {chapter}{\chapternumberline {6}Evaluating results}{55}{chapter.6}%

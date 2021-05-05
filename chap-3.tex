@@ -280,39 +280,47 @@ During training also an error measure is used to accordingly update the weights 
 
 
 \subsection{Deep LSTM}\label{s:LSTM_implementation}
-First, the input data of the LSTM is calculated which should be preprocessed in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \label{fig:stateful_input}. This is done before training by making use of a GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. Three different models will be discussed further from which the first two are stateless models and the third a stateful model. Every model will predict only one half hour consumption at a time as was proposed as good methodology in \cite{ANNRNN}. Also, each model makes use of early stopping on a validation set to avoid overfitting. The models can also have multiple LSTM layers on top of each other. The   The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
+First, the input data of the LSTM is calculated which should be preprocessed in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \label{fig:stateful_input}. This is done before training by making use of a GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. Three different models will be shown further from which the first two are stateless models and the third a stateful model. For the stateless models it is possible to shuffle the input data. Every model will predict only one half hour consumption at a time as was proposed as a good methodology in \cite{ANNRNN}. Also, each model makes use of early stopping on a validation set to avoid overfitting. The models can also have multiple LSTM layers on top of each other. The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
 
 \subsubsection{Model 1: Stateless with no flatten layer}\label{Model1}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.2\textwidth]{model1.png}
-	\caption{Model1 - stateless model with as input a subserie of N time steps. }
+	\caption{Model1 - stateless model with as input a subserie of N time steps and $ C_{i} \in \mathbb{R}^{m} $, $ H_{j} \in \mathbb{R}^{n} $, $ X_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model1}
 \end{figure}
 
-Every subserie of the original time serie has $ N $ time steps and is feeded to the LSTM layer. When the final LSTM block is reached the output of this block will be translated to a single prediction value by a conventional layer of hidden neurons (Dense layer). The subseries are created by every time shifting the window one time step further. Because Model 1 is stateless $ C_{0} $ and $ H_{0} $ will be initialized by zero vectors. The amount of $ N $ LSTM blocks that are used equals the lag value that determines the amount of previous time steps that will be taken into account for the next prediction. 
+Every subserie of the original time serie has $ N $ time steps and is feeded to the LSTM layer. When the final LSTM block is reached the output of this block will be translated to a single prediction value by a conventional layer of hidden neurons (Dense layer). The subseries are created by every time shifting the window one time step further. Because Model 1 is stateless $ C_{0} $ and $ H_{0} $ will be initialized by zero vectors. The amount of $ N $ LSTM blocks that are used equals the lag value that determines the amount of previous time steps that will be taken into account for the next prediction. Although that it looks that there are multiple LSTM blocks, this is just to give a visual interpretation. There is actually only one LSTM block that is reused for every different $ X_{k} $. When the same size of layers and hidden recurrent states are chosen, all the three models have the same amount of trainable parameters. 
 
-
+- shuffle for stateless
 \subsection{Model 2: Stateless with flatten layer}\label{Model2}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.2\textwidth]{model2.png}
-	\caption{Model2 - stateless model with as input a subserie of N time steps. }
+	\caption{Model2 - stateless model with as input a subserie of N time steps and $ C_{i} \in \mathbb{R}^{m} $, $ H_{j} \in \mathbb{R}^{n} $, $ X_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model2}
 \end{figure}
 
-In this model additionally to the output of the last LSTM block also the previous outputs of the LSTM blocks are inputs to the dense layer. 
+In this model additionally to the output of the last LSTM block also the previous outputs of the LSTM blocks are inputs to the dense layer. The use of this model was derived from a figure in \cite{Kong2019}.
 
 \subsection{Model 3: Stateful}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.2\textwidth]{model3.png}
-	\caption{Model 3 - Statful model that connects single LSTM blocks. }
+	\caption{Model 3 - Statful model that connects single LSTM blocks and $ C_{i} \in \mathbb{R}^{m} $, $ H_{j} \in \mathbb{R}^{n} $, $ X_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model3}
 \end{figure}
 
+Where the previous two models only go through a small subserie of $ 48 $ or $ 96 $ time steps, this model sees the whole original time serie when predicting. This is possible because the model looks one by one at each sample of the original time serie ($ X_{1} $) and sets the $ C_{1} $ and $ H_{1} $ that come out as $ C_{0} $ and $ H_{0} $ when the next sample of the original time serie is used. 
+
+
+
+
+this model uses only one LSTM block that corresponds to $ 1 $ timestep. However by setting  of the previous  as 
+
+- seeding important
 
 - statefull one --> sample per sample input --> takes actually only one serie into account and that is the whole serie till the day that should be predicted. The final output is then translated to a single value. (every output of the LSTM is translated to the dense network)
 
@@ -354,6 +362,8 @@ Use of flatten layer and return sequence equal to true --> \cite{Kong2019} and a
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
 
 - check what have said in slides during the last meeting. 
+
+- say something about the batch size --> what is means to have 48, 96 or 1 batch size. 
 
 - to speed up the parameter search different threads were developed to separately calculate different parameter try-outs. 
 
@@ -601,6 +611,8 @@ Finally, during this phase special attention is devoted to the learning rate. As
 - Have to throw away the first day here though to make the training set dividable by 48. 
 - it seems reasonable to choose the batch size equal to 48 and not one. If one then focussed to much on the single values that have a lot of uncertainty on them. If you take 48, then you feed day per day and the whole day is looked at once, which is better to identify trends. 
 - downside --> obtaining the predictions takes longer. For each prediction of a day the model is first seeded. 
+
+The model is trained by making use of a batch size of one, which means that the weights of the LSTM block is updated by comparing each output immediately with its reference. 
 
 \begin{table}[ht]
 	\centering
