@@ -29,47 +29,48 @@ Warning--I didn't find a database entry for "h2g2"
 Warning--I didn't find a database entry for "bibid"
 Warning--empty journal in Chung2014
 Warning--there's a number but no volume in loadforecastingmoor
+Warning--empty journal in ANNRNN
 Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
-You've used 17 entries,
+You've used 18 entries,
             2118 wiz_defined-function locations,
-            618 strings with 6462 characters,
-and the built_in function-call counts, 5772 in all, are:
-= -- 551
-> -- 306
+            623 strings with 6533 characters,
+and the built_in function-call counts, 5979 in all, are:
+= -- 571
+> -- 313
 < -- 2
-+ -- 121
-- -- 104
-* -- 438
-:= -- 973
-add.period$ -- 47
-call.type$ -- 17
-change.case$ -- 101
++ -- 124
+- -- 106
+* -- 447
+:= -- 1012
+add.period$ -- 50
+call.type$ -- 18
+change.case$ -- 105
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 178
-empty$ -- 438
-format.name$ -- 104
-if$ -- 1163
+cite$ -- 23
+duplicate$ -- 188
+empty$ -- 455
+format.name$ -- 106
+if$ -- 1204
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 15
-newline$ -- 84
-num.names$ -- 34
-pop$ -- 111
+int.to.str$ -- 18
+missing$ -- 16
+newline$ -- 89
+num.names$ -- 36
+pop$ -- 115
 preamble$ -- 1
-purify$ -- 86
+purify$ -- 89
 quote$ -- 0
-skip$ -- 132
+skip$ -- 140
 stack$ -- 0
-substring$ -- 387
+substring$ -- 392
 swap$ -- 23
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
-warning$ -- 4
-while$ -- 57
-width$ -- 19
-write$ -- 172
-(There were 6 warnings)
+type$ -- 68
+warning$ -- 5
+while$ -- 59
+width$ -- 20
+write$ -- 182
+(There were 7 warnings)

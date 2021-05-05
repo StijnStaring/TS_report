@@ -83,6 +83,11 @@ H.~Shi, M.~Xu, and R.~Li.
   RNN}.
 \newblock {\em IEEE Transactions on Smart Grid}, 9(5):5271--5280, 2018.
 
+\bibitem{ANNRNN}
+J.~Suykens.
+\newblock {Recurrent neural networks - ANN lecture}.
+\newblock 0, 2021.
+
 \bibitem{Teuwen2019}
 J.~Teuwen and N.~Moriakov.
 \newblock {\em {Convolutional neural networks}}.

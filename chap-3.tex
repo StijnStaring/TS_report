@@ -209,7 +209,7 @@ In this section deep LSTM and GRU models, which are models that are specialized 
 
 \subsection{Different practical considerations of the models in Keras}
 
-\subsubsection{Inputs}
+\subsubsection{Inputs}\label{s:Inputs}
 The inputs to theses models are similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
 \begin{itemize}
 	\item historic training values (min-max normalization)
@@ -280,14 +280,39 @@ During training also an error measure is used to accordingly update the weights 
 
 
 \subsection{Deep LSTM}\label{s:LSTM_implementation}
-% calculating the input data of the LSTM is done based on gpu in cloud: GPU - 1 x NVIDIA Tesla K80
-% training is done on cpu with 8 threads. 
-%test are done what performs fastest.
-There are four different implemlentations of a deep LSTM that are being tested as listed as follows:
+First, the input data of the LSTM is calculated which should be preprocessed in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \label{fig:stateful_input}. This is done before training by making use of a GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. Three different models will be discussed further from which the first two are stateless models and the third a stateful model. Every model will predict only one half hour consumption at a time as was proposed as good methodology in \cite{ANNRNN}. Also, each model makes use of early stopping on a validation set to avoid overfitting. The models can also have multiple LSTM layers on top of each other. The   The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
 
-- make it very clear how the models work --> stateless one --> selecting a time serie from the original one --> input to LSTM --> final value is translated by a dense network. (show it graphical)
+\subsubsection{Model 1: Stateless with no flatten layer}\label{Model1}
 
-- stateless two --> same but know also take al the intermediate outputs into account for translation 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.2\textwidth]{model1.png}
+	\caption{Model1 - stateless model with as input a subserie of N time steps. }
+	\label{fig:model1}
+\end{figure}
+
+Every subserie of the original time serie has $ N $ time steps and is feeded to the LSTM layer. When the final LSTM block is reached the output of this block will be translated to a single prediction value by a conventional layer of hidden neurons (Dense layer). The subseries are created by every time shifting the window one time step further. Because Model 1 is stateless $ C_{0} $ and $ H_{0} $ will be initialized by zero vectors. The amount of $ N $ LSTM blocks that are used equals the lag value that determines the amount of previous time steps that will be taken into account for the next prediction. 
+
+
+\subsection{Model 2: Stateless with flatten layer}\label{Model2}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.2\textwidth]{model2.png}
+	\caption{Model2 - stateless model with as input a subserie of N time steps. }
+	\label{fig:model2}
+\end{figure}
+
+In this model additionally to the output of the last LSTM block also the previous outputs of the LSTM blocks are inputs to the dense layer. 
+
+\subsection{Model 3: Stateful}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1.2\textwidth]{model3.png}
+	\caption{Model 3 - Statful model that connects single LSTM blocks. }
+	\label{fig:model3}
+\end{figure}
+
 
 - statefull one --> sample per sample input --> takes actually only one serie into account and that is the whole serie till the day that should be predicted. The final output is then translated to a single value. (every output of the LSTM is translated to the dense network)
 
@@ -320,11 +345,17 @@ Use of flatten layer and return sequence equal to true --> \cite{Kong2019} and a
 
 - using cross-validation to get the accuracy of the stateless model.
 
-
-\subsection{Deep GRU}\label{s:GRU_implementation}
+- The first phase takes about $ 10 $ hours
+- The second phase takes for each added regulation parameter $ 4 $ hours. $ 6 $ different regulation parameters are tried per model. 
+- The third phase that tunes the learning rates takes around $ 3 $ hours.
+- the validation set used to tune the different parameters on are the last $ 10 $ days of November. 
 
 \subsection{Parameter search}\label{s:Parameter search}
 Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
+
+- check what have said in slides during the last meeting. 
+
+- to speed up the parameter search different threads were developed to separately calculate different parameter try-outs. 
 
 - refer back to paper LSTM: A Search Space Odyssey. There they performed a parameter search and they say that the parameters can assumed to be reasonably independent and learning rate the most important parameter. Can be learned seperately. See section \ref{s:Performance results between different models}.
 
@@ -465,22 +496,22 @@ Finally, during this phase special attention is devoted to the learning rate. As
 %When plotted, the results of such a sensitivity analysis often show a “U” shape, where loss decreases (performance improves) as the learning rate is decreased with a fixed number of training epochs to a point where loss sharply increases again because the model fails to converge.
 \textbf{Final model}\\
 
-\begin{table}[ht]
-	\centering
-	\begin{tabular}{@{}l|ccc@{}} \toprule
-		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
-		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $20 $&$ 50 $  & $20 $\\
-		layers LSTM & $1 $&$ 3 $  & $3$\\
-		Lag value & $96 $&$ 96$  & $48$\\
-		Learning rate & $0.01 $&$ 0.0001$  & $0.0001$\\\hline
-		Regularization kernel LSTM   & $ 0 $ & $ 0.0426 $ & $ 0.100 $\\
-		Dropout LSTM   & $ 0 $ & $ 0.0433 $ & $ 0.100 $\\
-		Dropout DENSE   & $ 0 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
-	\end{tabular}
-	\caption{The values of the parameters of model 1 with respect to the different series that are obtained after the three phases of the parameter search.}
-	\label{tab:best_performing_para_final}
-\end{table}
+%\begin{table}[ht]
+%	\centering
+%	\begin{tabular}{@{}l|ccc@{}} \toprule
+%		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
+%		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+%		Units LSTM & $20 $&$ 50 $  & $20 $\\
+%		layers LSTM & $1 $&$ 3 $  & $3$\\
+%		Lag value & $96 $&$ 96$  & $48$\\
+%		Learning rate & $0.01 $&$ 0.0001$  & $0.0001$\\\hline
+%		Regularization kernel LSTM   & $ 0 $ & $ 0.0426 $ & $ 0.100 $\\
+%		Dropout LSTM   & $ 0 $ & $ 0.0433 $ & $ 0.100 $\\
+%		Dropout DENSE   & $ 0 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
+%	\end{tabular}
+%	\caption{The values of the parameters of model 1 with respect to the different series that are obtained after the three phases of the parameter search.}
+%	\label{tab:best_performing_para_final}
+%\end{table}
 
 %From the original paper that suggested that dropout values should be taken between 0.2 and 0.5 percent
 
@@ -520,7 +551,7 @@ Finally, during this phase special attention is devoted to the learning rate. As
 		MAE error 3   & $ 0.136 $ & $ 0.0424 $ & $ 0.100 $\\\bottomrule
 	\end{tabular}
 	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 2 $.}
-	\label{tab:best_performing_para_phase1}
+	\label{tab:best_performing_para_phase1_model2}
 \end{table}
 
 
@@ -571,7 +602,51 @@ Finally, during this phase special attention is devoted to the learning rate. As
 - it seems reasonable to choose the batch size equal to 48 and not one. If one then focussed to much on the single values that have a lot of uncertainty on them. If you take 48, then you feed day per day and the whole day is looked at once, which is better to identify trends. 
 - downside --> obtaining the predictions takes longer. For each prediction of a day the model is first seeded. 
 
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l||c|ccc@{}} \toprule
+		\multicolumn{5}{c}{Model 3: Stateful (1 timestep)}\\\midrule\midrule
+		\textbf{Chosen parameter}	& \textbf{Value} & \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $ 20 $ & $6.66 $		&  & $0.55 $\\
+		& $ 50 $ & 		  		&	$ 0.51 $	   & 		\\\hline
+		layers LSTM & $ 1 $ & $30.00 $		&	$ 1.52 $	   & 	$7.42$	\\
+		& $ 3 $ & 	      		& 			 & \\\hline
+		Learning rate & $ 10^{-2} $ &       &		   & 		\\
+		& $  10^{-3} $ &$17.72 $&$0.0$  & $0.0$\\
+		& $  10^{-4} $ &$27.28 $&$ 2.28$    & $11.13$\\\bottomrule
+		
+	\end{tabular}
+	\caption{Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search.}
+	\label{tab:relative_performance_parameters_phase_one_model_three}
+\end{table}
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{@{}l|ccc@{}} \toprule
+		\multicolumn{4}{c}{Model 3: Stateless (flatten layer)}\\\midrule\midrule
+		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
+		Units LSTM & $50 $&$ 50 $  & $20 $\\
+		layers LSTM & $1 $&$ 1 $  & $1$\\
+		Learning rate & $0.0001 $&$ 0.0001$  & $0.0001$\\\hline
+		MAE error 1   & $ 0.132 $ & $ 0.0522 $ & $ 0.109 $\\
+		MAE error 2   & $ 0.130 $ & $ 0.0613 $ & $ 0.111 $\\
+		MAE error 3   & $ 0.138 $ & $ 0.0570 $ & $ 0.112 $\\\bottomrule
+	\end{tabular}
+	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $3 $.}
+	\label{tab:best_performing_para_phase1_model3}
+\end{table}
+
+- it was found that when regulation was added to the dense layer --> the error always got very big --> nan value. 
+
+
 \subsubsection{Model 4: Stateful model (48 timesteps)}
+If the results are not good --> make a plot of the serie and say that the model doesn't work well. 
+
+
+
+
+
+
 
 \subsection{Bidirectional LSTM}
 In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future consumptions.
@@ -579,8 +654,6 @@ In \cite{Teuwen2019} it is explain --> seems not possible, don't know the future
 
 \subsection{Temperature model}
 A MLP model for developing a regresion model to forecast a temperature signal. 
-
-\subsection{Results and evaluation}\ref{s:Results and evaluation}
 
 
 

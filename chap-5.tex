@@ -1,20 +1,20 @@
 \chapter{Evaluating results}
 \label{cha:Evaluating results}
-\lipsum[79]
+
 
 \section{The First Topic of this Chapter}
 \subsection{Item 1}
 \subsubsection{Sub-item 1}
-\lipsum[80]
 
-\subsubsection{Sub-item 2}
-\lipsum[81]
+Run the best model each time 20 times and report the difference of  performance on the validationset by making use of a boxplot. 
 
-\subsection{Item 2}
-\lipsum[82]
 
-\section{The Second Topic}
-\lipsum[83-85]
+Say that here use the models that obtained in the previous chapter. Make MSE plot for the different NN and the baseline models for each serie and make a comparison of the MAPE with the other baseline model. (by making use of barplots --> normalized with the worst performer) Performance on the test set. 
+
+Make a plot of the day forecast for each NN model --> four graphs bundled. 
+
+- for stateless random 10 percent is used as validation set. Remember that should shuffle the training set beforehand otherwise just the last 9 percent of the data is used. this is around 9 days
+- for stateful --> the last 30 days of November will be used --> no shuffling is allowed.
 
 \section{Conclusion}
 \lipsum[86-88]
