@@ -22,12 +22,6 @@ K.~Greff, R.~K. Srivastava, J.~Koutnik, B.~R. Steunebrink, and J.~Schmidhuber.
 \newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
   28(10):2222--2232, 2017.
 
-\bibitem{Greff2017a}
-K.~Greff, R.~K. Srivastava, J.~Koutnik, B.~R. Steunebrink, and J.~Schmidhuber.
-\newblock {LSTM: A Search Space Odyssey}.
-\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
-  28(10):2222--2232, 2017.
-
 \bibitem{Hammer2000}
 B.~Hammer.
 \newblock {On the approximation capability of recurrent neural networks}.

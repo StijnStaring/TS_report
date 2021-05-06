@@ -32,45 +32,45 @@ Warning--there's a number but no volume in loadforecastingmoor
 Warning--empty journal in ANNRNN
 Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
-You've used 18 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            623 strings with 6533 characters,
-and the built_in function-call counts, 5979 in all, are:
-= -- 571
-> -- 313
+            621 strings with 6513 characters,
+and the built_in function-call counts, 5535 in all, are:
+= -- 528
+> -- 285
 < -- 2
-+ -- 124
-- -- 106
-* -- 447
-:= -- 1012
-add.period$ -- 50
-call.type$ -- 18
-change.case$ -- 105
++ -- 113
+- -- 96
+* -- 406
+:= -- 937
+add.period$ -- 47
+call.type$ -- 17
+change.case$ -- 97
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 188
-empty$ -- 455
-format.name$ -- 106
-if$ -- 1204
+cite$ -- 22
+duplicate$ -- 177
+empty$ -- 426
+format.name$ -- 96
+if$ -- 1117
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 16
-newline$ -- 89
-num.names$ -- 36
-pop$ -- 115
+int.to.str$ -- 17
+missing$ -- 15
+newline$ -- 84
+num.names$ -- 34
+pop$ -- 109
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 82
 quote$ -- 0
-skip$ -- 140
+skip$ -- 133
 stack$ -- 0
-substring$ -- 392
-swap$ -- 23
+substring$ -- 356
+swap$ -- 22
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
+type$ -- 64
 warning$ -- 5
-while$ -- 59
-width$ -- 20
-write$ -- 182
+while$ -- 55
+width$ -- 19
+write$ -- 171
 (There were 7 warnings)
