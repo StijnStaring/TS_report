@@ -356,7 +356,7 @@ As will be shown in this section, the different LSTM models are dependent on the
 
 \begin{table}[ht]
 	\centering
-	\begin{tabular}{@{}l|c@{}} \toprule
+	\begin{tabular}{@{}l|r@{}} \toprule
 		\textbf{Parameter}	& \textbf{Values}\\\midrule
 		Hidden states &  $ [20,50] $\\
 		LSTM layers & $ [1,3] $\\
@@ -379,24 +379,21 @@ In phase two, the assumption is made that a more complex model will be able to b
 
 \begin{table}[ht]
 	\centering
-	\begin{tabular}{@{}l|c@{}} \toprule
-		\textbf{Parameter}	& \textbf{Values}\\\midrule
-	Hidden states &  $ [20,50] $\\
-	LSTM layers & $ [1,3] $\\
-	Neurons dense layer & $ [50] $\\
-	Dense layers & $ [1] $\\
-	Lag value & $ [48,96] $\\
-	Number epochs & $ [2] $\\
-	Batch size & $ [48] $\\
-	Learning rates & $[ 10^{-4} $,$ 10^{-3} $,$ 10^{-2} ]$\\
-	Shuffle & $ [False] $\\
-	Repeat & $ [3] $\\\bottomrule
+	\begin{tabular}{@{}l|ccr@{}} \toprule
+		\textbf{Kind of regularization} & regularizer on DENSE layer	& regularizer on input weight matrix LSTM 	& regularizer on recurrent weight matrix LSTM \\
+		\textbf{regularization size} &\multicolumn{3}{c}{$[ 10^{-2} $,$ 10^{-3} $,$ 10^{-4}$, $ 10^{-5} ]$}\\\hline
+		\textbf{Kind of dropout} & dropout inputs LSTM & dropout recurrent states & dropout dense layer\\\hline
+		\textbf{Dropout rate} &\multicolumn{3}{c}{$[ 0.2 $,$ 0.3 $,$ 0.4$, $ 0.5 ]$}\\\bottomrule
 \end{tabular}
 \caption{Parameters used during phase 1 for the two stateless models.}
 \label{tab:para_phase1}
 \end{table}
 
 
+When l2-norm regularization is added to a weight matrix, the size of the weight using the l2-norm is added in the objective function. This means that big weight values are seen as an artificial error and the model tries to keep the weights small. The regularization parameter defines the ratio between the model focussing on the error with the reference signal and the size of the weights. Setting a big regularization parameter will give a model that becomes less ``expressive''. Therefore, the regularization parameter will contribute in the avoidance of overfitting.\\ 
+The dropout layer that is used after the LSTM layer and after the Dense layer sets a rate of its inputs to zero. Similar, the dropout and recurrent dropout parameters in the LSTM layer drop respectively a rate of its inputs $ \bm{X_{k}} $ and $ H_{j} $ to zero. 
+
+- the dropout layers causes units 
 
 - assumption that most complex and regulation will compensate for overfitting --> intuitively speaking
 
