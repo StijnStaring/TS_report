@@ -346,7 +346,7 @@ Where the previous two models only go through a small subserie of $ 48 $ or $ 96
 - the validation set used to tune the different parameters on are the last $ 10 $ days of November. 
 
 \subsection{Parameter search}\label{s:Parameter search}
-As will be shown in this section, the different LSTM models are dependent on the choice of good parameters to be able to perform well. During a parameter search different combinations of values for the models are tried and the values that give the best results are retained. Because it is not straightforward what the influence of one parameter exactly is on the model, all the different parameters are expected to depend on each other. If all the different parameters are varied the calculation load to try all the different combinations quickly very quickly gets higher. In order to deal with this the parameter search that is conducted is done in three stages. During the parameter search every combination of settings is tried three times to reduce the influence of the random initialization of the weight in the weight matrices. 
+As will be shown in this section, the different LSTM models are dependent on the choice of good parameters to be able to perform well. During a parameter search different combinations of values for the models are tried and the values that give the best results are retained. Because it is not straightforward what the influence of one parameter exactly is on the model, all the different parameters are expected to depend on each other. If all the different parameters are varied the calculation load to try all the different combinations quickly very quickly gets higher. In order to deal with this the parameter search that is conducted is done in three stages. During the parameter search every combination of settings is repeated three times to reduce the influence of the random initialization of the weight in the weight matrices. The error value that is used to decide if a combination of parameters behaves better or worse, is based on the average MAE of the three runs. Inspiration for the values chosen for the different parameters is based on \cite{Shi2018}.
 
 \begin{itemize}
 	\item Stage1: different model layouts are tried
@@ -379,47 +379,35 @@ In phase two, the assumption is made that a more complex model will be able to b
 
 \begin{table}[ht]
 	\centering
-	\begin{tabular}{@{}l|ccr@{}} \toprule
-		\textbf{Kind of regularization} & regularizer on DENSE layer	& regularizer on input weight matrix LSTM 	& regularizer on recurrent weight matrix LSTM \\
-		\textbf{regularization size} &\multicolumn{3}{c}{$[ 10^{-2} $,$ 10^{-3} $,$ 10^{-4}$, $ 10^{-5} ]$}\\\hline
-		\textbf{Kind of dropout} & dropout inputs LSTM & dropout recurrent states & dropout dense layer\\\hline
-		\textbf{Dropout rate} &\multicolumn{3}{c}{$[ 0.2 $,$ 0.3 $,$ 0.4$, $ 0.5 ]$}\\\bottomrule
+	\begin{tabular}{@{}l|r@{}} \toprule
+		\textbf{Kind of regularization} & 	\textbf{Kind of dropout}\\\hline
+		regularizer on input weight matrix LSTM 	& dropout inputs LSTM\\\hline
+		regularizer on recurrent weight matrix LSTM & dropout recurrent states\\\hline
+		regularizer on DENSE layer & dropout dense layer\\\hline
+		$[ 10^{-2} $,$ 10^{-3} $,$ 10^{-4}$, $ 10^{-5} ]$ & $[ 0.2 $,$ 0.3 $,$ 0.4$, $ 0.5 ]$\\\bottomrule
 \end{tabular}
-\caption{Parameters used during phase 1 for the two stateless models.}
-\label{tab:para_phase1}
+\caption{Parameters used during phase 2.}
+\label{tab:para_phase2}
 \end{table}
 
 
 When l2-norm regularization is added to a weight matrix, the size of the weight using the l2-norm is added in the objective function. This means that big weight values are seen as an artificial error and the model tries to keep the weights small. The regularization parameter defines the ratio between the model focussing on the error with the reference signal and the size of the weights. Setting a big regularization parameter will give a model that becomes less ``expressive''. Therefore, the regularization parameter will contribute in the avoidance of overfitting.\\ 
-The dropout layer that is used after the LSTM layer and after the Dense layer sets a rate of its inputs to zero. Similar, the dropout and recurrent dropout parameters in the LSTM layer drop respectively a rate of its inputs $ \bm{X_{k}} $ and $ H_{j} $ to zero. 
+The dropout layer that is used after the LSTM layer and after the Dense layer sets a rate of its inputs to zero. Similar, the dropout and recurrent dropout parameters in the LSTM layer drop respectively a rate of its inputs $ \bm{X_{k}} $ and $ H_{j} $ to zero. \\
 
-- the dropout layers causes units 
+As will be further shown and as was found in \cite{Greff2017} the learning rate is a very important parameter that has to be tuned correctly to enhance the model performance. Therefore a bigger range of learning rates is tried for the model that performed best after stage one and two of the parameter search. Afterwards, the learning rate which lead to the the least error is selected. The different learning rates that are tried are summarized by Table \ref{tab:para_learning_rates}. Inspiration for the values chosen was found in t\\
 
-- assumption that most complex and regulation will compensate for overfitting --> intuitively speaking
-
-- repeated
+In order to speed up the calculations, multithreading is implemented to calculate separate runs in different threads. It was found that one thread takes considerably longer than when the full cpu is used to calculate the same run, but still a time gain is obtained in total for $ 4 $ runs.
 
 
 
-Multithreading is used to use the full potential of the CPU listed in Table \ref{tab:CPU} and simultaneously use all the available logical cores to run different threads. 
 
 - check what have said in slides during the last meeting. 
 
-- say something about the batch size --> what is means to have 48, 96 or 1 batch size. 
-
-- to speed up the parameter search different threads were developed to separately calculate different parameter try-outs. 
 
 - say these tables give the final results
 
-- refer back to paper LSTM: A Search Space Odyssey. There they performed a parameter search and they say that the parameters can assumed to be reasonably independent and learning rate the most important parameter. Can be learned seperately. See section \ref{s:Performance results between different models}.
 
-- as was suggested in \cite{Greff2017}, first the learning parameter is tuned. 
-
-- make a table of the different parameters that are varied. 
-
-- instead of grid search --> perform a random search hyperparameter tuning.
-
-- inspiration of the hyperparameter search comes from \cite{Shi2018}.
+- inspiration of the hyperparameter search comes from .
 - fill in correct values in tables
 - note that gradient norm clipping is used as explained in ... --> it was seen that the nan values in the prediction were because of a too big learning rate of 0.1 --> smaller learning rates didn't give a problem. (instable results)
 
