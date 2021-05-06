@@ -55,34 +55,34 @@
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{40}{section*.46}%
 \contentsline {subsubsection}{Metrics to evaluate the models}{40}{section*.47}%
 \contentsline {subsection}{\numberline {4.3.2}Deep LSTM}{41}{subsection.4.3.2}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{41}{section*.48}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{42}{section*.49}%
 \contentsline {subsection}{\numberline {4.3.3}Model 2: Stateless with flatten layer}{42}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Model 3: Stateful}{42}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.4}Model 3: Stateful}{43}{subsection.4.3.4}%
 \contentsline {subsection}{\numberline {4.3.5}Parameter search}{44}{subsection.4.3.5}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{44}{section*.52}%
-\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{46}{section*.57}%
-\contentsline {subsubsection}{Model 3: Stateful model (1 timestep)}{46}{section*.62}%
-\contentsline {subsubsection}{Model 4: Stateful model (48 timesteps)}{47}{section*.65}%
-\contentsline {subsection}{\numberline {4.3.6}Bidirectional LSTM}{47}{subsection.4.3.6}%
-\contentsline {subsection}{\numberline {4.3.7}Temperature model}{48}{subsection.4.3.7}%
-\contentsline {section}{\numberline {4.4}Conclusion}{48}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{53}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Conclusion}{53}{section.5.1}%
-\contentsline {chapter}{\chapternumberline {6}Evaluating results}{55}{chapter.6}%
-\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{55}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Item 1}{55}{subsection.6.1.1}%
-\contentsline {subsubsection}{Sub-item 1}{55}{section*.66}%
-\contentsline {section}{\numberline {6.2}Conclusion}{55}{section.6.2}%
-\contentsline {chapter}{\chapternumberline {7}Conclusion}{57}{chapter.7}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{61}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{61}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{62}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{62}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{62}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{67}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Baseline models}{67}{section.B.1}%
-\contentsline {appendix}{\chapternumberline {C}Old things}{69}{appendix.C}%
-\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{69}{subsection.C.0.1}%
-\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{69}{subsection.C.0.2}%
-\contentsline {section}{\numberline {C.1}ARIMA}{69}{section.C.1}%
-\contentsline {chapter}{Bibliography}{71}{appendix*.76}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{45}{section*.53}%
+\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{48}{section*.58}%
+\contentsline {subsubsection}{Model 3: Stateful model (1 timestep)}{48}{section*.63}%
+\contentsline {subsubsection}{Model 4: Stateful model (48 timesteps)}{51}{section*.67}%
+\contentsline {subsection}{\numberline {4.3.6}Bidirectional LSTM}{51}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}Temperature model}{51}{subsection.4.3.7}%
+\contentsline {section}{\numberline {4.4}Conclusion}{52}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Pooling Strategy}{55}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Conclusion}{55}{section.5.1}%
+\contentsline {chapter}{\chapternumberline {6}Evaluating results}{57}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The First Topic of this Chapter}{57}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Item 1}{57}{subsection.6.1.1}%
+\contentsline {subsubsection}{Sub-item 1}{57}{section*.68}%
+\contentsline {section}{\numberline {6.2}Conclusion}{57}{section.6.2}%
+\contentsline {chapter}{\chapternumberline {7}Conclusion}{59}{chapter.7}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{63}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{63}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{64}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{64}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{64}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{69}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Baseline models}{69}{section.B.1}%
+\contentsline {appendix}{\chapternumberline {C}Old things}{71}{appendix.C}%
+\contentsline {subsection}{\numberline {C.0.1}Removing outliers}{71}{subsection.C.0.1}%
+\contentsline {subsection}{\numberline {C.0.2}Normalization of the data}{71}{subsection.C.0.2}%
+\contentsline {section}{\numberline {C.1}ARIMA}{71}{section.C.1}%
+\contentsline {chapter}{Bibliography}{73}{appendix*.78}%
