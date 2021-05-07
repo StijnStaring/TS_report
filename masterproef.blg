@@ -27,6 +27,7 @@ Reallocating 'name_of_file' (item size: 1) to 12 items.
 Database file #1: Time_Series.bib
 Warning--I didn't find a database entry for "h2g2"
 Warning--I didn't find a database entry for "bibid"
+Warning--I didn't find a database entry for "Mele1993"
 Warning--empty journal in Chung2014
 Warning--there's a number but no volume in loadforecastingmoor
 Warning--empty journal in ANNRNN
@@ -34,7 +35,7 @@ Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
 You've used 17 entries,
             2118 wiz_defined-function locations,
-            621 strings with 6513 characters,
+            623 strings with 6529 characters,
 and the built_in function-call counts, 5535 in all, are:
 = -- 528
 > -- 285
@@ -73,4 +74,4 @@ warning$ -- 5
 while$ -- 55
 width$ -- 19
 write$ -- 171
-(There were 7 warnings)
+(There were 8 warnings)
