@@ -21,20 +21,18 @@
 \BOOKMARK [1][-]{section.4.2}{Baseline models}{chapter.4}% 21
 \BOOKMARK [1][-]{section.4.3}{Neural network models}{chapter.4}% 22
 \BOOKMARK [1][-]{section.4.4}{Conclusion}{chapter.4}% 23
-\BOOKMARK [0][-]{chapter.5}{Pooling Strategy}{}% 24
-\BOOKMARK [1][-]{section.5.1}{Conclusion}{chapter.5}% 25
-\BOOKMARK [0][-]{chapter.6}{Evaluation results}{}% 26
-\BOOKMARK [1][-]{section.6.1}{The First Topic of this Chapter}{chapter.6}% 27
-\BOOKMARK [1][-]{section.6.2}{Conclusion}{chapter.6}% 28
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 29
-\BOOKMARK [1][-]{section.7.1}{Future work}{chapter.7}% 30
-\BOOKMARK [0][-]{appendix.A}{Introduction to the dataset}{}% 31
-\BOOKMARK [1][-]{section.A.1}{Introduction to the dataset}{appendix.A}% 32
-\BOOKMARK [1][-]{section.A.2}{Missing values}{appendix.A}% 33
-\BOOKMARK [1][-]{section.A.3}{Daily filter}{appendix.A}% 34
-\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 35
-\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 36
-\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 37
-\BOOKMARK [0][-]{appendix.C}{Old things}{}% 38
-\BOOKMARK [1][-]{section.C.1}{ARIMA}{appendix.C}% 39
-\BOOKMARK [0][-]{appendix*.84}{Bibliography}{}% 40
+\BOOKMARK [0][-]{chapter.5}{Evaluation results}{}% 24
+\BOOKMARK [1][-]{section.5.1}{The First Topic of this Chapter}{chapter.5}% 25
+\BOOKMARK [1][-]{section.5.2}{Conclusion}{chapter.5}% 26
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 27
+\BOOKMARK [1][-]{section.6.1}{Future work}{chapter.6}% 28
+\BOOKMARK [0][-]{appendix.A}{Introduction to the dataset}{}% 29
+\BOOKMARK [1][-]{section.A.1}{Introduction to the dataset}{appendix.A}% 30
+\BOOKMARK [1][-]{section.A.2}{Missing values}{appendix.A}% 31
+\BOOKMARK [1][-]{section.A.3}{Daily filter}{appendix.A}% 32
+\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 33
+\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 34
+\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 35
+\BOOKMARK [0][-]{appendix.C}{Old things}{}% 36
+\BOOKMARK [1][-]{section.C.1}{ARIMA}{appendix.C}% 37
+\BOOKMARK [0][-]{appendix*.84}{Bibliography}{}% 38
