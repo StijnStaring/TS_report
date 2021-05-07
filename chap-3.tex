@@ -373,7 +373,7 @@ As will be shown in this section, the different LSTM models are dependent on the
 	\label{tab:para_phase1}
 \end{table}
 
-Minor changes to the parameters in Table \ref{tab:para_phase1} are made for model 3. In model 3 a batch size and a lag value of one is used.\\
+Minor changes to the parameters in Table \ref{tab:para_phase1} are made for model 3. In model 3 a batch size and a lag value of one is used. A batch size of one is chosen because then the prerequisite for a stateful model is avoided that the training set and validation set must be divisable by the \\
 
 In phase two, the assumption is made that a more complex model will be able to better capture the non-linear relations in the data and regulation is added to avoid overfitting behaviour. The learning rate that was part of setting that performed best during phase one is selected together with the lag value. During phase two the amount of hidden states is taken equal to $ 50 $ and the amount of LSTM layers to $ 3 $. The regulation that is shown in Table \ref{tab:regulation}, is always added one at a time. The synergy between different regularization methods is thus neglected. 
 
