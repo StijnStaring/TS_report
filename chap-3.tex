@@ -1,6 +1,7 @@
 \chapter{Forecasting the daily electricity consumption}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\\textbf{update --> discussing data} The day we want to forecast is further indicated as the ``desired day''. 
+In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\
+ The day we want to forecast is further indicated as the ``desired day''. 
 First pre-processing is done in Section \ref{s:Pre-processing} and the time series used are discussed. Afterwards the baseline models are looked into in Section \ref{s:Baseline models}. These models are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed with different design choices. Finally, a parameter search is conducted. Here, an analysis is made of the sensitivity of the choice of different parameters is made.\\
  
 \section{Pre-processing}\label{s:Pre-processing}
@@ -538,11 +539,7 @@ The final parameters for model two is displayed in Table \ref{tab:final_model2}.
 
 \newpage
 \subsubsection{Model 3: Stateful model}
-- Also one of the reasons that the stateful model performs better can be because there are a lot more weight updates because the weights are updated after each time step. Not True!! Batch size is still 48 --> but the lag value is one. 
-- it seems reasonable to choose the batch size equal to 48 and not one. If one then focussed to much on the single values that have a lot of uncertainty on them. If you take 48, then you feed day per day and the whole day is looked at once, which is better to identify trends. 
-- downside --> obtaining the predictions takes longer. For each prediction of a day the model is first seeded. 
-
-The model is trained by making use of a batch size of one, which means that the weights of the LSTM block is updated by comparing each output immediately with its reference. \\
+The model is trained by making use of a batch size of one, which means that the weights of the LSTM block is updated by comparing each output immediately with its reference. The downside of the use of this model is that before the prediction of the consumption of a day, the model first needs to be seeded.\\
 
 \textbf{Phase: 1}\\
 During phase one the values chosen for the parameters as mentioned before, slightly different. The batch size and the lag value are both put to one. As can be seen in Figure \ref{tab:relative_performance_parameters_phase_one_model_three} the learning rate is still an important parameter to tune, but is also seen in Table \ref{tab:best_performing_para_phase1_model3} that one LSTM layer performed better than using three for the different series. 
@@ -564,7 +561,7 @@ Figure \ref{fig:learning_rate_model3} shows the sensitivity of the size of the l
 
 \textbf{Final model}\\
 The final parameters for model two is displayed in Table \ref{tab:final_model3}.
-\textbf{Remember to change the learning rates and the figures in appendix B...}
+
 \begin{table}[h]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
@@ -573,7 +570,7 @@ The final parameters for model two is displayed in Table \ref{tab:final_model3}.
 		Units LSTM & $50 $&$ 50 $  & $20 $\\
 		layers LSTM & $1 $&$ 3 $  & $1$\\
 		Lag value & $1 $&$ 1$  & $1$\\
-		Learning rate & $ $&$ $  & $ $\\\hline
+		Learning rate & $10^{-4} $&$10^{-6} $  & $10^{-4} $\\\hline
 		Regularization on hidden states weigh matrices LSTM  & $ 0 $ & $ 10^{-3} $ & $ 0 $\\\bottomrule
 	\end{tabular}
 	\caption{Final values obtained after the parameter search for model 2.}
