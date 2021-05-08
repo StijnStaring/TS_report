@@ -5,27 +5,37 @@
 \section{Model selection}
 - the model is run multiple times and the last ten days of November are used to evaluate the performance of the model run. Also, $ 10 \% $ of the data is used for early stopping with a patience value of two. This means that when the validation set increases during two epochs, the training is stopped. The maximum amount of epochs during training is set on $ 150 $.
 
+Run the best model each time 20 times and report the difference of  performance on the validationset by making use of a boxplot. 
+
+The model that performed best is retained.
+
 
 \subsubsection{Evaluation}
 
+- The model, last ten days are used for getting best model run and 10\% of the training is used for early stopping. Then model that get after training is run on the test set. The neural models have the downside in comparison with the baseline models that they have to remove training data that is very close to the test set during training. For example, the base line models could use all the previous data to perform training till the desired day.
 
-
-
-Run the best model each time 20 times and report the difference of  performance on the validationset by making use of a boxplot. 
-
+For example model three, only uses training data till end October. Model one and model two use training data till $ 20 $ November and miss a random $ 10 \%$ of the data during the year. This loss of data was necessary for model tuning and the fact that the LSTM model make generalizations before they know the query (eager models) and the base models learn from the previous data when they know the query (lazy models).
 
 Say that here use the models that obtained in the previous chapter. Make MSE plot for the different NN and the baseline models for each serie and make a comparison of the MAPE with the other baseline model. (by making use of barplots --> normalized with the worst performer) Performance on the test set. 
 
 Make a plot of the day forecast for each NN model --> four graphs bundled. 
 - for comparing performance in the same time serie --> mae is used. To compare performance between different time series --> MAPE is used. 
-- for stateless random 10 percent is used as validation set. Remember that should shuffle the training set beforehand otherwise just the last 9 percent of the data is used. this is around 9 days
+- for stateless random 10 percent is used as validation set. Remember that should shuffle the training set beforehand otherwise j
 - for stateful --> the last 30 days of November will be used --> no shuffling is allowed.
 
 - make a graph which shows all the different days that have to be forecasted on the x-axis and the MAE error on the y-axis for the different models. (line graph)
 
-- give an indication how long the models trained.
+- give an indication how long the models trained --> amount of epochs. 
 
 - when there are a lot of missing days in the test data: serie 1 (0 days) and the other two (8days) -->it is naturally that the model performs worse, the previous day it bases its forecast on is just an estimate. For the day that is forecasted are always days where the true reference signal is available. 
+
+
+
+- bar plot for general performance (MAE and MAPE - basemodels and NN)
+
+- line plot for the error on each day (MAE and MAPE - basemodels and NN)
+
+- the signal for the forecast of a day for each model
 
 
 \section{Conclusion}
