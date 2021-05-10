@@ -98,6 +98,10 @@ To get a better feeling of the actual output of the different models, Figure \re
  	\label{fig:individual_forecasts}
  \end{figure}
 
+
+First, it is again stressed that the ``mean squared error'' is chosen as error metric during training. Because of this the LSTM models are more pushed towards learning the peaks of the reference signal. It can be seen that on the $ 7 $th of December, especially the peaks of the first and third electrical consumption serie are present in the predicted signal. Especially for Serie 1, it can be seen that the LSTM models are predicting a higher consumption that there really is. It can be argued that it is better to predict a higher consumption that one that is too low. This is because it is better to anticipate a worse scenario then expected.
+
+
 - because makes use of MSE --> error is more focussed on forecasting the peaks.
 - when would optimize for minimizing the MAPE error, the low consumptions would be the focus to forecast well because of the division by a small value what will cause a large error as given by: $ \hat{y}_t-y_t}/y_t$.
 
