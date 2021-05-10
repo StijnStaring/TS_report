@@ -51,6 +51,10 @@ In order to reduce the calculation load to do the parameter search in Section \r
   \label{tab:summ_data}
 \end{table}
 
+
+- have chosen to substitute the missing values and use them as training data. An option could have been to learn from a more accurate, smaller dataset. 
+\textbf{should change validation set that is used is november --> baseline no validation, NN --> 10 last days of November.}
+
 The three time series are divided in a training, validation and test set. As validation and test set are respectively the months November and December chosen. Because in this chapter the time series are not aggregated to a single signal as was the case in Section \ref{s:Analysis} the min-max normalization can be used. The missing values in the consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. Similar, the missing values of the temperature are substituted by first looking at the temperature yesterday, then tomorrow and as last the mean temperature.\\
 
 The simulations that are done in the chapter are performed on a virtual machine through the Microsoft Azure service.
@@ -516,7 +520,7 @@ From Figure \ref{fig:sensitivity_model2} it follows that:
 \end{itemize}
 
 \textbf{Phase 3}\\
-Figure \ref{fig:learning_rate_model2} shows the sensitivity of the size of the learning rate in function of the MAE.
+Figure \ref{fig:learning_rate_model2} shows the sensitivity of the size of the learning rate in function of the MAE.\\
 
 \textbf{Final model}\\
 The final parameters for model two is displayed in Table \ref{tab:final_model2}.
@@ -554,10 +558,10 @@ From Figure \ref{fig:sensitivity_model3} it follows that:
 
 It was found that the model when the three layers are used together with $ 50 $ hidden recurrent states, often produces a very big loss during training. If this is the case, the output of the training loss becomes not a number. Only for the regularizer on the recurrent hidden states of the LSTM and the regularizer on the inputs of the LSTM the results were better. The results of the two regularizers are shown in Figure \ref{fig:sensitivity_model3}.\\
 
-As can be seen the parameter search of phase two for serie one and two performs worse than the parameter search of phase one. It is not necessarily the case that the addition of regularizers or dropout layers is the only cause of this bad behaviour. As could be seen in Tables \ref{tab:relative_performance_parameters_phase_one_model_three} and \ref{tab:best_performing_para_phase1_model3} one layer performed often better than three layers, which could also contribute to the worst results obtained during parameter search two. Only for serie 2 the best setting of phase one is outperformed. 
+As can be seen the parameter search of phase two for serie one and two performs worse than the parameter search of phase one. It is not necessarily the case that the addition of regularizers or dropout layers is the only cause of this bad behaviour. As could be seen in Tables \ref{tab:relative_performance_parameters_phase_one_model_three} and \ref{tab:best_performing_para_phase1_model3} one layer performed often better than three layers, which could also contribute to the worst results obtained during parameter search two. Only for serie 2 the best setting of phase one is outperformed. \\
 
 \textbf{Phase: 3}\\
-Figure \ref{fig:learning_rate_model3} shows the sensitivity of the size of the learning rate in function of the MAE.
+Figure \ref{fig:learning_rate_model3} shows the sensitivity of the size of the learning rate in function of the MAE.\\
 
 \textbf{Final model}\\
 The final parameters for model two is displayed in Table \ref{tab:final_model3}.

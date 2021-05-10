@@ -1,20 +1,24 @@
-\chapter{Evaluation results}
-\label{cha:Evaluating results}
+\chapter{Model evaluation}
+\label{cha:Model evaluation}
+
+This chapter discusses the models that were introduced in Chapter \ref{cha:Forecasting the daily electricity consumption} on the test set. As was shown in Table \ref{tab:summ_data}, the test set consists out of the days of the month December. Missing days in December are removed to avoid the influence of the estimation error of the reference signal. In this chapter first the model selection is explained after which a discussion of the performance on the test set follows.
+
+\section{Model selection}\label{s:Model selection}
+From Chapter \ref{cha:Forecasting the daily electricity consumption} the model parameters are tuned, but there is still a factor of random model performance due to the random initialization of the weight matrices. To reduce this influence, the model is trained $ 10 $ times and the model that performed best on a validation set is selected. As validation set the $ 10 $ last days of November are used. Also, during the training early stopping is performed wherefore an additional $ 10\% $ of the training data taken to serve as a second validation set. The patience parameter is taken as $ 5 $, which means that the validation error can increase $ 5 $ times before the model is stopped. The maximum amount of epochs that is allowed is $ 150 $. The values of the parameters for each of the three time series can be found in Chapter \ref{cha:Forecasting the daily electricity consumption}. Table \ref{tab:summ_model_selection} summarizes the results of the model selection. 
+
+\textbf{Add here a table with the model selection results.}
+- epochs
+- loss on validation set
 
 
-\section{Model selection}
-- the model is run multiple times and the last ten days of November are used to evaluate the performance of the model run. Also, $ 10 \% $ of the data is used for early stopping with a patience value of two. This means that when the validation set increases during two epochs, the training is stopped. The maximum amount of epochs during training is set on $ 150 $.
-
-Run the best model each time 20 times and report the difference of  performance on the validationset by making use of a boxplot. 
-
-The model that performed best is retained.
 
 
-\subsubsection{Evaluation}
+\subsubsection{Performance on the test set}
+In this section the results on the test set are discussed of the model that was selected in Section \ref{s:Model selection}.
 
-- The model, last ten days are used for getting best model run and 10\% of the training is used for early stopping. Then model that get after training is run on the test set. The neural models have the downside in comparison with the baseline models that they have to remove training data that is very close to the test set during training. For example, the base line models could use all the previous data to perform training till the desired day.
+- The model, last ten days are used for getting best model run and 10\% of the training is used for early stopping. Then model that get after training is run on the test set. The neural models have the downside in comparison with the baseline models that they have to remove training data that is very close to the test set during training. For example, the base line models could use all the previous data to perform training till the desired day
 
-For example model three, only uses training data till end October. Model one and model two use training data till $ 20 $ November and miss a random $ 10 \%$ of the data during the year. This loss of data was necessary for model tuning and the fact that the LSTM model make generalizations before they know the query (eager models) and the base models learn from the previous data when they know the query (lazy models).
+For example model three, only uses training data till end October. Model one and model two use training data till $ 20 $ November and miss a random $ 10 \%$ of the data during the year. This loss of data was necessary for model tuning and the fact that the LSTM model make generalizations before they know the query i.e. the day to forecast (eager models) and the base models learn from the previous data when they know the query (lazy models).
 
 Say that here use the models that obtained in the previous chapter. Make MSE plot for the different NN and the baseline models for each serie and make a comparison of the MAPE with the other baseline model. (by making use of barplots --> normalized with the worst performer) Performance on the test set. 
 
@@ -37,9 +41,15 @@ Make a plot of the day forecast for each NN model --> four graphs bundled.
 
 - the signal for the forecast of a day for each model
 
+- in some plots will see that there are gaps --> reason is that it is not useful to predict on the $ 8 $ missing days in the test set. There will only be an estimated signal available to calculate an error on. 
+
+- the line plot shows the distribution of the error per day on the predictions per day. 
+
+- also the mape metric is considered because it allows to compare between different series. 
+
 
 \section{Conclusion}
-\lipsum[86-88]
+
 
 %%% Local Variables: 
 %%% mode: latex
