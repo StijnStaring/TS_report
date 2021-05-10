@@ -208,6 +208,8 @@ Table \ref{tab:summ_data_rel_performance} shows the average performance of the b
 From Table \ref{tab:summ_data_rel_performance} it can again be concluded that the model performing a mean forecast attains the best results. The second best general applicable model over all the three metrics is the MAPE forecast model.
 
 -add initialization in intro
+- during training the $ MSE $ metric is used. Because of the squares it focusses more at predicting the peaks correct. 
+
 \section{Neural network models}\label{s:Neural network models}
 In this section deep LSTM models, which are models that are specialized in time series learning, are presented in different variations. The term deep is used because multiple LSTM layers are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hour electrical consumption forecast for a single household. First, the general context in which the deep LSTM models are trained is explained. This covers the inputs that are feeded to the models, measures taken to avoid overfitting, the explanation of a stateless model versus a stateful model, initialization and the metrics used for evaluation. Next, the specific LSTM models developed are discussed in Section \ref{s:LSTM_implementation}. Further, follows  the discussion of the conducted parameter search in Section \ref{s:Parameter search}.
 

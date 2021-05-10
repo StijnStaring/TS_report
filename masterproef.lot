@@ -10,29 +10,30 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {2.1}{\ignorespaces Table with information about the characteristics of the available datasets.\relax }}{4}{table.caption.10}%
+\contentsline {table}{\numberline {2.1}{\ignorespaces Table with information about the characteristics of the available datasets.\relax }}{4}{table.caption.9}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces summarizing characteristics about the selected series.\relax }}{32}{table.caption.31}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Specifications of different CPU's and GPU tried.\relax }}{33}{table.caption.32}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Evaluation results for Serie $ 1 $ tested on $ 31 $ days of December.\relax }}{35}{table.caption.33}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Evaluation results for Serie $ 2 $ tested on $ 12 $ days of December.\relax }}{36}{table.caption.34}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Evaluation results for Serie $ 3 $ tested on $ 12 $ days of December.\relax }}{36}{table.caption.35}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces Relative performance over all the $ 261 $ time series.\relax }}{36}{table.caption.37}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Parameters used during phase 1 for the two stateless models.\relax }}{45}{table.caption.51}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Different regularization added during phase 2.\relax }}{46}{table.caption.52}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search. For example: when $ 20 $ LSTM units are chosen, this on average gave a $ 12.08\% $ lower MAE.\relax }}{47}{table.caption.54}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $ based on the smallest sum of MAE errors during three runs.\relax }}{48}{table.caption.55}%
-\contentsline {table}{\numberline {4.11}{\ignorespaces Final values obtained after the parameter search for model 1.\relax }}{50}{table.caption.58}%
-\contentsline {table}{\numberline {4.12}{\ignorespaces Final values obtained after the parameter search for model 2.\relax }}{51}{table.caption.60}%
-\contentsline {table}{\numberline {4.13}{\ignorespaces Final values obtained after the parameter search for model 2.\relax }}{53}{table.caption.62}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces summarizing characteristics about the selected series.\relax }}{32}{table.caption.30}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Specifications of different CPU's and GPU tried.\relax }}{33}{table.caption.31}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Evaluation results for Serie $ 1 $ tested on $ 31 $ days of December.\relax }}{35}{table.caption.32}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Evaluation results for Serie $ 2 $ tested on $ 12 $ days of December.\relax }}{36}{table.caption.33}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Evaluation results for Serie $ 3 $ tested on $ 12 $ days of December.\relax }}{36}{table.caption.34}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces Relative performance over all the $ 261 $ time series.\relax }}{36}{table.caption.36}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Parameters used during phase 1 for the two stateless models.\relax }}{45}{table.caption.50}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Different regularization added during phase 2.\relax }}{46}{table.caption.51}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search. For example: when $ 20 $ LSTM units are chosen, this on average gave a $ 12.08\% $ lower MAE.\relax }}{47}{table.caption.53}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $ based on the smallest sum of MAE errors during three runs.\relax }}{48}{table.caption.54}%
+\contentsline {table}{\numberline {4.11}{\ignorespaces Final values obtained after the parameter search for model 1.\relax }}{50}{table.caption.57}%
+\contentsline {table}{\numberline {4.12}{\ignorespaces Final values obtained after the parameter search for model 2.\relax }}{51}{table.caption.59}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Final values obtained after the parameter search for model 2.\relax }}{53}{table.caption.61}%
+\addvspace {10pt}
+\contentsline {table}{\numberline {5.1}{\ignorespaces The amount of training epochs that each model has trained on the different series.\relax }}{56}{table.caption.62}%
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {A.1}{\ignorespaces Amount of response on the voluntary questionnaires. \relax }}{64}{table.caption.66}%
 \addvspace {10pt}
-\contentsline {table}{\numberline {A.1}{\ignorespaces Amount of response on the voluntary questionnaires. \relax }}{62}{table.caption.65}%
-\addvspace {10pt}
-\contentsline {table}{\numberline {B.1}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 2 $ of the parameter search.\relax }}{68}{table.caption.72}%
-\contentsline {table}{\numberline {B.2}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 2 $.\relax }}{68}{table.caption.73}%
-\contentsline {table}{\numberline {B.3}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search.\relax }}{71}{table.caption.76}%
-\contentsline {table}{\numberline {B.4}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $3 $.\relax }}{71}{table.caption.77}%
+\contentsline {table}{\numberline {B.1}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 2 $ of the parameter search.\relax }}{70}{table.caption.73}%
+\contentsline {table}{\numberline {B.2}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 2 $.\relax }}{70}{table.caption.74}%
+\contentsline {table}{\numberline {B.3}{\ignorespaces Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search.\relax }}{73}{table.caption.77}%
+\contentsline {table}{\numberline {B.4}{\ignorespaces The values of the parameters that performed best for the three time series during phase $ 1 $ using model $3 $.\relax }}{73}{table.caption.78}%
 \addvspace {10pt}
