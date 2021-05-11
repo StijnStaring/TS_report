@@ -1,10 +1,12 @@
 \chapter{Forecasting the daily electricity consumption}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter the different forecasting techniques to perform a 24 hour prediction for an individual household are discussed. One daily prediction has a data granularity of an half hour, which means that $ 48 $ data points have to be estimated for each prediction. \\
- The day we want to forecast is further indicated as the ``desired day''. 
-First pre-processing is done in Section \ref{s:Pre-processing} and the time series used are discussed. Afterwards the baseline models are looked into in Section \ref{s:Baseline models}. These models are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed with different design choices. Finally, a parameter search is conducted. Here, an analysis is made of the sensitivity of the choice of different parameters is made.\\
+In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. \\
+First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach.
+
+
+Next, the baseline models are explained in Section \ref{s:Baseline models}. These models are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed with different design choices. Finally, a parameter search is conducted. Here, an analysis is made of the sensitivity of the choice of different parameters is made.\\
  
-\section{Pre-processing}\label{s:Pre-processing}
+\section{Pre-processing}\label{s:Preprocessing}
 The data that is available is summarized by Table \ref{tab:available_data}. 
 
 \subsection{Data}\label{s:Data}
@@ -73,6 +75,7 @@ Table \ref{tab:CPU} shows the different features of the hired machine.
 
 
 \textbf{- Make a table that summarizes the environment to do simulations.(baseline and othe models) (can be put in the appendix)}
+- give also an indiction of the model time --> MAPE needs long to train
 \section{Baseline models}\label{s:Baseline models}
 \subsection{Models}
 As earlier discussed, the baseline models are characterised by a low calculation load during training and therefore serve as a baseline to compare more complex models with. The different baseline models tried are listed as follows:
