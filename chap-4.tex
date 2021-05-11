@@ -78,7 +78,7 @@ Next, it is noted that the MAPE for the LSTM models is much higher than for the 
 		\textbf{Serie 2} & $1.82 $&$ 0.83 $  & $3.67$ & $3.64 $  & $3.65 $\\
 		\textbf{Serie 3} & $0.80 $&$ 0.48 $  & $3.30$ & $3.44 $ & $3.21 $\\\bottomrule
 	\end{tabular}
-	\caption{The amount of training epochs that each model has trained.}
+	\caption{The MAPE for each Model and serie.}
 	\label{tab:summary_MAPE_error}
 \end{table}
 
@@ -150,32 +150,25 @@ To get better insight in the actual output of the different models, Figure \ref{
  \end{figure}
 
 
-First, it is again stressed that the ``mean squared error'' is chosen as metric during training of the LSTM models. Because of this, the LSTM models are more pushed towards learning the peaks of the reference signal due to the squared error. It can be seen that on the $ 7^{th} $ of December, the peaks of Serie 1 and Serie 3 are present in the predicted signal. Next, it was found that especially for Serie 1, the LSTM models are predicting a higher consumption than the reference signal. The shape of the reference and prediction signals are similar, but there is an offset between the two signals. It can be argued that it is better to predict a higher consumption that one that is too low, because it is better to anticipate to a worse scenario then expected.\\
+First, it is again stressed that the ``mean squared error'' is chosen as metric during training of the LSTM models. Because of this, the LSTM models are more pushed towards learning the peaks of the reference signal due to the squared error. It can be seen that on the $ 7^{th} $ of December, the peaks of Serie 1 and Serie 3 are present in the predicted signal. It was found that especially for Serie 1, the LSTM models are predicting a higher consumption than the reference signal. The shape of the reference and prediction signals are similar, but there is an offset between the two signals. A reason for the shift could be that the LSTM models are trained using the MSE metric. It is found in literature that when a least square fitting is performed on data points the curve that is fitted can be much disturbed by the presence of outliers. The disturbance resulted also in a shift of the fitted curve. Because during training the MSE is used, the peaks during the day also act as outliers that could be responsible for the model shift. A solution to solve this is to get rid of the squared error and punish more proportional by using the MAE metric instead. On the other hand it can be argued that it is better to predict a higher consumption that one that is too low, because it is better to anticipate to a worse scenario then expected.\\
 
-The reader is reminded that there is only no regulation added for Model 1: Serie 1 and Model 3: Serie 1 and 3. When regularization is added this is clearly visible in Figure \ref{fig:individual_forecasts} because without regulation the predicted signal is much more choppy. A clear example can be seen for Model 2 and 3 in serie 3. These two models both show a small bump in the predicted signal before the larger peak. Model 2 where a form of regularization is added shows a very smooth bump while in Model 3 without regularization, the bump is much more choppy. \\
+The reader is reminded that there is no regulation added for Model 1: Serie 1 and Model 3: Serie 1 and 3. When regularization is added this is clearly visible in Figure \ref{fig:individual_forecasts} because without regulation the predicted signal is much more choppy. A clear example can be seen for Model 2 and 3 in serie 3. These two models both show a small bump in the predicted signal before the larger peak. Model 2 where a form of regularization is added shows a very smooth bump while in Model 3 without regularization, the bump is much more choppy. \\
 
 It can be seen that the ``mean forecast'' also is able to identify the two peaks in Serie 1 and the big peak in Serie 3, but as is expected from a mean, this peak is smaller due to averaging. The ``mean forecast'' method however suffers less from the offset than the LSTM models in Serie 1.\\
 
 As expected the ``MAPE forecast'' will focus on correctly predicting the low values in the reference signal because these will get in the denominator of the MAPE metric according to Eq. \ref{eq:MAPE}. It can be seen that the peaks will be ignored when this method is applied. 
 
 \section{Conclusion}
-In this chapter the performance of the developed models is assessed. First, the model selection was looked at and it was explained that the models obtained after the parameter search are ran ten times with different initialized weight matrices from which the one that performed best on the validation set is selected. The number of epochs that the models trained were low except for model 2 and 3 on Serie 2.\\
- Secondly, the performance on the test set is discussed for the LSTM models and two baseline models using bar plots that displayed the MAE. It was concluded that there is a reduction of all the three LSTM models in comparison to both the baseline models for Serie 1 and 2. Also, Model 2 always performed worse of the three LSTM models.\\ 
- $ 7 $ December in the test set is chosen for which all the predicted signals are grouped in a figure. From this figure is was clear that the LSTM models are able to identify peaks of the reference signal and have the same overall shape. Predicting of peaks correctly can be an important, practical feature e.g. to anticipate electrical peak demands. It was also noticed that the predictions are often an overestimation of the reference signal. Especially for Serie 1, the shape of the reference and prediction signals are similar, but there is an offset between the two signals. Also, the influence of adding regularization of the predicted signal could be seen which was more choppy when no regularization is applied to the model. Because of the overestimation on often small values, it was found that the MAPE of the LSTM models was worse than the baseline models. \\
+In this chapter the performance of the developed models is assessed. First, the model selection discussed and it was explained that the models obtained after the parameter search are ran ten times with different initialized weight matrices. The one that performed best on the validation set is selected. The number of epochs that the models trained were low except for model 2 and 3 on Serie 2.\\
+
+ Secondly, the performance on the test set is discussed for the LSTM models and two baseline models using bar plots that displayed the MAE on the test set for each serie. It was concluded that there is a reduction of all the three LSTM models in comparison to both the baseline models for Serie 2 and 3. Also, Model 2 always performed worse then the other LSTM models.\\ 
+ $ 7 $ December is chosen for which all the predicted signals are grouped for the different models. From this figure is was clear that the LSTM models are able to identify peaks of the reference signal and have the same overall shape. Predicting the peaks correctly is an important, practical feature e.g. to anticipate electrical peak consumption demands. It was also noticed that the predictions are often an overestimation of the reference signal. Especially for Serie 1, the shape of the reference and prediction signals are similar, but there is an offset between the two signals. The offset could possibly be reduced with another choice of error metric during training. Because of the overestimation on small values, it was found that the MAPE of the LSTM models was worse than the baseline models. Also, the influence of adding regularization on the predicted signal could be seen which lead to more smooth signals.\\
  
- The ``mean forecast'' baseline model was not able to predict the peaks in the reference signal as good as the LSTM models, but it has a much lower ofset error in Serie 1. \\
+The ``mean forecast'' baseline model was not able to predict the peaks in the reference signal as good as the LSTM models, but it has a lower offset error in Serie 1.\\
  
- Teh ``MAPE forecast'' is focussed on predicting all the small values correct to minimize the MAPE, but ignores all the peaks of the reference signal.
+The ``MAPE forecast'' is focussed on predicting all the small values correct to minimize the MAPE, but ignores all the peaks of the reference signal.
  
 
-- how to solve offset --> say what the reason can be!! 
-
-It was found that the LSTM models have the ability to outperform the best baseline models  with respect to the MAE. However, the performance of all the models are serie dependent. Ne
-
-
-
-- shape of the graphs is okay --> for practical use, the prediction of peaks is also maybe the most important.
-- the prediction is often too high
 
 %%% Local Variables: 
 %%% mode: latex

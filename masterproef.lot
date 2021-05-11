@@ -28,7 +28,7 @@
 \contentsline {table}{\numberline {4.13}{\ignorespaces Final values obtained after the parameter search for model 2.\relax }}{53}{table.caption.61}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {5.1}{\ignorespaces The amount of training epochs for each selected model.\relax }}{56}{table.caption.62}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces The amount of training epochs that each model has trained.\relax }}{58}{table.caption.67}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces The MAPE for each Model and serie.\relax }}{58}{table.caption.67}%
 \addvspace {10pt}
 \addvspace {10pt}
 \contentsline {table}{\numberline {A.1}{\ignorespaces Amount of response on the voluntary questionnaires. \relax }}{68}{table.caption.70}%

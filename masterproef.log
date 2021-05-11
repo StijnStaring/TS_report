@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  11 MAY 2021 19:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  11 MAY 2021 21:44
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1475,19 +1475,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--15
 
  []
 
-) [1
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1
 
 
 
 ]
+[2]
 \openout2 = `chap-1.aux'.
 
- (chap-1.tex [2
-
-
-
-
-]
+ (chap-1.tex
 
 LaTeX Warning: Reference `cha:Evaluating results' on page 3 undefined on input 
 line 3.
@@ -1501,7 +1500,12 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <9> on input line 19.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 19.
-[3]
+[3
+
+
+
+
+]
 Underfull \hbox (badness 10000) in paragraph at lines 59--61
 
  []
@@ -2419,13 +2423,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 157--158
 
  []
 
-[59]) [60] [61 <./Pictures//IDM1_S1_Day341.png> <./Pictures//IDM1_S2_Day341.png
-> <./Pictures//IDM1_S3_Day341.png> <./Pictures//IDM2_S1_Day341.png> <./Pictures
-//IDM2_S2_Day341.png> <./Pictures//IDM2_S3_Day341.png> <./Pictures//IDM3_S1_Day
-341.png> <./Pictures//IDM3_S2_Day341.png> <./Pictures//IDM3_S3_Day341.png> <./P
-ictures//IDMean_S1_Day341.png> <./Pictures//IDMean_S2_Day341.png> <./Pictures//
-IDMean_S3_Day341.png> <./Pictures//IDMAPE_S1_Day341.png> <./Pictures//IDMAPE_S2
-_Day341.png> <./Pictures//IDMAPE_S3_Day341.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--166
+
+ []
+
+[59]
+Underfull \hbox (badness 10000) in paragraph at lines 167--168
+
+ []
+
+) [60] [61 <./Pictures//IDM1_S1_Day341.png> <./Pictures//IDM1_S2_Day341.png> <.
+/Pictures//IDM1_S3_Day341.png> <./Pictures//IDM2_S1_Day341.png> <./Pictures//ID
+M2_S2_Day341.png> <./Pictures//IDM2_S3_Day341.png> <./Pictures//IDM3_S1_Day341.
+png> <./Pictures//IDM3_S2_Day341.png> <./Pictures//IDM3_S3_Day341.png> <./Pictu
+res//IDMean_S1_Day341.png> <./Pictures//IDMean_S2_Day341.png> <./Pictures//IDMe
+an_S3_Day341.png> <./Pictures//IDMAPE_S1_Day341.png> <./Pictures//IDMAPE_S2_Day
+341.png> <./Pictures//IDMAPE_S3_Day341.png>]
 \openout2 = `conclusion.aux'.
 
  (conclusion.tex [62
@@ -2697,7 +2716,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  18518 strings out of 479799
  291945 string characters out of 2879599
- 847180 words of memory out of 3000000
+ 848180 words of memory out of 3000000
  34514 multiletter control sequences out of 15000+200000
  673571 words of font info for 219 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2722,7 +2741,7 @@ m Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/u
 rw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a
 .pfb>
-Output written on masterproef.pdf (96 pages, 14437720 bytes).
+Output written on masterproef.pdf (96 pages, 14439302 bytes).
 PDF statistics:
  1433 PDF objects out of 1440 (max. 8388607)
  298 named destinations out of 1000 (max. 500000)
