@@ -20,18 +20,50 @@ From Chapter \ref{cha:Forecasting the daily electricity consumption} the model p
 
 
 
-\subsubsection{Performance on the test set}
+\section{Performance on the test set}
 In this section the results on the test set are discussed for the models that were selected in section \ref{s:Model selection}. 
-Also the two best baseline models ``mean forecast'' and ``MAPE forecast'' that were explained in Section \ref{s:Baseline models} are included in the comparison. An advantage that the baseline models have in comparison to the LSTM neural networks is that they use the previous data till the day to forecast to make predictions while the LSTM neural networks only trains on the input time series till November. This is because it needs data for the validation set to tune parameters and implement early stopping. The baseline models and the LSTM neural networks both belong to a different group of models respectively the lazy models and eager models. A lazy model only looks at the data when the query is known e.g. what day to forecast and to the contrary an eager model already makes generalizations on the training set before it knows which day it has to predict for.\\
+Also the two best baseline models ``mean forecast'' and ``MAPE forecast'', that were explained in Section \ref{s:Baseline models}, are included in the comparison. An advantage that the baseline models have in comparison to the LSTM neural networks is that they use the previous data till the day to forecast to make predictions while the LSTM neural networks only trains on data till November. This is because it needs data for the validation set to tune parameters and implement early stopping. \\
+The baseline models and the LSTM neural networks both belong to a different group of models respectively to the lazy models and eager models. A lazy model only looks at the data when the query is known e.g. what day to forecast. For example a ``mean forecast'' looks after it knows which day is the desired day to the same weekdays and takes the average. To the contrary an eager model already makes generalizations on the training set before it knows which day it has to predict for. This applies for the LSTM models.\\
 
+Model 1 and Model 2 make use of a lag value of $ 48 $ or $ 96 $ and no seeding. When the day after a missing day(s) is predicted, the inputs could originate entirely from an estimated reference signal. If this is the case, it is expected that the error on the desired day will be larger. The estimation of the reference signal is done by substituting the missing values as described in Section \ref{s:Data}. For both Serie 1 and Serie 2 there are $ 8 $ missing days during the month December.
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{MAE_1.png}
+	\caption{The MAE performance on all the days of the test set for Serie 1.}
+	\label{fig:MAE_serie1}
+\end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{MAE_2.png}
+	\caption{The MAE performance on all the days of the test set for Serie 2.}
+	\label{fig:MAE_serie2}
+\end{figure}	
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\linewidth]{MAE_3.png}
+	\caption{The MAE performance on all the days of the test set for Serie 3.}
+	\label{fig:MAE_serie3}
+\end{figure}	
 
+Figures \ref{fig:MAE_serie1}, \ref{fig:MAE_serie2} and \ref{fig:MAE_serie3} give a comparison of the three LSTM models and the two best baseline models. It can be seen that there is a reduction of the MAE error for Series 1 and 2. To get more insight in how the MAE error is distributed over the test set, it is calculated for each individual day and displayed in Figures \ref{fig:MAE_line_serie1}, \ref{fig:MAE_line_serie2} and \ref{fig:MAE_line_serie3} in Appendix \ref{app:Extensions on the evaluation results}. \ref{fig:MAE_line_serie2} and \ref{fig:MAE_line_serie3} are discontinuous due to the missing days that are present in the reference signal in the month December. When the real true values are not known, the day is removed from the test set. This is also the case for the Figures \ref{fig:MAE_serie1}, \ref{fig:MAE_serie2} and \ref{fig:MAE_serie3}. \\
+Next, it is noted that the MAPE error for the LSTM models is much higher than for the baseline models as is showed in Table \ref{tab:MAPE_results}. As is displayed in Figure \ref{fig:individual_forecasts} this is due to an overestimation of the electrical consumption when the real electrical consumption is low.\\
 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{@{}l|ccccc@{}} \toprule
+		&\textbf{Mean forecast} & \textbf{MAPE forecast} & \textbf{Model $ 1 $} & \textbf{Model $ 2 $} & \textbf{Model $ 3 $}\\\midrule
+		\textbf{Serie 1} & $0.46 $&$ 0.41$  & $3.07 $ & $3.37 $  & $3.27 $\\
+		\textbf{Serie 2} & $1.82 $&$ 0.83 $  & $3.67$ & $3.64 $  & $3.65 $\\
+		\textbf{Serie 3} & $0.80 $&$ 0.48 $  & $3.30$ & $3.44 $ & $3.21 $\\\bottomrule
+	\end{tabular}
+	\caption{The amount of training epochs that each model has trained on the different series.}
+	\label{tab:summary_MAPE_error}
+\end{table}
 
-
-To get a better feeling of the actual output of the different models, Figure \ref{fig:individual_days_prediction} shows the prediction of the different models on a chosen day in the test set.
+To get a better insight of the actual output of the different models, Figure \ref{fig:individual_days_prediction} shows the prediction of the different models on a chosen day in the test set.
  
  \begin{figure}[ht]
  	\begin{subfigure}{0.32\textwidth}
@@ -99,58 +131,18 @@ To get a better feeling of the actual output of the different models, Figure \re
  \end{figure}
 
 
-First, it is again stressed that the ``mean squared error'' is chosen as error metric during training. Because of this the LSTM models are more pushed towards learning the peaks of the reference signal. It can be seen that on the $ 7 $th of December, especially the peaks of the first and third electrical consumption serie are present in the predicted signal. Especially for Serie 1, it can be seen that the LSTM models are predicting a higher consumption that there really is. It can be argued that it is better to predict a higher consumption that one that is too low. This is because it is better to anticipate a worse scenario then expected.
+First, it is again stressed that the ``mean squared error'' is chosen as error metric during training of the LSTM models. Because of this, the LSTM models are more pushed towards learning the peaks of the reference signal. It can be seen that on the $ 7 $th of December, the peaks of Serie 1 and Serie 3 are present in the predicted signal. Next, it can be seen that especially for Serie 1, the LSTM models are predicting a higher consumption than the reference signal. The shape of the two signals is similar, but there is an offset between the two signals. It can be argued that it is better to predict a higher consumption that one that is too low, because it is better to anticipate to a worse scenario then expected.\\
 
+The reader is reminded that there is only no regulation added for Model 1: Serie 1 and Model 3: Serie 1 and 3. When regularization is added this is clearly visible in Figure \ref{fig:individual_forecasts} because without regulation the predicted signal is much more choppy. A clear example can be seen for Model 2 and 3 in serie 3. These two models both show a small bump in the predicted signal before the larger peak. Model 2 which adds regularization shows a very smooth bump while Model 3 without regularization the bump is much more choppy. \\
 
-- because makes use of MSE --> error is more focussed on forecasting the peaks.
-- when would optimize for minimizing the MAPE error, the low consumptions would be the focus to forecast well because of the division by a small value what will cause a large error as given by: $ \hat{y}_t-y_t}/y_t$.
-
-- It can be seen that the mean forecast can also capture the two peaks for Serie 1 and the single peak for Serie3, but as expected from an average the peaks are smaller. 
-
-- clearly a difference when a regulation is added or not -- > for serie 3 both model 2 and model 3 see a small peak before the bigger peak. While model three produces a choppy peak, model two gives a much smoother peak. Another example is that model 1 and model 3 show a much more serrated signal than model two and serie one where regulation is added.
-
-- 
-
-It can be seen in Figure \ref{fig:individual_forecasts} but also in the other predicted days in the test set that especially at the beginning, there is a big offset between the predicted and reference signal when the LSTM models predict Serie 1. However, the peaks itself are present in about the right spot.
-
-- the MAPE models are focussed on predicting the small values and therefore ignores all the peaks.
-
-
-
-
-
-- see also notes from mail to Lola. 
-
-Say that here use the models that obtained in the previous chapter. Make MSE plot for the different NN and the baseline models for each serie and make a comparison of the MAPE with the other baseline model. (by making use of barplots --> normalized with the worst performer) Performance on the test set. 
-
-Make a plot of the day forecast for each NN model --> four graphs bundled. 
-- for comparing performance in the same time serie --> mae is used. To compare performance between different time series --> MAPE is used. 
-- for stateless random 10 percent is used as validation set. Remember that should shuffle the training set beforehand otherwise j
-- for stateful --> the last 30 days of November will be used --> no shuffling is allowed.
-
-- make a graph which shows all the different days that have to be forecasted on the x-axis and the MAE error on the y-axis for the different models. (line graph)
-
-- give an indication how long the models trained --> amount of epochs. 
-
-- when there are a lot of missing days in the test data: serie 1 (0 days) and the other two (8days) -->it is naturally that the model performs worse, the previous day it bases its forecast on is just an estimate. For the day that is forecasted are always days where the true reference signal is available. 
-
-
-
-- bar plot for general performance (MAE and MAPE - basemodels and NN)
-
-- line plot for the error on each day (MAE and MAPE - basemodels and NN)
-
-- the signal for the forecast of a day for each model
-
-- in some plots will see that there are gaps --> reason is that it is not useful to predict on the $ 8 $ missing days in the test set. There will only be an estimated signal available to calculate an error on. 
-
-- the line plot shows the distribution of the error per day on the predictions per day. 
-
-- also the mape metric is considered because it allows to compare between different series. 
-
-
+It can be seen that the ``mean forecast'' also is able to identify the two peaks in Serie 1 and the big peak in Serie 3, but as is expected from a mean, this peak is smaller due to averaging. The ``mean forecast'' method however suffers less from an offset than the LSTM models do in Serie 1.\\
+As expected the ``MAPE forecast'' will focus on correctly predicting the low electrical consumptions because these small values will get in the denominator of the MAPE error metric according to Eq. \ref{eq:MAPE}. It can be seen that the peaks will be ignored when this method is applied. 
+\clearpage
 \section{Conclusion}
 
+
+- shape of the graphs is okay --> for practical use, the prediction of peaks is also maybe the most important.
+- the prediction is often too high
 
 %%% Local Variables: 
 %%% mode: latex
