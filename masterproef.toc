@@ -41,8 +41,7 @@
 \contentsline {section}{\numberline {4.1}Pre-processing}{31}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Microsoft Azure cloud}{33}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Baseline models}{34}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Models}{34}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Results of baseline models}{36}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.1}Results of baseline models}{36}{subsection.4.3.1}%
 \contentsline {section}{\numberline {4.4}Neural network models}{38}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Different practical considerations of the models in Keras}{38}{subsection.4.4.1}%
 \contentsline {subsubsection}{Inputs}{38}{section*.37}%

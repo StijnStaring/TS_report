@@ -67,7 +67,7 @@ The calculations executed in this chapter are performed on a virtual machine usi
 	\label{tab:CPU}
 \end{table}
 
-To help transferring the calculations to the cloud, free tutorials hosted by Microsoft Azure are available. Before python scripts can be run a workspace and computation cluster have to be set up. It is also important that a correct python environment is set on the virtual machine. This can be accomplished using a YAML file where commands are given which packages should be installed and which channels should be used by Conda to find these packages. Conda is part of Anaconda and is an open source package management system. It differentiates with Pip in following points according to \cite{Helmus}:
+To help transferring the calculations to the cloud, free tutorials hosted by Microsoft Azure are available. Before python scripts can be run a workspace and computation cluster have to be set up. It is also important that a correct python environment is set on the virtual machine. This can be accomplished using a YAML file where commands are given which packages should be installed and which channels should be used by Conda to find these packages. Conda is part of Anaconda and is an open source package management system. It differentiates with Pip in following points according to the Anaconda documentation:
 
 \begin{itemize}
 	\item Conda can install packages of any language and not only Python.
@@ -75,43 +75,49 @@ To help transferring the calculations to the cloud, free tutorials hosted by Mic
 	\item Pip installs dependencies in a serial loop while Conda fulfils all package dependencies simultaneously using a SAT-solver.  
 \end{itemize}
 
-However, it is sometimes still necessary to use Pip because this can be the only option for installing a package. Using an isolated environment on a local machine makes it easy to transfer this environment automatically to a YAML file that is send to the virtual machine.\\
+However, it is sometimes still necessary to use Pip because this can be the only option when installing a package. Using an isolated environment on a local machine makes it easy to transfer this environment automatically to a YAML file that is send to the virtual machine.\\
 
-Finally, it is noted that while performing the calculations a warning occurred that the TensorFlow binary was not compiled to support CPU instructions as SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA. This means that the binaries in the tensorflow package are from a different machine and that the CPU used to run the calculations on that moment, is not able to use all its features. This warning was not fixed, but is given as a possible suggestion to the reader to improve calculation speeds when reusing the developed Python scripts.
+Finally, it is noted that while performing the calculations a warning occurred that the TensorFlow binary was not compiled to support CPU instructions as SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA. This means that the binaries in the tensorflow package are from a different machine and that the CPU used to run the calculations on this moment, is not able to use all its features. This warning was not fixed, but is given as a possible suggestion to the reader to improve calculation speeds when reusing the developed Python scripts.
 
-
-\textbf{- Make a table that summarizes the environment to do simulations.(baseline and othe models) (can be put in the appendix)}
 - give also an indiction of the model time --> MAPE needs long to train
 - because of the simplicity of the baseline models --> don't have a validation set--> data of training and validation are taken together. 
+- give examples
+
 \section{Baseline models}\label{s:Baseline models}
-\subsection{Models}
-As earlier discussed, the baseline models are characterised by a low calculation load during training and therefore serve as a baseline to compare more complex models with. The different baseline models tried are listed as follows:
+As was discussed in the introduction of the chapter, the baseline models use a straightforward approach to make a forecast for a desired day. Therefore, they serve as a benchmark for more complex models that are explained in Section \ref{s:Neural network models}. Theses are the different baseline models that are considered:
+
 \begin{itemize}
-	\item Model 1: ``closest day forecast''
-	\item Model 2: ``1 day ago forecast''
-	\item Model 3: ``7 days ago forecast''
+	\item Model 1: ``1 day ago forecast''
+	\item Model 2: ``7 days ago forecast''
+	\item Model 3: ``Closest day forecast''
 	\item Model 4: ``Mean forecast''
 	\item Model 5: ``MAPE forecast''
 \end{itemize} 
 
-For all the models listed here, the training set for the forecast of the next day are all the days before this day of the year $ 2017 $. These models can therefore be categorized as ``lazy learning models'' because they only do work when they are asked a query. In contrast, the models discussed in Section \ref{s:Neural network models} generalize the training data without knowing the actual query. They belong to the ``eager learning methods'' class. The 24 hour predictions made by the $ 5 $ models are done all at once. This is in contrast to the models described in Section \ref{s:Neural network models}, where the prediction is made sample per sample and where the predictions done for an earlier hour of the day are taken into account.\\
+The models consider all the days preceding the desired day to be training data. As will be seen in Section \ref{s:Neural network models}, the prediction signal for a day is calculated one value at a time and the total $ 48 $ values are calculated recursively. This consecutive predicting will not apply for the baseline models. Here, all the $ 48 $ values are calculated at once, meaning one full day ahead. In the case of Model 5: ``MAPE forecast'', the predictions are done consecutively but the values that are calculated are not used during next predictions.\\
+
+
+\textbf{Model 1: ``1 day ago forecast''}\\
+This model considers the consumption values of the day preceding the desired day as the forecast for the desired day. For example, the 24 hours ahead prediction starting from Tuesday 19/12/2021 00.00 am is taken equal to the $ 48 $ consumption values that are recorded between Monday 18/12/2021 at 00.00 am and Tuesday 19/12/2021 at 00.00am. The
+philosophy of the model is that the most recent consumption data serves as a a good prediction. However, one can think logically and know that the most recent data is not guaranteed to behave the same. For example, as was found in Section \ref{s:Comparing weekdays with weekends} the consumption of a weekend day behaves much different than the consumption of a weekday. Therefore, violating the assumption that the most recent data is also the most adequate to use as prediction. It is expected that people have a reasonable routine and it is likely that this routine will also be present in the electricity consumption. Therefore, from a human behaviour perspective it makes more sense to use the same day the previous week as prediction for the desired day.
+
+\textbf{Model 2: ``7 days ago forecast''}\\
+
+
+This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.\\
+
+
 
 \textbf{Model 1: ``closest day forecast''}\\
 This model looks for the most similar day in the training set based on following metrics to make a prediction:
-
+\textbf{the plausible assumption is not clear.}
 \begin{itemize}
 	\item Holiday
 	\item Day of the week
 \end{itemize}
 
  All the days in the training are categorized according to these metrics. Then it is looked in which category the desired day belongs i.e. which day of the week and if it is a holiday. Inside the selected category, an assessment of the difference in average temperature is made for all days with respect to the desired day. It is assumed that the average temperature of the desired day is already available, which is a very plausible assumption. Finally, the day with the closest euclidean distance in temperature is selected and the electrical consumption signal is copied to serve as the prediction of the desired day. It should be noted that there are only a maximum of $ 8 $ holidays as can be seen in Table \ref{tab:summ_data}. Therefore, when a holiday should be predicted all Sundays are also included in the training set because a Sunday behaves most similar to a holiday as can be seen in Figure \ref{fig:sim_weekdays}.\\
- 
- \textbf{Model 2: ``1 day ago forecast''}\\
- This model simply looks at the consumption of the day before the desired day. The philosophy of the model is that the most recent consumption data serves as a a good predictor.
- 
- \textbf{Model 3: ``7 days ago forecast''}\\
- This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.\\
- 
+  
  \textbf{Model 4: ``Mean forecast''}\\
  In the mean forecast the different days are again categorized as was done in Model $ 1 $, but instead of selecting a single day out of the group of days, a mean day is calculated and used as prediction of the desired day. No extra Sundays are included to forecast a holiday.\\
  
