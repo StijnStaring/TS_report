@@ -39,46 +39,47 @@
 \contentsline {section}{\numberline {3.3}Conclusion}{30}{section.3.3}%
 \contentsline {chapter}{\chapternumberline {4}Forecasting the daily electricity consumption}{31}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Pre-processing}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Microsoft Azure cloud}{33}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Baseline models}{34}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Results of baseline models}{36}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Neural network models}{38}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Different practical considerations of the models in Keras}{38}{subsection.4.4.1}%
-\contentsline {subsubsection}{Inputs}{38}{section*.37}%
-\contentsline {subsubsection}{Batch size}{39}{section*.38}%
-\contentsline {subsubsection}{Stateless versus Stateful}{39}{section*.39}%
+\contentsline {section}{\numberline {4.2}Error metrics}{33}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Microsoft Azure cloud}{33}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Baseline models}{34}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Results of baseline models}{36}{subsection.4.4.1}%
+\contentsline {section}{\numberline {4.5}Neural network models}{38}{section.4.5}%
+\contentsline {subsection}{\numberline {4.5.1}Different practical considerations of the models in Keras}{39}{subsection.4.5.1}%
+\contentsline {subsubsection}{Inputs}{39}{section*.37}%
+\contentsline {subsubsection}{Batch size}{40}{section*.38}%
+\contentsline {subsubsection}{Stateless versus Stateful}{40}{section*.39}%
 \contentsline {subsubsection}{Initialization}{41}{section*.42}%
-\contentsline {subsubsection}{Overfitting avoidance in Keras}{41}{section*.43}%
-\contentsline {subsubsection}{Metrics to evaluate the models}{41}{section*.44}%
-\contentsline {subsection}{\numberline {4.4.2}Deep LSTM}{42}{subsection.4.4.2}%
+\contentsline {subsubsection}{Overfitting avoidance in Keras}{42}{section*.43}%
+\contentsline {subsubsection}{Metrics to evaluate the models}{42}{section*.44}%
+\contentsline {subsection}{\numberline {4.5.2}Deep LSTM}{42}{subsection.4.5.2}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{43}{section*.46}%
-\contentsline {subsection}{\numberline {4.4.3}Model 2: Stateless with flatten layer}{44}{subsection.4.4.3}%
-\contentsline {subsection}{\numberline {4.4.4}Model 3: Stateful}{44}{subsection.4.4.4}%
-\contentsline {subsection}{\numberline {4.4.5}Parameter search}{45}{subsection.4.4.5}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{47}{section*.52}%
-\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{52}{section*.58}%
-\contentsline {subsubsection}{Model 3: Stateful model}{53}{section*.60}%
-\contentsline {section}{\numberline {4.5}Conclusion}{54}{section.4.5}%
-\contentsline {chapter}{\chapternumberline {5}Model evaluation}{55}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Model selection}{55}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Performance on the test set}{56}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Conclusion}{59}{section.5.3}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{63}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Future work}{63}{section.6.1}%
-\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{67}{appendix.A}%
-\contentsline {section}{\numberline {A.1}Introduction to the dataset}{67}{section.A.1}%
-\contentsline {section}{\numberline {A.2}Missing values}{68}{section.A.2}%
-\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{68}{subsection.A.2.1}%
-\contentsline {section}{\numberline {A.3}Daily filter}{68}{section.A.3}%
-\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{73}{appendix.B}%
-\contentsline {section}{\numberline {B.1}Baseline models}{73}{section.B.1}%
-\contentsline {section}{\numberline {B.2}Parameter Search}{74}{section.B.2}%
-\contentsline {subsection}{\numberline {B.2.1}Model 2}{74}{subsection.B.2.1}%
-\contentsline {subsection}{\numberline {B.2.2}Model 3}{77}{subsection.B.2.2}%
-\contentsline {appendix}{\chapternumberline {C}Extensions on the evaluation results}{81}{appendix.C}%
-\contentsline {section}{\numberline {C.1}Results on the testset}{81}{section.C.1}%
-\contentsline {section}{\numberline {C.2}Old stuff}{82}{section.C.2}%
-\contentsline {subsection}{\numberline {C.2.1}Removing outliers}{82}{subsection.C.2.1}%
-\contentsline {subsection}{\numberline {C.2.2}Normalization of the data}{82}{subsection.C.2.2}%
-\contentsline {section}{\numberline {C.3}ARIMA}{83}{section.C.3}%
-\contentsline {chapter}{Bibliography}{85}{appendix*.89}%
+\contentsline {subsection}{\numberline {4.5.3}Model 2: Stateless with flatten layer}{44}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Model 3: Stateful}{45}{subsection.4.5.4}%
+\contentsline {subsection}{\numberline {4.5.5}Parameter search}{45}{subsection.4.5.5}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{48}{section*.52}%
+\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{53}{section*.58}%
+\contentsline {subsubsection}{Model 3: Stateful model}{54}{section*.60}%
+\contentsline {section}{\numberline {4.6}Conclusion}{55}{section.4.6}%
+\contentsline {chapter}{\chapternumberline {5}Model evaluation}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Model selection}{57}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Performance on the test set}{58}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Conclusion}{61}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{65}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Future work}{65}{section.6.1}%
+\contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{69}{appendix.A}%
+\contentsline {section}{\numberline {A.1}Introduction to the dataset}{69}{section.A.1}%
+\contentsline {section}{\numberline {A.2}Missing values}{70}{section.A.2}%
+\contentsline {subsection}{\numberline {A.2.1}Fundamental change}{70}{subsection.A.2.1}%
+\contentsline {section}{\numberline {A.3}Daily filter}{70}{section.A.3}%
+\contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{75}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Baseline models}{75}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Parameter Search}{76}{section.B.2}%
+\contentsline {subsection}{\numberline {B.2.1}Model 2}{76}{subsection.B.2.1}%
+\contentsline {subsection}{\numberline {B.2.2}Model 3}{79}{subsection.B.2.2}%
+\contentsline {appendix}{\chapternumberline {C}Extensions on the evaluation results}{83}{appendix.C}%
+\contentsline {section}{\numberline {C.1}Results on the testset}{83}{section.C.1}%
+\contentsline {section}{\numberline {C.2}Old stuff}{84}{section.C.2}%
+\contentsline {subsection}{\numberline {C.2.1}Removing outliers}{84}{subsection.C.2.1}%
+\contentsline {subsection}{\numberline {C.2.2}Normalization of the data}{84}{subsection.C.2.2}%
+\contentsline {section}{\numberline {C.3}ARIMA}{85}{section.C.3}%
+\contentsline {chapter}{Bibliography}{87}{appendix*.89}%

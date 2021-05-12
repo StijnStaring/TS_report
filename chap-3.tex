@@ -51,6 +51,20 @@ The corresponding average temperature series are also used. They don't contain a
 
 During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
+\section{Error metrics}
+The metrics used to evaluate the performance of predictions are $ RMSE $ (Eq. \ref{eq:RMSE}), $ NRMSE $ (Eq. \ref{eq:NRMSE}), $ MAE $ (Eq. \ref{eq:MAE}), $ MSE $ (Eq. \ref{eq:MSE}) and $ MAPE $ (Eq. \ref{eq:MAPE}).
+
+\begin{equation}\label{eq:MSE}
+	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}
+\end{equation}
+
+\begin{equation}\label{eq:MAPE}
+	MAPE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}/y_t}{N}
+\end{equation}
+
+
+It is expected that the \textit{MAE} penalizes outliers less severe than \textit{MSE}, which takes the error squared. Therefore, using the \textit{MSE} metric, more emphasize is put on predicting the peaks of the reference signal correctly with respect to \textit{MAE}. The advantage of using $ RMSE $ and $ MAE $ is that they both have an error in kWh which is intuitive. $ NRMSE $ and $ MAPE $ take the reference signal into account. $ NRMSE $ gives a bigger error, when the reference signal has a small difference between the $ y_{max} $ and $ y_{min} $. $ MAPE $ penalizes a small MAE more severe on a small reference value than on a larger one due to the division by $ y $.
+
 
 \section{Microsoft Azure cloud}
 The calculations executed in this chapter are performed on a virtual machine using the Microsoft Azure services. This was possible because Microsoft provides students with $ \$ 100 $ of free credit. Table \ref{tab:CPU} shows the different features of the CPU/GPU's used during this thesis. 
@@ -98,12 +112,12 @@ The models consider all the days preceding the desired day to be training data. 
 
 
 \textbf{Model 1: ``1 day ago forecast''}\\
-This model considers the consumption values of the day preceding the desired day as the forecast for the desired day. For example, the 24 hours ahead prediction starting from Tuesday 19/12/2021 00.00 am is taken equal to the $ 48 $ consumption values that are recorded between Monday 18/12/2021 at 00.00 am and Tuesday 19/12/2021 at 00.00 am. The philosophy of the model is that the most recent consumption data serves as a a good prediction. However, one can think logically and know that the most recent data is not guaranteed to behave the same. For example, as was found in Section \ref{s:Comparing weekdays with weekends} the consumption of a weekend day behaves much different than the consumption of a weekday. Therefore, violating the assumption that the most recent data is also the most adequate to use as prediction. It is expected that people have a reasonable routine and it is likely that this routine will also be present in the electricity consumption. Therefore, from a human behaviour perspective it makes more sense to use the same day the previous week as prediction for the desired day.\\
+This model considers the consumption values of the day preceding the desired day as the forecast for the desired day. For example, the 24 hours ahead prediction starting from Tuesday 19/12/2021 00.00 am is taken equal to the $ 48 $ consumption values that are recorded between Monday 18/12/2021 at 00:00 am and Tuesday 19/12/2021 at 00:00 am. The philosophy of the model is that the most recent consumption data serves as a a good prediction. However, one can think logically and know that the most recent data is not guaranteed to behave the same. For example, as was found in Section \ref{s:Comparing weekdays with weekends} the consumption of a weekend day behaves much different than the consumption of a weekday. Therefore, violating the assumption that the most recent data is also the most adequate to use as prediction. It is expected that people have a reasonable routine and it is likely that this routine will also be present in the electricity consumption. Therefore, from a human behaviour perspective it makes more sense to use the same day the previous week as prediction for the desired day.\\
 
 \textbf{Model 2: ``7 days ago forecast''}\\
-This model tries to capture the human weekly routine and therefore it takes the same weekday of the previous week as the prediction for the desired day.
+This model tries to capture the human weekly routine and therefore it takes the same weekday of the previous week as the prediction for the desired day.\\
 
-\textbf{Model 3: ``closest day forecast''}\\
+\textbf{Model 3: ``Closest day forecast''}\\
 This model looks for a past day that would be representative to serve as prediction for the desired day based on following features:
 
 \begin{itemize}
@@ -112,36 +126,28 @@ This model looks for a past day that would be representative to serve as predict
 	\item Average temperature
 \end{itemize}
 
-If 24 hours ahead of 19/12/2017 at 00:00 am has to be predicted, the following calendar information can be extracted from this time stamp : it is a weekday, more specifically a Tuesday and it is not a holiday. From the exogenous variable, it is known that the average temperature was 12,6 °C degrees. From the training set, which means, all the days before 19/12/2017, select all the previous Tuesdays which are not holidays, and find the day with the closest average temperature based on euclidean distance. It could be the Tuesday 10/01/2017 with an average temperature of 11,4°C for example. The consumption values of Tuesday 10/01/2017 day are chosen to serve as prediction for the desired day, namely Tuesday 19/12/2017.\\ 
-It should be noted that this method expects a good prediction of the average temperature of 19/12/2017. As can be seen in Table \ref{tab:summ_data}, no temperature values are missing for the three selected series. This table also shows that there are only  $ 8 $ holidays. To increase the amount of days when the desired day is a holiday, also all Sundays are considered. This is according what was found in Section \ref{s:Impact of holidays} where Figure \ref{fig:sim_weekdays} shows the normalized MAE between a holiday and a Sunday is the smallest. 
+If 24 hours ahead of 19/12/2017 at 00:00 am has to be predicted, the following calendar information can be extracted from this time stamp : it is a weekday, more specifically a Tuesday and it is not a holiday. From the exogenous variable, it is known that the average temperature was $12.6^\circ$C. From the training set, which means, all the days before 19/12/2017, select all the previous Tuesdays which are not holidays, and find the day with the closest average temperature based on euclidean distance. It could be the Tuesday 10/01/2017 with an average temperature of $11.4^\circ$C for example. The consumption values of Tuesday 10/01/2017 day are chosen to serve as prediction for the desired day, namely Tuesday 19/12/2017.\\ 
+It should be noted that this method expects a good prediction of the average temperature of 19/12/2017. As can be seen in Table \ref{tab:summ_data}, no temperature values are missing for the three selected series. This table also shows that there are only  $ 8 $ holidays. To increase the amount of days when the desired day is a holiday, also all Sundays are considered. This is according what was found in Section \ref{s:Impact of holidays} where Figure \ref{fig:sim_weekdays} shows the normalized MAE between a holiday and a Sunday is the smallest. \\
 
   
  \textbf{Model 4: ``Mean forecast''}\\
- In the mean forecast the different days are again categorized as was done in Model $ 1 $, but instead of selecting a single day out of the group of days, a mean day is calculated and used as prediction of the desired day. No extra Sundays are included to forecast a holiday.\\
+ This model again uses calendar information to group the same kind of days as was done for Model 3. For example, if the desired day is 19/12/2017, all the previous Tuesdays which are not holidays, are selected. Instead of looking to the most similar day based on the closest average temperature in euclidean distance, the mean is calculated and used as prediction for the desired day. In this model no extra Sundays are used when the desired day is a holiday.\\
+The choice of this model is inspired by \cite{Kong2019}. It is expected that it can identify frequently recurring behaviour. The model can be able to identify trends as for example an increased consumption around $ 8 $ am and $ 6 $ pm as shown in Figure \ref{fig:daily_filter}, but the performance on predicting correct peak values is expected to be lower due to the averaging of a large variation of peak sizes.\\
  
  \textbf{Model 5: ``MAPE forecast'' }\\
- This model solves for each half hour of the desired day a small non-linear optimization problem displayed by (Eq. \ref{eq:model_mape}). This model served as baseline model in paper \cite{Kong2019}. 
+ This model solves a non-linear optimization problem for each step to be predicted. The objective function \ref{eq:model_mape} should be minimized to obtain an estimated load $ \hat{y} $. To obtain a 24 hour ahead prediction , $ 48  $ predictions are consecutively calculated. This model served as baseline model in \cite{Kong2019}. The same type of days as the desired day is selected as was done in Model 3. When calculating a prediction for time $ t $ of the desired day, an empirical probability mass function is derived using all the available historic predictions of time $ t $ originating from the selected days.
  
- \begin{equation}\label{eq:model_mape}
- 	objective = \sum_{i=1}^K \zeta_{pi}\abs{\frac{(\hat{y}-p_i)}{pi}}
+ \begin{equation}\label{eq:model_mape} 	
+ 	\epsilon_{t}(p) = \sum_{i=1}^K \zeta_{t}(p_i)\abs{\frac{(p-p_{i})}{p_{i}}}
  \end{equation}
- 
- Again a group of days of size $ M $, corresponding the desired day is selected based on the metrics of weekday and if the desired day is a holiday. Also Sundays are added to the group of holidays for this model. Next, the consumption at time $ t $ is extracted out of this group of days, which gives a list of length $ M $ with historic consumption values. From these values an empirical probability mass function $ \zeta_{pi} $ is derived using a histogram with the ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and taken as the midpoint of two bin edges. From the count in the histogram the probability mass function for each discretized value is found. $ \hat{y} $ is found by minimizing equation \ref{eq:model_mape}.\\
- 
-The metrics used to evaluate the predictions performance of the baseline models are $ RMSE $ (Eq. \ref{eq:RMSE}), $ NRMSE $ (Eq. \ref{eq:NRMSE}), $ MAE $ (Eq. \ref{eq:MAE}), $ MSE $ (Eq. \ref{eq:MSE}) and $ MAPE $ (Eq. \ref{eq:MAPE}).
 
-\begin{equation}\label{eq:MSE}
-	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}
+Eq. \ref{eq:model_mape} shows the non-linear optimization with $ \epsilon_{t} $ the MAPE expectation for time $ t $, $\zeta_{t}(p_i)$ an empirical probability mass function in function of the $ p_i $th possible discretized consumption value and $ p $ a load value within the empirical range. $ \zeta_{t}(p_i) $ is calculated by making a histogram with the ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and $ p_i $ is taken as the midpoint of two bin edges. From the count in the histogram, the value of the probability mass function for each discretized consumption value is found. The prediction value $ p $, at time $ t $ of the desired day, is found by solving Eq. \ref{eq:model_mape_solve}. To solve the optimization an IPOPT solver is used in a casADi software environment. A practical consideration of using this model is that the calculation load due to solving each time an optimization is higher than in the previous models.
+
+\begin{equation}\label{eq:model_mape_solve} 	
+	\hat{y} = \argmin_{p}(\epsilon_{t}(p))
 \end{equation}
-
-\begin{equation}\label{eq:MAPE}
-	MAPE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}/y_t}{N}
-\end{equation}
-
-
-It is expected that the \textit{MAE} punishes prediction errors more proportional than the \textit{MSE}, which takes the error squared. When an outlier occurs, $ MSE $ will see this as a bigger error than $ MAE $ does. The downside of using the absolute function is that it is not a smooth function. The advantage of using $ RMSE $ and $ MAE $ is that both have an error in kWh which is intuitive. $ NRMSE $ and $ MAPE $ take also the signal to predict into account. $ NRMSE $ gives a bigger error, when the true signal has not a lot of variation. $ MAPE $ takes into account that a small error value of on a signal with small amplitude has more impact than a small error on a signal with a big amplitude. Therefore, the latter is considered as a smaller error.
-
-
+ 
+ 
 \subsection{Results of baseline models}
 The results of the different forecasts of the month December are summarized by Table \ref{tab:summ_data_serie1}, \ref{tab:summ_data_serie2} and \ref{tab:summ_data_serie3}. In order to make a fair comparison only the days of December where all models could produce a forecast are included in the error metrics. 
 
@@ -528,7 +534,7 @@ The final parameters for model one are displayed in Table \ref{tab:final_model1}
 \subsubsection{Model 2: Stateless with flatten layer}
 
 \textbf{Phase 1}\\
-The previous explained procedure is repeated for the other models. From Table \ref{tab:relative_performance_parameters_phase_one_model_two} it can again be seen that the choice of learning rate has the potential to give a big improvement and the use of an increased lag value of $ 96 $ didn't give a major improvement. 
+The previous explained procedure is repeated for the other models. From Table \ref{tab:relative_performance_parameters_phase_one_model_two} it can again be seen that the choice of learning rate has the potential to give a big improvement and the use of an increased lag value of $ 96 $ didn't give a major improvement.\\ 
 
 \textbf{Phase 2}\\
 From Figure \ref{fig:sensitivity_model2} it follows that:
@@ -565,7 +571,7 @@ The final parameters for model two is displayed in Table \ref{tab:final_model2}.
 The model is trained by making use of a batch size of one, which means that the weights of the LSTM block is updated by comparing each output immediately with its reference. The downside of the use of this model is that before the prediction of the consumption of a day, the model first needs to be seeded.\\
 
 \textbf{Phase: 1}\\
-During phase one the values chosen for the parameters as mentioned before, slightly different. The batch size and the lag value are both put to one. As can be seen in Figure \ref{tab:relative_performance_parameters_phase_one_model_three} the learning rate is still an important parameter to tune, but is also seen in Table \ref{tab:best_performing_para_phase1_model3} that one LSTM layer performed better than using three for the different series. 
+During phase one the values chosen for the parameters as mentioned before, slightly different. The batch size and the lag value are both put to one. As can be seen in Figure \ref{tab:relative_performance_parameters_phase_one_model_three} the learning rate is still an important parameter to tune, but is also seen in Table \ref{tab:best_performing_para_phase1_model3} that one LSTM layer performed better than using three for the different series.\\ 
 
 \textbf{Phase: 2}\\
 From Figure \ref{fig:sensitivity_model3} it follows that:
