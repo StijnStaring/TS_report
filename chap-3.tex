@@ -49,14 +49,12 @@ The corresponding average temperature series are also used. They don't contain a
   \label{tab:summ_data}
 \end{table}
 
-During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By substituting the missing values more training data is available but also the time series don't contain jumps in time.
+During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
 
-\textbf{should change validation set that is used is november --> baseline no validation, NN --> 10 last days of November.}
-Because in this chapter the time series are not aggregated to a single signal as was the case in Section \ref{s:Analysis} the  The missing values in the consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. Similar, the missing values of the temperature are substituted by first looking at the temperature yesterday, then tomorrow and as last the mean temperature.\\
+\section{Microsoft Azure cloud}
+The calculations executed in this chapter are performed on a virtual machine using the Microsoft Azure services. This was possible because Microsoft provides students with $ \$ 100 $ of start credit for Microsoft Azure. Table \ref{tab:CPU} shows the different features of the machines used during this thesis. 
 
-The simulations that are done in the chapter are performed on a virtual machine through the Microsoft Azure service.
-Table \ref{tab:CPU} shows the different features of the hired machine. 
 \begin{table}[hb]
 	\centering
 	\begin{tabular}{|p{5cm}||p{2cm}|p{2cm}|p{2cm}|p{2cm}|}\hline
@@ -65,13 +63,36 @@ Table \ref{tab:CPU} shows the different features of the hired machine.
 		NVIDIA Tesla K80 (GPU - Azure)& $ 6 $&$ 56 $  & $ 380 $ & $\$ 1.166/hour$\\\hline
 		i7-5500U@ $ 2.40 $ GHz (CPU - local) & $ 4 $ & $ 12 $ & $ 32 $ & $ - $\\\hline
 	\end{tabular}
-	\caption{Specifications of different CPU's and GPU tried.}
+	\caption{Specifications of different CPU's and GPU used.}
 	\label{tab:CPU}
 \end{table}
 
+In order to help transferring the calculation to the cloud, free tutorials hosted by Microsoft Azure are available. Before python scripts can be run a workspace and computation cluster have to be set up. It is also important that a correct python environment is set on the virtual machine. This can be accomplished using a YAML file where commands are given which packages should be installed and which channels should be used by Conda to find these packages. Conda is part of Anaconda and is an open source package management system. It differentiates with Pip in following points according to \cite{Helmus}:
+
+\begin{itemize}
+	\item Conda can install packages of any language and not only Python.
+	\item Conda makes it easy to create isolated environments containing different Python versions and packages.
+	\item Pip installs dependencies in a serial loop while Conda does effort to fulfil all package dependencies simultaneously using a SAT-solver.  
+\end{itemize}
+
+However, it is sometimes still necessary to use Pip because this is the only option to install a package. Using an isolated environment on a local machine makes it easy to transfer this environment automatically to a YAML file that is send to the virtual machine.\\
+
+Finally it is noted that while performing the calculation a warning was seen telling that the TensorFlow binary was not compiled to support CPU instructions as SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA. This means that the binaries are originating from a different machine and that the CPU used to run the calculations on the moment is not able to use all its features. This warning was not fixed, but is given as a possible suggestion to the reader to 
+
+this was also the case for the local machine used
+
+Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
+
+
+- tensorflow was not build from source and is not configured to use CPU not configured for using binary files
+
+ that is used during development of the python scrips 
+
+-yml files 
 
 \textbf{- Make a table that summarizes the environment to do simulations.(baseline and othe models) (can be put in the appendix)}
 - give also an indiction of the model time --> MAPE needs long to train
+- because of the simplicity of the baseline models --> don't have a validation set--> data of training and validation are taken together. 
 \section{Baseline models}\label{s:Baseline models}
 \subsection{Models}
 As earlier discussed, the baseline models are characterised by a low calculation load during training and therefore serve as a baseline to compare more complex models with. The different baseline models tried are listed as follows:
@@ -111,7 +132,7 @@ This model looks for the most similar day in the training set based on following
  	objective = \sum_{i=1}^K \zeta_{pi}\abs{\frac{(\hat{y}-p_i)}{pi}}
  \end{equation}
  
- Again a group of days of size $ M $, corresponding the desired day is selected based on the metrics of weekday and if the desired day is a holiday. Also Sundays are added to the group of holidays for this model. Next, the consumption at time $ t $ is extracted out of this group of days, which gives a list of length $ M $ with historic consumption values. From these values an empirical probability mass function $ \zeta_{pi} $ is derived by making use of a histogram using ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and taken as the midpoint of two bin edges. From the count in the histogram the probability mass function for each discretized value is found. $ \hat{y} $ is found by minimizing equation \ref{eq:model_mape}.\\
+ Again a group of days of size $ M $, corresponding the desired day is selected based on the metrics of weekday and if the desired day is a holiday. Also Sundays are added to the group of holidays for this model. Next, the consumption at time $ t $ is extracted out of this group of days, which gives a list of length $ M $ with historic consumption values. From these values an empirical probability mass function $ \zeta_{pi} $ is derived using a histogram with the ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and taken as the midpoint of two bin edges. From the count in the histogram the probability mass function for each discretized value is found. $ \hat{y} $ is found by minimizing equation \ref{eq:model_mape}.\\
  
 The metrics used to evaluate the predictions performance of the baseline models are $ RMSE $ (Eq. \ref{eq:RMSE}), $ NRMSE $ (Eq. \ref{eq:NRMSE}), $ MAE $ (Eq. \ref{eq:MAE}), $ MSE $ (Eq. \ref{eq:MSE}) and $ MAPE $ (Eq. \ref{eq:MAPE}).
 
@@ -295,7 +316,7 @@ During training also an error measure is used to accordingly update the weights 
 \end{figure}
 
 
-First, the input data of the LSTM is calculated in \textit{input\_output\_LSTM} which should be done in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \ref{fig:stateful_input}. This is done before training by making use the GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. \\ 
+First, the input data of the LSTM is calculated in \textit{input\_output\_LSTM} which should be done in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \ref{fig:stateful_input}. This is done before training using the GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. \\ 
 Next, the models are build. Three different models will be shown further from which the first two are stateless models and the third is a stateful model. For the stateless models it is possible to shuffle the input data. It was found that when it is desired that before splitting the inputs of the LSTM in a training and validation set the data is shuffled and not just the last part is used as validation set, shuffling should be done manually before inputted to the fit function in Keras according to Deeplizard's blog page.\\
 During prediction, every model will predict only one half hour of electrical consumption at a time as was proposed as a good methodology in \cite{ANNRNN}. This concrete means that one input is feeded to the model and one output is coming out. To predict all $ 48 $ consumption values in a day, the previous predictions are used to predict consumptions later on the day. Also, each model makes use of early stopping on a validation set to avoid overfitting. The models can have multiple LSTM layers on top of each other. The hidden state vector $ \bm{H}_{j} $ serves then as input instead of $ \bm{X}_{k} $ for the layer above. The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
 
