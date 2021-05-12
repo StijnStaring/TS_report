@@ -53,7 +53,7 @@ During this chapter the series containing the electrical consumption are not agg
 
 
 \section{Microsoft Azure cloud}
-The calculations executed in this chapter are performed on a virtual machine using the Microsoft Azure services. This was possible because Microsoft provides students with $ \$ 100 $ of start credit for Microsoft Azure. Table \ref{tab:CPU} shows the different features of the machines used during this thesis. 
+The calculations executed in this chapter are performed on a virtual machine using the Microsoft Azure services. This was possible because Microsoft provides students with $ \$ 100 $ of free credit. Table \ref{tab:CPU} shows the different features of the CPU/GPU's used during this thesis. 
 
 \begin{table}[hb]
 	\centering
@@ -67,28 +67,18 @@ The calculations executed in this chapter are performed on a virtual machine usi
 	\label{tab:CPU}
 \end{table}
 
-In order to help transferring the calculation to the cloud, free tutorials hosted by Microsoft Azure are available. Before python scripts can be run a workspace and computation cluster have to be set up. It is also important that a correct python environment is set on the virtual machine. This can be accomplished using a YAML file where commands are given which packages should be installed and which channels should be used by Conda to find these packages. Conda is part of Anaconda and is an open source package management system. It differentiates with Pip in following points according to \cite{Helmus}:
+To help transferring the calculations to the cloud, free tutorials hosted by Microsoft Azure are available. Before python scripts can be run a workspace and computation cluster have to be set up. It is also important that a correct python environment is set on the virtual machine. This can be accomplished using a YAML file where commands are given which packages should be installed and which channels should be used by Conda to find these packages. Conda is part of Anaconda and is an open source package management system. It differentiates with Pip in following points according to \cite{Helmus}:
 
 \begin{itemize}
 	\item Conda can install packages of any language and not only Python.
 	\item Conda makes it easy to create isolated environments containing different Python versions and packages.
-	\item Pip installs dependencies in a serial loop while Conda does effort to fulfil all package dependencies simultaneously using a SAT-solver.  
+	\item Pip installs dependencies in a serial loop while Conda fulfils all package dependencies simultaneously using a SAT-solver.  
 \end{itemize}
 
-However, it is sometimes still necessary to use Pip because this is the only option to install a package. Using an isolated environment on a local machine makes it easy to transfer this environment automatically to a YAML file that is send to the virtual machine.\\
+However, it is sometimes still necessary to use Pip because this can be the only option for installing a package. Using an isolated environment on a local machine makes it easy to transfer this environment automatically to a YAML file that is send to the virtual machine.\\
 
-Finally it is noted that while performing the calculation a warning was seen telling that the TensorFlow binary was not compiled to support CPU instructions as SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA. This means that the binaries are originating from a different machine and that the CPU used to run the calculations on the moment is not able to use all its features. This warning was not fixed, but is given as a possible suggestion to the reader to 
+Finally, it is noted that while performing the calculations a warning occurred that the TensorFlow binary was not compiled to support CPU instructions as SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA. This means that the binaries in the tensorflow package are from a different machine and that the CPU used to run the calculations on that moment, is not able to use all its features. This warning was not fixed, but is given as a possible suggestion to the reader to improve calculation speeds when reusing the developed Python scripts.
 
-this was also the case for the local machine used
-
-Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 AVX512F FMA
-
-
-- tensorflow was not build from source and is not configured to use CPU not configured for using binary files
-
- that is used during development of the python scrips 
-
--yml files 
 
 \textbf{- Make a table that summarizes the environment to do simulations.(baseline and othe models) (can be put in the appendix)}
 - give also an indiction of the model time --> MAPE needs long to train
