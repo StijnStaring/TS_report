@@ -98,25 +98,23 @@ The models consider all the days preceding the desired day to be training data. 
 
 
 \textbf{Model 1: ``1 day ago forecast''}\\
-This model considers the consumption values of the day preceding the desired day as the forecast for the desired day. For example, the 24 hours ahead prediction starting from Tuesday 19/12/2021 00.00 am is taken equal to the $ 48 $ consumption values that are recorded between Monday 18/12/2021 at 00.00 am and Tuesday 19/12/2021 at 00.00am. The
-philosophy of the model is that the most recent consumption data serves as a a good prediction. However, one can think logically and know that the most recent data is not guaranteed to behave the same. For example, as was found in Section \ref{s:Comparing weekdays with weekends} the consumption of a weekend day behaves much different than the consumption of a weekday. Therefore, violating the assumption that the most recent data is also the most adequate to use as prediction. It is expected that people have a reasonable routine and it is likely that this routine will also be present in the electricity consumption. Therefore, from a human behaviour perspective it makes more sense to use the same day the previous week as prediction for the desired day.
+This model considers the consumption values of the day preceding the desired day as the forecast for the desired day. For example, the 24 hours ahead prediction starting from Tuesday 19/12/2021 00.00 am is taken equal to the $ 48 $ consumption values that are recorded between Monday 18/12/2021 at 00.00 am and Tuesday 19/12/2021 at 00.00 am. The philosophy of the model is that the most recent consumption data serves as a a good prediction. However, one can think logically and know that the most recent data is not guaranteed to behave the same. For example, as was found in Section \ref{s:Comparing weekdays with weekends} the consumption of a weekend day behaves much different than the consumption of a weekday. Therefore, violating the assumption that the most recent data is also the most adequate to use as prediction. It is expected that people have a reasonable routine and it is likely that this routine will also be present in the electricity consumption. Therefore, from a human behaviour perspective it makes more sense to use the same day the previous week as prediction for the desired day.\\
 
 \textbf{Model 2: ``7 days ago forecast''}\\
+This model tries to capture the human weekly routine and therefore it takes the same weekday of the previous week as the prediction for the desired day.
 
+\textbf{Model 3: ``closest day forecast''}\\
+This model looks for a past day that would be representative to serve as prediction for the desired day based on following features:
 
-This model looks at the most recent household consumption of the previous corresponding day of the week. It is expected that people have a reasonably fixed routine during the week and therefore it is likely that this routine will also be found back in the electrical consumption.\\
-
-
-
-\textbf{Model 1: ``closest day forecast''}\\
-This model looks for the most similar day in the training set based on following metrics to make a prediction:
-\textbf{the plausible assumption is not clear.}
 \begin{itemize}
+	\item Day of the week.
 	\item Holiday
-	\item Day of the week
+	\item Average temperature
 \end{itemize}
 
- All the days in the training are categorized according to these metrics. Then it is looked in which category the desired day belongs i.e. which day of the week and if it is a holiday. Inside the selected category, an assessment of the difference in average temperature is made for all days with respect to the desired day. It is assumed that the average temperature of the desired day is already available, which is a very plausible assumption. Finally, the day with the closest euclidean distance in temperature is selected and the electrical consumption signal is copied to serve as the prediction of the desired day. It should be noted that there are only a maximum of $ 8 $ holidays as can be seen in Table \ref{tab:summ_data}. Therefore, when a holiday should be predicted all Sundays are also included in the training set because a Sunday behaves most similar to a holiday as can be seen in Figure \ref{fig:sim_weekdays}.\\
+If 24 hours ahead of 19/12/2017 at 00:00 am has to be predicted, the following calendar information can be extracted from this time stamp : it is a weekday, more specifically a Tuesday and it is not a holiday. From the exogenous variable, it is known that the average temperature was 12,6 °C degrees. From the training set, which means, all the days before 19/12/2017, select all the previous Tuesdays which are not holidays, and find the day with the closest average temperature based on euclidean distance. It could be the Tuesday 10/01/2017 with an average temperature of 11,4°C for example. The consumption values of Tuesday 10/01/2017 day are chosen to serve as prediction for the desired day, namely Tuesday 19/12/2017.\\ 
+It should be noted that this method expects a good prediction of the average temperature of 19/12/2017. As can be seen in Table \ref{tab:summ_data}, no temperature values are missing for the three selected series. This table also shows that there are only  $ 8 $ holidays. To increase the amount of days when the desired day is a holiday, also all Sundays are considered. This is according what was found in Section \ref{s:Impact of holidays} where Figure \ref{fig:sim_weekdays} shows the normalized MAE between a holiday and a Sunday is the smallest. 
+
   
  \textbf{Model 4: ``Mean forecast''}\\
  In the mean forecast the different days are again categorized as was done in Model $ 1 $, but instead of selecting a single day out of the group of days, a mean day is calculated and used as prediction of the desired day. No extra Sundays are included to forecast a holiday.\\

@@ -47,12 +47,12 @@
 \contentsline {subsubsection}{Inputs}{38}{section*.37}%
 \contentsline {subsubsection}{Batch size}{39}{section*.38}%
 \contentsline {subsubsection}{Stateless versus Stateful}{39}{section*.39}%
-\contentsline {subsubsection}{Initialization}{40}{section*.42}%
+\contentsline {subsubsection}{Initialization}{41}{section*.42}%
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{41}{section*.43}%
 \contentsline {subsubsection}{Metrics to evaluate the models}{41}{section*.44}%
 \contentsline {subsection}{\numberline {4.4.2}Deep LSTM}{42}{subsection.4.4.2}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{43}{section*.46}%
-\contentsline {subsection}{\numberline {4.4.3}Model 2: Stateless with flatten layer}{43}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.3}Model 2: Stateless with flatten layer}{44}{subsection.4.4.3}%
 \contentsline {subsection}{\numberline {4.4.4}Model 3: Stateful}{44}{subsection.4.4.4}%
 \contentsline {subsection}{\numberline {4.4.5}Parameter search}{45}{subsection.4.4.5}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{47}{section*.52}%
