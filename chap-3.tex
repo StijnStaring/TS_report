@@ -1,16 +1,11 @@
 \chapter{Forecasting the daily electricity consumption}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. \\
-First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach.
-
-
-Next, the baseline models are explained in Section \ref{s:Baseline models}. These models are characterised by a low calculation load during training and they therefore serve as an easy to obtain result where a more complex model can be compared with. Next, more complex models based on a neural network philosophy are discussed in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' and ``Gated Recurrent Unit'' are most suitable to process time series and therefore serve as the core model which is analysed with different design choices. Finally, a parameter search is conducted. Here, an analysis is made of the sensitivity of the choice of different parameters is made.\\
+In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
  
 \section{Pre-processing}\label{s:Preprocessing}
-The data that is available is summarized by Table \ref{tab:available_data}. 
-
-\subsection{Data}\label{s:Data}
-In order to reduce the calculation load to do the parameter search in Section \ref{s: Parameter search}, three series are selected from the \textit{consumption.csv} that is listed in Table \ref{tab:availablef_data}. The series are chosen based on the least missing values of the historic electrical consumption serie and the absence of a big shift. Figure \ref{fig:three_series} shows the three figures and Table \ref{tab:three_series} summarizes their characteristics.\\
+The available raw data is summarized by Table \ref{tab:available_data}. 
+Three series are selected from the \textit{consumption.csv} for which the important characteristics are summarized by Table \ref{tab:summ_data}. The chosen time series have the least amount of missing data and don't contain large shifts of the mean consumption during the year. Figure \ref{fig:three_series} shows the electrical consumption of the three selected series. The validation set used during the parameter search consists out of the $ 10 $ last days in November. Only $ 10 $ days are selected to reduce the amount of predictions the models have to calculate. Also, these days don't contain any missing values for the three series. The months January - November compose the training set and December is taken as test set.\\ 
+The corresponding average temperature series are also used. They don't contain any missing values.
 
 \begin{figure}[ht]
 	\begin{subfigure}{0.32\textwidth}
@@ -25,7 +20,8 @@ In order to reduce the calculation load to do the parameter search in Section \r
 		\includegraphics[width=1\linewidth]{Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png}
 		\caption{Serie $ 3 $}
 	\end{subfigure}
-	\caption{The consumption of $ 2017 $ for the three selected series. }
+	\caption{The electrical consumption in $ 2017 $ for the three selected series. }
+	\label{fig:three_series}
 \end{figure}
 
 \begin{table}
@@ -38,9 +34,9 @@ In order to reduce the calculation load to do the parameter search in Section \r
     Maximum daily consumption [kWh] & $ 30.08 $ & $ 6.60 $ &  $ 17.15 $   \\
     Minimum daily consumption [kWh]& $ 7.51 $ & $ 1.83 $ &  $ 1.50 $   \\
     Total missing days (consumption) & $ 4 $ &$ 25 $ & $ 26 $\\
-    Days in validation set (November)&  $ 30 $ & $ 29 $  & $ 29 $ \\
+    Days in validation set (21-30 November)&  $ 10 $ & $ 10 $  & $ 10 $ \\
     Days in Test set (December) & $ 31 $    &    $ 23 $  & $ 23 $ \\
-    Days in training set (Rest)&   $ 300 $  &  $ 288 $   &  $ 287 $\\
+    Days in training set (Rest)&   $ 320 $  &  $ 307 $   &  $ 306 $\\
     Mean average temperature [$\degree C$]& $ 10.37 $  &  $ 10.61 $  & $ 10.22 $ \\
     Standard deviation average temperature [$\degree C$]& $ 5.09 $  & $ 5.20 $   & $ 5.01 $ \\
     Median average temperature [$\degree C$] &  $ 10.46 $ &  $ 10.61 $  & $ 10.35 $ \\
@@ -49,15 +45,15 @@ In order to reduce the calculation load to do the parameter search in Section \r
     Missing average temperature days &  $ 0 $ & $ 0 $  & $ 0 $  \\ 
     Amount of holidays in $ 2017 $ & $ 8 $  &  $ 8 $  & $ 8 $ \\\bottomrule
   \end{tabular}
-  \caption{summarizing characteristics about the selected series.}
+  \caption{Summarizing characteristics about the selected series.}
   \label{tab:summ_data}
 \end{table}
 
+During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By substituting the missing values more training data is available but also the time series don't contain jumps in time.
 
-- have chosen to substitute the missing values and use them as training data. An option could have been to learn from a more accurate, smaller dataset. 
+
 \textbf{should change validation set that is used is november --> baseline no validation, NN --> 10 last days of November.}
-
-The three time series are divided in a training, validation and test set. As validation and test set are respectively the months November and December chosen. Because in this chapter the time series are not aggregated to a single signal as was the case in Section \ref{s:Analysis} the min-max normalization can be used. The missing values in the consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. Similar, the missing values of the temperature are substituted by first looking at the temperature yesterday, then tomorrow and as last the mean temperature.\\
+Because in this chapter the time series are not aggregated to a single signal as was the case in Section \ref{s:Analysis} the  The missing values in the consumption are substituted by making use of following baseline models in order: ``previous week'' model, ``previous day'' model and the mean model. When a baseline can't make a forecast because the data is not available, a next baseline model is used. Similar, the missing values of the temperature are substituted by first looking at the temperature yesterday, then tomorrow and as last the mean temperature.\\
 
 The simulations that are done in the chapter are performed on a virtual machine through the Microsoft Azure service.
 Table \ref{tab:CPU} shows the different features of the hired machine. 
@@ -212,6 +208,9 @@ From Table \ref{tab:summ_data_rel_performance} it can again be concluded that th
 
 -add initialization in intro
 - during training the $ MSE $ metric is used. Because of the squares it focusses more at predicting the peaks correct. 
+- A separate validation set is used instead of cross-validation to test all the models on the same last ten days. Cross-validation is not possible for model 3, because the chronology of the training data is of importance for Model 3. 
+- only the average temperature is used --> not min/max. 
+
 
 \section{Neural network models}\label{s:Neural network models}
 In this section deep LSTM models, which are models that are specialized in time series learning, are presented in different variations. The term deep is used because multiple LSTM layers are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hour electrical consumption forecast for a single household. First, the general context in which the deep LSTM models are trained is explained. This covers the inputs that are feeded to the models, measures taken to avoid overfitting, the explanation of a stateless model versus a stateful model, initialization and the metrics used for evaluation. Next, the specific LSTM models developed are discussed in Section \ref{s:LSTM_implementation}. Further, follows  the discussion of the conducted parameter search in Section \ref{s:Parameter search}.

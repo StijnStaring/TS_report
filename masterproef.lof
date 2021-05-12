@@ -32,8 +32,8 @@
 \contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{30}{figure.caption.28}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The consumption of $ 2017 $ for the three selected series. \relax }}{32}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{37}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The generation of inputs for a stateless model. (source: \cite {FneishMo})\relax }}{40}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{36}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The generation of inputs for a stateless model. (source: \cite {FneishMo})\relax }}{39}{figure.caption.40}%
 \contentsline {figure}{\numberline {4.4}{\ignorespaces The generation of inputs for a stateful model. (source: \cite {FneishMo})\relax }}{40}{figure.caption.41}%
 \contentsline {figure}{\numberline {4.5}{\ignorespaces The flow of functions that are executed in order to produce daily forecasts.\relax }}{41}{figure.caption.45}%
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Model 1 - stateless model with as input a subserie of N time steps and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{l} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{42}{figure.caption.47}%
