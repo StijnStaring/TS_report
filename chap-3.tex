@@ -52,7 +52,7 @@ The corresponding average temperature series are also used. They don't contain a
 During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
 \section{Error metrics}
-The metrics used to evaluate the performance of predictions are $ RMSE $ (Eq. \ref{eq:RMSE}), $ NRMSE $ (Eq. \ref{eq:NRMSE}), $ MAE $ (Eq. \ref{eq:MAE}), $ MSE $ (Eq. \ref{eq:MSE}) and $ MAPE $ (Eq. \ref{eq:MAPE}).
+The metrics used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
 
 \begin{equation}\label{eq:MSE}
 	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}
@@ -63,7 +63,7 @@ The metrics used to evaluate the performance of predictions are $ RMSE $ (Eq. \r
 \end{equation}
 
 
-It is expected that the \textit{MAE} penalizes outliers less severe than \textit{MSE}, which takes the error squared. Therefore, using the \textit{MSE} metric, more emphasize is put on predicting the peaks of the reference signal correctly with respect to \textit{MAE}. The advantage of using $ RMSE $ and $ MAE $ is that they both have an error in kWh which is intuitive. $ NRMSE $ and $ MAPE $ take the reference signal into account. $ NRMSE $ gives a bigger error, when the reference signal has a small difference between the $ y_{max} $ and $ y_{min} $. $ MAPE $ penalizes a small MAE more severe on a small reference value than on a larger one due to the division by $ y $.
+It is expected that the \textit{MAE} penalizes outliers less severe than \textit{MSE}, which takes the error squared. Therefore, using the \textit{MSE} metric, more emphasize is put on predicting the peaks of the reference signal correctly with respect to \textit{MAE}. The advantage of using  RMSE  and MAE  is that they both have an error in kWh which is intuitive.  NRMSE  and  MAPE  take the reference signal into account. NRMSE  gives a bigger error, when the reference signal has a small difference between the $ y_{max} $ and $ y_{min} $.  MAPE  penalizes a small MAE more severe on a small reference value than on a larger one due to the division by $ y $.
 
 
 \section{Microsoft Azure cloud}
@@ -229,46 +229,51 @@ In Table \ref{tab:summ_data_rel_performance} the overall performance of the base
 \end{table}
 
 
-
-
-
-
--add initialization in intro
-- during training the $ MSE $ metric is used. Because of the squares it focusses more at predicting the peaks correct. 
-- A separate validation set is used instead of cross-validation to test all the models on the same last ten days. Cross-validation is not possible for model 3, because the chronology of the training data is of importance for Model 3. 
-- only the average temperature is used --> not min/max. 
-
-
 \section{Neural network models}\label{s:Neural network models}
-In this section deep LSTM models, which are models that are specialized in time series learning, are presented in different variations. The term deep is used because multiple LSTM layers are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hour electrical consumption forecast for a single household. First, the general context in which the deep LSTM models are trained is explained. This covers the inputs that are feeded to the models, measures taken to avoid overfitting, the explanation of a stateless model versus a stateful model, initialization and the metrics used for evaluation. Next, the specific LSTM models developed are discussed in Section \ref{s:LSTM_implementation}. Further, follows  the discussion of the conducted parameter search in Section \ref{s:Parameter search}.
+In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forcast of the electrical consumption of an individual household. First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:LSTM_implementation}. Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
 
 \subsection{Different practical considerations of the models in Keras}
 
 \subsubsection{Inputs}\label{s:Inputs}
-The inputs to theses models are similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
+The inputs to theses models are normalized and similar as was suggested in papers \cite{loadforecastingmoor} and \cite{Kong2019}: 
+
 \begin{itemize}
-	\item historic training values (min-max normalization)
-	\item average daily temperature (min-max normalization)
-	\item which day of the week? (one hot encoding)
-	\item which time of the day? (one hot encoding)
-	\item is it a holiday? (one hot encoding)
+	\item Historic electrical consumption (min-max normalization)
+	\item Average daily temperature (min-max normalization)
+	\item Day of the week (one hot encoding)
+	\item Time of the day (one hot encoding)
+	\item Holiday (one hot encoding)
 \end{itemize}
 
-How far will be looked back into the history of the electrical consumption is decided by the lag value. This value corresponds to the number of historic time steps that will be taken into account. The LSTM models are developed using the Keras toolbox backed by Tensorflow in Python. The Keras model expects a matrix $ \bm{X} $ as input with three dimensions: sample number, amount of time steps and amount of features. The amount of time steps equals thus the lag value. 
-
-One sample of the $ \bm{X} $ matrix e.g. $ (1,lag\hspace{1.5mm}value, features) $, equals a 2D matix. Time steps correspond to the rows of this matrix and features to the columns. Every column contains a different time serie that serves as input. On the first column an amount of $ lag\hspace{1.5mm}value $ of previous consumption values is stored. The further down the rows of the first column, the closer time gets to the actual value that needs to be predicted. This is also the case for the temperature, but because the temperature is only known on daily basis and the history of the electricity consumption is known for every 30 minutes, the temperature value is often the same in the second column of the 2D matrix. The historic consumption and daily average temperature input are normalized by scaling between $ 0 $ and $ 1 $, using a min-max normalization.
-
-In the next $ 7 $ columns of the 2D matrix, information is given about which day of the week it is. This is encoded making use of an one hot encoding.For every row one of the $ 7 $ columns which corresponds with the day of the week gets an one and the rest will be set to zero. Very similar the information about the time of the day is indicated. There are $ 48 $ columns and for every row only one column gets an one to indicate the time of the day. This makes that the 2D matrix has $ 59  $ columns which corresponds to the amount of features. Every 2D matrix in $ X $ serves as input to forecast a single next half hour electrical consumption.\\
-
-When the 24 hour prediction is made, the assumption is taken that information about the real electrical consumption is known until the moment of prediction. In case of this thesis, that means until midnight the previous day. 
+How far the model will look back into the history of electrical consumptions during a prediction, is determined by the lag value. This value corresponds to the amount of time steps that will be taken into account. The LSTM model in Keras expects a matrix $ \bm{X} $ as input with three dimensions: sample number, amount of time steps and amount of features. 
+One sample of the $ \bm{X} $ matrix e.g. $ (1,lag\hspace{1.5mm}value, features) $, equals a 2D matix of dimensions  \textit{time steps} $ \times $ \textit{features}. Every column contains a different time serie that serves as input to the model. On the first column an amount of $ lag\hspace{1.5mm}value $ of previous consumption values is stored. The further down the rows of the first column, the closer time gets to the actual value that needs to be predicted. This is also the case for the temperature, but because temperature is only known on daily basis and the frequency of the values on the reference signal is one every thirty minutes, the temperature value is often the same in the second column of the 2D matrix. The values originating from the reference signal and daily average temperature serie are normalized by using a min-max normalization. Every value will now lay between zero and one.\\
+In the next $ 7 $ columns of the 2D matrix, information is given about which day of the week it is. This is encoded making use of an one hot encoding. For every row one of the $ 7 $ columns which corresponds with the day of the week gets an one and the rest will be set to zero. Very similar the information about the time of the day is indicated. There are $ 48 $ columns and for every row only one column gets an one to indicate the time of the day. Finally, this is also done to indicate if it is a holiday. In total the input matrix $ \bm{X} $ has $ 59  $ columns which corresponds to the amount of features. Every sample of $ \bm{X} $ is used for a prediction of one time step of half an hour of the desired day. To make a 24 hours ahead prediction, the total $ 48 $ values are calculated recursively. Previous predictions are used in next ones by adding them to the history of electrical consumptions. The assumption is taken that the reference signal is available till the desired day. For example, if a prediction the electrical consumption of 19/12/2017 is desired, it is assumed that the reference signal is available till 18/12/2017 24:00.
 
 \subsubsection{Batch size}
-A batch size has to be specified in the Keras fit function. The batch size determines how many inputs are feeded to the model and their outputs compared with their reference to define an objective function that is used when calculating the gradients for weight update. Because here only one sample is predicted per 2D input matrix, the amount of samples of $ \bm{X} $ correspond to the amount of outputs.\\
+A batch size has to be specified in the Keras fit function. The batch size determines how many samples of $ \bm{X} $ are feeded to the model at once and their outputs compared with their reference to define an objective function. This objective function is used to calculate the gradients for weight updates. Because every sample of $ \bm{X} $ outputs one prediction value, the amount of samples of $ \bm{X} $ correspond to the amount of predictions made.\\
 
 \subsubsection{Stateless versus Stateful}
-Keras introduces a concept of stateless and stateful. As explained above the input given to a LSTM model is an array of data of three dimensions: sample number, amount of timesteps, amount of features. As explained in \cite{FneishMo} a stateless model interprets every sample of $ \bm{X} $, which is a 2D matrix of inputs, to contain in every column a serie that has nothing to do with the serie on the same column in a other sample of $ \bm{X} $. When processing the next sample of $ \bm{X} $, the hidden states and memory states are therefore again initialized to zero vectors. Because there is no relation between the input series over the different samples, it is logical to collect as much as possible samples for training and the input data is generated by moving a window every time one step further as can be seen in Figure \ref{fig:stateless_input}. It was found that when predictions were done also the hidden states and memory states are reset for every prediction.\\
+Keras introduces a concept of stateless and stateful. As explained in Section \ref{s:Inputs} the input given to a LSTM model is a matrix with three dimensions: sample number, time steps, features. As explained in \cite{FneishMo} a stateless model interprets every sample of $ \bm{X} $ as if they have no relations with each other. A stateless model is not able to see that the different samples of $ \bm{X} $ originate from the same time series. Therefore, the hidden and memory states are reset when a new sample of $ \bm{X} $ is considered during model training and prediction. When the hidden states and memory states are reset, they are again initialized to zero vectors. If there is no relation between the different samples of $ \bm{X} $, it is logical to collect as much samples as possible and the input data is generated by moving a window every time one step further on the original time series as can be seen in Figure \ref{fig:stateless_input}.\\
 
-In contrast with a stateless model, a stateful model doesn't reset its hidden states and memory states when going to the next sample in $ \bm{X} $. This means that when all the series that are contained in the separate 2D matrices are glued behind each other, the initial input signals should be recovered. How this is done can be seen in Figure \ref{fig:stateful_input} for a \textit{lag value} of three. It can however be desired to reset hidden states and memory states during training e.g. after one epoch. To achieve this, it has to be set manually. During predictions, also the hidden states and memory states are preserved. Therefore the concept of seeding before predictions becomes possible as explained in Section \ref{s:Model3}.\\
+A stateful model doesn't reset its hidden and memory states when considering a new sample of $ \bm{X} $. Because of this an additional condition is imposed to the input data that now, when all the samples of $ \bm{X} $ are glued behind each other, has to return the original times series sampled from. If this condition is not fulfilled, the hidden states and memory states would traverse a different serie than the original one. After one epoch during training the states are reset because the end of the original time serie has no connection with its start. During predictions the hidden and memory states are also preserved. Therefore, seeding of the model before prediction is possible as explained in Section \ref{s:Model3}.\\
+
+The advantage of using a stateful model in comparison to a stateless one, is that during training and prediction more data can be presented to the hidden and memory states before they are reset. Therefore, the capability of the LSTM of long term remembering important features of the data, is more exploited. However, a practical disadvantage of using a stateful model is that Keras expects that the batch size chosen during training equals the one during prediction. Each prediction uses one sample of input matrix $ \bm{X} $ to output one prediction value. This means that the batch size during training is forced to be equal to one. It was tried to circumvent this by first training on a chosen batch size and then transferring the learned model weights to a new model with batch size one. It was found however the second model only gave back the same predictions as model one when the
+
+
+Further, a stateful model expects that the training and validation sets are divisible by the batch size. In order to meet these conditions samples of the input matrix are thrown away. 
+
+
+Methods that are looked into for  circumventing these practical issues were 
+
+
+can be tried to be circumvented by training a model and 
+
+
+- setting over of weights --> only works when same model
+
+- working directly in tensorflow
+
+- throwing data away.
 
 Using a stateful model introduces the additional complexity that the amount of training samples in $ \bm{X}_{training} $ and $ \bm{X}_{validation} $ should be dividable by the batch size that is chosen. This batch size then also has to be used during prediction. The circumvent these issues, a batch size of $ 1 $ is chosen for model $ 3 $ which is discussed in Section \ref{s:Model3}.\\
 
@@ -290,7 +295,6 @@ Using a stateful model introduces the additional complexity that the amount of t
 \subsubsection{Initialization}
 When looking at the LSTM equations in Section \ref{s:LSTM}, four weight matrices $ \bm{W} $ with an index \textit{H} and four weight matrices with an index \textit{X} can be identified. These are respectively the recurrent and kernel weights and they are both initialized in a different way. A recurrent weight matrix is initialized using a ``orthogonal'' initialization and the kernel weight matrix uses ``glorot uniform'' initialization. Both methods make use of random sampling of a distribution  during the generation of the initial values. The biases $ \bm{b} $, memory states $ \bm{c}_t $ and hidden states $ \bm{H}_t $ of the LSTM equation are all initialized by arrays filled with zeros.\\
 
-
 \subsubsection{Overfitting avoidance in Keras}
 Different ways to avoid overfitting can be applied in Keras and is listed as follows:
 \begin{itemize}
@@ -300,17 +304,9 @@ Different ways to avoid overfitting can be applied in Keras and is listed as fol
 	\item $ l2 $ regularization on the kernel weights, recurrent weight, bias and activity.
 \end{itemize}
 
-\subsubsection{Metrics to evaluate the models}
-The metrics that are used to evaluate the prediction performance of the models are the same as the ones used by the baseline models in Section \ref{s:Baseline models}:
-\begin{itemize}
-	\item Mean absolute error
-	\item Mean squared error
-	\item Normalized root mean squared error
-	\item Root mean square error
-	\item Mean absolute percentage error
-\end{itemize}
 
-During training also an error measure is used to accordingly update the weights of the neural network. It was found in literature that much of the time $ MSE $ is used for this.
+\subsubsection{Error metrics}
+The  MAE  error metric is used to evaluate the prediction performance on the validation set for the models during the parameter search in Section \ref{s:Parameter search}. During training the MSE is used in the objective function which is used to derive weight updates.
 
 
 \subsection{Deep LSTM}\label{s:LSTM_implementation}
@@ -359,7 +355,8 @@ In this model additionally to the output of the last LSTM block also the previou
 
 Where the previous two models only go through a small subserie of $ 48 $ or $ 96 $ time steps before making a prediction, this model sees the whole original time serie. This is possible because the model looks one by one at each sample of the original time serie e.g. $ \bm{X}_{1} $ and sets the $ C_{1} $ and $ H_{1} $ that come out as $ C_{0} $ and $ H_{0} $ when the next sample e.g. $ \bm{X}_{2}  $ of the original time serie is used. This means that the model glues every subserie of one value together, which recreates the original serie. The shape of $ \bm{X} $ is now $ (15500, 1, 59) $, which means that each sample now is not a 2D matrix but an array. After training and before prediction of the test set or validation set, it is important that the memory states $ \bm{C}_{i} $  and hidden states $ \bm{H}_{j} $ are set ``right'' for prediction of the daily consumption. Therefore, the model is first seeded which means that first all the inputs before the desired day are shown to the model. When the model then reaches the desired day, it had the chance to collect important information in the memory states and the hidden states that it can use during the prediction. A downside of using this model is that during prediction it looks only at the previous predicted electrical consumption and uses this as input to predict the next.
 
-
+\textbf{
+	- A separate validation set is used instead of cross-validation to test all the models on the same last ten days. Cross-validation is not possible for model 3, because the chronology of the training data is of importance for Model 3. }
 \subsection{Parameter search}\label{s:Parameter search}
 As will be shown in this section, the different LSTM models are dependent on the choice of good parameters to be able to perform well. During a parameter search different combinations of values for the models are tried and the values that give the best results are retained. Because it is not straightforward what the influence of one parameter exactly is on the model, all the different parameters are expected to depend on each other. If all the different parameters are varied the calculation load to try all the different combinations extremely quickly increases. In order to deal with this the parameter search that is conducted is done in three stages. The cost that comes with reducing the calculation load, is that the domain of possible values is not totally searched and dependencies are neglected. During the parameter search every combination of settings is repeated three times to reduce the influence of the random initialization of the weights in the weight matrices. The error value that is used to decide if a combination of parameters behaves better or worse, is based on the average MAE on the $ 10 $ last days of November of the three runs. The $ 10 $ last days of November are thus used as validation set during the parameter search and can be used for all three models as validation set. Inspiration for the values chosen for the different parameters is based on \cite{Shi2018}.
 

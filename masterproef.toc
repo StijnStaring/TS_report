@@ -50,12 +50,12 @@
 \contentsline {subsubsection}{Stateless versus Stateful}{40}{section*.39}%
 \contentsline {subsubsection}{Initialization}{41}{section*.42}%
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{42}{section*.43}%
-\contentsline {subsubsection}{Metrics to evaluate the models}{42}{section*.44}%
-\contentsline {subsection}{\numberline {4.5.2}Deep LSTM}{43}{subsection.4.5.2}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{44}{section*.46}%
+\contentsline {subsubsection}{Error metrics}{42}{section*.44}%
+\contentsline {subsection}{\numberline {4.5.2}Deep LSTM}{42}{subsection.4.5.2}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{43}{section*.46}%
 \contentsline {subsection}{\numberline {4.5.3}Model 2: Stateless with flatten layer}{44}{subsection.4.5.3}%
 \contentsline {subsection}{\numberline {4.5.4}Model 3: Stateful}{45}{subsection.4.5.4}%
-\contentsline {subsection}{\numberline {4.5.5}Parameter search}{46}{subsection.4.5.5}%
+\contentsline {subsection}{\numberline {4.5.5}Parameter search}{45}{subsection.4.5.5}%
 \contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{48}{section*.52}%
 \contentsline {subsubsection}{Model 2: Stateless with flatten layer}{53}{section*.58}%
 \contentsline {subsubsection}{Model 3: Stateful model}{54}{section*.60}%
