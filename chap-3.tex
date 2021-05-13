@@ -52,7 +52,7 @@ The corresponding average temperature series are also used. They don't contain a
 During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
 \section{Error metrics}
-The metrics used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
+The metrics that can be used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
 
 \begin{equation}\label{eq:MSE}
 	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}
@@ -257,26 +257,7 @@ Keras introduces a concept of stateless and stateful. As explained in Section \r
 
 A stateful model doesn't reset its hidden and memory states when considering a new sample of $ \bm{X} $. Because of this an additional condition is imposed to the input data that now, when all the samples of $ \bm{X} $ are glued behind each other, has to return the original times series sampled from. If this condition is not fulfilled, the hidden states and memory states would traverse a different serie than the original one. After one epoch during training the states are reset because the end of the original time serie has no connection with its start. During predictions the hidden and memory states are also preserved. Therefore, seeding of the model before prediction is possible as explained in Section \ref{s:Model3}.\\
 
-The advantage of using a stateful model in comparison to a stateless one, is that during training and prediction more data can be presented to the hidden and memory states before they are reset. Therefore, the capability of the LSTM of long term remembering important features of the data, is more exploited. However, a practical disadvantage of using a stateful model is that Keras expects that the batch size chosen during training equals the one during prediction. Each prediction uses one sample of input matrix $ \bm{X} $ to output one prediction value. This means that the batch size during training is forced to be equal to one. It was tried to circumvent this by first training on a chosen batch size and then transferring the learned model weights to a new model with batch size one. It was found however the second model only gave back the same predictions as model one when the
-
-
-Further, a stateful model expects that the training and validation sets are divisible by the batch size. In order to meet these conditions samples of the input matrix are thrown away. 
-
-
-Methods that are looked into for  circumventing these practical issues were 
-
-
-can be tried to be circumvented by training a model and 
-
-
-- setting over of weights --> only works when same model
-
-- working directly in tensorflow
-
-- throwing data away.
-
-Using a stateful model introduces the additional complexity that the amount of training samples in $ \bm{X}_{training} $ and $ \bm{X}_{validation} $ should be dividable by the batch size that is chosen. This batch size then also has to be used during prediction. The circumvent these issues, a batch size of $ 1 $ is chosen for model $ 3 $ which is discussed in Section \ref{s:Model3}.\\
-
+The advantage of using a stateful model in comparison to a stateless one, is that during training and prediction more data can be presented to the hidden and memory states before they are reset. Therefore, the capability of the LSTM of long term remembering important features of the data, is more exploited. However, a practical disadvantage of using a stateful model is that Keras expects that the batch size chosen during training, equals the one during prediction. Each prediction uses one sample of input matrix $ \bm{X} $ to output one prediction value. This means that the batch size during training is forced to be equal to one. It was tried to circumvent this by first train on a model with chosen batch size and then transfer the learned model weights to a new model with batch size one. It was discovered that this didn't give same forecasts. In literature it was found that this is a limitation of Keras and can only be circumvented when working directly in Tensorflow. In addition, a stateful model expects that the training and validation sets are divisible by the batch size. To meet this condition samples of the input matrix are thrown away. As will be seen in Section \ref{s:Model3}, the developed stateful model 3 avoids both these issues by using a batch size of one during training.\\
 
 \begin{figure}[h]
 	\centering
@@ -293,45 +274,43 @@ Using a stateful model introduces the additional complexity that the amount of t
 \end{figure}
 
 \subsubsection{Initialization}
-When looking at the LSTM equations in Section \ref{s:LSTM}, four weight matrices $ \bm{W} $ with an index \textit{H} and four weight matrices with an index \textit{X} can be identified. These are respectively the recurrent and kernel weights and they are both initialized in a different way. A recurrent weight matrix is initialized using a ``orthogonal'' initialization and the kernel weight matrix uses ``glorot uniform'' initialization. Both methods make use of random sampling of a distribution  during the generation of the initial values. The biases $ \bm{b} $, memory states $ \bm{c}_t $ and hidden states $ \bm{H}_t $ of the LSTM equation are all initialized by arrays filled with zeros.\\
+The LSTM equations in Section \ref{s:LSTM} show four weight matrices $ \bm{W} $ with an index \textit{H} and four weight matrices with an index \textit{X}. These are respectively the recurrent and kernel weights and they are both initialized in a different way. A recurrent weight matrix is initialized using an orthogonal initialization and the kernel weight matrix uses a glorot uniform initialization. Both methods make use of random sampling of a distribution  during the generation of the initial values. The biases $ \bm{b} $, memory states $ \bm{c}_t $ and hidden states $ \bm{H}_t $ of the LSTM equations are all initialized by arrays filled with zeros.\\
 
 \subsubsection{Overfitting avoidance in Keras}
-Different ways to avoid overfitting can be applied in Keras and is listed as follows:
+Different ways to avoid overfitting can be applied in Keras::
 \begin{itemize}
 	\item Early Stopping
 	\item Dropout and recurrent dropout in the LSTM layer
 	\item Dropout in the Dense layers
-	\item $ l2 $ regularization on the kernel weights, recurrent weight, bias and activity.
+	\item $ l2 $ regularization on the kernel weights, recurrent weights, bias and activity.
 \end{itemize}
 
 
 \subsubsection{Error metrics}
-The  MAE  error metric is used to evaluate the prediction performance on the validation set for the models during the parameter search in Section \ref{s:Parameter search}. During training the MSE is used in the objective function which is used to derive weight updates.
+The  MAE metric is used to evaluate the prediction performance on the validation set during the parameter search in Section \ref{s:Parameter search}. During training the MSE is used in the objective function which is used to derive weight updates.
 
 
 \subsection{Deep LSTM}\label{s:LSTM_implementation}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.2\textwidth]{flow_code.png}
-	\caption{The flow of functions that are executed in order to produce daily forecasts.}
+	\caption{The flow of functions that are executed in order during the prediction process with LSTM models.}
 	\label{fig:model1}
 \end{figure}
 
 
-First, the input data of the LSTM is calculated in \textit{input\_output\_LSTM} which should be done in different ways depending on the model as is showed in Figures \ref{fig:stateless_input} and \ref{fig:stateful_input}. This is done before training using the GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. \\ 
-Next, the models are build. Three different models will be shown further from which the first two are stateless models and the third is a stateful model. For the stateless models it is possible to shuffle the input data. It was found that when it is desired that before splitting the inputs of the LSTM in a training and validation set the data is shuffled and not just the last part is used as validation set, shuffling should be done manually before inputted to the fit function in Keras according to Deeplizard's blog page.\\
-During prediction, every model will predict only one half hour of electrical consumption at a time as was proposed as a good methodology in \cite{ANNRNN}. This concrete means that one input is feeded to the model and one output is coming out. To predict all $ 48 $ consumption values in a day, the previous predictions are used to predict consumptions later on the day. Also, each model makes use of early stopping on a validation set to avoid overfitting. The models can have multiple LSTM layers on top of each other. The hidden state vector $ \bm{H}_{j} $ serves then as input instead of $ \bm{X}_{k} $ for the layer above. The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
+First, the input data of the LSTM is calculated in \textit{input\_output\_LSTM}. This is done before training using the GPU that is listed in Table \ref{tab:CPU}. The inputs that are used are discussed in Section \ref{s:Inputs}. Next, the models are build. Three different models will be shown further from which the first two are stateless models and the third is a stateful model. For the stateless models it is possible to shuffle the input data. When it is desired that before splitting the inputs of the LSTM in a training and validation set, the data is shuffled and not just the last part is taken as validation set, shuffling should be done manually before the inputs are assigned to the Keras fit function according to Deeplizard's blog page. During prediction, every model will predict one value at at time as was proposed as a good methodology in \cite{ANNRNN}. This means that $ 48 $ predictions are needed for a $ 24 $ hours ahead prediction. Each model makes use of early stopping on a validation set to avoid overfitting. The models can have multiple LSTM layers on top of each other. The hidden state vector $ \bm{H}_{j} $ serves then as input instead of $ \bm{X}_{k} $ for the layer above. The specific parameters and layout that is chosen for each of the three models is discussed in Section \ref{s:Parameter search}.
 
 \subsubsection{Model 1: Stateless with no flatten layer}\label{s:Model1}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1.2\textwidth]{model1.png}
-	\caption{Model 1 - stateless model with as input a subserie of N time steps and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
+	\caption{Model 1 - stateless model with as input a subserie of N time steps and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{59} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model1}
 \end{figure}
 
-Every subserie of the original time serie has $ N $ time steps and is feeded to the LSTM layer. When the final LSTM block is reached the output of this block will be translated to a single prediction value by a conventional layer of hidden neurons (Dense layer). The subseries are created by shifting the window one time step further in time on the original time serie. Because Model 1 is stateless $ \bm{C}_{0} $ and $ \bm{H}_{0} $ will be initialized by zero vectors. The amount of $ N $ LSTM blocks that are depicted in Figure \ref{fig:model1} equals the lag value that determines the amount of previous time steps that will be taken into account for the next prediction. Although that Figure \ref{fig:model1} gives the impression that there are multiple LSTM blocks, this only serves as a visual interpretation. There is actually only one LSTM block that is reused for every $ \bm{X}_{k} $. This means that when the same size of layers and hidden recurrent states are chosen, all the three models will have the same amount of trainable parameters. 
+One sample of the input matrix $ \bm{X} $ consists of $ N $ timesteps which are feeded to the LSTM layer as is shown in Figure \ref{fig:model1}. $ N $ equals to the chosen lag value. When the final LSTM block is reached the output of this block will be translated to a single prediction value by a conventional layer of hidden neurons (Dense layer). The subseries are created by shifting the window one time step further as is explained in Section \ref{s:Inputs}. Because Model 1 is stateless $ \bm{C}_{0} $ and $ \bm{H}_{0} $ will be initialized as zero vectors. Although that Figure \ref{fig:model1} gives the impression that there are multiple LSTM blocks, this only serves as a visual interpretation. There is actually only one LSTM block that is reused for every $ \bm{X}_{k} $. This means that when the same amount of layers and hidden recurrent states are chosen, all the three models will have the same amount of trainable parameters. 
 
 
 \subsection{Model 2: Stateless with flatten layer}\label{s:Model2}
@@ -339,21 +318,22 @@ Every subserie of the original time serie has $ N $ time steps and is feeded to 
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.2\textwidth]{model2.png}
-	\caption{Model 2 - stateless model with as input a subserie of N time steps and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
+	\caption{Model 2 - stateless model with as input a serie of N time steps and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{59} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model2}
 \end{figure}
 
-In this model additionally to the output of the last LSTM block also the previous outputs of the LSTM blocks are inputs to the dense layer. This model corresponds to the model depicted and explained in \cite{Kong2019}.
+Additionally to the output of the last LSTM block also the previous outputs of the LSTM blocks are inputs to the dense layer. This model corresponds to the model depicted in \cite{Kong2019}.
 
 \subsection{Model 3: Stateful}\label{s:Model3}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\textwidth]{model3.png}
-	\caption{Model 3 - stateful model that connects single LSTM blocks and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{l} $, $ \hat{y} \in \mathbb{R}^{1} $.}
+	\caption{Model 3 - stateful model that connects single LSTM blocks and $ \bm{C}_{i} \in \mathbb{R}^{m} $, $ \bm{H}_{j} \in \mathbb{R}^{n} $, $ \bm{X}_{k} \in \mathbb{R}^{59} $, $ \hat{y} \in \mathbb{R}^{1} $.}
 	\label{fig:model3}
 \end{figure}
 
-Where the previous two models only go through a small subserie of $ 48 $ or $ 96 $ time steps before making a prediction, this model sees the whole original time serie. This is possible because the model looks one by one at each sample of the original time serie e.g. $ \bm{X}_{1} $ and sets the $ C_{1} $ and $ H_{1} $ that come out as $ C_{0} $ and $ H_{0} $ when the next sample e.g. $ \bm{X}_{2}  $ of the original time serie is used. This means that the model glues every subserie of one value together, which recreates the original serie. The shape of $ \bm{X} $ is now $ (15500, 1, 59) $, which means that each sample now is not a 2D matrix but an array. After training and before prediction of the test set or validation set, it is important that the memory states $ \bm{C}_{i} $  and hidden states $ \bm{H}_{j} $ are set ``right'' for prediction of the daily consumption. Therefore, the model is first seeded which means that first all the inputs before the desired day are shown to the model. When the model then reaches the desired day, it had the chance to collect important information in the memory states and the hidden states that it can use during the prediction. A downside of using this model is that during prediction it looks only at the previous predicted electrical consumption and uses this as input to predict the next.
+Where the previous two models only go through a subserie before making a prediction, this model sees the whole original time serie when making predictions. This is possible because the model looks one by one at each sample of the original time serie. For example $ \bm{X}_{1} $ is feeded to the model and $ C_{1} $ and $ H_{1} $ come out.  $ C_{1} $ and $ H_{1} $ are now again set as $ C_{0} $ and $ H_{0} $ when the next sample $ \bm{X}_{2}  $ is used. This means that the model glues every subserie of one value together, which recreates the original serie. The shape of $ \bm{X} $ is now $ (15500, 1, 59) $, so each sample now is not a 2D matrix but an array. After training and before prediction of the test set or validation set, it is important that the memory states $ \bm{C}_{i} $  and hidden states $ \bm{H}_{j} $ are set ``right'' for prediction. Therefore, the model is first seeded, which means that first all the inputs before the desired day are shown to the model. When the model then reaches the desired day, it had the chance to collect important information in the memory states and the hidden states that can be used during the prediction. During the consecutive predicting of a 24 hours ahead forecast, the model only uses previous predictions as input in comparison to Model 1 and 2 who use a serie as input of each prediction with at the end the previous predicted values.
+
 
 \textbf{
 	- A separate validation set is used instead of cross-validation to test all the models on the same last ten days. Cross-validation is not possible for model 3, because the chronology of the training data is of importance for Model 3. }
