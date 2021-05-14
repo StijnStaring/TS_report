@@ -230,7 +230,8 @@ In Table \ref{tab:summ_data_rel_performance} the overall performance of the base
 
 
 \section{Deep LSTM models}\label{s:Neural network models}
-In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forcast of the electrical consumption of an individual household. First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:LSTM_implementation}. Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
+In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forecast of the electrical consumption of an individual household. The advantage of using a ``deep'' architecture is that it can learn load features hierarchically as discussed in \cite{Shi2018}. This means that load features learned in a higher layer will be the combinations of features learned in lower layers.\\
+First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:LSTM_implementation}. Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
 
 \subsection{Different practical considerations of the models in Keras}
 
@@ -340,12 +341,12 @@ Additionally to the output of the last LSTM block also the previous outputs of t
 Where the previous two models only go through a subserie before making a prediction, this model sees the whole original time serie when making predictions. This is possible because the model looks one by one at each sample of the original time serie. For example $ \bm{X}_{1} $ is feeded to the model and $ C_{1} $ and $ H_{1} $ come out.  $ C_{1} $ and $ H_{1} $ are now again set as $ C_{0} $ and $ H_{0} $ when the next sample $ \bm{X}_{2}  $ is used. This means that the model glues every subserie of one value together, which recreates the original serie. The shape of $ \bm{X} $ is now $ (15500, 1, 59) $, so each sample now is not a 2D matrix but an array. After training and before prediction of the test set or validation set, it is important that the memory states $ \bm{C}_{i} $  and hidden states $ \bm{H}_{j} $ are set ``right'' for prediction. Therefore, the model is first seeded, which means that first all the inputs before the desired day are shown to the model. When the model then reaches the desired day, it had the chance to collect important information in the memory states and the hidden states that can be used during the prediction. During the consecutive predicting of a 24 hours ahead forecast, the model only uses previous predictions as input in comparison to Model 1 and 2, who use a serie as input of each prediction with at the end the previous predicted values.
 
 \subsection{Parameter search}\label{s:Parameter search}
-This section will show that the different LSTM models are dependent on the choice of good parameters to perform well. During a parameter search different values for the parameters are tried and the values that give the best results, are retained. Because it is not straightforward what the influence of one parameter exactly is on the model, all the different parameters are assumed to depend on each other. If all the different parameters are varied simultaneously the calculation load will rapidly blow up. To deal with this, the parameter search is conducted in three stages. The cost of this reduction in calculation load will be that dependencies between parameters are neglected. During the parameter search every combination is repeated three times to reduce the influence of the random initialization of the weights in the weight matrices. The error value that is used to decide if a combination of values behaves better or worse, is based on the MAE on the $ 10 $ last days of November of three runs. This validation set is used for all three models on all three series. Only $ 10 $ days are chosen to reduce the calculation load. An advantage of using this validation set in comparison with cross-validation is that it can be used for all models. Cross-validation for Model 3, is not possible because it would cause interruptions in time. Inspiration for the values tried during the parameter search is partly based on \cite{Shi2018}.
+This section will show that the different LSTM models are dependent on the choice of good parameters to perform well. During a parameter search different values for the parameters are tried and the values that give the best results, are retained. Because it is not straightforward what the influence of one parameter exactly is on the model, all the different parameters are assumed to depend on each other. If all the different parameters are varied simultaneously the calculation load will rapidly blow up. To deal with this, the parameter search is conducted in three stages. The cost of this reduction in calculation load will be that dependencies between parameters are neglected. During the parameter search every combination is repeated three times to reduce the influence of the random initialization of the weights in the weight matrices. The error value that is used to decide if a combination of values behaves better or worse, is based on the MAE on the $ 10 $ last days of November, averaged over three runs. This validation set is used for all three models on all three series. Only $ 10 $ days are chosen to reduce the calculation load. An advantage of using this validation set in comparison with cross-validation, is that it can be used for all models. Cross-validation for Model 3, is not possible because it would cause interruptions in time. Inspiration for the values tried during the parameter search is found in \cite{Shi2018}.
 
 \begin{itemize}
 	\item Stage1: different model layouts are tried (calculation time $ \approx $ $ 10 $ hours)
 	\item Stage 2: the most complex model is chosen and regulation is added (calculation time $ \approx $ $ 6\times4 $ hours)
-	\item Stage 3: after comparing the previous stages, the best is chosen and the learning rate is more precisely tuned (calculation time $ \approx $ $7$ hours)
+	\item Stage 3: after comparing the previous stages, the best set of values is chosen and the learning rate is more precisely tuned (calculation time $ \approx $ $7$ hours)
 \end{itemize}
 
 \begin{table}[ht]
@@ -367,11 +368,11 @@ This section will show that the different LSTM models are dependent on the choic
 	\label{tab:para_phase1}
 \end{table}
 
-The values tried for the different parameters are displayed in Table \ref{tab:para_phase1}. A total of $ 24 $ combinations is tried during phase one and each combination is run $ 3 $ times. The batch size chosen is only one number to make a fair comparison between the different settings with respect to the amount of weight updates that will be performed. With a batch size of $ 48 $, there are around $ \frac{15500}{48}\approx 320 $ weight updates per epoch and $ 640 $ in total. One LSTM layer is compared with three LSTM layers on top of each other in order to see a clear difference in the influence of the amount of LSTM layers used. Only two epochs are considered to reduce the calculation load and therefore early stopping is not used.\\
+The values tried for the different parameters are displayed in Table \ref{tab:para_phase1}. A total of $ 24 $ combinations is tried during phase one and each combination is run $ 3 $ times. The batch size chosen is only one number to make a fair comparison between the different settings with respect to the amount of weight updates that will be performed. With a batch size of $ 48 $, there are around $ \frac{15500}{48}\approx 320 $ weight updates per epoch and $ 640 $ in total. One LSTM layer is compared with three LSTM layers on top of each other in order to see a clear effect when a different amount of LSTM layers is used. Only two epochs are considered to reduce the calculation load and therefore early stopping is not used during the parameter search.\\
 
-Changes to the parameters in Table \ref{tab:para_phase1} are made for model $ 3 $. In model $ 3 $ a batch size of one, a lag value of one and shuffling ``False'' are used. A batch size of one is chosen because then the prerequisites for a stateful model as discussed in Section \ref{s:Model3}, is fulfilled.\\
+Changes to the parameters in Table \ref{tab:para_phase1} are made for model $ 3 $. In model $ 3 $ a batch size of one, a lag value of one and shuffling ``False'' are used. A batch size of one is chosen because then the prerequisites for a stateful model as discussed in Section \ref{s:Model3}, are fulfilled.\\
 
-In phase two, the assumption is made that a more complex model will be able to better capture the non-linear relations in the data and regulation is added to avoid overfitting behaviour. The learning rate that was part of combination of parameter values that performed best during phase one, is selected together with the lag value. During phase two the amount of hidden states is taken equal to $ 50 $ and the amount of LSTM layers to $ 3 $. The regulation that is shown in Table \ref{tab:regulation}, is always added one at a time. The synergy between different regularization methods is thus neglected. 
+In phase two, the assumption is made that a more complex model is able to better capture the non-linear relations in the data and regulation is added to avoid overfitting. The values for the learning rate and lag value that were part of the lowest average MAE during phase one, are selected during phase two. Also, the amount of hidden states is taken equal to $ 50 $ and the amount of LSTM layers to $ 3 $. The regulation shown in Table \ref{tab:regulation}, is always added one at a time. The synergy between different regularization methods is thus neglected. 
 
 \begin{table}[ht]
 	\centering
@@ -386,29 +387,29 @@ In phase two, the assumption is made that a more complex model will be able to b
 \label{tab:regulation}
 \end{table}
 
+When l2-norm regularization is added to a weight matrix, the l2-norm of the weights is added in the objective function. This means that big weight values are seen as an artificial error and the model tries to keep the weights small. The regularization parameter defines the ratio between the model focussing on reducing the error on the training set and the l2-norm of the weights. Setting a big regularization parameter will give a model that becomes less ``expressive''. Therefore, the regularization parameter will contribute in the avoidance of overfitting.\\ 
+The dropout layer that is used after the LSTM layer and after the Dense layer sets a rate of its inputs to zero. Similar, the dropout and recurrent dropout parameters in the LSTM layer set respectively a rate of its inputs $ \bm{X}_{k} $ and $ \bm{H}_{j} $ to zero. The dropout rate values that are chosen between $ 0.2 $ and $ 0.5 $ as is advised in the original paper \cite{Mele1993}.\\
 
-When l2-norm regularization is added to a weight matrix, the size of the weight using the l2-norm is added in the objective function. This means that big weight values are seen as an artificial error and the model tries to keep the weights small. The regularization parameter defines the ratio between the model focussing on the error with the reference signal and the size of the weights. Setting a big regularization parameter will give a model that becomes less ``expressive''. Therefore, the regularization parameter will contribute in the avoidance of overfitting.\\ 
-The dropout layer that is used after the LSTM layer and after the Dense layer sets a rate of its inputs to zero. Similar, the dropout and recurrent dropout parameters in the LSTM layer drop respectively a rate of its inputs $ \bm{X}_{k} $ and $ \bm{H}_{j} $ to zero. The dropout rate values that are chosen are chosen between $ 0.2 $ and $ 0.5 $ as is advised in \cite{Mele1993}.\\
+It was found in \cite{Greff2017}, that the learning rate is a very important parameter that has to be tuned correctly to enhance the model performance. Therefore, during stage three a range of learning rates is tried for the best model after inspection of stage one and two. The learning rate which leads to the the smallest MAE on the validation set is selected. The different learning rates that are tried are $ 10^{-2} $, $ 5\times10^{-3} $, $ 2\times10^{-3} $, $ 10^{-3} $, $ 10^{-4} $ and $ 10^{-5} $. The selection of multiple learning rates of size of magnitude $ 10^{-3} $, is conform the parameter search in \cite{Shi2018}.\\
 
-As will be further shown and as was found in \cite{Greff2017}, the learning rate is a very important parameter that has to be tuned correctly to enhance the model performance. Therefore a bigger range of learning rates is tried for the model that performed best after stage one and two of the parameter search. Afterwards, the learning rate which leads to the the smallest error is selected. The different learning rates that are tried are $ 10^{-2} $, $ 5\times10^{-3} $, $ 2\times10^{-3} $, $ 10^{-3} $, $ 10^{-4} $ and $ 10^{-5} $. \\
+In order to speed up the calculations, multithreading is implemented to calculate the parameter search in parallel. For the implementation the Python Multiprocessing library is used. It was found that one thread takes considerably longer than when the full CPU is used to calculate the same run, but still a time gain is obtained when a total of $ 4 $ runs is considered.\\
 
-In order to speed up the calculations, multithreading is implemented to calculate separate runs in different threads. It was found that one thread takes considerably longer than when the full CPU is used to calculate the same run, but still a time gain is obtained in a total of $ 4 $ runs.\\
-
-The importance of setting good parameters is stressed by the fact that for certain parameters the loss during training becomes ``not a number''. This is because the model becomes unstable and gets a very big loss which eventually becomes a nan. When this occurs the model is tried again with different initialization of the weights, which often solves the problem or a nan value is included as error. 
+The importance of setting good parameters is stressed by the fact that for certain parameters the loss during training becomes ``not a number''. This is because the model becomes unstable and gets a very big loss which eventually becomes a nan. When this occurs the model is tried again with different initialization of the weights, which often solves the problem. Because this increased the calculation time, for model three, nan values are also included as training errors.
 
 
 \subsubsection{Model 1: Stateless with no flatten layer}
 
 \textbf{Phase1:}\\
-Table \ref{tab:relative_performance_parameters_phase_one_model_one} shows the parameter search using the parameters listed in Table \ref{tab:para_phase1}. The search was ran on a local machine (see Table \ref{tab:CPU}) for $ 9 $ hours and $ 48 $ minutes. It is clear from Table \ref{tab:relative_performance_parameters_phase_one_model_one} that when the learning rate is varied this has the most impact on the average performance of the model. This result corresponds with paper \cite{Greff2017} where it was concluded that this parameter is the most important when tuning a LSTM. Next, it can be seen that the lag value of $ 96 $ time steps didn't lead to much more improvement with respect to looking at $ 48 $ historic time steps during every prediction. A reason for this can be that the day, two days ago, is not very representative for the desired day. It can be argued that the desired day a week ago would add more value, because this better captures the human weekly routine. In comparison Model $ 3 $ traverses the whole historic signal before making predictions. It is therefore expected that that model better captures the weekly routine.\\
-An unexpected result that was found is that less LSTM units and only one LSTM layer in the case of Serie 1 gives raise to a lower MAE. The reason for this could be the presence of overfitting when using a more complex model. Table \ref{tab:best_performing_para_phase1} gives the combination of settings that performed best during phase one. In the next phase of the parameter search, regulation is added and compared with the results obtained during phase one of the parameter search. \\
+Table \ref{tab:relative_performance_parameters_phase_one_model_one} shows phase one of the parameter search for Model 1, using the parameters listed in Table \ref{tab:para_phase1}. Each value shows a percentage of improvement with respect to the worst value for one parameter for each serie during phase $ 1 $ of the parameter search. For example, when $ 20 $ hidden LSTM states $ \bm{H}_t $ according to the equations in Section \ref{s:LSTM} are chosen, an average improvement in MAE on the validation set of $ 12.08\% $ is obtained for Serie 1 with respect to when $ 50 $ hidden LSTM states are used during all the runs of the parameter search. Because the choice of $ 50 $ hidden states gives an improvement of $ 0\% $, these values are left out.\\
+The calculations for Model 1 were done on a local machine (see Table \ref{tab:CPU}) for $ 9 $ hours and $ 48 $ minutes. It is clear from Table \ref{tab:relative_performance_parameters_phase_one_model_one} that when the learning rate is varied, this has the most impact on the average performance of the model for Serie 2 and 3. This result corresponds with paper \cite{Greff2017} where it was concluded that this parameter is the most important when tuning a LSTM. Next, it can be seen that the lag value of $ 96 $ time steps didn't lead to much more improvement with respect to using a lag value of $ 48 $. A reason for this can be that the day, two days ago, is not very representative for the desired day and the hidden states and memory states of the LSTM don't collect much more valuable information to use during the prediction in comparison to a lag value of $ 48 $. It can be argued that the day a week ago would add more value, because of the human weekly routine. In comparison Model $ 3 $ traverses the whole historic signal before making predictions. It is therefore expected that the model better captures the weekly routine in the hidden states and memory states that can be used during the prediction.\\
+An unexpected result found is that less LSTM units and only one LSTM layer in the case of Serie 1 gives raise to a lower MAE. The reason for this could be the presence of overfitting when using a too complex model. Table \ref{tab:best_performing_para_phase1} gives the combination of values for the parameters that performed best during phase one. In the next phase of the parameter search, regulation is added and compared with the results in Table \ref{tab:best_performing_para_phase1}.\\
 
 \begin{table}[ht]
 	\centering
 	\begin{tabular}{@{}l||c|ccc@{}} \toprule
 		\multicolumn{5}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
 		\textbf{Chosen parameter}	& \textbf{Value} & \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $ 20 $ & $12.08 $		&$ 1.24 $  & $1.48 $\\
+		Hidden states LSTM & $ 20 $ & $12.08 $		&$ 1.24 $  & $1.48 $\\
 		 		   & $ 50 $ & 		  		&		   & 		\\\hline
 		layers LSTM & $ 1 $ & $9.82 $		&		   & 		\\
 				    & $ 3 $ & 	      		&$ 4.26 $  & $5.80$\\\hline
@@ -419,7 +420,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 					& $  10^{-4} $ &$8.74 $&$ 25.0$    & $12.2$\\\bottomrule
 			
 	\end{tabular}
-	\caption{Each value in this table shows the average error when the value of a chosen parameter was used, normalized by the biggest error of the possible values and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst possible value for a chosen parameter for each serie during phase $ 1 $ of the parameter search. For example: when $ 20 $ LSTM units are chosen, this on average gave a $ 12.08\% $ lower MAE.}
+	\caption{Each value in this table shows the average error when the corresponding parameter value is used, normalized by the biggest error of the possible values of one parameter and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst value for one parameter for each serie during phase $ 1 $ of the parameter search.}
 	\label{tab:relative_performance_parameters_phase_one_model_one}
 \end{table}
 
@@ -429,7 +430,7 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 	\begin{tabular}{@{}l|ccc@{}} \toprule
 		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $20 $&$ 50 $  & $20 $\\
+		Hidden states LSTM & $20 $&$ 50 $  & $20 $\\
 		layers LSTM & $1 $&$ 3 $  & $3$\\
 		Lag value & $96 $&$ 96$  & $48$\\
 		Learning rate & $0.01 $&$ 0.0001$  & $0.0001$\\\hline
@@ -437,14 +438,13 @@ An unexpected result that was found is that less LSTM units and only one LSTM la
 		MAE error 2   & $ 0.135 $ & $ 0.0433 $ & $ 0.100 $\\
 		MAE error 3   & $ 0.138 $ & $ 0.0428 $ & $ 0.101 $\\\bottomrule
 	\end{tabular}
-	\caption{The values of the parameters that performed best for the three time series during phase $ 1 $ using model $ 1 $ based on the smallest sum of MAE errors during three runs.}
+	\caption{The values of the parameters with the lowest average MAE on the validation set over three runs.}
 	\label{tab:best_performing_para_phase1}
 \end{table}
-
+\newpage
 
 \textbf{Phase 2}\\
-In this section the learning rate and the lag value of the best performing model are combined with the most complex model with regulation. With most complex model, it is meant that $ 50 $ LSTM units and $ 3 $ LSTM layers are used. A sensitivity analysis is done to look which regulation has the most effect. Finally, the results of phase two are compared with the best results of phase one. Note, that using this approach assumes that adding regulation can nullify the use of a too complex model. When LSTM regularization is added this done the same on each LSTM layer.
-
+In this section the learning rate and the lag value out Table \ref{tab:best_performing_para_phase1} are combined with the most complex model with regulation. With most complex model, it is meant that $ 50 $ hidden LSTM states and $ 3 $ LSTM layers are used. A sensitivity analysis is done to look which kind of regulation has the most effect with respect to the MAE. Finally, the results of phase two are compared with Table \ref{tab:best_performing_para_phase1}. This approach assumes that adding regulation can nullify the use of a possible too complex model. The amount of regularization added is always the same for each of the LSTM layers. The performance is calculated as an average MAE on the $ 10 $ last days of November over three runs.\\
 
 \begin{figure}[h!]
 	\centering
@@ -460,22 +460,22 @@ In this section the learning rate and the lag value of the best performing model
 	\includegraphics[width=1\linewidth]{serie3_model1.png}
 	\caption{Model 1}
 \end{subfigure}
-	\caption{Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit{r\_D}: regularization size of weights DENSE layer,  \textit{r\_r\_L}: regularization size of recurrent weight of LSTM, \textit{r\_L}: regularization size of input weights of LSTM, \textit{d\_L}: dropout rate of input states LSTM, \textit{r\_d\_L}: dropout rate of recurrent states LSTM, \textit{d\_D}: dropout rate of DENSE layer, \textit{or}: best performing serie from phase one)}
+	\caption{Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE. (Legend: \textit{r\_D}: regularization size of weights of DENSE layer,  \textit{r\_r\_L}: regularization size of recurrent weight of LSTM, \textit{r\_L}: regularization size of input weights of LSTM, \textit{d\_L}: dropout rate of inputs LSTM, \textit{r\_d\_L}: dropout rate of hidden states LSTM, \textit{d\_D}: dropout rate of DENSE layer, \textit{or}: best performing serie from phase one)}
 	\label{fig:sensitivity_model1}
 \end{figure}
 
-From Figure \ref{fig:sensitivity_model1} it follows that:
+From Figure \ref{fig:sensitivity_model1} it can be derived that:
 \begin{itemize}
-	\item Serie 1: The best setting during phase one as shown in Table \ref{tab:best_performing_para_phase1} outperformed all settings during phase two. 
+	\item Serie 1: The best setting during phase one according to Table \ref{tab:best_performing_para_phase1} outperformed all settings during phase two. 
 	\item Serie 2: The best setting after phase one and two is when a dropout rate of $ 0.2 $ is added on the input states of the LSTM together with $ 3 $ LSTM layers and $ 50 $ hidden states.
 	\item Serie 3: The best setting after phase one and two is when a dropout rate of $ 0.4 $ is added on the dense layer together with $ 3 $ LSTM layers and $ 50 $ hidden states.
 \end{itemize}
 
 
 \textbf{Phase 3}\\
-Finally, during this phase special attention is devoted to the learning rate. As was displayed in Table \ref{tab:relative_performance_parameters_phase_one_model_one} changing the learning rate could lead to significant differences in model performance. Therefore, a sensitivity analysis is performed and the best learning rate is chosen for the best model after phase one and two of the parameter search. Figure \ref{fig:learning_rate_model1} shows as expected a U-shape error in function of the learning rate. A learning rate that is chosen too large is vulnerable to oscillations and will not convergence and a learning rate that is too small will take a very long time to attain good results and therefore have an increased error when compared on a fixed amount of epochs. The resulting U-shape corresponds to what is found in \cite{Greff2017} .\\
+During this phase special attention is devoted to the learning rate. As was displayed in Table \ref{tab:relative_performance_parameters_phase_one_model_one} changing the learning rate could lead to significant differences in model performance. Therefore, a sensitivity analysis for the learning rate is performed on the best models after phase one and two. Figure \ref{fig:learning_rate_model1} shows as expected an U-shape error in function of the learning rate. A learning rate that is chosen too large is vulnerable to oscillations and will not convergence too a good result and a learning rate that is too small will take a very long time to attain good results and therefore has an increased error when compared on a fixed amount of epochs. The resulting U-shape corresponds to what is found in \cite{Greff2017}. The same workflow to conduct the parameter search will be followed for Model 2 and 3.\\
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\begin{subfigure}{0.49\linewidth}
 		\includegraphics[width=1\linewidth]{learning_rate_serie1_model1.png}
@@ -489,7 +489,7 @@ Finally, during this phase special attention is devoted to the learning rate. As
 		\includegraphics[width=1\linewidth]{learning_rate_serie3_model1.png}
 		\caption{Model 1}
 	\end{subfigure}
-	\caption{The evaluation of the error on the validation set in function of the learning rate size.}
+	\caption{The MAE on the validation set in function of the learning rate size.}
 	\label{fig:learning_rate_model1}
 \end{figure}
 
@@ -497,105 +497,100 @@ Finally, during this phase special attention is devoted to the learning rate. As
 \textbf{Final model}\\
 The final parameters for model one are displayed in Table \ref{tab:final_model1}.
 
-\begin{table}[h]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
 		\multicolumn{4}{c}{Model 1: Stateless (no flatten layer)}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $20 $&$ 50 $  & $50 $\\
+		Hidden states LSTM & $20 $&$ 50 $  & $50 $\\
 		layers LSTM & $1 $&$ 3 $  & $3$\\
 		Lag value & $96 $&$ 96$  & $48$\\
 		Learning rate & $0.005 $&$ 0.0001$  & $0.0001$\\\hline
 		Dropout inputs LSTM   & $ 0 $ & $ 0.2 $ & $ 0 $\\
 		Dropout DENSE   & $ 0 $ & $ 0 $ & $ 0.4 $\\\bottomrule
 	\end{tabular}
-	\caption{Final values obtained after the parameter search for model 1.}
+	\caption{Final values found after the parameter search for model 1.}
 	\label{tab:final_model1}
 \end{table}
-
-
 
 \clearpage
 \subsubsection{Model 2: Stateless with flatten layer}
 
 \textbf{Phase 1}\\
-The previous explained procedure is repeated for the other models. From Table \ref{tab:relative_performance_parameters_phase_one_model_two} it can again be seen that the choice of learning rate has the potential to give a big improvement and the use of an increased lag value of $ 96 $ didn't give a major improvement.\\ 
+From Table \ref{tab:relative_performance_parameters_phase_one_model_two} it can again be seen that the choice of learning rate has the potential to give a big improvement and the use of an increased lag value of $ 96 $ didn't give a major improvement.\\ 
 
 \textbf{Phase 2}\\
 From Figure \ref{fig:sensitivity_model2} it follows that:
 \begin{itemize}
-	\item Serie 1: The best setting after phase one and two is when a regularization parameter on the input weigh matrices is added of $ 10^{-5} $together with $ 3 $ LSTM layers and $ 50 $ hidden states. 
-	\item Serie 2: The best setting after phase one and two is when a regularization parameter on the input weigh matrices is added of $ 10^{-3} $together with $ 3 $ LSTM layers and $ 50 $ hidden states.
+	\item Serie 1: The best setting after phase one and two is found when a regularization parameter on the input weight matrices is added of $ 10^{-5} $ together with $ 3 $ LSTM layers and $ 50 $ hidden states. 
+	\item Serie 2: The best setting after phase one and two is found when a regularization parameter on the input weight matrices is added of $ 10^{-3} $ together with $ 3 $ LSTM layers and $ 50 $ hidden states.
 	\item Serie 3: The best setting after phase one and two is when a dropout rate of $ 0.4 $ is added on the dense layer together with $ 3 $ LSTM layers and $ 50 $ hidden states.
 \end{itemize}
 
 \textbf{Phase 3}\\
-Figure \ref{fig:learning_rate_model2} shows the sensitivity of the size of the learning rate in function of the MAE.\\
+Figure \ref{fig:learning_rate_model2} shows the sensitivity of the size of the learning rate in function of the MAE. Again an U-shape is observed.\\
 
 \textbf{Final model}\\
-The final parameters for model two is displayed in Table \ref{tab:final_model2}.
+The final parameters for Model 2 is displayed in Table \ref{tab:final_model2}.
 
 \begin{table}[h]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
 		\multicolumn{4}{c}{Model 2: Stateless (no flatten layer)}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $50 $&$ 50 $  & $50 $\\
+		Hidden states LSTM & $50 $&$ 50 $  & $50 $\\
 		layers LSTM & $3 $&$ 3 $  & $3$\\
 		Lag value & $96 $&$ 48$  & $96$\\
 		Learning rate & $0.002 $&$ 10^{-5}$  & $0.0001$\\\hline
-		Regularization on input weigh matrices LSTM   & $ 10^{-5} $ & $ 10^{-3} $ & $ 0 $\\
+		Regularization on input weight matrices LSTM   & $ 10^{-5} $ & $ 10^{-3} $ & $ 0 $\\
 		Dropout DENSE   & $ 0 $ & $ 0 $ & $ 0.4 $\\\bottomrule
 	\end{tabular}
-	\caption{Final values obtained after the parameter search for model 2.}
+	\caption{Final values found after the parameter search for model 2.}
 	\label{tab:final_model2}
 \end{table}
 
-\newpage
 \subsubsection{Model 3: Stateful model}
-The model is trained by making use of a batch size of one, which means that the weights of the LSTM block is updated by comparing each output immediately with its reference. The downside of the use of this model is that before the prediction of the consumption of a day, the model first needs to be seeded.\\
+The model is trained by making use of a batch size of one, which means that the weights are updated by comparing each output immediately with its reference. Because this model is stateful, it is first seeded before predictions are done.\\
 
 \textbf{Phase: 1}\\
-During phase one the values chosen for the parameters as mentioned before, slightly different. The batch size and the lag value are both put to one. As can be seen in Figure \ref{tab:relative_performance_parameters_phase_one_model_three} the learning rate is still an important parameter to tune, but is also seen in Table \ref{tab:best_performing_para_phase1_model3} that one LSTM layer performed better than using three for the different series.\\ 
+As discussed in the beginning of Section \ref{s:Parameter search}, the values used during phase one of Model 3 differ form the ones in Table \ref{tab:para_phase1}. As can be seen in Figure \ref{tab:relative_performance_parameters_phase_one_model_three} the learning rate is still an important parameter to tune. Table \ref{tab:best_performing_para_phase1_model3} shows the values that give the best results after phase one.\\ 
 
 \textbf{Phase: 2}\\
 From Figure \ref{fig:sensitivity_model3} it follows that:
 \begin{itemize}
-	\item Serie 1: The best setting during phase one as shown in Table \ref{tab:best_performing_para_phase1_model3} outperformed all settings during phase two. 
-	\item Serie 2: The best setting after phase one and two is when a regularization parameter on the hidden state weigh matrices is added of $ 10^{-3} $together with $ 3 $ LSTM layers and $ 50 $ hidden states.
+	\item Serie 1: The best setting during phase one as shown in Table \ref{tab:best_performing_para_phase1_model3}, outperformed all settings during phase two. 
+	\item Serie 2: The best setting after phase one and two is found when a regularization parameter on the hidden state weigh matrices is added of $ 10^{-3} $ together with $ 3 $ LSTM layers and $ 50 $ hidden states.
 	\item Serie 3: The best setting during phase one as shown in Table \ref{tab:best_performing_para_phase1_model3} outperformed all settings during phase two. 
 \end{itemize}
 
-It was found that the model when the three layers are used together with $ 50 $ hidden recurrent states, often produces a very big loss during training. If this is the case, the output of the training loss becomes not a number. Only for the regularizer on the recurrent hidden states of the LSTM and the regularizer on the inputs of the LSTM the results were better. The results of the two regularizers are shown in Figure \ref{fig:sensitivity_model3}.\\
+It was seen that the model when three layers are used together with $ 50 $ hidden recurrent states, often produced a very big loss during training. If this is the case, the output of the training loss becomes not a number. Only when a regularization parameter on the hidden state weigh matrices or on the input weight matrices is added the obtained performance was better. The results of the two regularizers are shown in Figure \ref{fig:sensitivity_model3}.\\
 
-As can be seen the parameter search of phase two for serie one and two performs worse than the parameter search of phase one. It is not necessarily the case that the addition of regularizers or dropout layers is the only cause of this bad behaviour. As could be seen in Tables \ref{tab:relative_performance_parameters_phase_one_model_three} and \ref{tab:best_performing_para_phase1_model3} one layer performed often better than three layers, which could also contribute to the worst results obtained during parameter search two. Only for serie 2 the best setting of phase one is outperformed. \\
+For Serie 1 and 3 no improvement with respect to the best results of phase one was found. It is not necessarily the case that the addition of regularization parameters or dropout layers is the only cause of this bad behaviour. As could be seen in Tables \ref{tab:relative_performance_parameters_phase_one_model_three} and \ref{tab:best_performing_para_phase1_model3} one layer performed often better than three layers, which could also contribute to the worst results obtained during phase two. Only for serie 2 the best result of phase one is outperformed. \\
 
 \textbf{Phase: 3}\\
-Figure \ref{fig:learning_rate_model3} shows the sensitivity of the size of the learning rate in function of the MAE.\\
+Figure \ref{fig:learning_rate_model3} shows the sensitivity of the size of the learning rate in function of the MAE. An U-shape is observed for Serie 1 and 3. To find a U-shape for Serie 2, even smaller learning rates have to be considered.\\
 
 \textbf{Final model}\\
-The final parameters for model two is displayed in Table \ref{tab:final_model3}.
+The final parameters for Model 3 are displayed in Table \ref{tab:final_model3}.
 
-\begin{table}[h]
+\begin{table}[h!]
 	\centering
 	\begin{tabular}{@{}l|ccc@{}} \toprule
 		\multicolumn{4}{c}{Model 3: Stateful}\\\midrule\midrule
 		\textbf{Parameters}	& \textbf{Serie $ 1 $} & \textbf{Serie $ 2 $} & \textbf{Serie $ 3 $}\\\midrule
-		Units LSTM & $50 $&$ 50 $  & $20 $\\
+		Hidden states LSTM & $50 $&$ 50 $  & $20 $\\
 		layers LSTM & $1 $&$ 3 $  & $1$\\
 		Lag value & $1 $&$ 1$  & $1$\\
 		Learning rate & $10^{-4} $&$10^{-6} $  & $10^{-4} $\\\hline
 		Regularization on hidden states weigh matrices LSTM  & $ 0 $ & $ 10^{-3} $ & $ 0 $\\\bottomrule
 	\end{tabular}
-	\caption{Final values obtained after the parameter search for model 2.}
+	\caption{Final values found after the parameter search for model 3.}
 	\label{tab:final_model3}
 \end{table}
 
 
-
-
 \section{Conclusion}
-This chapter discussed the data to perform the daily electricity consumption forecast on and which models are used. First, the baseline models were discussed. It was found that the mean forecast performed best for the error metrics: MAE, MSE, NRMSE and RMSE. ``MAPE forecast'' performed best when the MAPE error metric was considered. Both models predict the trend line and don't predict peaks in contrary to the closest day, 1 day and 7 days models. Next, the LSTM models that were developed were discussed. This included the practical considerations of the implementation of the models in Keras and a parameter search. The parameter search was done in three phases in order to reduce calculation load. It was found that the learning rate was the parameter that contributed the most to model performance.
+This chapter discussed the data to conduct the electricity consumption forecast on and which models were used. First, the baseline models were discussed. It was found that the mean forecast performed best for the error metrics: MAE, MSE, NRMSE and RMSE. ``MAPE forecast'' performed best when the MAPE error metric was used. Both models predict the trend line and don't predict peaks in contrary to the closest day, 1 day and 7 days models. Next, the LSTM models that were developed were discussed. This included the practical considerations of the implementation of the LSTM models in Keras and a parameter search. The parameter search was done in three phases in order to reduce calculation load. It was found that the learning rate was the parameter that contributed often the most to the model performance.
 
 
 %%% Local Variables: 

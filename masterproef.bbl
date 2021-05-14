@@ -77,6 +77,12 @@ H.~Shi, M.~Xu, and R.~Li.
   RNN}.
 \newblock {\em IEEE Transactions on Smart Grid}, 9(5):5271--5280, 2018.
 
+\bibitem{Mele1993}
+N.~Srivastave, G.~Hinton, A.~Krizhevsky, I.~Sutskever, and R.~Salakhutdinov.
+\newblock {Dropout: A Simple Way to Prevent Neural Networks from Overfitting
+  Nitish}.
+\newblock {\em Joernal of Machine Learning Research 15}, 2014.
+
 \bibitem{ANNRNN}
 J.~Suykens.
 \newblock {Recurrent neural networks - ANN lecture}.
