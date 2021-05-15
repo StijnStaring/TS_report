@@ -13,7 +13,6 @@ With the invention of the smart meter in 1974 by \textbf{Paraskevakos} it became
 component of their smart grid system, an avalanche of immensely useful energy usage information
 became available to the energy markets.'' From the availability of more detailed datasets flows the explosion of research in the electrical forecasting techniques and the applicability of more complex models. To tackle the electrical consumption forecasting problem also machine learning techniques as neural networks are applied. These models allow for learning very non-linear relations between the inputs. Learning is done by updating the model every time such that the observations in the training set are better explained.\\
 
-
 In \cite{NarjesFallah2018} different forecasting horizons are discussed with their practical application. This is summarized in Table \ref{tab:prediciontypes}.
 
 \begin{table}[h!]
@@ -60,104 +59,27 @@ These inputs are often first normalized before training for which min-max normal
 \section{Importance of topic}
 This research of on short term load forecasting is done in the context of an increased adoption of solar panels and electric cars by the big public. Every year 40000 new solar panel installations take place in Flanders as explained in \cite{Lemmens2019}. Fluvius, which is a Belgian distribution grid operator, has carried out together with Deloitte in 2019 an unique stress test on the low voltage grid to analyse how the current grid will react on the burden of the increased amount of charging points and solar panels. It was found that in the short term, which means up to 2025, the grid will be able to cope with the estimated increase of the burden on the low voltage grid. However, now is the time of anticipation and to strengthen the weak spots in the network. To carry out the maintenance work, detailed forecasting of the load signals of only a small amount of households is needed. Detailed forecasts of individual households is now possible because of the use of smart meters. If detailed predictions are achieved for individual households, expenses are saved because customized updates of the network can be done. With forecasts on the household level, a plan can be made where certain parts of the grid have to be replaced and by how much. With this replacing everything is avoided. Individual household predictions can be used as part of an electrical congestion prediction which means predicting when the low voltage grid can't handle the demand anymore. Especially, predicting the peaks in the household loads is for this important. If a accurate congestion prediction can be made, reliability of the network can be increased and the risk for blackouts and brownouts is decreased.\\
 
-
-
-
-For this especially the prediction of the electricity peak demands are important. 
-
-
-
-general increase of the electricity consumption on the low voltage distribution grid due to the increased use of electrical appliances with a heavy 
-
-reinforce specific weak points when we carry out maintenance work
-
-
-
-- data that heb gekregen --> niet van fluvius maar van de UK. 
-
-
-The context that this 
-
-
-Say can avoid congestion. 
-
-Increase the reliability of the low voltage distribution network and avoiding blackouts and brownouts. 
-
-
-Say that good results of electricity forecasting is mostly found for aggregated signals which have much more clear patterns in their signal. When a single household is forecasted good results are obtained by reducing uncertainty by making extensive use of submetering which is not scalable in practise
-
-
-
-
-
-Also machine learning tools and neural networks
-
-The reason for the explosion in 
-
-
-Congestion forecasting during network changes
-
-
-
-
-
-When forecasting is improved on household scale, the customer can be better informed what the bill is going to be at the end of the month/year.
-Energy producer can build a better trust with its customer by sending reliable bills. (Providing good service)
-Producent can better estimate the energy demand of the whole customer population. This will lead to cheaper electricity production because a better planning is possible where there is less need of the more 
-flexible but more expensive electricity installations e.g. diesel engines.
-
-
-
-Having reliable forecasts available will play a decisive role in the exploitation of 
-
-
- Accurate and reliable forecasting techniques   
-
-
-- different kinds of loads
-
-- different often used metrics. 
-
-- make the transition to short term and why this is important. 
-
-
-\section{Importance of topic}
-Individual household forecasting is a complex task because of the high amount of uncertainty
-and the volatility of the data. To deal with this it was found in literature that often aggregated signals are forecasted instead. If there are papers that discuss electrical household consumption forecasting, they often use a lot of information about the household which will not be scalable in practice due to privacy concerns. This thesis investigates state of the art time series forecasting techniques based on LSTM neural networks that have as goal to forecast the next day of electrical household consumption, given only limited information.\\
-
-When forecasting is improved on household scale, the customer can be better informed what the bill is going to be at the end of the month/year.
-Energy producer can build a better trust with its customer by sending reliable bills. (Providing good service)
-Producent can better estimate the energy demand of the whole customer population. This will lead to cheaper electricity production because a better planning is possible where there is less need of the more 
-flexible but more expensive electricity installations e.g. diesel engines.
-
-- Like in pooling paper --> talk about methods that are used to reduce complexity/ already written in --> now directly forecasting the individual household consumption --> very complex task. 
-
-
-- see also table PL. 
-
-- working with real-life data
-
-- wie zijn mijn assessoren? 
-
-- local prediction can be important for local changes to the net --> see oneNote goal PL.
-
-- look at goal of thesis --> meeting and PL goal --> what do they want to do exactly
-
-The weather and calendar data is correlated with the energy load profiles
-
 \section{Problem formulation and link with previous studies}
-Now going to forecast individual houses, not aggregated signals. 
+As discussed in \cite{Shi2018} the complexity of the household forecasting lies in the significant uncertainty and volatility of the load signal. Uncertainty comprises the aperiodic part influenced by external factors e.g. customer behaviour and weather. Forecasting at the household level makes the load signal to be directly influenced on the decisions made by the residents. In order to attain good results it is found in literature that often aggregated load signals are considered as done in \cite{loadforecastingmoor}. This makes that the uncertainty will be cancelled out and the load signal will show more clear patterns which are easier to model. However, this doesn't allow for individual household forecasting. If there are papers that discuss load forecasting of an individual household, they often use a lot of information about the household situation and submeters to measure the consumption of different appliances or parts of the house as done in \cite{Kim2019}. This will in practise not be scalable due to privacy concerns. This thesis investigates state of the art time series forecasting techniques based on LSTM neural networks that have as goal to directly learn the uncertainties  on the load signals, given only limited information.\\
 
-Things were I should get familiar with: scikit-learn, Tensorflow, Keras, Pandas, Anaconda, Microsoft Azure --> step in improving software skills.
-
-Not just looking at regular data --> individual household data --> not a day will be the same and only have limited information available. These two together makes the forecasting extremely difficult. 
+Data from Fluvius of load signals of Belgian households was not available during this thesis. Therefore, data is used from the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. This dataset consists out of 3248 smart meter series form the UK during the year 2017. In Chapter \ref{cha:State of the art short-term residential load forecasting techniques} a literature study is done about the state of the art short-term residential load forecasting techniques. 
 
 
 \section{Thesis objective and structure}
 The goal of this thesis is to do short-term load forecasting for individual households. A forecast of the electrical load of a household for 24 hours. 
 
+- make comparison of the performance of the different models. 
+
+Things were I should get familiar with: scikit-learn, Tensorflow, Keras, Pandas, Anaconda, Microsoft Azure --> step in improving software skills.
+
 Develop a model for the future prediction of smart meter electric power consumption. The final
 objective is to compare several existing methods
+
+This is seen section blabla, that in section bloblo...
+
+Have to add a chapter by chapter overview. Reader should have an idea how the thesis is structured.
+
+ Two three lines explaination structure. Very important.  This chapter is organized as follows … (can always be the same)
 
 %%% Local Variables: 
 %%% mode: latex
