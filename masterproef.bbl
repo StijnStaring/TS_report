@@ -6,6 +6,13 @@ J.~Chung, C.~Gulcehre, K.~Cho, and Y.~Bengio.
   Modeling}.
 \newblock pages 1--9, 2014.
 
+\bibitem{Depuru2011}
+S.~S. S.~R. Depuru, L.~Wang, V.~Devabhaktuni, and N.~Gudi.
+\newblock {Smart meters for power grid - Challenges, issues, advantages and
+  status}.
+\newblock {\em 2011 IEEE/PES Power Systems Conference and Exposition, PSCE
+  2011}, pages 1--7, 2011.
+
 \bibitem{loadforecastingmoor}
 M.~Espinoza, J.~Suykens, R.~Belmans, and B.~{De Moor}.
 \newblock {Electric Load Forecasting}.
@@ -55,6 +62,13 @@ W.~Kong, Z.~Y. Dong, Y.~Jia, D.~J. Hill, Y.~Xu, and Y.~Zhang.
 J.~Lago.
 \newblock {A ratios and clustering based approach to forecast electricity
   consumption}, 2020.
+
+\bibitem{NarjesFallah2018}
+S.~{Narjes Fallah}, R.~{Chand Deo}, M.~Shojafar, M.~Conti, and S.~Shamshirband.
+\newblock {Computational Intelligence Approaches for Energy Load Forecasting in
+  Smart Energy Management Grids: State of the Art, Future Challenges, and
+  Research Directions}.
+\newblock 11:596, 2018.
 
 \bibitem{Nielsen2015}
 M.~A. Nielsen.

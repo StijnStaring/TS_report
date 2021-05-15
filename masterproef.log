@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  15 MAY 2021 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  15 MAY 2021 13:36
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1468,1257 +1468,933 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 \openout2 = `intro.aux'.
 
  (intro.tex
-<Pictures//SmartGrid.png, id=488, 308.65312pt x 251.43938pt>
-File: Pictures//SmartGrid.png Graphic file (type png)
-<use Pictures//SmartGrid.png>
-Package pdftex.def Info: Pictures//SmartGrid.png  used on input line 10.
-(pdftex.def)             Requested size: 199.0pt x 162.11768pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 24--26
-
- []
-
-[1
-
-
-
- <./Pictures//SmartGrid.png>]) [2]
-\openout2 = `chap-1.aux'.
-
- (chap-1.tex
-
-LaTeX Warning: Reference `cha:Evaluating results' on page 3 undefined on input 
-line 3.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--13
-
- []
-
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 19.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 19.
-[3
-
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 59--61
-
- []
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-<Pictures//mv_result.png, id=522, 738.50906pt x 512.66531pt>
-File: Pictures//mv_result.png Graphic file (type png)
-<use Pictures//mv_result.png>
-Package pdftex.def Info: Pictures//mv_result.png  used on input line 69.
-(pdftex.def)             Requested size: 318.40121pt x 221.02847pt.
-[5 <./Pictures//mv_result.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
-
- []
-
-<Pictures//zero_con.png, id=532, 809.0225pt x 681.54625pt>
-File: Pictures//zero_con.png Graphic file (type png)
-<use Pictures//zero_con.png>
-Package pdftex.def Info: Pictures//zero_con.png  used on input line 84.
-(pdftex.def)             Requested size: 238.80243pt x 201.1688pt.
-
-LaTeX Warning: Reference `s:Removing of fundamental changes in the consumption 
-load' on page 6 undefined on input line 94.
-
-[6 <./Pictures//zero_con.png>]
-<Pictures//fund_change.png, id=547, 890.32625pt x 683.55376pt>
-File: Pictures//fund_change.png Graphic file (type png)
-<use Pictures//fund_change.png>
-Package pdftex.def Info: Pictures//fund_change.png  used on input line 122.
-(pdftex.def)             Requested size: 318.40121pt x 244.45206pt.
-
-
-LaTeX Warning: Reference `cha:Evaluating results' on page 7 undefined on input 
-line 133.
-
-[7 <./Pictures//fund_change.png>]
-<Pictures//weekly_filter.png, id=562, 890.32625pt x 731.73375pt>
-File: Pictures//weekly_filter.png Graphic file (type png)
-<use Pictures//weekly_filter.png>
-Package pdftex.def Info: Pictures//weekly_filter.png  used on input line 156.
-(pdftex.def)             Requested size: 318.40121pt x 261.68216pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `fig:similarity_weekday' on page 8 undefined on input 
-line 168.
-
-[8]
-<Pictures//similarity_weekdays.png, id=574, 835.12pt x 683.55376pt>
-File: Pictures//similarity_weekdays.png Graphic file (type png)
-<use Pictures//similarity_weekdays.png>
-Package pdftex.def Info: Pictures//similarity_weekdays.png  used on input line 
-172.
-(pdftex.def)             Requested size: 318.40121pt x 260.61884pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//bvsh.png, id=578, 815.045pt x 731.73375pt>
-File: Pictures//bvsh.png Graphic file (type png)
-<use Pictures//bvsh.png>
-Package pdftex.def Info: Pictures//bvsh.png  used on input line 188.
-(pdftex.def)             Requested size: 318.40121pt x 285.85512pt.
-[9 <./Pictures//weekly_filter.png>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//sim_weekdays.png, id=586, 1433.355pt x 657.45625pt>
-File: Pictures//sim_weekdays.png Graphic file (type png)
-<use Pictures//sim_weekdays.png>
-Package pdftex.def Info: Pictures//sim_weekdays.png  used on input line 195.
-(pdftex.def)             Requested size: 398.0pt x 182.5516pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 205--206
-
- []
-
-[10 <./Pictures//similarity_weekdays.png>]
-<Pictures//pearson.png, id=595, 890.32625pt x 683.55376pt>
-File: Pictures//pearson.png Graphic file (type png)
-<use Pictures//pearson.png>
-Package pdftex.def Info: Pictures//pearson.png  used on input line 220.
-(pdftex.def)             Requested size: 318.40121pt x 244.45206pt.
-
-Underfull \vbox (badness 1558) has occurred while \output is active []
-
- [11 <./Pictures//bvsh.png> <./Pictures//sim_weekdays.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 227--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 230--232
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 233--234
-
- []
-
-[12 <./Pictures//pearson.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 235--236
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-
- []
-
-<Pictures//bp_dwellingtype.png, id=613, 1472.50125pt x 663.47874pt>
-File: Pictures//bp_dwellingtype.png Graphic file (type png)
-<use Pictures//bp_dwellingtype.png>
-Package pdftex.def Info: Pictures//bp_dwellingtype.png  used on input line 267.
-
-(pdftex.def)             Requested size: 398.0pt x 179.334pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[13] [14 <./Pictures//bp_dwellingtype.png>]) [15]
-\openout2 = `chap-2.aux'.
-
- (chap-2.tex [16
-
-
-
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-[17]
-<Pictures//MLP.png, id=647, 365.86688pt x 189.70876pt>
-File: Pictures//MLP.png Graphic file (type png)
-<use Pictures//MLP.png>
-Package pdftex.def Info: Pictures//MLP.png  used on input line 16.
-(pdftex.def)             Requested size: 318.40121pt x 165.10606pt.
-
-
-Class memoir Warning: The material used in the headers is too large
-(27.2pt) for the given head height (13.6pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 33.
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[18 <./Pictures//MLP.png>]
-
-LaTeX Warning: Citation `bibid' on page 19 undefined on input line 34.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 40--42
-
- []
-
-<Pictures//RNN.png, id=660, 639.13782pt x 306.39468pt>
-File: Pictures//RNN.png Graphic file (type png)
-<use Pictures//RNN.png>
-Package pdftex.def Info: Pictures//RNN.png  used on input line 45.
-(pdftex.def)             Requested size: 398.0pt x 190.79492pt.
-[19 <./Pictures//RNN.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[20]
-<Pictures//grad_exp.png, id=685, 395.22656pt x 191.21437pt>
-File: Pictures//grad_exp.png Graphic file (type png)
-<use Pictures//grad_exp.png>
-Package pdftex.def Info: Pictures//grad_exp.png  used on input line 68.
-(pdftex.def)             Requested size: 318.40121pt x 154.04541pt.
-<Pictures//LSTM_cell.png, id=688, 525.46312pt x 203.25937pt>
-File: Pictures//LSTM_cell.png Graphic file (type png)
-<use Pictures//LSTM_cell.png>
-Package pdftex.def Info: Pictures//LSTM_cell.png  used on input line 78.
-(pdftex.def)             Requested size: 398.0pt x 153.96077pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-[21 <./Pictures//grad_exp.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[22 <./Pictures//LSTM_cell.png>]
-<Pictures//GRU_cell.png, id=717, 246.9225pt x 167.87718pt>
-File: Pictures//GRU_cell.png Graphic file (type png)
-<use Pictures//GRU_cell.png>
-Package pdftex.def Info: Pictures//GRU_cell.png  used on input line 113.
-(pdftex.def)             Requested size: 238.80243pt x 162.35652pt.
- [23 <./Pictures//GRU_cell.png>]
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[24]
-Underfull \hbox (badness 10000) in paragraph at lines 165--166
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-
- []
-
-[25]
-
-LaTeX Warning: Reference `tab:pooling_result' on page 26 undefined on input lin
-e 187.
-
-<Pictures//pooling_result.png, id=760, 376.40625pt x 255.20343pt>
-File: Pictures//pooling_result.png Graphic file (type png)
-<use Pictures//pooling_result.png>
-Package pdftex.def Info: Pictures//pooling_result.png  used on input line 191.
-(pdftex.def)             Requested size: 398.0pt x 269.86403pt.
-<Pictures//Shi2018_result.png, id=763, 549.55313pt x 499.11469pt>
-File: Pictures//Shi2018_result.png Graphic file (type png)
-<use Pictures//Shi2018_result.png>
-Package pdftex.def Info: Pictures//Shi2018_result.png  used on input line 198.
-(pdftex.def)             Requested size: 398.0pt x 361.47949pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 203--204
-
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[26 <./Pictures//pooling_result.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 205--210
-
- []
-
-[27 <./Pictures//Shi2018_result.png>]
-<Pictures//prev_appr.png, id=783, 437.38406pt x 349.305pt>
-File: Pictures//prev_appr.png Graphic file (type png)
-<use Pictures//prev_appr.png>
-Package pdftex.def Info: Pictures//prev_appr.png  used on input line 213.
-(pdftex.def)             Requested size: 398.0pt x 317.85738pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Reference `tab:CNN-LSTM_results' on page 28 undefined on input l
-ine 220.
-
-
-LaTeX Warning: Reference `fig:LSTM-CNN_results' on page 28 undefined on input l
-ine 221.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--222
-
- []
-
-
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[28]
-<Pictures//CNN-LSTM_results_F.png, id=794, 709.90219pt x 295.85532pt>
-File: Pictures//CNN-LSTM_results_F.png Graphic file (type png)
-<use Pictures//CNN-LSTM_results_F.png>
-Package pdftex.def Info: Pictures//CNN-LSTM_results_F.png  used on input line 2
-25.
-(pdftex.def)             Requested size: 398.0pt x 165.87195pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//CNN-LSTM_results_T.png, id=797, 552.56438pt x 296.60812pt>
-File: Pictures//CNN-LSTM_results_T.png Graphic file (type png)
-<use Pictures//CNN-LSTM_results_T.png>
-Package pdftex.def Info: Pictures//CNN-LSTM_results_T.png  used on input line 2
-32.
-(pdftex.def)             Requested size: 398.0pt x 213.63914pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29 <./Pictures//prev_appr.png>])
-Overfull \vbox (13.59999pt too high) has occurred while \output is active []
-
-
-[30 <./Pictures//CNN-LSTM_results_F.png> <./Pictures//CNN-LSTM_results_T.png>]
-\openout2 = `chap-3.aux'.
-
-
-(chap-3.tex
-<Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png, id=819, 618.390
-3pt x 530.2209pt>
-File: Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png Graphic fil
-e (type png)
-<use Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png>
-Package pdftex.def Info: Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59f
-e1e.png  used on input line 12.
-(pdftex.def)             Requested size: 127.36292pt x 109.19759pt.
-Package microtype Info: Character `029' is missing
-(microtype)             in font `T1/lmr/m/sc/10'.
-(microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 13.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 13.
-<Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png, id=820, 625.617
-3pt x 530.2209pt>
-File: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png Graphic fil
-e (type png)
-<use Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png>
-Package pdftex.def Info: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7
-769.png  used on input line 16.
-(pdftex.def)             Requested size: 127.36292pt x 107.93547pt.
-<Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png, id=821, 612.849
-6pt x 530.2209pt>
-File: Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png Graphic fil
-e (type png)
-<use Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png>
-Package pdftex.def Info: Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a6287
-66d.png  used on input line 20.
-(pdftex.def)             Requested size: 127.36292pt x 110.18463pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 52--53
-
- []
-
-[31
-
-
-
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [32 <./Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png> <./Pictu
-res//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png> <./Pictures//Serie0xc
-3b2f61a72e188cfd44483fce1bc11d6a628766d.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
-[]|\T1/lmr/bx/n/10.95 Logical
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
-[]|\T1/lmr/bx/n/10.95 RAM
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
-[]|\T1/lmr/bx/n/10.95 Storage
- []
-
-
-Overfull \hbox (1.56804pt too wide) in paragraph at lines 76--76
-[]|$\OT1/lmr/m/n/10.95 (-20) $0\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 19
-4\OML/lmm/m/it/10.95 =hour$| 
- []
-
-
-Overfull \hbox (1.56804pt too wide) in paragraph at lines 77--77
-[]|$\OT1/lmr/m/n/10.95 (-20) $1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 16
-6\OML/lmm/m/it/10.95 =hour$| 
- []
-
-
-Overfull \hbox (36.68575pt too wide) in paragraph at lines 74--80
- [][] 
- []
-
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-[34]
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 117--119
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
-
- []
-
-[35]
-Underfull \hbox (badness 10000) in paragraph at lines 133--136
-
- []
-
-
-Underfull \vbox (badness 5490) has occurred while \output is active []
-
- [36]
-Overfull \hbox (33.28288pt too wide) in paragraph at lines 156--164
- [][] 
- []
-
-
-Overfull \hbox (33.2968pt too wide) in paragraph at lines 173--181
- [][] 
- []
-
-
-Overfull \hbox (36.93288pt too wide) in paragraph at lines 187--195
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
-
- []
-
-[37]
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-<Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.png_16
-18425095.png, id=886, 722.7pt x 578.16pt>
-File: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.p
-ng_1618425095.png Graphic file (type png)
-<use Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.pn
-g_1618425095.png>
-Package pdftex.def Info: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b5
-9fe1e_Day339_pred.png_1618425095.png  used on input line 205.
-(pdftex.def)             Requested size: 199.0pt x 159.2018pt.
-<Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.png_16
-18425124.png, id=887, 722.7pt x 578.16pt>
-File: Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.p
-ng_1618425124.png Graphic file (type png)
-<use Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.pn
-g_1618425124.png>
-Package pdftex.def Info: Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b5
-9fe1e_Day345_pred.png_1618425124.png  used on input line 209.
-(pdftex.def)             Requested size: 199.0pt x 159.2018pt.
-
-Overfull \hbox (2.43333pt too wide) in paragraph at lines 204--212
-[]$[]$ $[]$ 
- []
-
-[38 <./Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.
-png_1618425095.png> <./Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59f
-e1e_Day345_pred.png_1618425124.png>] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 254--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 257--258
-
- []
-
-[40]
-Underfull \hbox (badness 10000) in paragraph at lines 259--260
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 261--262
-
- []
-
-[41]
-<Pictures//stateless_input.png, id=930, 717.43031pt x 303.38344pt>
-File: Pictures//stateless_input.png Graphic file (type png)
-<use Pictures//stateless_input.png>
-Package pdftex.def Info: Pictures//stateless_input.png  used on input line 270.
-
-(pdftex.def)             Requested size: 477.59879pt x 201.96965pt.
-
-Overfull \hbox (79.59879pt too wide) in paragraph at lines 270--271
- [][] 
- []
-
-<Pictures//stateful_input.png, id=933, 727.96968pt x 270.25969pt>
-File: Pictures//stateful_input.png Graphic file (type png)
-<use Pictures//stateful_input.png>
-Package pdftex.def Info: Pictures//stateful_input.png  used on input line 277.
-(pdftex.def)             Requested size: 477.59879pt x 177.31624pt.
-
-Overfull \hbox (79.59879pt too wide) in paragraph at lines 277--278
- [][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 283--284
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [42 <./Pictures//stateless_input.png> <./Pictures//stateful_input.png>]
-<Pictures//flow_code.png, id=943, 656.4525pt x 426.84468pt>
-File: Pictures//flow_code.png Graphic file (type png)
-<use Pictures//flow_code.png>
-Package pdftex.def Info: Pictures//flow_code.png  used on input line 302.
-(pdftex.def)             Requested size: 477.59879pt x 310.55193pt.
-
-Overfull \hbox (79.59879pt too wide) in paragraph at lines 302--303
- [][] 
- []
-
-<Pictures//model1.png, id=948, 721.94719pt x 202.50656pt>
-File: Pictures//model1.png Graphic file (type png)
-<use Pictures//model1.png>
-Package pdftex.def Info: Pictures//model1.png  used on input line 314.
-(pdftex.def)             Requested size: 477.59879pt x 133.96681pt.
-
-Overfull \hbox (79.59879pt too wide) in paragraph at lines 314--315
- [][] 
- []
-
-[43]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures//model2.png, id=960, 721.94719pt x 225.09094pt>
-File: Pictures//model2.png Graphic file (type png)
-<use Pictures//model2.png>
-Package pdftex.def Info: Pictures//model2.png  used on input line 326.
-(pdftex.def)             Requested size: 477.59879pt x 148.90736pt.
-
-Overfull \hbox (79.59879pt too wide) in paragraph at lines 326--327
- [][] 
- []
-
-[44 <./Pictures//flow_code.png>]
-<Pictures//model3.png, id=969, 468.24937pt x 240.14719pt>
-File: Pictures//model3.png Graphic file (type png)
-<use Pictures//model3.png>
-Package pdftex.def Info: Pictures//model3.png  used on input line 336.
-(pdftex.def)             Requested size: 318.40121pt x 163.30524pt.
- [45 <./Pictures//model1.png> <./Pictures//model2.png>] [46 <./Pictures//model3
-.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 371--372
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 390--392
-
- []
-
-[47]
-Underfull \hbox (badness 10000) in paragraph at lines 393--394
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--406
-
- []
-
-[48] [49]
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
-
- []
-
-<Pictures//serie1_model1.png, id=1014, 651.3936pt x 568.2831pt>
-File: Pictures//serie1_model1.png Graphic file (type png)
-<use Pictures//serie1_model1.png>
-Package pdftex.def Info: Pictures//serie1_model1.png  used on input line 452.
-(pdftex.def)             Requested size: 195.02219pt x 170.13939pt.
-<Pictures//serie2_model1.png, id=1015, 664.1613pt x 568.2831pt>
-File: Pictures//serie2_model1.png Graphic file (type png)
-<use Pictures//serie2_model1.png>
-Package pdftex.def Info: Pictures//serie2_model1.png  used on input line 456.
-(pdftex.def)             Requested size: 195.02219pt x 166.86163pt.
-<Pictures//serie3_model1.png, id=1016, 664.1613pt x 568.2831pt>
-File: Pictures//serie3_model1.png Graphic file (type png)
-<use Pictures//serie3_model1.png>
-Package pdftex.def Info: Pictures//serie3_model1.png  used on input line 460.
-(pdftex.def)             Requested size: 199.0pt x 170.26945pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 475--477
-
- []
-
-[50]
-<Pictures//learning_rate_serie1_model1.png, id=1026, 651.3936pt x 525.162pt>
-File: Pictures//learning_rate_serie1_model1.png Graphic file (type png)
-<use Pictures//learning_rate_serie1_model1.png>
-Package pdftex.def Info: Pictures//learning_rate_serie1_model1.png  used on inp
-ut line 481.
-(pdftex.def)             Requested size: 195.02219pt x 157.22928pt.
-<Pictures//learning_rate_serie2_model1.png, id=1027, 676.929pt x 525.162pt>
-File: Pictures//learning_rate_serie2_model1.png Graphic file (type png)
-<use Pictures//learning_rate_serie2_model1.png>
-Package pdftex.def Info: Pictures//learning_rate_serie2_model1.png  used on inp
-ut line 485.
-(pdftex.def)             Requested size: 195.02219pt x 151.29942pt.
-<Pictures//learning_rate_serie3_model1.png, id=1028, 664.1613pt x 525.162pt>
-File: Pictures//learning_rate_serie3_model1.png Graphic file (type png)
-<use Pictures//learning_rate_serie3_model1.png>
-Package pdftex.def Info: Pictures//learning_rate_serie3_model1.png  used on inp
-ut line 489.
-(pdftex.def)             Requested size: 199.0pt x 157.34947pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[51 <./Pictures//serie1_model1.png> <./Pictures//serie2_model1.png> <./Pictures
-//serie3_model1.png>] [52 <./Pictures//learning_rate_serie1_model1.png> <./Pict
-ures//learning_rate_serie2_model1.png> <./Pictures//learning_rate_serie3_model1
-.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 519--521
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 530--532
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 553--554
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 555--557
-
- []
-
-[53
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 566--567
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 568--569
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 570--572
-
- []
-
-
-Overfull \hbox (10.00081pt too wide) in paragraph at lines 578--587
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[54]) [55]
-\openout2 = `chap-4.aux'.
-
- (chap-4.tex [56
-
-
-
-
-]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures//Model2_Serie2.png, id=1086, 668.9793pt x 547.5657pt>
-File: Pictures//Model2_Serie2.png Graphic file (type png)
-<use Pictures//Model2_Serie2.png>
-Package pdftex.def Info: Pictures//Model2_Serie2.png  used on input line 24.
-(pdftex.def)             Requested size: 195.02219pt x 159.6255pt.
-<Pictures//Model3_Serie2.png, id=1087, 668.9793pt x 547.5657pt>
-File: Pictures//Model3_Serie2.png Graphic file (type png)
-<use Pictures//Model3_Serie2.png>
-Package pdftex.def Info: Pictures//Model3_Serie2.png  used on input line 28.
-(pdftex.def)             Requested size: 195.02219pt x 159.6255pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 38--40
-
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [57]
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
-
- []
-
-
-LaTeX Warning: Reference `s:preprocessing' on page 58 undefined on input line 4
-3.
-
-[58 <./Pictures//Model2_Serie2.png> <./Pictures//Model3_Serie2.png>]
-<Pictures//MAE_1.png, id=1101, 1133.6754pt x 740.7675pt>
-File: Pictures//MAE_1.png Graphic file (type png)
-<use Pictures//MAE_1.png>
-Package pdftex.def Info: Pictures//MAE_1.png  used on input line 47.
-(pdftex.def)             Requested size: 318.40121pt x 208.04646pt.
-<Pictures//MAE_2.png, id=1102, 1117.0533pt x 740.7675pt>
-File: Pictures//MAE_2.png Graphic file (type png)
-<use Pictures//MAE_2.png>
-Package pdftex.def Info: Pictures//MAE_2.png  used on input line 54.
-(pdftex.def)             Requested size: 318.40121pt x 211.14354pt.
-<Pictures//MAE_3.png, id=1103, 1117.0533pt x 740.7675pt>
-File: Pictures//MAE_3.png Graphic file (type png)
-<use Pictures//MAE_3.png>
-Package pdftex.def Info: Pictures//MAE_3.png  used on input line 61.
-(pdftex.def)             Requested size: 318.40121pt x 211.14354pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
-
- []
-
-[59 <./Pictures//MAE_1.png> <./Pictures//MAE_2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--86
-
- []
-
-<Pictures//IDM1_S1_Day341.png, id=1125, 876.6351pt x 632.3625pt>
-File: Pictures//IDM1_S1_Day341.png Graphic file (type png)
-<use Pictures//IDM1_S1_Day341.png>
-Package pdftex.def Info: Pictures//IDM1_S1_Day341.png  used on input line 89.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM1_S2_Day341.png, id=1126, 893.0163pt x 632.6034pt>
-File: Pictures//IDM1_S2_Day341.png Graphic file (type png)
-<use Pictures//IDM1_S2_Day341.png>
-Package pdftex.def Info: Pictures//IDM1_S2_Day341.png  used on input line 93.
-(pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM1_S3_Day341.png, id=1127, 876.6351pt x 632.3625pt>
-File: Pictures//IDM1_S3_Day341.png Graphic file (type png)
-<use Pictures//IDM1_S3_Day341.png>
-Package pdftex.def Info: Pictures//IDM1_S3_Day341.png  used on input line 97.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM2_S1_Day341.png, id=1128, 876.6351pt x 632.6034pt>
-File: Pictures//IDM2_S1_Day341.png Graphic file (type png)
-<use Pictures//IDM2_S1_Day341.png>
-Package pdftex.def Info: Pictures//IDM2_S1_Day341.png  used on input line 101.
-(pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDM2_S2_Day341.png, id=1129, 893.0163pt x 632.6034pt>
-File: Pictures//IDM2_S2_Day341.png Graphic file (type png)
-<use Pictures//IDM2_S2_Day341.png>
-Package pdftex.def Info: Pictures//IDM2_S2_Day341.png  used on input line 105.
-(pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM2_S3_Day341.png, id=1130, 876.6351pt x 632.6034pt>
-File: Pictures//IDM2_S3_Day341.png Graphic file (type png)
-<use Pictures//IDM2_S3_Day341.png>
-Package pdftex.def Info: Pictures//IDM2_S3_Day341.png  used on input line 109.
-(pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDM3_S1_Day341.png, id=1131, 876.6351pt x 632.3625pt>
-File: Pictures//IDM3_S1_Day341.png Graphic file (type png)
-<use Pictures//IDM3_S1_Day341.png>
-Package pdftex.def Info: Pictures//IDM3_S1_Day341.png  used on input line 113.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM3_S2_Day341.png, id=1132, 893.0163pt x 632.6034pt>
-File: Pictures//IDM3_S2_Day341.png Graphic file (type png)
-<use Pictures//IDM3_S2_Day341.png>
-Package pdftex.def Info: Pictures//IDM3_S2_Day341.png  used on input line 117.
-(pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM3_S3_Day341.png, id=1133, 876.6351pt x 632.3625pt>
-File: Pictures//IDM3_S3_Day341.png Graphic file (type png)
-<use Pictures//IDM3_S3_Day341.png>
-Package pdftex.def Info: Pictures//IDM3_S3_Day341.png  used on input line 121.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMean_S1_Day341.png, id=1134, 876.6351pt x 632.3625pt>
-File: Pictures//IDMean_S1_Day341.png Graphic file (type png)
-<use Pictures//IDMean_S1_Day341.png>
-Package pdftex.def Info: Pictures//IDMean_S1_Day341.png  used on input line 125
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMean_S2_Day341.png, id=1135, 876.6351pt x 632.6034pt>
-File: Pictures//IDMean_S2_Day341.png Graphic file (type png)
-<use Pictures//IDMean_S2_Day341.png>
-Package pdftex.def Info: Pictures//IDMean_S2_Day341.png  used on input line 129
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDMean_S3_Day341.png, id=1136, 876.6351pt x 632.3625pt>
-File: Pictures//IDMean_S3_Day341.png Graphic file (type png)
-<use Pictures//IDMean_S3_Day341.png>
-Package pdftex.def Info: Pictures//IDMean_S3_Day341.png  used on input line 133
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMAPE_S1_Day341.png, id=1137, 876.6351pt x 632.3625pt>
-File: Pictures//IDMAPE_S1_Day341.png Graphic file (type png)
-<use Pictures//IDMAPE_S1_Day341.png>
-Package pdftex.def Info: Pictures//IDMAPE_S1_Day341.png  used on input line 137
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMAPE_S2_Day341.png, id=1138, 876.6351pt x 632.6034pt>
-File: Pictures//IDMAPE_S2_Day341.png Graphic file (type png)
-<use Pictures//IDMAPE_S2_Day341.png>
-Package pdftex.def Info: Pictures//IDMAPE_S2_Day341.png  used on input line 141
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDMAPE_S3_Day341.png, id=1139, 876.6351pt x 632.3625pt>
-File: Pictures//IDMAPE_S3_Day341.png Graphic file (type png)
-<use Pictures//IDMAPE_S3_Day341.png>
-Package pdftex.def Info: Pictures//IDMAPE_S3_Day341.png  used on input line 145
-.
-(pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-
-Underfull \hbox (badness 1308) in paragraph at lines 88--148
-[]$[]$ $[]$ $[]$
- []
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 88--148
-[]$ $[]$ $[]$
- []
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 88--148
-[]$ $[]$ $[]$
- []
-
-
-Underfull \hbox (badness 1308) in paragraph at lines 88--148
-[]$ $[]$ $[]$
- []
-
-[60 <./Pictures//MAE_3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 153--154
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 155--156
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 157--158
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 164--166
-
- []
-
-[61]
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
-
- []
-
-) [62] [63 <./Pictures//IDM1_S1_Day341.png> <./Pictures//IDM1_S2_Day341.png> <.
-/Pictures//IDM1_S3_Day341.png> <./Pictures//IDM2_S1_Day341.png> <./Pictures//ID
-M2_S2_Day341.png> <./Pictures//IDM2_S3_Day341.png> <./Pictures//IDM3_S1_Day341.
-png> <./Pictures//IDM3_S2_Day341.png> <./Pictures//IDM3_S3_Day341.png> <./Pictu
-res//IDMean_S1_Day341.png> <./Pictures//IDMean_S2_Day341.png> <./Pictures//IDMe
-an_S3_Day341.png> <./Pictures//IDMAPE_S1_Day341.png> <./Pictures//IDMAPE_S2_Day
-341.png> <./Pictures//IDMAPE_S3_Day341.png>]
-\openout2 = `conclusion.aux'.
-
- (conclusion.tex [64
-
-
-
-
-]) [65]
-[66
-
-
-
-] [67] [68]
-\openout2 = `app-A.aux'.
-
- (app-A.tex
-<Pictures//amountNaN.png, id=1196, 843.15pt x 683.55376pt>
-File: Pictures//amountNaN.png Graphic file (type png)
-<use Pictures//amountNaN.png>
-Package pdftex.def Info: Pictures//amountNaN.png  used on input line 8.
-(pdftex.def)             Requested size: 318.40121pt x 258.13644pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures//mv_mean.png, id=1197, 835.12pt x 729.72626pt>
-File: Pictures//mv_mean.png Graphic file (type png)
-<use Pictures//mv_mean.png>
-Package pdftex.def Info: Pictures//mv_mean.png  used on input line 51.
-(pdftex.def)             Requested size: 318.40121pt x 278.22304pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//mv_s.png, id=1198, 835.12pt x 729.72626pt>
-File: Pictures//mv_s.png Graphic file (type png)
-<use Pictures//mv_s.png>
-Package pdftex.def Info: Pictures//mv_s.png  used on input line 58.
-(pdftex.def)             Requested size: 318.40121pt x 278.22304pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//fundamental_change.png, id=1199, 876.27374pt x 681.54625pt>
-File: Pictures//fundamental_change.png Graphic file (type png)
-<use Pictures//fundamental_change.png>
-Package pdftex.def Info: Pictures//fundamental_change.png  used on input line 7
-2.
-(pdftex.def)             Requested size: 318.40121pt x 247.64436pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [69
-
-
- <./Pictures//amountNaN.png>]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//f_c.png, id=1206, 876.27374pt x 681.54625pt>
-File: Pictures//f_c.png Graphic file (type png)
-<use Pictures//f_c.png>
-Package pdftex.def Info: Pictures//f_c.png  used on input line 79.
-(pdftex.def)             Requested size: 318.40121pt x 247.64436pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<Pictures//daily_filter.png, id=1207, 890.32625pt x 731.73375pt>
-File: Pictures//daily_filter.png Graphic file (type png)
-<use Pictures//daily_filter.png>
-Package pdftex.def Info: Pictures//daily_filter.png  used on input line 88.
-(pdftex.def)             Requested size: 318.40121pt x 261.68216pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-) [70] [71 <./Pictures//mv_mean.png>] [72 <./Pictures//mv_s.png> <./Pictures//f
-undamental_change.png>] [73 <./Pictures//f_c.png> <./Pictures//daily_filter.png
->]
-\openout2 = `app-B.aux'.
-
- (app-B.tex [74
-
-
-
-
-]
-<Pictures//histogram_mape.png, id=1235, 1078.0275pt x 743.6583pt>
-File: Pictures//histogram_mape.png Graphic file (type png)
-<use Pictures//histogram_mape.png>
-Package pdftex.def Info: Pictures//histogram_mape.png  used on input line 10.
-(pdftex.def)             Requested size: 318.40121pt x 219.63828pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [75 <./Pictures//histogram_mape.png>]
-<Pictures//serie1_model2.png, id=1242, 651.3936pt x 568.2831pt>
-File: Pictures//serie1_model2.png Graphic file (type png)
-<use Pictures//serie1_model2.png>
-Package pdftex.def Info: Pictures//serie1_model2.png  used on input line 60.
-(pdftex.def)             Requested size: 195.02219pt x 170.13939pt.
-<Pictures//serie2_model2.png, id=1243, 664.1613pt x 568.2831pt>
-File: Pictures//serie2_model2.png Graphic file (type png)
-<use Pictures//serie2_model2.png>
-Package pdftex.def Info: Pictures//serie2_model2.png  used on input line 64.
-(pdftex.def)             Requested size: 195.02219pt x 166.86163pt.
-<Pictures//serie3_model2.png, id=1244, 651.3936pt x 568.2831pt>
-File: Pictures//serie3_model2.png Graphic file (type png)
-<use Pictures//serie3_model2.png>
-Package pdftex.def Info: Pictures//serie3_model2.png  used on input line 68.
-(pdftex.def)             Requested size: 199.0pt x 173.60791pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures//learning_rate_serie1_model2.png, id=1245, 673.0746pt x 538.8933pt>
-File: Pictures//learning_rate_serie1_model2.png Graphic file (type png)
-<use Pictures//learning_rate_serie1_model2.png>
-Package pdftex.def Info: Pictures//learning_rate_serie1_model2.png  used on inp
-ut line 78.
-(pdftex.def)             Requested size: 195.02219pt x 156.14348pt.
-<Pictures//learning_rate_serie2_model2.png, id=1246, 689.6967pt x 538.8933pt>
-File: Pictures//learning_rate_serie2_model2.png Graphic file (type png)
-<use Pictures//learning_rate_serie2_model2.png>
-Package pdftex.def Info: Pictures//learning_rate_serie2_model2.png  used on inp
-ut line 82.
-(pdftex.def)             Requested size: 195.02219pt x 152.37743pt.
-<Pictures//learning_rate_serie3_model2.png, id=1247, 673.0746pt x 538.8933pt>
-File: Pictures//learning_rate_serie3_model2.png Graphic file (type png)
-<use Pictures//learning_rate_serie3_model2.png>
-Package pdftex.def Info: Pictures//learning_rate_serie3_model2.png  used on inp
-ut line 86.
-(pdftex.def)             Requested size: 199.0pt x 159.32573pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[76] [77 <./Pictures//serie1_model2.png> <./Pictures//serie2_model2.png> <./Pic
-tures//serie3_model2.png>] [78 <./Pictures//learning_rate_serie1_model2.png> <.
-/Pictures//learning_rate_serie2_model2.png> <./Pictures//learning_rate_serie3_m
-odel2.png>]
-<Pictures//serie1_model3.png, id=1267, 673.0746pt x 582.0144pt>
-File: Pictures//serie1_model3.png Graphic file (type png)
-<use Pictures//serie1_model3.png>
-Package pdftex.def Info: Pictures//serie1_model3.png  used on input line 133.
-(pdftex.def)             Requested size: 195.02219pt x 168.63776pt.
-<Pictures//serie2_model3.png, id=1268, 706.3188pt x 582.0144pt>
-File: Pictures//serie2_model3.png Graphic file (type png)
-<use Pictures//serie2_model3.png>
-Package pdftex.def Info: Pictures//serie2_model3.png  used on input line 137.
-(pdftex.def)             Requested size: 195.02219pt x 160.6983pt.
-<Pictures//serie3_model3.png, id=1269, 689.6967pt x 582.0144pt>
-File: Pictures//serie3_model3.png Graphic file (type png)
-<use Pictures//serie3_model3.png>
-Package pdftex.def Info: Pictures//serie3_model3.png  used on input line 141.
-(pdftex.def)             Requested size: 199.0pt x 167.92729pt.
-<Pictures//learning_rate_serie1_model3.png, id=1270, 668.9793pt x 538.8933pt>
-File: Pictures//learning_rate_serie1_model3.png Graphic file (type png)
-<use Pictures//learning_rate_serie1_model3.png>
-Package pdftex.def Info: Pictures//learning_rate_serie1_model3.png  used on inp
-ut line 151.
-(pdftex.def)             Requested size: 195.02219pt x 157.09734pt.
-<Pictures//learning_rate_serie2_model3.png, id=1271, 689.6967pt x 538.8933pt>
-File: Pictures//learning_rate_serie2_model3.png Graphic file (type png)
-<use Pictures//learning_rate_serie2_model3.png>
-Package pdftex.def Info: Pictures//learning_rate_serie2_model3.png  used on inp
-ut line 155.
-(pdftex.def)             Requested size: 195.02219pt x 152.37743pt.
-<Pictures//learning_rate_serie3_model3.png, id=1272, 689.6967pt x 538.8933pt>
-File: Pictures//learning_rate_serie3_model3.png Graphic file (type png)
-<use Pictures//learning_rate_serie3_model3.png>
-Package pdftex.def Info: Pictures//learning_rate_serie3_model3.png  used on inp
-ut line 159.
-(pdftex.def)             Requested size: 199.0pt x 155.48566pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [79
-
-] [80 <./Pictures//serie1_model3.png> <./Pictures//serie2_model3.png> <./Pictur
-es//serie3_model3.png>] [81 <./Pictures//learning_rate_serie1_model3.png> <./Pi
-ctures//learning_rate_serie2_model3.png> <./Pictures//learning_rate_serie3_mode
-l3.png>]
-\openout2 = `app-n.aux'.
-
- (app-n.tex [82
-
-
-
-
-]
-<Pictures//MAE_1_line.png, id=1297, 668.9793pt x 636.2169pt>
-File: Pictures//MAE_1_line.png Graphic file (type png)
-<use Pictures//MAE_1_line.png>
-Package pdftex.def Info: Pictures//MAE_1_line.png  used on input line 8.
-(pdftex.def)             Requested size: 318.40121pt x 302.80806pt.
-<Pictures//MAE_2_line.png, id=1298, 668.9793pt x 636.2169pt>
-File: Pictures//MAE_2_line.png Graphic file (type png)
-<use Pictures//MAE_2_line.png>
-Package pdftex.def Info: Pictures//MAE_2_line.png  used on input line 15.
-(pdftex.def)             Requested size: 318.40121pt x 302.80806pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Pictures//MAE_3_line.png, id=1299, 668.9793pt x 636.2169pt>
-File: Pictures//MAE_3_line.png Graphic file (type png)
-<use Pictures//MAE_3_line.png>
-Package pdftex.def Info: Pictures//MAE_3_line.png  used on input line 22.
-(pdftex.def)             Requested size: 318.40121pt x 302.80806pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `eq:z-score' on page 83 undefined on input line 48.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [83 <./Pictures//MAE_1_line.png>]
-<Pictures//z-score.png, id=1306, 788.9475pt x 683.55376pt>
-File: Pictures//z-score.png Graphic file (type png)
-<use Pictures//z-score.png>
-Package pdftex.def Info: Pictures//z-score.png  used on input line 58.
-(pdftex.def)             Requested size: 318.40121pt x 275.86775pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[84 <./Pictures//MAE_2_line.png>]
-
-LaTeX Warning: Reference `s:Basic analysis' on page 85 undefined on input line 
-73.
-
-[85 <./Pictures//MAE_3_line.png>]) [86 <./Pictures//z-score.png>]
-(masterproef.bbl
-bibitemlist
-[87
-
-
-
-
-])
-
-Class memoir Warning: The material used in the headers is too large
-(27.2pt) for the given head height (13.6pt), it is recommended to
-either increase the head height or redesign the header
-(in both cases you will find help in the memoir manual). on input line 128.
-
-[88]
-\tf@toc=\write5
-\openout5 = `masterproef.toc'.
-
-\tf@lof=\write6
-\openout6 = `masterproef.lof'.
-
-\tf@lot=\write7
-\openout7 = `masterproef.lot'.
-
- (masterproef.aux (intro.aux) (chap-1.aux) (chap-2.aux) (chap-3.aux)
-(chap-4.aux) (conclusion.aux) (app-A.aux) (app-B.aux) (app-n.aux))
-Package rerunfilecheck Info: File `masterproef.out' has not changed.
-(rerunfilecheck)             Checksum: A3D93C7CF5F21AF1A2C6B9A961787D80;2635.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--8
+
+ []
+
+
+LaTeX Warning: Reference `tab:horizons' on page 1 undefined on input line 9.
+
+! Misplaced \noalign.
+\bottomrule ->\noalign 
+                       {\ifnum 0=`}\fi \@aboverulesep =\aboverulesep \global...
+l.23 		\bottomrule
+                  
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing \endgroup inserted.
+<inserted text> 
+                \endgroup 
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.24 	\end
+          {tabular}
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.24 	\end
+          {tabular}
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.24 	\end
+          {tabular}
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.24 	\end
+          {tabular}
+I'm guessing that you meant to end an alignment here.
+
+! Misplaced \cr.
+<inserted text> \cr 
+                    
+l.24 	\end
+          {tabular}
+(That makes 100 errors; please try again.) 
 Here is how much of TeX's memory you used:
- 18533 strings out of 479799
- 292192 string characters out of 2879599
- 847197 words of memory out of 3000000
- 34523 multiletter control sequences out of 15000+200000
- 673542 words of font info for 219 fonts, out of 3000000 for 9000
+ 17550 strings out of 479799
+ 270239 string characters out of 2879599
+ 838197 words of memory out of 3000000
+ 33991 multiletter control sequences out of 15000+200000
+ 606928 words of font info for 107 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 80i,12n,86p,1876b,563s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
-iKTeX/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips
-/lm/lm-rm.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Program
- Files/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Program Files/MiKTeX/fonts/e
-nc/dvips/lm/lm-ts1.enc}{C:/Program Files/MiKTeX/fonts/enc/dvips/base/8r.enc}<C:
-/Program Files/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Program Files/MiKTeX
-/fonts/type1/public/lm/lmbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/l
-m/lmbx9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Prog
-ram Files/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Program Files/MiKTeX/font
-s/type1/public/lm/lmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmm
-i8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Program F
-iles/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Program Files/MiKTeX/fonts/type
-1/public/lm/lmr6.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C
-:/Program Files/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/lm/lmri10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm
-/lmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/
-type1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/u
-rw/helvetic/uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a
-.pfb>
-Output written on masterproef.pdf (98 pages, 14494072 bytes).
-PDF statistics:
- 1473 PDF objects out of 1728 (max. 8388607)
- 303 named destinations out of 1000 (max. 500000)
- 37086 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 80i,12n,86p,1226b,542s stack positions out of 5000i,500n,10000p,200000b,50000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

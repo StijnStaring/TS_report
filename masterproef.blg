@@ -26,48 +26,49 @@ Database file #1: Time_Series.bib
 Warning--I didn't find a database entry for "bibid"
 Warning--empty journal in Chung2014
 Warning--there's a number but no volume in loadforecastingmoor
+Warning--empty journal in NarjesFallah2018
 Warning--empty journal in ANNRNN
 Warning--can't use both volume and number fields in Czum2020
 Warning--empty publisher in Czum2020
-You've used 18 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            624 strings with 6734 characters,
-and the built_in function-call counts, 5868 in all, are:
-= -- 557
-> -- 313
-< -- 2
-+ -- 124
-- -- 106
-* -- 431
-:= -- 1000
-add.period$ -- 50
-call.type$ -- 18
-change.case$ -- 105
+            637 strings with 7313 characters,
+and the built_in function-call counts, 6649 in all, are:
+= -- 630
+> -- 364
+< -- 3
++ -- 144
+- -- 124
+* -- 490
+:= -- 1134
+add.period$ -- 56
+call.type$ -- 20
+change.case$ -- 120
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 187
-empty$ -- 443
-format.name$ -- 106
-if$ -- 1180
+cite$ -- 26
+duplicate$ -- 214
+empty$ -- 491
+format.name$ -- 124
+if$ -- 1338
 int.to.chr$ -- 0
-int.to.str$ -- 18
-missing$ -- 16
-newline$ -- 89
-num.names$ -- 36
-pop$ -- 117
+int.to.str$ -- 20
+missing$ -- 18
+newline$ -- 99
+num.names$ -- 40
+pop$ -- 132
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 102
 quote$ -- 0
-skip$ -- 140
+skip$ -- 160
 stack$ -- 0
-substring$ -- 361
-swap$ -- 23
-text.length$ -- 2
+substring$ -- 396
+swap$ -- 29
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
-warning$ -- 5
-while$ -- 57
-width$ -- 20
-write$ -- 181
-(There were 6 warnings)
+type$ -- 76
+warning$ -- 6
+while$ -- 65
+width$ -- 22
+write$ -- 202
+(There were 7 warnings)
