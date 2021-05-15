@@ -2,51 +2,86 @@
 
 There is an increasing awareness of the potential benefits of intelligent energy control of the balance between the distributed energy resources and the demand requirements. Intelligent energy control leads to efficient planning, more satisfied consumers and can even help National Electricity Markets in saving considerable operating and maintenance cost according to \cite{NarjesFallah2018}. Having accurate forecasting models is one of the key conditions to in practise realize intelligent energy control. When electricity consumption forecasting is improved, energy producers can build a better trust with its customers by sending reliable bills. Further, can the electricity producer better estimate the energy demand of the whole customer population. The optimization of the energy production planning is possible, which will lead to cheaper electricity production and increased profit margins. More substantiated decisions can be taken with regard to investments and there will be less need of the more flexible but more expensive electricity installations e.g. diesel engines to catch the deficiencies in electricity production.\\
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{SmartGrid.png}
+	\caption{Electricity grid (Source: KU Leuven thesis proposal).}
+	\label{fig:power_image}
+\end{figure}
+
 With the invention of the smart meter in 1974 by \textbf{Paraskevakos} it became possible to communicate the electricity consumption with more clarity to the consumer and the electricity producer. Electricity consumption is nearly recorded real time and it allows for two-way communication between the smart meter and the supplier. As explained in \cite{Depuru2011}: ``By introducing smart meters as a new
 component of their smart grid system, an avalanche of immensely useful energy usage information
 became available to the energy markets.'' From the availability of more detailed datasets flows the explosion of research in the electrical forecasting techniques and the applicability of more complex models. To tackle the electrical consumption forecasting problem also machine learning techniques as neural networks are applied. These models allow for learning very non-linear relations between the inputs. Learning is done by updating the model every time such that the observations in the training set are better explained.\\
 
-In \cite{NarjesFallah2018} different forecasting horizons are discussed with their practical application. This is summarized in Table \ref{tab:horizons}.
 
+In \cite{NarjesFallah2018} different forecasting horizons are discussed with their practical application. This is summarized in Table \ref{tab:prediciontypes}.
 
-\begin{table}[ht]
+\begin{table}[h!]
 	\centering
-	\begin{tabular}{@{}l|ccr@{}} \toprule
+	\begin{tabular}{@{}lp{3cm}p{3cm}p{4.5cm}@{}} \toprule
 		\textbf{Acronym}	& \textbf{Prediction type} & \textbf{Time span} & \textbf{Application}\\\midrule
 		VSTLF	& Very short Term Load Forecasting	& One minute to the next hour	& Operational and maintenance
 		scheduling and Demand side management
 		(decision making for load
-		control and voltage reduction)
-		
-		STLF	&	Short Term Load Forecasting 	& 	Daily or weekly prediction
-		
-		
-		
-		\bottomrule
+		control and voltage reduction)\\\hline		
+		STLF	&	Short Term Load Forecasting 	& 	Daily or weekly prediction	& Distribution and transmission
+		planning and Demand side management
+		(decision making for load
+		control and voltage reduction)\\\hline	
+		MTLF	&	Medium Term Load Forecasting	& A month to a few years	& Finance or power supply planning\\\hline
+		LTLF	&	Long Term Load Forecasting	&	A year to a few decades	&	Finance or power supply planning\\\bottomrule
 	\end{tabular}
-	\caption{Baseline results for Serie $ 1 $ tested on $ 31 $ days of December.}
-	\label{tab:summ_data_serie1}
+	\caption{Prediction types that are mentioned in \cite{NarjesFallah2018}.}
+	\label{tab:prediciontypes}
 \end{table}
 
+The forecast horizon is chosen in consultation with the uncertainty that is contained in the data. If the signal doesn't show clear patterns and cycles, forecasting will be more difficult which means that the forecasting horizon will be shorter. In this thesis the forecasting horizon falls in the category of ``VSTLF'' and ``STLF'' because the consumption is predicted with a frequency of 30 minutes for a duration of 24 hours. The practical usefulness of the developed models in this thesis have indeed as goal to monitor the demand side of the low voltage distribution grid.
+Typical inputs that are used in literature for electrical load forecasting are past values of the load, weather information, calendar information and error-correction terms according to \cite{loadforecastingmoor}. Often used inputs for electrical load forecasting are:
+
+\begin{itemize}
+	\item Historical data e.g. \cite{Kong2019}
+	\item Weather information
+	\begin{itemize}
+		\item Temperature e.g. \cite{Kong2019}
+		\item Cloudiness e.g. \cite{Contaxi2006}
+		\item Humidity e.g. \cite{Contaxi2006}
+		\item Wind e.g. \cite{Charytoniuk1997}
+	\end{itemize}
+	\item Day of the week e.g. \cite{Kong2019}
+	\item Time of the day e.g. \cite{Kong2019}
+	\item Holiday e.g. \cite{Kong2019}
+	\item Anthropological data : Social aspects of the community, general behaviour of house
+	occupants e.g. \cite{Javed2012}
+	\item Structural data : physical properties of the house e.g. \cite{Javed2012}
+\end{itemize}
+
+These inputs are often first normalized before training for which min-max normalization and one hot encoding can be used.
+
+\section{Importance of topic}
+This research of on short term load forecasting is done in the context of an increased adoption of solar panels and electric cars by the big public. Every year 40000 new solar panel installations take place in Flanders as explained in \cite{Lemmens2019}. Fluvius, which is a Belgian distribution grid operator, has carried out together with Deloitte in 2019 an unique stress test on the low voltage grid to analyse how the current grid will react on the burden of the increased amount of charging points and solar panels. It was found that in the short term, which means up to 2025, the grid will be able to cope with the estimated increase of the burden on the low voltage grid. However, now is the time of anticipation and to strengthen the weak spots in the network. To carry out the maintenance work, detailed forecasting of the load signals of only a small amount of households is needed. Detailed forecasts of individual households is now possible because of the use of smart meters. If detailed predictions are achieved for individual households, expenses are saved because customized updates of the network can be done. With forecasts on the household level, a plan can be made where certain parts of the grid have to be replaced and by how much. With this replacing everything is avoided. Individual household predictions can be used as part of an electrical congestion prediction which means predicting when the low voltage grid can't handle the demand anymore. Especially, predicting the peaks in the household loads is for this important. If a accurate congestion prediction can be made, reliability of the network can be increased and the risk for blackouts and brownouts is decreased.\\
 
 
 
 
-
-Different
- - kind of forecasting
- 
- 
-
- - Features that have been identified 
- 
- 
- 
+For this especially the prediction of the electricity peak demands are important. 
 
 
 
+general increase of the electricity consumption on the low voltage distribution grid due to the increased use of electrical appliances with a heavy 
+
+reinforce specific weak points when we carry out maintenance work
 
 
+
+- data that heb gekregen --> niet van fluvius maar van de UK. 
+
+
+The context that this 
+
+
+Say can avoid congestion. 
+
+Increase the reliability of the low voltage distribution network and avoiding blackouts and brownouts. 
 
 
 Say that good results of electricity forecasting is mostly found for aggregated signals which have much more clear patterns in their signal. When a single household is forecasted good results are obtained by reducing uncertainty by making extensive use of submetering which is not scalable in practise
@@ -77,16 +112,6 @@ Having reliable forecasts available will play a decisive role in the exploitatio
 
 
  Accurate and reliable forecasting techniques   
-
-
-
-
-\begin{figure}[hb]
-	\centering
-	\includegraphics[width=1.0\textwidth]{SmartGrid.png}
-	\caption{Electricity grid (Source: KU Leuven thesis proposal).}
-	\label{fig:power_image}
-\end{figure}
 
 
 - different kinds of loads

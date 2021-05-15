@@ -1,10 +1,22 @@
 \begin{thebibliography}{10}
 
+\bibitem{Charytoniuk1997}
+W.~Charytoniuk, M.~S. Chen, and P.~{Van Olinda}.
+\newblock {Nonparametric regression based short-term load forecasting}.
+\newblock {\em IEEE Power Engineering Review}, 17(11):56, 1997.
+
 \bibitem{Chung2014}
 J.~Chung, C.~Gulcehre, K.~Cho, and Y.~Bengio.
 \newblock {Empirical Evaluation of Gated Recurrent Neural Networks on Sequence
   Modeling}.
 \newblock pages 1--9, 2014.
+
+\bibitem{Contaxi2006}
+E.~Contaxi, C.~Delkis, S.~Kavatza, and C.~Vournas.
+\newblock {The effect of humidity in a weather-sensitive peak load forecasting
+  model}.
+\newblock {\em 2006 IEEE PES Power Systems Conference and Exposition, PSCE 2006
+  - Proceedings}, pages 1528--1534, 2006.
 
 \bibitem{Depuru2011}
 S.~S. S.~R. Depuru, L.~Wang, V.~Devabhaktuni, and N.~Gudi.
@@ -46,6 +58,13 @@ F.~Hutter, H.~Hoos, and K.~Leyton-Brown.
 \newblock {\em 31st International Conference on Machine Learning, ICML 2014},
   2:1130--1144, 2014.
 
+\bibitem{Javed2012}
+F.~Javed, N.~Arshad, F.~Wallin, I.~Vassileva, and E.~Dahlquist.
+\newblock {Forecasting for demand response in smart grids: An analysis on use
+  of anthropologic and structural data and short term multiple loads
+  forecasting}.
+\newblock {\em Applied Energy}, 96:150--160, 2012.
+
 \bibitem{Kim2019}
 T.~Y. Kim and S.~B. Cho.
 \newblock {Predicting residential energy consumption using CNN-LSTM neural
@@ -62,6 +81,12 @@ W.~Kong, Z.~Y. Dong, Y.~Jia, D.~J. Hill, Y.~Xu, and Y.~Zhang.
 J.~Lago.
 \newblock {A ratios and clustering based approach to forecast electricity
   consumption}, 2020.
+
+\bibitem{Lemmens2019}
+J.~Lemmens, B.~Macharis, R.~Gys, and D.~Vonken.
+\newblock {Data-Driven Asset Management With the Ngin Analytics Platform :
+  Assessing Ev and Pv Impact on the Flemish Lv Grid}.
+\newblock (June):3--6, 2019.
 
 \bibitem{NarjesFallah2018}
 S.~{Narjes Fallah}, R.~{Chand Deo}, M.~Shojafar, M.~Conti, and S.~Shamshirband.
