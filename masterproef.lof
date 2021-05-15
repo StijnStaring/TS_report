@@ -9,60 +9,61 @@
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Smart Grid (Source: KU Leuven thesis proposal).\relax }}{1}{figure.caption.9}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{5}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces One of the $9$ identified meters with multiple zero daily consumptions\relax }}{6}{figure.caption.11}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The maximum differences between the minimum and maximum weekly rolling averages for all the different time-series.\relax }}{7}{figure.caption.12}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. \relax }}{9}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Error between different pairs of weekdays.\relax }}{10}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Figure with the comparison between holidays and business days.\relax }}{11}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Error between a holiday and other days of the week.\relax }}{11}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Relation between normalized daily consumption and daily temperature.\relax }}{12}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Figure with the comparison of the different dwelling types.\relax }}{14}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{5}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces One of the $9$ identified meters with multiple zero daily consumptions\relax }}{6}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces The maximum differences between the minimum and maximum weekly rolling averages for all the different time-series.\relax }}{7}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. \relax }}{9}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Error between different pairs of weekdays.\relax }}{10}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Figure with the comparison between holidays and business days.\relax }}{11}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Error between a holiday and other days of the week.\relax }}{11}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Relation between normalized daily consumption and daily temperature.\relax }}{12}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Figure with the comparison of the different dwelling types.\relax }}{14}{figure.caption.19}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of a MLP (source \cite {Czum2020}).\relax }}{18}{figure.caption.19}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source: \cite {Czum2020}).\relax }}{19}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source: \cite {Teuwen2019}).\relax }}{21}{figure.caption.21}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces A LSTM cell that is repeated over time (source: \cite {Olah}).\relax }}{22}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces A GRU cell that is repeated over time (source: \cite {Olah}).\relax }}{23}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{26}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{27}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{29}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{30}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Figure of a MLP (source \cite {Czum2020}).\relax }}{18}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Figure of the logical flow of a vanilla RNN with a hidden state (source: \cite {Czum2020}).\relax }}{19}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Exponential decrease of the gradient size of a simple RNN (red) or a LSTM (blue) (source: \cite {Teuwen2019}).\relax }}{21}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces A LSTM cell that is repeated over time (source: \cite {Olah}).\relax }}{22}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces A GRU cell that is repeated over time (source: \cite {Olah}).\relax }}{23}{figure.caption.24}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Results obtained in paper \cite {Shi2018} using the PDRNN method.\relax }}{26}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Influence of the number of layers and the pooling method used in \cite {Shi2018}.\relax }}{27}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{29}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{30}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{30}{figure.caption.29}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces The electrical consumption in $ 2017 $ for the three selected series. \relax }}{32}{figure.caption.29}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{38}{figure.caption.35}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces The generation of inputs for a stateless model. (source: \cite {FneishMo})\relax }}{42}{figure.caption.40}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces The generation of inputs for a stateful model. (source: \cite {FneishMo})\relax }}{42}{figure.caption.41}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces The flow of functions that are executed in order during the prediction process with LSTM models.\relax }}{44}{figure.caption.45}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Model 1 - stateless model with as input a subserie of N time steps and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{45}{figure.caption.47}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Model 2 - stateless model with as input a serie of N time steps and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{45}{figure.caption.48}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Model 3 - stateful model that connects single LSTM blocks and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{46}{figure.caption.49}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE. (Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{51}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces The MAE on the validation set in function of the learning rate size.\relax }}{52}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The electrical consumption in $ 2017 $ for the three selected series. \relax }}{32}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{38}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The generation of inputs for a stateless model. (source: \cite {FneishMo})\relax }}{42}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The generation of inputs for a stateful model. (source: \cite {FneishMo})\relax }}{42}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces The flow of functions that are executed in order during the prediction process with LSTM models.\relax }}{44}{figure.caption.46}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Model 1 - stateless model with as input a subserie of N time steps and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{45}{figure.caption.48}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Model 2 - stateless model with as input a serie of N time steps and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{45}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Model 3 - stateful model that connects single LSTM blocks and $ \bm {C}_{i} \in \mathbb {R}^{m} $, $ \bm {H}_{j} \in \mathbb {R}^{n} $, $ \bm {X}_{k} \in \mathbb {R}^{59} $, $ \hat {y} \in \mathbb {R}^{1} $.\relax }}{46}{figure.caption.50}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE. (Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{51}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces The MAE on the validation set in function of the learning rate size.\relax }}{52}{figure.caption.57}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {5.1}{\ignorespaces The evolution of the MSE on the training and validation sets.\relax }}{58}{figure.caption.63}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces The MAE performance on all the days of the test set for Serie 1.\relax }}{59}{figure.caption.64}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces The MAE performance on all the days of the test set for Serie 2.\relax }}{59}{figure.caption.65}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces The MAE performance on all the days of the test set for Serie 3.\relax }}{60}{figure.caption.66}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces The prediction result of the different models on $ 7 $ December. (Reference: blue/ Prediction: orange)\relax }}{63}{figure.caption.68}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces The evolution of the MSE on the training and validation sets.\relax }}{58}{figure.caption.64}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces The MAE performance on all the days of the test set for Serie 1.\relax }}{59}{figure.caption.65}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces The MAE performance on all the days of the test set for Serie 2.\relax }}{59}{figure.caption.66}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces The MAE performance on all the days of the test set for Serie 3.\relax }}{60}{figure.caption.67}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces The prediction result of the different models on $ 7 $ December. (Reference: blue/ Prediction: orange)\relax }}{63}{figure.caption.69}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{69}{figure.caption.69}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{71}{figure.caption.71}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{72}{figure.caption.72}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{72}{figure.caption.73}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{73}{figure.caption.74}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{73}{figure.caption.75}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces The amount of NaN values in all the 3248 smart meters.\relax }}{69}{figure.caption.70}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the measurements. \relax }}{71}{figure.caption.72}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Resulting month of March after substitution of the missing values by the mean value of the same moment on the next and previous day.\relax }}{72}{figure.caption.73}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces The time-serie with the original maximum difference between the minimum and maximum weekly rolling averages.\relax }}{72}{figure.caption.74}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces The time-serie with the new maximum difference between the minimum and maximum weekly rolling averages.\relax }}{73}{figure.caption.75}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Figure that shows the seasonality of the electrical load during the day.\relax }}{73}{figure.caption.76}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{75}{figure.caption.76}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE.(Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{77}{figure.caption.79}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{78}{figure.caption.80}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM and \textit {or}: best performing serie from phase one)\relax }}{80}{figure.caption.83}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{81}{figure.caption.84}%
+\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{75}{figure.caption.77}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE.(Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{77}{figure.caption.80}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{78}{figure.caption.81}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM and \textit {or}: best performing serie from phase one)\relax }}{80}{figure.caption.84}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{81}{figure.caption.85}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces The MAE performance for the different days in the test set for Serie 1.\relax }}{83}{figure.caption.85}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces The MAE performance for the different days in the test set for Serie 2.\relax }}{84}{figure.caption.86}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces The MAE performance for the different days in the test set for Serie 3.\relax }}{85}{figure.caption.87}%
-\contentsline {figure}{\numberline {C.4}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{86}{figure.caption.88}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces The MAE performance for the different days in the test set for Serie 1.\relax }}{83}{figure.caption.86}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces The MAE performance for the different days in the test set for Serie 2.\relax }}{84}{figure.caption.87}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces The MAE performance for the different days in the test set for Serie 3.\relax }}{85}{figure.caption.88}%
+\contentsline {figure}{\numberline {C.4}{\ignorespaces Z-scores calculated from the yearly consumptions.\relax }}{86}{figure.caption.89}%
