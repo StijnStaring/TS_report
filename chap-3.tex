@@ -1,6 +1,6 @@
 \chapter{Forecasting the electricity consumption of individual households}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing_cha4}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Deep LSTM models} ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
+In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing_cha4}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Implementation deep LSTM neural network} ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
  
 \section{Preprocessing}\label{s:Preprocessing_cha4}
 The available raw data is summarized by Table \ref{tab:available_data}. 
@@ -49,7 +49,7 @@ The corresponding average temperature series are also used. They don't contain a
   \label{tab:summ_data}
 \end{table}
 
-During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
+During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Data Analysis} Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
 \section{Error metrics}\label{s:Error metrics}
 The metrics that can be used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
@@ -98,7 +98,7 @@ Finally, it is noted that while performing the calculations a warning occurred t
 - give examples
 
 \section{Baseline models}\label{s:Baseline models}
-As was discussed in the introduction of the chapter, the baseline models use a straightforward approach to make a forecast for a desired day. Therefore, they serve as a benchmark for more complex models that are explained in Section \ref{s:Neural network models}. Theses are the different baseline models that are considered:
+As was discussed in the introduction of the chapter, the baseline models use a straightforward approach to make a forecast for a desired day. Therefore, they serve as a benchmark for more complex models that are explained in Section \ref{s:Implementation deep LSTM neural network} Theses are the different baseline models that are considered:
 
 \begin{itemize}
 	\item Model 1: ``1 day ago forecast''
@@ -108,7 +108,7 @@ As was discussed in the introduction of the chapter, the baseline models use a s
 	\item Model 5: ``MAPE forecast''
 \end{itemize} 
 
-The models consider all the days preceding the desired day to be training data. As will be seen in Section \ref{s:Neural network models}, the prediction signal for a day is calculated one value at a time and the total $ 48 $ values are calculated recursively. This consecutive predicting will not apply for the baseline models. Here, all the $ 48 $ values are calculated at once, meaning one full day ahead. In the case of Model 5: ``MAPE forecast'', the predictions are done consecutively but the values that are calculated are not used during next predictions.\\
+The models consider all the days preceding the desired day to be training data. As will be seen in Section \ref{s:Implementation deep LSTM neural network}, the prediction signal for a day is calculated one value at a time and the total $ 48 $ values are calculated recursively. This consecutive predicting will not apply for the baseline models. Here, all the $ 48 $ values are calculated at once, meaning one full day ahead. In the case of Model 5: ``MAPE forecast'', the predictions are done consecutively but the values that are calculated are not used during next predictions.\\
 
 
 \textbf{Model 1: ``1 day ago forecast''}\\
@@ -196,7 +196,7 @@ The performance of the baseline models on the different test sets with respect t
 	\label{tab:summ_data_serie3}
 \end{table}
 
-In the tables it can be seen that the ``mean forecast'' outperforms all other models on all the different error metrics except for MAPE. For all three series the ``MAPE forecast'', performs best on the MAPE metric. This is a logically result because this model is optimized to reduce the MAPE. It is observed that the ``closest day forecast'' together with the ``mean forecast'' or ``MAPE forecast'' perform second and third best for Serie 2 and 3. ``1 day ago forecast'' and ``7 days ago forecast'' perform worst for these series. This ranking of models is not valid for Serie 1. Here, the ``closest day forecast'' performs overall as one of the worst models. It can thus be concluded that the performance of the models is certainly serie dependent. Because ``mean forecast'' performs best on all the different error metrics except MAPE and ``MAPE forecast'' gives the lowest MAPE, both models are included in the comparison with the more complex models of Section \ref{s:Neural network models} in Chapter \ref{cha:Model evaluation}.\\
+In the tables it can be seen that the ``mean forecast'' outperforms all other models on all the different error metrics except for MAPE. For all three series the ``MAPE forecast'', performs best on the MAPE metric. This is a logically result because this model is optimized to reduce the MAPE. It is observed that the ``closest day forecast'' together with the ``mean forecast'' or ``MAPE forecast'' perform second and third best for Serie 2 and 3. ``1 day ago forecast'' and ``7 days ago forecast'' perform worst for these series. This ranking of models is not valid for Serie 1. Here, the ``closest day forecast'' performs overall as one of the worst models. It can thus be concluded that the performance of the models is certainly serie dependent. Because ``mean forecast'' performs best on all the different error metrics except MAPE and ``MAPE forecast'' gives the lowest MAPE, both models are included in the comparison with the more complex models of Section \ref{s:Implementation deep LSTM neural network} in Chapter \ref{cha:Model evaluation}.\\
 
 By inspection it is observed that model $ 1 $, $ 2 $ and $ 3 $, who copy the consumption of another day, show more peaks in their prediction than model $ 4 $ and $ 5 $. Predictions during the test set of models $ 4 $ and $ 5 $ can be seen in Figure \ref{fig:baseline models 4 and 5}. A practical downside of models $ 1 $ and $ 2 $ during calculation of the predictions for the test set was that sometimes no prediction is possible due to the missing of the day one day or week ago in the reference signal.\\
 
@@ -229,9 +229,9 @@ In Table \ref{tab:summ_data_rel_performance} the overall performance of the base
 \end{table}
 
 
-\section{Deep LSTM models}\label{s:Deep LSTM models}
+\section{Implementation deep LSTM neural network}\label{s:Implementation deep LSTM neural network}
 In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forecast of the electrical consumption of an individual household. The advantage of using a ``deep'' architecture is that it can learn load features hierarchically as discussed in \cite{Shi2018}. This means that load features learned in a higher layer will be the combinations of features learned in lower layers.\\
-First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:LSTM_implementation}. Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
+First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:Implementation deep LSTM neural network} Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
 
 \subsection{Different practical considerations of the models in Keras}
 
@@ -296,7 +296,7 @@ Different ways to avoid overfitting can be applied in Keras::
 The  MAE metric is used to evaluate the prediction performance on the validation set during the parameter search in Section \ref{s:Parameter search}. During training the MSE is used in the objective function which is used to derive weight updates.
 
 
-\subsection{Developed models}\label{s:Developed models}
+\subsection{Deep LSTM neural networks}\label{s:Deep LSTM neural networks}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.2\textwidth]{flow_code.png}

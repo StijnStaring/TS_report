@@ -19,7 +19,7 @@
 \BOOKMARK [1][-]{section.4.2}{Error metrics}{chapter.4}% 19
 \BOOKMARK [1][-]{section.4.3}{Microsoft Azure cloud}{chapter.4}% 20
 \BOOKMARK [1][-]{section.4.4}{Baseline models}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.5}{Deep LSTM models}{chapter.4}% 22
+\BOOKMARK [1][-]{section.4.5}{Implementation deep LSTM neural network}{chapter.4}% 22
 \BOOKMARK [1][-]{section.4.6}{Conclusion}{chapter.4}% 23
 \BOOKMARK [0][-]{chapter.5}{Model evaluation}{}% 24
 \BOOKMARK [1][-]{section.5.1}{Model selection}{chapter.5}% 25
@@ -29,13 +29,12 @@
 \BOOKMARK [1][-]{section.6.1}{Future work}{chapter.6}% 29
 \BOOKMARK [0][-]{appendix.A}{Introduction to the dataset}{}% 30
 \BOOKMARK [1][-]{section.A.1}{Introduction to the dataset}{appendix.A}% 31
-\BOOKMARK [1][-]{section.A.2}{Missing values}{appendix.A}% 32
-\BOOKMARK [1][-]{section.A.3}{Daily filter}{appendix.A}% 33
-\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 34
-\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 35
-\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 36
-\BOOKMARK [0][-]{appendix.C}{Extensions on the evaluation results}{}% 37
-\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 38
-\BOOKMARK [1][-]{section.C.2}{Old stuff}{appendix.C}% 39
-\BOOKMARK [1][-]{section.C.3}{ARIMA}{appendix.C}% 40
-\BOOKMARK [0][-]{appendix*.91}{Bibliography}{}% 41
+\BOOKMARK [1][-]{section.A.2}{Daily filter}{appendix.A}% 32
+\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 33
+\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 34
+\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 35
+\BOOKMARK [0][-]{appendix.C}{Extensions on the evaluation results}{}% 36
+\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 37
+\BOOKMARK [1][-]{section.C.2}{Old stuff}{appendix.C}% 38
+\BOOKMARK [1][-]{section.C.3}{ARIMA}{appendix.C}% 39
+\BOOKMARK [0][-]{appendix*.90}{Bibliography}{}% 40

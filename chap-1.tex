@@ -56,19 +56,25 @@ Besides of the electricity consumption of the different households, also informa
 
 \section{Preprocessing}\label{s:Preprocessing}
 
-Following sections describe the preprocessing applied on the 261  load series containing measurements for the entire year. The preprocessing done here is in preparation of the data analysis of Section \ref{s:Data Analysis}. It must not be confused with the preprocessing done for the three considered load series in Chapter \ref{cha:Forecasting the daily electricity consumption}.
+Following sections describe the preprocessing applied on the 261 load series containing measurements for the entire year. The preprocessing done here is in preparation of the data analysis of Section \ref{s:Data Analysis}. It must not be confused with the preprocessing done for the three considered load series in Chapter \ref{cha:Forecasting the daily electricity consumption}.
 
 \subsection{Missing data} \label{s:missing_data}
-As discussed in Section \ref{s:Data description}, there exists two types of missing data in the Consumption csv file as was stated in the data description of the competition: fully missing months, due to the later participation to the measuring campaigns and missing values due to sending or receiving errors of the smart meter. When a smart meter fails, always all the measurements of that day are lost. 
+As discussed in Section \ref{s:Data description}, there exists two types of missing data in the Consumption csv file as was stated in the data description of the competition: fully missing months, due to the later participation in the measuring campaigns and missing values due to sending or receiving errors of the smart meter. When a smart meter fails, always all the measurements of that day are lost. In this Section two methods to impute the missing values are compared. Method Average Neighbours: replaces a missing value by the mean of the consumption values at the same moment on the next and previous days. Method Mean: substitutes the missing values of a time serie by the mean of all the measurements done by the meter. If the next or previous day is also missing in the serie, two days forward or back in time are used to replace the unknown day and so on. The resulting imputed signals can be seen in Figure \ref{fig:missing_values_imputing}. \\
 
+\begin{figure}[h]
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{mv_mean.png}
+		\caption{Mean}
+	\end{subfigure}	
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=1\linewidth]{mv_s.png}
+		\caption{Average Neighbours}
+	\end{subfigure}
+	\caption{Resulting time serie of the month March after imputation of the missing data.}
+	\label{fig:missing_values_imputing}
+\end{figure}
 
-
-
-
- Two methods to impute the missing values are compared. Method one substitutes the missing values of a time-serie by the mean of all the measurements done by the meter. Method two replaces the missing values by the mean consumption value of the same moment on the next and previous day. If the next or previous day is also missing, the closest known day is used. The resulting signals can be seen in Figure \ref{fig:mv_mean} and Figure \ref{fig:mv_s} in appendix \ref{app:A}.\\
- 
-
-In order to ascertain which method of the two performs the best, a reference dataset is needed in order to compare the estimated with the true values of the missing measurements. From the original dataset which contain $ 3248 $ meters it was found that for $ 181 $ meters the month March was given without missing data. These $ 181 $ complete signals of the month March are used as reference dataset. In order to create the test data in each of the $ 181  $ meter signals $ 7 $ random days of the month March were removed and estimated by the earlier two methods. The normalized mean square errors, $ MSE_{AN} $ and $ MSE_{mean} $ given by $ \sum_{i=1}^{D} e_i^2  $ and normalized by $ MSE_{mean} $ are given in Figure \ref{fig:mv_result}.
+In order to compare how accurate both methods impute missing values, 181 months of March without any missing values were used and in each month randomly 7 days were removed. After applying both imputation methods, the resulting estimated signal was compared with the original one and an error value between both signals is calculated, using the mean squared error metric. Normalization is done by dividing the calculated MSE's by the MSE of the worst performing method to calculate the percentage of improvement of one method in comparison to the other. Figure \ref{fig:mv_result} shows that on average, a reduction of the MSE of more then $ 20\% $ is achieved when the average neighbours method is used in comparison to the mean method. Therefore, the average neighbours method will be applied to impute the missing values of the 261 time series with a full year of smart meter measurements. The only exception is made when the first of January and thirty-one December are imputed. Because not both neighbouring days can be known, the mean method is used.
 
 \begin{figure}[h!]
 	\centering
@@ -77,9 +83,6 @@ In order to ascertain which method of the two performs the best, a reference dat
 	\label{fig:mv_result}
 \end{figure}
 
-From Figure \ref{fig:mv_result} it can be seen that using method $ 2 $ which estimates the missing values by the mean consumption value of the same moment on the next and previous day, outperforms method $ 1 $ which takes the mean of the signal. Therefore, all the missing values in the consumption dataset are estimated using method $ 2 $ with the only exception the first of January and thirty-one December. If one of these two days are missing, the method $ 1 $ is used because of the absence of two neighbouring days. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Zero days}
 
