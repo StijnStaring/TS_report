@@ -40,7 +40,7 @@ Also, the two best baseline models ``mean forecast'' and ``MAPE forecast'', that
 
 The baseline models and the LSTM neural networks both belong to a different group of models respectively to the lazy models and eager models. A lazy model only looks at the data when the query is known i.e. what day to forecast. For example a ``mean forecast'' looks after it knows which day to forecast to the same weekdays and takes the average. In comparison an eager model already makes generalizations on a training set before it knows which day it has to predict. This applies to the LSTM models.\\
 
-Model 1 and Model 2 make use of a lag value of $ 48 $ or $ 96 $ and no seeding. When the day after a missing day(s) is predicted the inputs used during prediction could originate entirely from an estimated reference signal for the missing day(s). If this is the case, it is expected that the error on the desired day will be larger. The estimation of the reference signal is done by substituting the missing values as described in Section \ref{s:preprocessing}. For both Serie 1 and Serie 2 there are $ 8 $ missing days in the test set.
+Model 1 and Model 2 make use of a lag value of $ 48 $ or $ 96 $ and no seeding. When the day after a missing day(s) is predicted the inputs used during prediction could originate entirely from an estimated reference signal for the missing day(s). If this is the case, it is expected that the error on the desired day will be larger. The estimation of the reference signal is done by substituting the missing values as described in Section \ref{s:Preprocessing_cha4} For both Serie 1 and Serie 2 there are $ 8 $ missing days in the test set.
 
 \begin{figure}[h]
 	\centering

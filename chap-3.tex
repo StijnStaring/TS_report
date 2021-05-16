@@ -1,8 +1,8 @@
 \chapter{Forecasting the electricity consumption of individual households}
 \label{cha:Forecasting the daily electricity consumption}
-In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
+In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing_cha4}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
  
-\section{Preprocessing}\label{s:Preprocessing}
+\section{Preprocessing}\label{s:Preprocessing_cha4}
 The available raw data is summarized by Table \ref{tab:available_data}. 
 Three series are selected from the \textit{consumption.csv} for which the important characteristics are summarized by Table \ref{tab:summ_data}. The chosen time series have the least amount of missing data and don't contain large shifts of the mean consumption during the year. Figure \ref{fig:three_series} shows the electrical consumption of the three selected series. The validation set used during the parameter search consists out of the $ 10 $ last days in November. Only $ 10 $ days are selected to reduce the amount of predictions the models have to calculate. Also, these days don't contain any missing values for the three series. The months January till  November compose the training set and December is taken as test set.\\ 
 The corresponding average temperature series are also used. They don't contain any missing values.
@@ -51,7 +51,7 @@ The corresponding average temperature series are also used. They don't contain a
 
 During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Analysis}. Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
-\section{Error metrics}
+\section{Error metrics}\label{s:Error metrics}
 The metrics that can be used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
 
 \begin{equation}\label{eq:MSE}
@@ -66,7 +66,7 @@ The metrics that can be used to evaluate the performance of predictions are  RMS
 It is expected that the \textit{MAE} penalizes outliers less severe than \textit{MSE}, which takes the error squared. Therefore, using the \textit{MSE} metric, more emphasize is put on predicting the peaks of the reference signal correctly with respect to \textit{MAE}. The advantage of using  RMSE  and MAE  is that they both have an error in kWh which is intuitive.  NRMSE  and  MAPE  take the reference signal into account. NRMSE  gives a bigger error, when the reference signal has a small difference between the $ y_{max} $ and $ y_{min} $.  MAPE  penalizes a small MAE more severe on a small reference value than on a larger one due to the division by $ y $.
 
 
-\section{Microsoft Azure cloud}
+\section{Microsoft Azure cloud}\label{s:Microsoft Azure cloud}
 The calculations executed in this chapter are performed on a virtual machine using the Microsoft Azure services. This was possible because Microsoft provides students with $ \$ 100 $ of free credit. Table \ref{tab:CPU} shows the different features of the CPU/GPU's used during this thesis. 
 
 \begin{table}[hb]
@@ -229,7 +229,7 @@ In Table \ref{tab:summ_data_rel_performance} the overall performance of the base
 \end{table}
 
 
-\section{Deep LSTM models}\label{s:Neural network models}
+\section{Deep LSTM models}\label{s:Deep LSTM models}
 In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forecast of the electrical consumption of an individual household. The advantage of using a ``deep'' architecture is that it can learn load features hierarchically as discussed in \cite{Shi2018}. This means that load features learned in a higher layer will be the combinations of features learned in lower layers.\\
 First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:LSTM_implementation}. Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
 
@@ -296,7 +296,7 @@ Different ways to avoid overfitting can be applied in Keras::
 The  MAE metric is used to evaluate the prediction performance on the validation set during the parameter search in Section \ref{s:Parameter search}. During training the MSE is used in the objective function which is used to derive weight updates.
 
 
-\subsection{Deep LSTM}\label{s:LSTM_implementation}
+\subsection{Developed models}\label{s:Developed models}
 \begin{figure}[ht]
 	\centering
 	\includegraphics[width=1.2\textwidth]{flow_code.png}
