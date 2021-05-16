@@ -18,6 +18,14 @@ Besides of the electricity consumption of the different households, also informa
 
 %After substituting the missing values as discussed in \ref{s:missing_data}, all the available weeks are averaged out over all the $270$ smart meters that contain a full year of measurements. The result is given by Figure \ref{fig:averaged_week}. A difference that with belgian load profiles is the consumption peak after midnight. This is due to the higher use of the electric storage heaters used in the UK. These systems store electric energy when the electric tariff is low e.g. overnight and releases the heat when the tariff is high.
 
+%That the additional missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
+%
+%It can be argued that missing values are not always the result of an error but can be caused by the inhabitants going on a holiday and putting off the power. In this case the nan values contain information 
+%
+%-expected to get more nan values in the summer months. 
+%
+% It should be emphasized that a missing value should not always directly be seen as an error. It can be that the smart meter was put off because the inhabitants were on a holiday for example. The nan values then also gives information about the consumption behaviour, namely that it is possible that the inhabitants go on vacation and the electrical load will in this case normally correspond to a constant base load. However, the assumption is made that in the case of the ``consumption.csv'' missing data corresponds to a sending/receiving error of the smart meter. This assumption is valid because when full year data is assessed, the missing values always perfectly correspond to a day of missing values. It is therefore highly likely that the organizers of the competition manually deleted days in the consumption to increase the difficulty of the forecasting and to model sending/receiving errors of the smart meters. That the missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
+
 \begin{table}
 	\footnotesize
 	\hspace{1cm}
@@ -48,11 +56,14 @@ Besides of the electricity consumption of the different households, also informa
 
 \section{Preprocessing}\label{s:Preprocessing}
 
-Following steps discuss the preprocessing done on the consumption time-series containing measurements for the entire year. 
+Following sections describe the preprocessing applied on the 261  load series containing measurements for the entire year. The preprocessing done here is in preparation of the data analysis of Section \ref{s:Data Analysis}. It must not be confused with the preprocessing done for the three considered load series in Chapter \ref{cha:Forecasting the daily electricity consumption}.
 
 \subsection{Missing data} \label{s:missing_data}
-\textbf{It should be made clear that this section about missing values is only applied during the data analysis.}
-As discussed above the consumption dataset contains additionally to the missing months also missing data due to sending/receiving errors of the smart meters. When this happens the data of the whole day is lost. It should be emphasized that a missing value should not always directly be seen as an error. It can be that the smart meter was put off because the inhabitants were on a holiday for example. The nan values then also gives information about the consumption behaviour, namely that it is possible that the inhabitants go on vacation and the electrical load will in this case normally correspond to a constant base load. However, the assumption is made that in the case of the ``consumption.csv'' missing data corresponds to a sending/receiving error of the smart meter. This assumption is valid because when full year data is assessed, the missing values always perfectly correspond to a day of missing values. It is therefore highly likely that the organizers of the competition manually deleted days in the consumption to increase the difficulty of the forecasting and to model sending/receiving errors of the smart meters. That the missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
+As discussed in Section \ref{s:Data description}, there exists two types of missing data in the Consumption csv file as was stated in the data description of the competition: fully missing months, due to the later participation to the measuring campaigns and missing values due to sending or receiving errors of the smart meter. When a smart meter fails, always all the measurements of that day are lost. 
+
+
+
+
 
  Two methods to impute the missing values are compared. Method one substitutes the missing values of a time-serie by the mean of all the measurements done by the meter. Method two replaces the missing values by the mean consumption value of the same moment on the next and previous day. If the next or previous day is also missing, the closest known day is used. The resulting signals can be seen in Figure \ref{fig:mv_mean} and Figure \ref{fig:mv_s} in appendix \ref{app:A}.\\
  
