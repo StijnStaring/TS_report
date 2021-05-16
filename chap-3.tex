@@ -1,4 +1,4 @@
-\chapter{Forecasting the daily electricity consumption}
+\chapter{Forecasting the electricity consumption of individual households}
 \label{cha:Forecasting the daily electricity consumption}
 In this chapter different forecasting techniques to perform 24 hours ahead predictions for individual household electrical consumption are discussed. The time series have a half hourly frequency, which means that $ 48 $ data points have to be estimated during each prediction of a day. The day we want to forecast is further indicated as the ``desired day''. First the raw data is introduced and preprocessing steps done are explained in Section \ref{s:Preprocessing}. Section \ref{s:Baseline models} presents the baseline models. These models are implemented using a straightforward approach. They serve as a benchmark for more complex models in Section \ref{s:Neural network models}. ``Long Short-Term Memory'' neural networks are most suitable to process time series and have therefore been chosen as the core model which is analysed with different design choices. Finally, a parameter search is conducted which consists of analysing the best parameters for optimal results.
  

@@ -1,11 +1,11 @@
-\chapter{Data exploration}
+\chapter{Exploratory Data Analysis}
 \label{cha:Data analysis}
 In this chapter details of the dataset are introduced and an analysis is performed. Things discussed about the dataset concern assessing missing data, removing zero days, normalizing the data and removing time-series with identified fundamental changes The analysis looks at the seasonality,  influence of temperature, comparing weekdays with weekends, impact of holidays and the driving households characteristics. Finally the definition of a suitable baseline model is given, which will be used during the evaluation with more elaborate models in chapter \ref{cha:Evaluating results}.
 
 % Look at the comments during the meeting 'writing the WTK thesis'.
 % Make sure that write every part sufficient substantiated.
 
-\section{Data description}
+\section{Data description}\label{s:Data description}
 % how the dataset is made up --> use the information of the competition.
 \textbf{update pictures}
 The data that is used in this thesis is made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. It consists out of data from smart meters about the 1/2 hour granulated electricity consumption of $3248$ households located in the United Kingdom in the year $2017$. The definition of a household are all the people who occupy a single housing unit, regardless of their relationship to one another. Each smart meter collected thus a total of $17520$ measurements that are performed by the the leading international energy provider, E.ON UK plc. Not all the $3248$ smart meters consist of full data as can be seen in Figure \ref{fig:amountNaN} in appendix \ref{app:A}. It can be clearly seen that there are $12$ steps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined at different times during the year. Additionally, missing values are introduced due to errors in sending/receiving from smart meters.\\
@@ -51,7 +51,7 @@ Because of the additional information about the attributes that are summed up in
 \end{itemize}
 
 
-\section{Preprocessing}
+\section{Preprocessing}\label{s:Preprocessing}
 
 Following steps discuss the preprocessing done on the consumption time-series containing measurements for the entire year. 
 
@@ -105,7 +105,7 @@ Normalization is necessary because while absolute consumption differs, relative 
 	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}.
 \end{equation} 
 
-As discussed in section \ref{s:Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
+As discussed in section \ref{s:Data Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
 
 
 \subsection{Removing of fundamental changes in the consumption load} 
@@ -128,7 +128,7 @@ These changes are identified by looking at the maximum difference of the minimum
 
 %\cite{NarjesFallah2018}
 
-\section{Analysis}\label{s:Analysis}
+\section{Data Analysis}\label{s:Data Analysis}
 % Aggregation of the different signals is necessary in order to be able to make predictions.
 Finally, the average is taken over all the remaining $256$ time-series to obtain a single signal. This is done to investigate the dependency of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be discussed that will be used as null-hypothesis in chapter \ref{cha:Evaluating results} to assess if the developed models lead to an improvement.
 
@@ -294,6 +294,7 @@ Similar as was done in Figure \ref{fig:bp_dwellingtype} is also done for the oth
 
 
 \section{Conclusion}
+\textbf{Write a conclusion}
 The final section of the chapter gives an overview of the important results
 of this chapter. This implies that the introductory chapter and the
 concluding chapter don't need a conclusion.
