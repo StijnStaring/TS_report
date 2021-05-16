@@ -1,54 +1,49 @@
 \chapter{Exploratory Data Analysis}
 \label{cha:Data analysis}
-In this chapter details of the dataset are introduced and an analysis is performed. Things discussed about the dataset concern assessing missing data, removing zero days, normalizing the data and removing time-series with identified fundamental changes The analysis looks at the seasonality,  influence of temperature, comparing weekdays with weekends, impact of holidays and the driving households characteristics. Finally the definition of a suitable baseline model is given, which will be used during the evaluation with more elaborate models in chapter \ref{cha:Evaluating results}.
+This chapter starts by describing the dataset were the exploratory data analysis will be performed on in Section \ref{s:Data description}. Next, the preprocessing steps done before the data analysis are explained in Section \ref{s:Preprocessing}. The preprocessing steps consists out of handling missing data, identifying zero days, normalization and removing time series with a big shift in its rolling mean for all the 261 load series with a full year of smart meter measurements. In Section \ref{s:Data Analysis} follows a data analysis on the preprocessed data. For this all the 261 load series with a full year of smart meter measurements are aggregated to identify general characteristics of the data. Things of the aggregated load serie that are assessed are seasonality, comparing electrical consumption between weekdays and weekends, impact of an holiday, the influence of the temperature and the identification of the influence of properties of the household e.g. dwelling type. This last part was possible due to the availability of extra information through a voluntary questionnaire.
 
-% Look at the comments during the meeting 'writing the WTK thesis'.
-% Make sure that write every part sufficient substantiated.
 
 \section{Data description}\label{s:Data description}
-% how the dataset is made up --> use the information of the competition.
-\textbf{update pictures}
-The data that is used in this thesis is made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. It consists out of data from smart meters about the 1/2 hour granulated electricity consumption of $3248$ households located in the United Kingdom in the year $2017$. The definition of a household are all the people who occupy a single housing unit, regardless of their relationship to one another. Each smart meter collected thus a total of $17520$ measurements that are performed by the the leading international energy provider, E.ON UK plc. Not all the $3248$ smart meters consist of full data as can be seen in Figure \ref{fig:amountNaN} in appendix \ref{app:A}. It can be clearly seen that there are $12$ steps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined at different times during the year. Additionally, missing values are introduced due to errors in sending/receiving from smart meters.\\
-Next to the electricity consumption of the different households, also information is available about the average, minimum and maximum temperature of the day on the location of the smart meter. This data is available at a daily resolution. Also, through voluntary surveys, incomplete information is collected about $2143$ smart meters. This concerns e.g. dwelling type, number of occupants, number of bedrooms etc. Table \ref{tab:attributes} displays all the attributes in appendix \ref{app:A}.\\
+The data used in this thesis was made available for the \href{https://ieee-dataport.org/competitions/ieee-cis-technical-challenge-energy-prediction-smart-meter-data}{IEEE-CIS technical challenge on energy prediction from smart data}. The dataset consists of load signals with time steps of 30 minutes of 3248 households located in the UK during the year 2017. Only households are considered and no The definition of an household are all the people who occupy a single housing unit, regardless of their relationship to one another. Each smart meter is property of E.ON UK and can collect a maximum  of $17520$ measurements during the year 2017.
+ Not all the $3248$ smart meters consist out of full data as can be seen in Figure \ref{fig:amountNaN}. It can be clearly seen that there are $12$ jumps in the amount of missing values. This is because the available data ranges from one month (only December) to a full year of data. This acknowledges that customers may have joined the measuring campaign at different times during the year. There are additional missing values in the time series due to sending or receiving errors of the smart meter.\\
+ 
+ \begin{figure}[h!]
+ 	\centering
+ 	\includegraphics[width=0.8\textwidth]{amountNaN.png}
+ 	\caption{The amount of NaN values in all the 3248 load signals.}
+ 	\label{fig:amountNaN}
+ \end{figure}
+
+Besides of the electricity consumption of the different households, also information is available about the average, minimum and maximum temperatures on a daily resolution. Finally, extra household information has been partially collected about 2143 households through voluntary surveys. This concerns the dwelling type, number of occupants, number of bedrooms etc. as further detailed in Table \ref{tab:attributes}. From the questionnaire it can be derived that the maximum amount of residents is 4 and there is a maximum amount of bedrooms of 5. The kind of house units are: flat, bungalow, detached house, semi detached house and terraced house. Industrial loads or small businesses e.g. a bakery is not considered. The available datasets and their features are summarized by Table \ref{tab:available_data}.\\
 
 %After substituting the missing values as discussed in \ref{s:missing_data}, all the available weeks are averaged out over all the $270$ smart meters that contain a full year of measurements. The result is given by Figure \ref{fig:averaged_week}. A difference that with belgian load profiles is the consumption peak after midnight. This is due to the higher use of the electric storage heaters used in the UK. These systems store electric energy when the electric tariff is low e.g. overnight and releases the heat when the tariff is high.
 
 \begin{table}
 	\footnotesize
 	\hspace{1cm}
-	\begin{tabular}[t]{@{}ll}\hline
-		\textbf{consumption.csv}&\\ \hline
+	\begin{tabular}[h]{@{}ll}\hline
+		\textbf{Consumption.csv}&\\ \hline
 		\# households &3248 \\ 
-		information & electric load\\
-		measurements & 17520\\
-		granularity&$ \frac{1}{2} $hour\\ 
-		timespan&year 2017 \\    
-		location&UK\\ \bottomrule   
+		Information & Electric load\\
+		Max measurements/serie & 17520\\
+		Granularity&$ 1/2$ hour\\ 
+		Timespan&year 2017 \\    
+		Location&UK\\ \bottomrule   
 	\end{tabular}
 	\hspace{2cm}
 	\begin{tabular}[t]{@{}ll}\hline
-		\textbf{weather.csv}&\\ \hline
-		information & average temperature\\
-		& max temperature\\
-		& min temperature\\
-		granularity& daily\\ \hline \hline
+		\textbf{Weather.csv}&\\ \hline
+		Information & Average temperature\\
+		& Max temperature\\
+		& Min temperature\\
+		Granularity& daily\\ \hline \hline
 		\textbf{addInfo.csv}&\\ \hline
 		\# households &2143 \\ \bottomrule		    
 	\end{tabular}
 	\hfill
-	\caption{Table with information about the characteristics of the available datasets.}
+	\caption{Summary of the available datasets form the IEEE-CIS technical challenge on energy prediction from smart data.}
 	\label{tab:available_data}
 \end{table}
-
-Because of the additional information about the attributes that are summed up in Table \ref{tab:attributes}, it can be better understood what kind of households are included in the consumption.csv. It is assumed that all the loads are measured form households of the type listed below and each household is made up of maximum four persons and has a maximum of five bedrooms. industrial loads or small businesses, a bakery for example, are not considered.
-
-\begin{itemize}
-	\item flat
-	\item bungalow
-	\item detached house
-	\item semi-detached house
-	\item terraced house
-\end{itemize}
 
 
 \section{Preprocessing}\label{s:Preprocessing}
@@ -108,7 +103,7 @@ Normalization is necessary because while absolute consumption differs, relative 
 As discussed in section \ref{s:Data Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
 
 
-\subsection{Removing of fundamental changes in the consumption load} 
+\subsection{Shifts in rolling mean of load signal} \label{s:Shifts in rolling mean of load signal}
 % want to do assumption that there is no fundamental change in training data.
 After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamental_change} in appendix \ref{app:A}.
 These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature and previous present appliances, it is assumed that a fundamental change in electricity consumption took place. 
