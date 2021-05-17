@@ -16,20 +16,10 @@ The data used in this thesis was made available for the \href{https://ieee-datap
 
 Besides of the electricity consumption of the different households, also information is available about the average, minimum and maximum temperatures on a daily resolution. Finally, extra household information has been partially collected about 2143 households through voluntary surveys. This concerns the dwelling type, number of occupants, number of bedrooms etc. as further detailed in Table \ref{tab:attributes}. From the questionnaire it can be derived that the maximum amount of residents is 4 and there is a maximum amount of bedrooms of 5. The kind of house units are: flat, bungalow, detached house, semi detached house and terraced house. Industrial loads or small businesses e.g. a bakery is not considered. The available datasets and their features are summarized by Table \ref{tab:available_data}.\\
 
-%After substituting the missing values as discussed in \ref{s:missing_data}, all the available weeks are averaged out over all the $270$ smart meters that contain a full year of measurements. The result is given by Figure \ref{fig:averaged_week}. A difference that with belgian load profiles is the consumption peak after midnight. This is due to the higher use of the electric storage heaters used in the UK. These systems store electric energy when the electric tariff is low e.g. overnight and releases the heat when the tariff is high.
-
-%That the additional missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
-%
-%It can be argued that missing values are not always the result of an error but can be caused by the inhabitants going on a holiday and putting off the power. In this case the nan values contain information 
-%
-%-expected to get more nan values in the summer months. 
-%
-% It should be emphasized that a missing value should not always directly be seen as an error. It can be that the smart meter was put off because the inhabitants were on a holiday for example. The nan values then also gives information about the consumption behaviour, namely that it is possible that the inhabitants go on vacation and the electrical load will in this case normally correspond to a constant base load. However, the assumption is made that in the case of the ``consumption.csv'' missing data corresponds to a sending/receiving error of the smart meter. This assumption is valid because when full year data is assessed, the missing values always perfectly correspond to a day of missing values. It is therefore highly likely that the organizers of the competition manually deleted days in the consumption to increase the difficulty of the forecasting and to model sending/receiving errors of the smart meters. That the missing values correspond to sending/receiving errors is also stated in the data description of the competition.\\
-
-\begin{table}
-	\footnotesize
-	\hspace{1cm}
-	\begin{tabular}[h]{@{}ll}\hline
+\begin{table}[h]%\[!htb\]	
+	\raggedright
+	\begin{tabular}[t]{@{}ll}
+		\firsthline
 		\textbf{Consumption.csv}&\\ \hline
 		\# households &3248 \\ 
 		Information & Electric load\\
@@ -38,20 +28,23 @@ Besides of the electricity consumption of the different households, also informa
 		Timespan&year 2017 \\    
 		Location&UK\\ \bottomrule   
 	\end{tabular}
-	\hspace{2cm}
-	\begin{tabular}[t]{@{}ll}\hline
+	\hfill
+	\raggedleft
+	\begin{tabular}[t]{@{}ll}
+		\firsthline
 		\textbf{Weather.csv}&\\ \hline
 		Information & Average temperature\\
 		& Max temperature\\
 		& Min temperature\\
-		Granularity& daily\\ \hline \hline
+		Granularity& daily\\ \hline
 		\textbf{addInfo.csv}&\\ \hline
 		\# households &2143 \\ \bottomrule		    
-	\end{tabular}
-	\hfill
-	\caption{Summary of the available datasets form the IEEE-CIS technical challenge on energy prediction from smart data.}
+	\end{tabular}\\
+	\caption{Summary of the available csv files form the IEEE-CIS technical challenge.}
 	\label{tab:available_data}
 \end{table}
+
+
 
 
 \section{Preprocessing}\label{s:Preprocessing}
@@ -83,95 +76,98 @@ In order to compare how accurate both methods impute missing values, 181 months 
 	\label{fig:mv_result}
 \end{figure}
 
+%Actually, used the missing values a bit at random. First imputed the missing values using the average neighbours method and later during the forecasting phase, used different imputation techniques that were not compared with the initial imputation techniques.
+
 
 \subsection{Zero days}
 
-When processing the consumption data, some untraditional meter measurements were identified. For example there were $ 9 $ meters that had multiple days with zero day consumption measurements. Because it is unlikely that a household produces exactly zero kWh on a day all these $ 9 $ meters were removed. The consumption time-serie of one of the meters is displayed in Figure \ref{fig:zero_con} in appendix \ref{app:A}.\\
+When inspecting the load series, some untraditional meter measurements were identified. There were $ 9 $ meters of the 261 that had more than one day with a total electrical consumption of zero. Because it is unlikely that a household produces exactly zero kWh on an entire day all these $ 9 $ meters were removed. One of 9 load series is compared in Figure \ref{fig:zero_con} with a load serie with zero days and it is clear that the horizontal lines are not part of a normal household load signal.
 
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.6\textwidth]{zero_con.png}
-	\vspace*{-5pt}
-	\caption{One of the $9$ identified meters with multiple zero daily consumptions}
+\begin{figure}[ht]
+	\begin{subfigure}{0.49\textwidth}
+		\vspace{4mm}
+		\includegraphics[width=1\linewidth]{zero_days.png}
+		\caption{Serie with more than one day with zero consumption.}
+	\end{subfigure}	 	
+	\begin{subfigure}{0.49\textwidth}
+		\includegraphics[width=1\linewidth]{without_zero_days.png}
+		\caption{Serie $ 2 $ from Chapter \ref{cha:Forecasting the daily electricity consumption}.}
+	\end{subfigure}	
+	\caption{Comparison of series with and without zero load days.}
 	\label{fig:zero_con}
 \end{figure}
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Also, there has been looked if there were fundamental changes in the electricity consumption of certain meters. This is further discussed in section \ref{s:Removing of fundamental changes in the consumption load}.
-
-
 \subsection{Normalization of the data}
 \label{s:Normalization of the data}
-\textbf{it should be made clear that this normalization is only here used.}
 % normalize as done in ppt --> deviding by the yearly consumption.
 % downside of this normalilzation that outshooters will have influence.
-Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour are more similar \cite{Lago2020}. The patterns in the human behaviour is what a forecasting model is trying to predict and normalization contributes by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every individual household time-serie is normalized based on its yearly consumption as was done in \cite{Lago2020}. The advantage of using the yearly consumption to normalize in comparison of the minimum and maximum values, is the robustness against measurements out shooters and every smart meter has a total consumption of one at the end of the year
+Normalization is necessary because while absolute consumption differs, relative patterns of human behaviour can be more similar according to \cite{Lago2020}. The goal of a forecasting model applied on an individual household is to extract the human behaviour and normalization contributes to this by avoiding the disturbance of different magnitudes in which this human pattern may occur. Every load serie is normalized based on its yearly consumption as was done by \cite{Lago2020}. The advantage of using the yearly consumption for normalization in comparison to the min-max method often used in literature, is the robustness against measurement outliers. This is important because in Section \ref{s:Data Analysis} all the 261 time series will be aggregated, which means that when a serie has only one very large outlier, the rest of its consumption values will be observed as small values in comparison with other series without a very large outlier. This is avoided when using the yearly consumption normalization where every load serie will be one at the end of the year as shown by Eq. \ref{eq:norm}. This allows for better comparison among the different series. The min-max normalization method is however used in Chapter \ref{cha:Forecasting the daily electricity consumption}, but here the series are always assessed individually
 
 \begin{equation}\label{eq:norm}
-	normalized\hspace{0.3cm} value = \frac{consumption_i}{\sum_{n=1}^{17520} consumption_i}.
+	normalized\hspace{0.3cm} consumption_i = \frac{consumption_i}{\sum_{k=1}^{17520} consumption_k}.
 \end{equation} 
-
-As discussed in section \ref{s:Data Analysis} the average is taken over all the normalized time-series to obtain a single signal.  
 
 
 \subsection{Shifts in rolling mean of load signal} \label{s:Shifts in rolling mean of load signal}
-% want to do assumption that there is no fundamental change in training data.
-After normalization of all the individual time-series it is looked for fundamental changes in the consumption load due for example when an extra person lives in the house or when systems are installed that use a lot of electricity during the year. An example of such a time-serie can be seen in Figure \ref{fig:fundamental_change} in appendix \ref{app:A}.
-These changes are identified by looking at the maximum difference of the minimum and maximum rolling mean consumption over $ 7 $ days for each individual meter. If this difference can not anymore be explained by the dependency on the temperature and previous present appliances, it is assumed that a fundamental change in electricity consumption took place. 
-%It is desired that the mean consumption doesn't change much during the year. This is because the model that later will be used expects the household situation to be the same for the entire year and the time-series with a fundamental change can thus lead to a disturbance when it is kept in the training data.
- Figure \ref{fig:fund_change} shows all the maximum differences between the minimum and maximum weekly rolling averages. The red line on shows the cutoff and the smart meters above this line are defined as outliers and removed. The definition of an outlier that is used is the one and a half times the interquartile range. In total $ 256 $ smart meters remain. 
-
-%In Figure \ref{fig:f_c} in appendix \ref{app:A} the time-serie with the new maximum difference between the minimum and maximum weekly rolling averages is given.
+In this Section the normalized time series are assessed on fundamental changes in the load signal which can't be explained by normal human behaviour in the current household setting. A fundamental change of the load signal can be caused by an extra inhabitant or when systems are installed during the year that use a lot of electricity e.g. air-conditioning. A fundamental change is identified by looking at the maximum difference of the maximum and minimum rolling mean consumption over $ 7 $ days. Figure \ref{fig:fund_change} shows all the maximum differences between the maximum and minimum weekly rolling averages for the 261 load series. Outliers in the the maximum difference are detected as is done in a boxplot, namely from the third quartile a distance of one and a half times the interquartile range is added and values higher are considered as outliers. The red line in Figure \ref{fig:fund_change} shows when a maximum difference is considered as an outlier. Finally, the outliers which corresponds to 5 load series above the red line, are removed because they are seen as a disturbance when the load signals are aggregated in Section \ref{s:Data Analysis}. Figure \ref{fig:rolling_mean_shift} shows one of the removed load signals. 
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.8\textwidth]{fund_change.png}
-	\caption{The maximum differences between the minimum and maximum weekly rolling averages for all the different time-series.}
+	\caption{The maximum differences between the maximum and minimum weekly rolling mean for all the 261 different load signals.}
 	\label{fig:fund_change}
 \end{figure}
 
 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\textwidth]{fundamental_change.png}
+	\caption{Removed load signal with a shift in the rolling mean.}
+	\label{fig:rolling_mean_shift}
+\end{figure}
 
-%\cite{NarjesFallah2018}
 
 \section{Data Analysis}\label{s:Data Analysis}
-% Aggregation of the different signals is necessary in order to be able to make predictions.
-Finally, the average is taken over all the remaining $256$ time-series to obtain a single signal. This is done to investigate the dependency of the smart meters on seasonality, temperature, weekends and holidays. At the end of this chapter a baseline forecasting will be discussed that will be used as null-hypothesis in chapter \ref{cha:Evaluating results} to assess if the developed models lead to an improvement.
+In this section the remaining $256$ time series are converted to a single load serie by taking the mean. The single load serie is further referenced as the mean signal. This is done to identify general characteristics of the data. Things that are going to be assessed are: seasonality, comparing electrical consumption between weekdays and weekends, impact of an holiday, the influence of the temperature and the influence of properties of the household e.g. dwelling type.
+
 
 % An individual household consumption time-serie is much subdued to complex and personal decisions that cause increases or decreases of the consumption. It is hard to capture all theses effects in a single model. By aggregation of the individual time-series by taking the average, this noisy individual behaviour is mitigated. The aggregated signal is now modelled and the increase or decrease of the consumption can be explained by a small set of variables. The aggregated signal can be seen as a ``virtual distribution substation'' as discussed in \cite{Hoverstad2015}. 
  
-
-
 \subsection{Seasonality}
-In this section the seasonality of the consumption data is discussed. In \cite{Hoverstad2015}it was concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation from the template consumption instead of performing a forecast out of the blue. However in \cite{Hoverstad2015} they made forecasts of an aggregated signal which has a reasonably amount of regularity which is not the case for electrical consumption of individual households. These templates or filters are extracted from the consumption dataset by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter}. $ D $ and $ W $ gives respectively the number of days and weeks in the dataset. $\bar{y}_i$ and $\bar{y}_j$ gives the consumption of half an hour, averaged over respectively all days and weeks. 
+In \cite{Hoverstad2015} it is concluded that all the forecasting algorithms that were considered, produced more accurate forecasts when they were combined with a preprocessing stage that extracted the seasonality before forecasting, compared to applying the same algorithms directly on raw data. The forecasting model is left with the task of modelling the deviation from the template consumption instead of performing a forecast out of the blue. However in \cite{Hoverstad2015} they made forecasts of an aggregated signal which had a reasonable amount of regularity which is not the case for electrical consumption forecasting of individual households. That it is not useful to extract a regular pattern is in accordance to \cite{Shi2018}, where it is explained that the use of a spectral analysis such as a wavelet analysis, that aims at separating the regular pattern from the uncertainty and the noise, is not applicable during load forecasting of individual households due to the low amount of regularity. However, the analyses of the seasonality of the mean signal is still informative to get a feeling of the general human behaviour.\\
+
+These day and week templates are extracted from the mean signal by the use of equations \ref{eq:daily_filter} and \ref{eq:weekly_filter} that calculate respectively the average day and week indicated by a thick blue line in Figure \ref{fig:average_signals}.
 
 \begin{equation}\label{eq:daily_filter}
-	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{di}, \hspace{10mm} i \in [1,48],
+	\bar{y}_i = \frac{1}{D} \sum_{d=1}^D y_{d,i}, \hspace{10mm} i \in [1,48],
 \end{equation} 
 
 \begin{equation}\label{eq:weekly_filter}
-	\bar{y}_j = \frac{1}{W} \sum_{w=1}^W y_{wj}, \hspace{10mm}  j \in [1,336].
+	\bar{y}_j = \frac{1}{W} \sum_{w=1}^W y_{w,j}, \hspace{10mm}  j \in [1,336].
 \end{equation} 
 
-
-
-Figure \ref{fig:daily_filter} shows the daily filter in appendix \ref{app:A}. Figure \ref{fig:weekly_filter} shows the weekly filter.
+ $ D $ and $ W $ give respectively the amount of days and weeks in the year 2017. $\bar{y}_i$ and $\bar{y}_j$ give the consumption of half an hour, averaged over respectively all days and weeks. In Figure \ref{fig:average_signals} a clear consumption peak can be seen after midnight. This is due to heat storage systems that use electricity in the hours of low tariff and that release heat during high electricity tariffs. The daily seasonality shows a small peak in the load around 7 am and a bigger one around 6 pm. In the weekly seasonality it can be seen that all the peaks at 6 pm are of the same height but the smaller peak is different depending if it is a weekday or weekend as will be further explained in Section \ref{s:Comparing weekdays with weekends}. 
 
 \begin{figure}[h!]
-	\centering
-	\includegraphics[width=0.8\textwidth]{weekly_filter.png}
-	\caption{The seasonality of the electrical load during the week. The blue line shows the average week over all weeks in $ 2017 $. }
-	\label{fig:weekly_filter}
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{daily_filter.png}
+		\caption{Daily seasonality}
+	\end{subfigure}	 	
+	\begin{subfigure}{1.0\textwidth}
+		\centering
+		\includegraphics[width=0.7\linewidth]{weekly_filter.png}
+		\caption{Weekly seasonality}
+	\end{subfigure}	
+	\caption{The seasonality of the electrical load during the year 2017. The blue line indicates the average load signal. }
+	\label{fig:average_signals}
 \end{figure}
+
 
 % plot the moving average of the year. Clearly see the impact of the summer and winter.
 % This is a trend that can be taken into account when predicting.
 
 
-In the daily and weekly filters there can clearly be seen a consumption peek after midnight. This is due to heat storage systems that use electricity in the hours of low tariff and that release heat during high electricity tariffs. 
 
 \subsection{Comparing weekdays with weekends} \label{s:Comparing weekdays with weekends}
 Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. The reader is reminded that in order to get this graph, all the remaining household loads after preprocessing are averaged after which all the weeks are again averaged using equation \ref{eq:weekly_filter}. It can be seen that the consumption of the average business day is similar to a weekend day concerning the two main peaks during the day (7 am and 6 pm) and the sharp peak at midnight. However, it can be seen that the first peak during the day is higher and goes less down again during the weekend. This effect can be seen both during a Sunday and Saterday, but is most visible during a sunday. To proof previous statements similarity is measured by calculating the hourly difference of the $ 21 $ combinations that can be made of two different days. Figure \ref{fig:similarity_weekday} shows in blue and orange the error of combinations between business days or weekend days and in green the error of combinations between a business day and weekend day. The error value is calculated by summing the hourly errors between two days. It can be clearly seen that when a business day and weekend day are combined the error (green) is bigger and thus similarity smaller. Another thing that can be noticed is that the left cluster of green dots corresponds to a Saterday and the right to a Sunday. It can be noticed that Saterdays are more similar to a business day than a Sunday. 
@@ -182,6 +178,8 @@ Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_fil
 	\caption{Error between different pairs of weekdays.}
 	\label{fig:similarity_weekdays}
 \end{figure}
+
+
 
 
 \textbf{Add here more specific how the error is calculated between holiday and weekday --> MAE and normalized.}
