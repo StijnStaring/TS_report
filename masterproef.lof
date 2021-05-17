@@ -19,8 +19,8 @@
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Removed load signal with a shift in the rolling mean.\relax }}{12}{figure.caption.17}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces The seasonality of the electrical load during the year 2017. The blue line indicates the average load signal. \relax }}{14}{figure.caption.18}%
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Error between different pairs of weekdays.\relax }}{15}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Figure with the comparison between holidays and business days.\relax }}{16}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Error between a holiday and other days of the week.\relax }}{17}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Comparison between bank holiday and business day electrical consumption.\relax }}{16}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Error between a bank holiday and other days of the week.\relax }}{16}{figure.caption.21}%
 \contentsline {figure}{\numberline {2.11}{\ignorespaces Relation between normalized daily consumption and daily temperature.\relax }}{18}{figure.caption.22}%
 \contentsline {figure}{\numberline {2.12}{\ignorespaces Figure with the comparison of the different dwelling types.\relax }}{20}{figure.caption.23}%
 \addvspace {10pt}

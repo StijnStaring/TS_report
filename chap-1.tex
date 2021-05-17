@@ -170,7 +170,7 @@ These day and week templates are extracted from the mean signal by the use of eq
 
 
 \subsection{Comparing weekdays with weekends} \label{s:Comparing weekdays with weekends}
-Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_filter}. The reader is reminded that in order to get this graph, all the remaining household loads after preprocessing are averaged after which all the weeks are again averaged using equation \ref{eq:weekly_filter}. It can be seen that the consumption of the average business day is similar to a weekend day concerning the two main peaks during the day (7 am and 6 pm) and the sharp peak at midnight. However, it can be seen that the first peak during the day is higher and goes less down again during the weekend. This effect can be seen both during a Sunday and Saterday, but is most visible during a sunday. To proof previous statements similarity is measured by calculating the hourly difference of the $ 21 $ combinations that can be made of two different days. Figure \ref{fig:similarity_weekday} shows in blue and orange the error of combinations between business days or weekend days and in green the error of combinations between a business day and weekend day. The error value is calculated by summing the hourly errors between two days. It can be clearly seen that when a business day and weekend day are combined the error (green) is bigger and thus similarity smaller. Another thing that can be noticed is that the left cluster of green dots corresponds to a Saterday and the right to a Sunday. It can be noticed that Saterdays are more similar to a business day than a Sunday. 
+Weekdays and weekends are compared with the help of Figure \ref{fig:average_signals}. It is clear that the consumption of the average business day is similar to a weekend day considering the time of three two peaks each day. There is a morning peak around 7 am, an evening peak around 6pm and a peak after midnight. However, in the weekends, the morning peaks seems to be a little higher and decreases less. The effect can be seen during both weekend days, but is most visible on the Sundays. To prove previous statements, the similarity is assessed by calculating the normalized MAE is calculated for the hourly difference of each combination of 2 days of the week. Normalization is done by dividing the different MAE's by the biggest MAE calculated. Figure \ref{fig:similarity_weekdays} shows in blue and orange the error of combinations between business days or weekend days and in green the error of combinations between a business day and weekend day. It can be clearly seen that when a business day and weekend day are combined (green) the error is larger and thus more dissimilar. The left cluster of dots corresponds to a Saturday that is combined with a weekday and the right cluster corresponds to a Sunday combined with a weekday. It can be noticed that Saturdays are more similar to a business day than a Sundays. 
 
 \begin{figure}[h!]
 	\centering
@@ -179,28 +179,21 @@ Weekdays vs weekends can be compared with the help of Figure \ref{fig:weekly_fil
 	\label{fig:similarity_weekdays}
 \end{figure}
 
-
-
-
-\textbf{Add here more specific how the error is calculated between holiday and weekday --> MAE and normalized.}
-
-\subsection{Impact of holidays}\label{s:Impact of holidays}
+\subsection{Impact of bank holidays}\label{s:Impact of holidays}
 % important that look at holidays in the UK. In paper \cite{Hoverstad2015} all the holydays are subsitued by the same day the next week and the previous week. It is possible to look at all the holidays, normalize them concerning temperature and try to get a seasonality model. 
-In order to look at the impact of a holiday, all the holidays of the English and welsh holiday calendar are identified for the year $ 2017 $. For each of the $ 8 $ holidays a corresponding business day is selected with an as close as possible average temperature of the day. This is done to mitigate the temperature dependency. The resulting average holiday and business day is given in Figure \ref{fig:bvsh}. A holiday behaves similar to a weekend day with the first peak load going higher and goes less down over time. Figure \ref{fig:sim_weekdays} shows that a holiday behaves the most similar to a Sunday .
-
-It can be seen that the consumption of a holiday behaves similar as a weekend day. Figure shows the average error between a holiday vs business day and a holiday vs weekend day. The error is calculated as discussed in section \ref{s:Comparing weekdays with weekends}. 
+In order to look at the impact of a bank holiday, all the holidays of the English and Welsh calendar are identified for the year $ 2017 $. For each of the $ 8 $ bank holidays a corresponding business day is selected with an in euclidean distance as close as possible average temperature of the day. Therefore, mitigating the temperature influence. Note that each of the 8 holidays or business days are from the mean signal and they therefore are already averaged over 256 load signals. The 8 bank holidays and business days are averaged to obtain Figure \ref{fig:bvsj}. It is observed that a bank holiday behaves similarly to a weekend day which means a higher morning peak that decreases less. Figure \ref{fig:sim_weekdays} illustrates the similarity between a holiday and the days of the week. The error is calculated as the MAE of the hourly difference between the average day of the week and holiday. It can be seen that a bank holiday behaves most similarly to a Sunday.
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=0.8\textwidth]{bvsh.png}
-	\caption{Figure with the comparison between holidays and business days.}
+	\includegraphics[width=0.6\textwidth]{bvsh.png}
+	\caption{Comparison between bank holiday and business day electrical consumption.}
 	\label{fig:bvsh}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
-	\includegraphics[width=1.0\textwidth]{sim_weekdays.png}
-	\caption{Error between a holiday and other days of the week.}
+	\includegraphics[width=1.0\textwidth]{similarity.png}
+	\caption{Error between a bank holiday and other days of the week.}
 	\label{fig:sim_weekdays}
 \end{figure}
 
@@ -209,18 +202,17 @@ It can be seen that the consumption of a holiday behaves similar as a weekend da
 % notes on correlation see OneNote.
 % use the correlations. https://realpython.com/numpy-scipy-pandas-correlation-python/
 % resample the consumption to daily and then apply some of the correlation techniques. 
-In following section the correlation between the temperature and the electricity consumption is discussed.\\
+In this section the correlation between the temperature and the electricity consumption is discussed.\\
 
 
 \textbf{Pearson correlation}\\
-The Pearson correlation is a measurement of the linear dependency between two variables which is based on the covariance variable. A Pearson correlation value gives information concerning the magnitude of the association and the corresponding direction of it. A Pearson value of one and minus one give respectively a perfect positive and negative linear relation between the variables. A value of zero, corresponds to independent behaviour. Following formula is used when calculating the Pearson correlation
+The Pearson correlation is a measure of the linear dependency between two variables, based on the covariance. A Pearson correlation value gives information concerning the magnitude of the association and the corresponding direction of it. A Pearson value of $ 1 $ and $ -1 $ gives respectively a perfect positive and negative linear relation between the variables. A value of zero, corresponds to independent behaviour. The following formula gives the Pearson correlation
 
 \begin{equation}\label{eq:pearson}
-	\rho_{X,Y} = \frac{\sigma_{x,y}}{\sigma_x\sigma_y}.
+	\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_x\sigma_y}.
 \end{equation}
 
-Assumptions concerning Pearson correlation are that samples used for the correlation should be independent drawn, come in pairs, follow homoscedasticity and there are no outliers. Outliers are especially undesirable when there are not a lot of samples. The variables should be normal distributed, linear related to each other and be continuous.\\
-The samples used for the correlation are generated by calculating the daily consumptions matched with the daily average temperature. In this case the above assumptions are thus not valid. Homoscedasticity is important when performing linear regression and assumes that $ \sigma_x $ and $ \sigma_y $ are constant. This assumption is validated by making use of Figure \ref{fig:pearson}.
+Assumptions concerning the Pearson correlation are that samples used for the correlation should be independently drawn, coming in pairs, following homoscedasticity and there are no outliers. Outliers are especially undesirable when there are not a lot of samples. The variables should be normally distributed, linearly related to each other and be continuous. A normal distribution is necessary otherwise the assumption that a distribution can be described by a mean and variance is violated. The samples used for the correlation are generated by calculating the daily consumptions matched with the daily average temperature of the mean signal. Homoscedasticity is important because Eq. \ref{eq:pearson} assumes that $ \sigma_x $ and $ \sigma_y $ are constant values. The homoscedasticity assumption is validated by making use of Figure \ref{fig:pearson}.
 
 \begin{figure}[h!]
 	\centering
@@ -229,20 +221,19 @@ The samples used for the correlation are generated by calculating the daily cons
 	\label{fig:pearson}
 \end{figure}
 
-This figure shows the classic cone-shaped pattern of heteroscedasticity. On days when it is warm there is overall similar human behaviour in lowering the electricity consumption. However, on colder days the variation in consumption is higher, which means that homoscedasticity is not fulfilled. Because the assumptions of the Pearson correlation are not fulfilled, care should be taken with its output.\\
-
-Applying the Pearson correlation on Figure \ref{fig:pearson} gives a correlation value of $ -0.87 $. This means there is a reasonable linearly decreasing relation.\\
+This figure shows the classic cone-shaped pattern of heteroscedasticity. On days when it is warm there is more similar human behaviour in lowering the electricity consumption. However, on colder days the variation in consumption is higher, which means that homoscedasticity is not perfectly fulfilled. This is a logical result because when it is cold there can be a lot of variation in what extent electricity is used for heating, while when it is warm everybody is likely to turn of the heating. Because the assumptions of the Pearson correlation are not all met, care should be taken with the output. Applying the Pearson correlation on Figure \ref{fig:pearson} gives a correlation value of $ -0.87 $. This means there is a good linear, decreasing relation.\\
 
 
 \textbf{Spearman correlation}\\
-Spearman correlation is a ``Rank correlation''. This means that the ordering of the consumption and temperature in a sample are each compared in their corresponding array of measurements.  When the ordering of both variables in a sample are similar, correlation is strong and positive. If the ordering is reversed, correlation is strong and negative. There is a perfect positive ordering if larger consumption always corresponds to a higher temperature. Notice that for a perfect ordering, no linear relation of the variables is necessary. The Spearman correlation coefficient is calculated using equation \ref{eq:pearson}, but takes into account the rank of a variable in all the measurements of this variable instead of the measurement value itself.\\
+The Spearman correlation is a rank correlation. A sample consists out of a daily consumption value with a corresponding average temperature value.
+The consumption and temperature values belonging to a sample are each compared with respect to all the consumption and temperature values and an ordering is retrieved for both values. When the ordering of both variables in a sample is similar, correlation is strong and positive. If the ordering is reversed, correlation is strong and negative. There is a perfect positive ordering if a larger consumption always corresponds to a higher temperature. Notice that for a perfect ordering, no linear relation of the variables is necessary. The Spearman correlation coefficient is calculated using equation \ref{eq:pearson}, but replaces the values of the variables by the rank of the variables in the a sample.\\
 
-In order to use the spearman correlation data has to be ordinal, which means that it can be ordered. The spearman correlation gives information about the monotonicity relation between the variables. $ \rho = 1 $ corresponds to a monotonically increasing relation.\\
+In order to use the Spearman correlation data has to be ordinal, which means that it can be ordered. The Spearman correlation gives information about the monotonicity relation between the variables. $ \rho = 1 $ corresponds to a monotonically increasing relation.\\
 
-Applying the Spearman correlation  gives a correlation value of $ -0.89$, which means there is a good negative monotone relation. This means if the temperature is higher, consumption is likely to be lower. Identically, if the temperature is lower it is likely that the consumption will be higher. \\
+Applying the Spearman correlation  gives a correlation value of $ -0.89$, which means there is a large negative monotone relation. This means if the temperature is higher, consumption is likely to be lower and the . Identically, if the temperature is lower it is likely that the consumption will be higher and vice versa. This confirms the conclusions from the Pearson correlation.\\
 
-\textbf{Kendal correlation}
-The ``Kendal correlation'' is also a rank based correlation. Here it is looked at the pairs of observation that are concordant, discordant or neither. A correlation coefficient close to one occurs when both variables have the same ranking and similar a coefficient close to minus one occurs when rankings in one variable are the reverse of the other. Equation \ref{eq:kendall} gives the equation to calculate the ``Kendal correlation coefficient''.
+\textbf{Kendal correlation}\\
+The Kendal correlation is also a rank correlation. It is looked how many samples are concordant, discordant or neither when each combination of 2 samples are compared with each other. A concordant pair means that when the consumption value of sample 1 is higher than the consumption value of sample 2, this must also be the case for the temperature values. A discordant pair means that when the consumption value of sample 1 is higher than the consumption value of sample 2, this should be not the case for the temperature. Neither can occur when consumption values or temperature values are equal for the 2 samples. When a Kendal correlation of 1 is retrieved, this means that all samples are concordant and only $ n^+ $ differs from zero. This automatically imposes monotonicity which means that when a consumption value is increased, also the temperature value must be increased. Equation \ref{eq:kendall} gives the equation to calculate the Kendal correlation coefficient. Applying the Kendal correlation  gives a correlation value of $ -0.67$, which again confirms the conclusions from the Pearson correlation.\\
 
 \begin{equation}\label{eq:kendall}
 	\tau = \frac{n^+-n^-}{\sqrt{(n^++n^-+n^x)(n^++n^-+n^y)}}
@@ -258,7 +249,7 @@ The ``Kendal correlation'' is also a rank based correlation. Here it is looked a
 	\item if both $ (x_i = x_j ) $ and $ (y_i = y_j ) $ $\rightarrow $ not included in either $ n^x $ or $ n^y $
 \end{itemize}
 
-Applying the Kendal correlation  gives a correlation value of $ -0.67$, which means there is a reasonable negative monotonicity relation.\\
+
 
 % There is a clear dependency between temperature and electricity consumption, which means that electricity is used for heating.  
 

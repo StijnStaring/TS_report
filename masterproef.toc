@@ -21,9 +21,9 @@
 \contentsline {subsection}{\numberline {2.2.4}Shifts in rolling mean of load signal}{11}{subsection.2.2.4}%
 \contentsline {section}{\numberline {2.3}Data Analysis}{13}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Seasonality}{13}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Comparing weekdays with weekends}{15}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Impact of holidays}{16}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Influence of temperature}{16}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.2}Comparing weekdays with weekends}{14}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Impact of bank holidays}{15}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Influence of temperature}{17}{subsection.2.3.4}%
 \contentsline {subsection}{\numberline {2.3.5}Identification of driving attributes}{19}{subsection.2.3.5}%
 \contentsline {section}{\numberline {2.4}Conclusion}{20}{section.2.4}%
 \contentsline {chapter}{\chapternumberline {3}State of the art short-term residential load forecasting techniques}{21}{chapter.3}%
