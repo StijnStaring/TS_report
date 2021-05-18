@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  18 MAY 2021 18:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  18 MAY 2021 22:20
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1225,11 +1225,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 56
 ("C:\Program Files\MiKTeX\tex/latex/lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (masterproef.aux (intro.aux)
-(chap-1.aux) (chap-2.aux
-
-LaTeX Warning: Label `tab:LSTM_lit_results' multiply defined.
-
-) (chap-3.aux
+(chap-1.aux) (chap-2.aux) (chap-3.aux
 
 LaTeX Warning: Label `fig:model1' multiply defined.
 
@@ -1452,7 +1448,7 @@ Package microtype Info: Character `029' is missing
 
 ]
 (masterproef.lof
-Underfull \vbox (badness 1009) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5
 
@@ -1791,13 +1787,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 180--181
+
+ []
+
 [30]
-<Pictures//pooling_result.png, id=815, 376.40625pt x 255.20343pt>
+<Pictures//pooling_result.png, id=813, 376.40625pt x 255.20343pt>
 File: Pictures//pooling_result.png Graphic file (type png)
 <use Pictures//pooling_result.png>
 Package pdftex.def Info: Pictures//pooling_result.png  used on input line 184.
 (pdftex.def)             Requested size: 398.0pt x 269.86403pt.
-<Pictures//Shi2018_result.png, id=818, 549.55313pt x 499.11469pt>
+<Pictures//Shi2018_result.png, id=816, 549.55313pt x 499.11469pt>
 File: Pictures//Shi2018_result.png Graphic file (type png)
 <use Pictures//Shi2018_result.png>
 Package pdftex.def Info: Pictures//Shi2018_result.png  used on input line 191.
@@ -1807,48 +1808,55 @@ Package pdftex.def Info: Pictures//Shi2018_result.png  used on input line 191.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--203
+Underfull \hbox (badness 10000) in paragraph at lines 200--204
 
  []
 
-[31 <./Pictures//pooling_result.png>] [32 <./Pictures//Shi2018_result.png>]
-<Pictures//prev_appr.png, id=835, 437.38406pt x 349.305pt>
+
+Underfull \vbox (badness 1112) has occurred while \output is active []
+
+ [31 <./Pictures//pooling_result.png>]
+<Pictures//prev_appr.png, id=827, 437.38406pt x 349.305pt>
 File: Pictures//prev_appr.png Graphic file (type png)
 <use Pictures//prev_appr.png>
-Package pdftex.def Info: Pictures//prev_appr.png  used on input line 206.
+Package pdftex.def Info: Pictures//prev_appr.png  used on input line 207.
 (pdftex.def)             Requested size: 398.0pt x 317.85738pt.
 
 
-LaTeX Warning: Reference `tab:CNN-LSTM_results' on page 33 undefined on input l
-ine 213.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-LaTeX Warning: Reference `fig:LSTM-CNN_results' on page 33 undefined on input l
-ine 214.
+LaTeX Warning: Reference `tab:CNN-LSTM_lit_results' on page 32 undefined on inp
+ut line 214.
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 211--215
-
- []
-
-[33 <./Pictures//prev_appr.png>]
-<Pictures//CNN-LSTM_results_F.png, id=848, 709.90219pt x 295.85532pt>
-File: Pictures//CNN-LSTM_results_F.png Graphic file (type png)
-<use Pictures//CNN-LSTM_results_F.png>
-Package pdftex.def Info: Pictures//CNN-LSTM_results_F.png  used on input line 2
-18.
-(pdftex.def)             Requested size: 398.0pt x 165.87195pt.
-<Pictures//CNN-LSTM_results_T.png, id=851, 552.56438pt x 296.60812pt>
+[32 <./Pictures//Shi2018_result.png>]
+<Pictures//CNN-LSTM_results_T.png, id=838, 552.56438pt x 296.60812pt>
 File: Pictures//CNN-LSTM_results_T.png Graphic file (type png)
 <use Pictures//CNN-LSTM_results_T.png>
 Package pdftex.def Info: Pictures//CNN-LSTM_results_T.png  used on input line 2
-25.
+18.
 (pdftex.def)             Requested size: 398.0pt x 213.63914pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[34 <./Pictures//CNN-LSTM_results_F.png>]) [35 <./Pictures//CNN-LSTM_results_T.
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
+
+ []
+
+[33 <./Pictures//prev_appr.png>]
+<Pictures//CNN-LSTM_results_F.png, id=849, 709.90219pt x 295.85532pt>
+File: Pictures//CNN-LSTM_results_F.png Graphic file (type png)
+<use Pictures//CNN-LSTM_results_F.png>
+Package pdftex.def Info: Pictures//CNN-LSTM_results_F.png  used on input line 2
+28.
+(pdftex.def)             Requested size: 398.0pt x 165.87195pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[34 <./Pictures//CNN-LSTM_results_T.png>]) [35 <./Pictures//CNN-LSTM_results_F.
 png>]
 \openout2 = `chap-3.aux'.
 
@@ -1858,7 +1866,7 @@ png>]
 
 
 ]
-<Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png, id=876, 618.390
+<Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png, id=873, 618.390
 3pt x 530.2209pt>
 File: Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png Graphic fil
 e (type png)
@@ -1866,7 +1874,7 @@ e (type png)
 Package pdftex.def Info: Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59f
 e1e.png  used on input line 12.
 (pdftex.def)             Requested size: 127.36292pt x 109.19759pt.
-<Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png, id=877, 625.617
+<Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png, id=874, 625.617
 3pt x 530.2209pt>
 File: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7769.png Graphic fil
 e (type png)
@@ -1874,7 +1882,7 @@ e (type png)
 Package pdftex.def Info: Pictures//Serie0x1e84e4d5cf1f463147f3e4d566167597423d7
 769.png  used on input line 16.
 (pdftex.def)             Requested size: 127.36292pt x 107.93547pt.
-<Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png, id=878, 612.849
+<Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png, id=875, 612.849
 6pt x 530.2209pt>
 File: Pictures//Serie0xc3b2f61a72e188cfd44483fce1bc11d6a628766d.png Graphic fil
 e (type png)
@@ -1888,6 +1896,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
  []
 
 [37]
+
+LaTeX Warning: Reference `eq:RMSE' on page 38 undefined on input line 55.
+
+
+LaTeX Warning: Reference `eq:NRMSE' on page 38 undefined on input line 55.
+
+
+LaTeX Warning: Reference `eq:MAE' on page 38 undefined on input line 55.
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38 <./Pictures//Serie0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e.png> <./Pictu
@@ -1934,12 +1952,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 111--112
 
  []
 
-[40]
+
 Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
-
+[40]
 Underfull \hbox (badness 10000) in paragraph at lines 117--119
 
  []
@@ -1949,9 +1967,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
-[41]
 
-LaTeX Warning: Reference `fig:daily_filter' on page 42 undefined on input line 
+LaTeX Warning: Reference `fig:daily_filter' on page 41 undefined on input line 
 135.
 
 
@@ -1959,10 +1976,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 133--136
 
  []
 
-
-Underfull \vbox (badness 5490) has occurred while \output is active []
-
- [42]
+[41] [42]
 Overfull \hbox (33.28288pt too wide) in paragraph at lines 156--164
  [][] 
  []
@@ -1988,7 +2002,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--202
  []
 
 <Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.png_16
-18425095.png, id=942, 722.7pt x 578.16pt>
+18425095.png, id=936, 722.7pt x 578.16pt>
 File: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.p
 ng_1618425095.png Graphic file (type png)
 <use Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.pn
@@ -1997,7 +2011,7 @@ Package pdftex.def Info: Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b5
 9fe1e_Day339_pred.png_1618425095.png  used on input line 205.
 (pdftex.def)             Requested size: 199.0pt x 159.2018pt.
 <Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.png_16
-18425124.png, id=943, 722.7pt x 578.16pt>
+18425124.png, id=937, 722.7pt x 578.16pt>
 File: Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.p
 ng_1618425124.png Graphic file (type png)
 <use Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day345_pred.pn
@@ -2010,9 +2024,12 @@ Overfull \hbox (2.43333pt too wide) in paragraph at lines 204--212
 []$[]$ $[]$ 
  []
 
-[44 <./Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred.
-png_1618425095.png> <./Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59f
-e1e_Day345_pred.png_1618425124.png>] [45]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [44 <./Pictures//mean_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59fe1e_Day339_pred
+.png_1618425095.png> <./Pictures//MAPE_ID0x78a812ecd87a4b945e0d262aec41e0eb2b59
+fe1e_Day345_pred.png_1618425124.png>] [45]
 Underfull \hbox (badness 10000) in paragraph at lines 254--255
 
  []
@@ -2033,7 +2050,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 261--262
  []
 
 [47]
-<Pictures//stateless_input.png, id=983, 717.43031pt x 303.38344pt>
+<Pictures//stateless_input.png, id=977, 717.43031pt x 303.38344pt>
 File: Pictures//stateless_input.png Graphic file (type png)
 <use Pictures//stateless_input.png>
 Package pdftex.def Info: Pictures//stateless_input.png  used on input line 270.
@@ -2044,7 +2061,7 @@ Overfull \hbox (79.59879pt too wide) in paragraph at lines 270--271
  [][] 
  []
 
-<Pictures//stateful_input.png, id=986, 727.96968pt x 270.25969pt>
+<Pictures//stateful_input.png, id=980, 727.96968pt x 270.25969pt>
 File: Pictures//stateful_input.png Graphic file (type png)
 <use Pictures//stateful_input.png>
 Package pdftex.def Info: Pictures//stateful_input.png  used on input line 277.
@@ -2059,11 +2076,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 283--284
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [48 <./Pictures//stateless_input.png> <./Pictures//stateful_input.png>]
-<Pictures//flow_code.png, id=996, 656.4525pt x 426.84468pt>
+[48 <./Pictures//stateless_input.png> <./Pictures//stateful_input.png>]
+<Pictures//flow_code.png, id=991, 656.4525pt x 426.84468pt>
 File: Pictures//flow_code.png Graphic file (type png)
 <use Pictures//flow_code.png>
 Package pdftex.def Info: Pictures//flow_code.png  used on input line 302.
@@ -2073,7 +2087,7 @@ Overfull \hbox (79.59879pt too wide) in paragraph at lines 302--303
  [][] 
  []
 
-<Pictures//model1.png, id=1001, 721.94719pt x 202.50656pt>
+<Pictures//model1.png, id=996, 721.94719pt x 202.50656pt>
 File: Pictures//model1.png Graphic file (type png)
 <use Pictures//model1.png>
 Package pdftex.def Info: Pictures//model1.png  used on input line 314.
@@ -2083,11 +2097,11 @@ Overfull \hbox (79.59879pt too wide) in paragraph at lines 314--315
  [][] 
  []
 
-[49]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//model2.png, id=1014, 721.94719pt x 225.09094pt>
+[49]
+<Pictures//model2.png, id=1009, 721.94719pt x 225.09094pt>
 File: Pictures//model2.png Graphic file (type png)
 <use Pictures//model2.png>
 Package pdftex.def Info: Pictures//model2.png  used on input line 326.
@@ -2097,12 +2111,17 @@ Overfull \hbox (79.59879pt too wide) in paragraph at lines 326--327
  [][] 
  []
 
-[50 <./Pictures//flow_code.png>]
-<Pictures//model3.png, id=1023, 468.24937pt x 240.14719pt>
+<Pictures//model3.png, id=1011, 468.24937pt x 240.14719pt>
 File: Pictures//model3.png Graphic file (type png)
 <use Pictures//model3.png>
 Package pdftex.def Info: Pictures//model3.png  used on input line 336.
 (pdftex.def)             Requested size: 318.40121pt x 163.30524pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [50 <./Pictures//flow_code.png>]
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
  [51 <./Pictures//model1.png> <./Pictures//model2.png>] [52 <./Pictures//model3
 .png>]
 Underfull \hbox (badness 10000) in paragraph at lines 371--372
@@ -2139,17 +2158,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 446--448
 
  []
 
-<Pictures//serie1_model1.png, id=1068, 651.3936pt x 568.2831pt>
+<Pictures//serie1_model1.png, id=1062, 651.3936pt x 568.2831pt>
 File: Pictures//serie1_model1.png Graphic file (type png)
 <use Pictures//serie1_model1.png>
 Package pdftex.def Info: Pictures//serie1_model1.png  used on input line 452.
 (pdftex.def)             Requested size: 195.02219pt x 170.13939pt.
-<Pictures//serie2_model1.png, id=1069, 664.1613pt x 568.2831pt>
+<Pictures//serie2_model1.png, id=1063, 664.1613pt x 568.2831pt>
 File: Pictures//serie2_model1.png Graphic file (type png)
 <use Pictures//serie2_model1.png>
 Package pdftex.def Info: Pictures//serie2_model1.png  used on input line 456.
 (pdftex.def)             Requested size: 195.02219pt x 166.86163pt.
-<Pictures//serie3_model1.png, id=1070, 664.1613pt x 568.2831pt>
+<Pictures//serie3_model1.png, id=1064, 664.1613pt x 568.2831pt>
 File: Pictures//serie3_model1.png Graphic file (type png)
 <use Pictures//serie3_model1.png>
 Package pdftex.def Info: Pictures//serie3_model1.png  used on input line 460.
@@ -2163,19 +2182,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 475--477
  []
 
 [56]
-<Pictures//learning_rate_serie1_model1.png, id=1080, 651.3936pt x 525.162pt>
+<Pictures//learning_rate_serie1_model1.png, id=1074, 651.3936pt x 525.162pt>
 File: Pictures//learning_rate_serie1_model1.png Graphic file (type png)
 <use Pictures//learning_rate_serie1_model1.png>
 Package pdftex.def Info: Pictures//learning_rate_serie1_model1.png  used on inp
 ut line 481.
 (pdftex.def)             Requested size: 195.02219pt x 157.22928pt.
-<Pictures//learning_rate_serie2_model1.png, id=1081, 676.929pt x 525.162pt>
+<Pictures//learning_rate_serie2_model1.png, id=1075, 676.929pt x 525.162pt>
 File: Pictures//learning_rate_serie2_model1.png Graphic file (type png)
 <use Pictures//learning_rate_serie2_model1.png>
 Package pdftex.def Info: Pictures//learning_rate_serie2_model1.png  used on inp
 ut line 485.
 (pdftex.def)             Requested size: 195.02219pt x 151.29942pt.
-<Pictures//learning_rate_serie3_model1.png, id=1082, 664.1613pt x 525.162pt>
+<Pictures//learning_rate_serie3_model1.png, id=1076, 664.1613pt x 525.162pt>
 File: Pictures//learning_rate_serie3_model1.png Graphic file (type png)
 <use Pictures//learning_rate_serie3_model1.png>
 Package pdftex.def Info: Pictures//learning_rate_serie3_model1.png  used on inp
@@ -2248,12 +2267,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//Model2_Serie2.png, id=1140, 668.9793pt x 547.5657pt>
+<Pictures//Model2_Serie2.png, id=1134, 668.9793pt x 547.5657pt>
 File: Pictures//Model2_Serie2.png Graphic file (type png)
 <use Pictures//Model2_Serie2.png>
 Package pdftex.def Info: Pictures//Model2_Serie2.png  used on input line 24.
 (pdftex.def)             Requested size: 195.02219pt x 159.6255pt.
-<Pictures//Model3_Serie2.png, id=1141, 668.9793pt x 547.5657pt>
+<Pictures//Model3_Serie2.png, id=1135, 668.9793pt x 547.5657pt>
 File: Pictures//Model3_Serie2.png Graphic file (type png)
 <use Pictures//Model3_Serie2.png>
 Package pdftex.def Info: Pictures//Model3_Serie2.png  used on input line 28.
@@ -2272,17 +2291,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
  []
 
 [64 <./Pictures//Model2_Serie2.png> <./Pictures//Model3_Serie2.png>]
-<Pictures//MAE_1.png, id=1156, 1133.6754pt x 740.7675pt>
+<Pictures//MAE_1.png, id=1150, 1133.6754pt x 740.7675pt>
 File: Pictures//MAE_1.png Graphic file (type png)
 <use Pictures//MAE_1.png>
 Package pdftex.def Info: Pictures//MAE_1.png  used on input line 47.
 (pdftex.def)             Requested size: 318.40121pt x 208.04646pt.
-<Pictures//MAE_2.png, id=1157, 1117.0533pt x 740.7675pt>
+<Pictures//MAE_2.png, id=1151, 1117.0533pt x 740.7675pt>
 File: Pictures//MAE_2.png Graphic file (type png)
 <use Pictures//MAE_2.png>
 Package pdftex.def Info: Pictures//MAE_2.png  used on input line 54.
 (pdftex.def)             Requested size: 318.40121pt x 211.14354pt.
-<Pictures//MAE_3.png, id=1158, 1117.0533pt x 740.7675pt>
+<Pictures//MAE_3.png, id=1152, 1117.0533pt x 740.7675pt>
 File: Pictures//MAE_3.png Graphic file (type png)
 <use Pictures//MAE_3.png>
 Package pdftex.def Info: Pictures//MAE_3.png  used on input line 61.
@@ -2311,82 +2330,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
-<Pictures//IDM1_S1_Day341.png, id=1180, 876.6351pt x 632.3625pt>
+<Pictures//IDM1_S1_Day341.png, id=1174, 876.6351pt x 632.3625pt>
 File: Pictures//IDM1_S1_Day341.png Graphic file (type png)
 <use Pictures//IDM1_S1_Day341.png>
 Package pdftex.def Info: Pictures//IDM1_S1_Day341.png  used on input line 89.
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM1_S2_Day341.png, id=1181, 893.0163pt x 632.6034pt>
+<Pictures//IDM1_S2_Day341.png, id=1175, 893.0163pt x 632.6034pt>
 File: Pictures//IDM1_S2_Day341.png Graphic file (type png)
 <use Pictures//IDM1_S2_Day341.png>
 Package pdftex.def Info: Pictures//IDM1_S2_Day341.png  used on input line 93.
 (pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM1_S3_Day341.png, id=1182, 876.6351pt x 632.3625pt>
+<Pictures//IDM1_S3_Day341.png, id=1176, 876.6351pt x 632.3625pt>
 File: Pictures//IDM1_S3_Day341.png Graphic file (type png)
 <use Pictures//IDM1_S3_Day341.png>
 Package pdftex.def Info: Pictures//IDM1_S3_Day341.png  used on input line 97.
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM2_S1_Day341.png, id=1183, 876.6351pt x 632.6034pt>
+<Pictures//IDM2_S1_Day341.png, id=1177, 876.6351pt x 632.6034pt>
 File: Pictures//IDM2_S1_Day341.png Graphic file (type png)
 <use Pictures//IDM2_S1_Day341.png>
 Package pdftex.def Info: Pictures//IDM2_S1_Day341.png  used on input line 101.
 (pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDM2_S2_Day341.png, id=1184, 893.0163pt x 632.6034pt>
+<Pictures//IDM2_S2_Day341.png, id=1178, 893.0163pt x 632.6034pt>
 File: Pictures//IDM2_S2_Day341.png Graphic file (type png)
 <use Pictures//IDM2_S2_Day341.png>
 Package pdftex.def Info: Pictures//IDM2_S2_Day341.png  used on input line 105.
 (pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM2_S3_Day341.png, id=1185, 876.6351pt x 632.6034pt>
+<Pictures//IDM2_S3_Day341.png, id=1179, 876.6351pt x 632.6034pt>
 File: Pictures//IDM2_S3_Day341.png Graphic file (type png)
 <use Pictures//IDM2_S3_Day341.png>
 Package pdftex.def Info: Pictures//IDM2_S3_Day341.png  used on input line 109.
 (pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDM3_S1_Day341.png, id=1186, 876.6351pt x 632.3625pt>
+<Pictures//IDM3_S1_Day341.png, id=1180, 876.6351pt x 632.3625pt>
 File: Pictures//IDM3_S1_Day341.png Graphic file (type png)
 <use Pictures//IDM3_S1_Day341.png>
 Package pdftex.def Info: Pictures//IDM3_S1_Day341.png  used on input line 113.
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDM3_S2_Day341.png, id=1187, 893.0163pt x 632.6034pt>
+<Pictures//IDM3_S2_Day341.png, id=1181, 893.0163pt x 632.6034pt>
 File: Pictures//IDM3_S2_Day341.png Graphic file (type png)
 <use Pictures//IDM3_S2_Day341.png>
 Package pdftex.def Info: Pictures//IDM3_S2_Day341.png  used on input line 117.
 (pdftex.def)             Requested size: 127.36292pt x 90.21448pt.
-<Pictures//IDM3_S3_Day341.png, id=1188, 876.6351pt x 632.3625pt>
+<Pictures//IDM3_S3_Day341.png, id=1182, 876.6351pt x 632.3625pt>
 File: Pictures//IDM3_S3_Day341.png Graphic file (type png)
 <use Pictures//IDM3_S3_Day341.png>
 Package pdftex.def Info: Pictures//IDM3_S3_Day341.png  used on input line 121.
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMean_S1_Day341.png, id=1189, 876.6351pt x 632.3625pt>
+<Pictures//IDMean_S1_Day341.png, id=1183, 876.6351pt x 632.3625pt>
 File: Pictures//IDMean_S1_Day341.png Graphic file (type png)
 <use Pictures//IDMean_S1_Day341.png>
 Package pdftex.def Info: Pictures//IDMean_S1_Day341.png  used on input line 125
 .
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMean_S2_Day341.png, id=1190, 876.6351pt x 632.6034pt>
+<Pictures//IDMean_S2_Day341.png, id=1184, 876.6351pt x 632.6034pt>
 File: Pictures//IDMean_S2_Day341.png Graphic file (type png)
 <use Pictures//IDMean_S2_Day341.png>
 Package pdftex.def Info: Pictures//IDMean_S2_Day341.png  used on input line 129
 .
 (pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDMean_S3_Day341.png, id=1191, 876.6351pt x 632.3625pt>
+<Pictures//IDMean_S3_Day341.png, id=1185, 876.6351pt x 632.3625pt>
 File: Pictures//IDMean_S3_Day341.png Graphic file (type png)
 <use Pictures//IDMean_S3_Day341.png>
 Package pdftex.def Info: Pictures//IDMean_S3_Day341.png  used on input line 133
 .
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMAPE_S1_Day341.png, id=1192, 876.6351pt x 632.3625pt>
+<Pictures//IDMAPE_S1_Day341.png, id=1186, 876.6351pt x 632.3625pt>
 File: Pictures//IDMAPE_S1_Day341.png Graphic file (type png)
 <use Pictures//IDMAPE_S1_Day341.png>
 Package pdftex.def Info: Pictures//IDMAPE_S1_Day341.png  used on input line 137
 .
 (pdftex.def)             Requested size: 127.36292pt x 91.86871pt.
-<Pictures//IDMAPE_S2_Day341.png, id=1193, 876.6351pt x 632.6034pt>
+<Pictures//IDMAPE_S2_Day341.png, id=1187, 876.6351pt x 632.6034pt>
 File: Pictures//IDMAPE_S2_Day341.png Graphic file (type png)
 <use Pictures//IDMAPE_S2_Day341.png>
 Package pdftex.def Info: Pictures//IDMAPE_S2_Day341.png  used on input line 141
 .
 (pdftex.def)             Requested size: 127.36292pt x 91.90372pt.
-<Pictures//IDMAPE_S3_Day341.png, id=1194, 876.6351pt x 632.3625pt>
+<Pictures//IDMAPE_S3_Day341.png, id=1188, 876.6351pt x 632.3625pt>
 File: Pictures//IDMAPE_S3_Day341.png Graphic file (type png)
 <use Pictures//IDMAPE_S3_Day341.png>
 Package pdftex.def Info: Pictures//IDMAPE_S3_Day341.png  used on input line 145
@@ -2466,7 +2485,7 @@ an_S3_Day341.png> <./Pictures//IDMAPE_S1_Day341.png> <./Pictures//IDMAPE_S2_Day
 
  (app-A.tex
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 ) [75
 
@@ -2475,7 +2494,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 \openout2 = `app-B.aux'.
 
  (app-B.tex
-<Pictures//histogram_mape.png, id=1262, 1078.0275pt x 743.6583pt>
+<Pictures//histogram_mape.png, id=1256, 1078.0275pt x 743.6583pt>
 File: Pictures//histogram_mape.png Graphic file (type png)
 <use Pictures//histogram_mape.png>
 Package pdftex.def Info: Pictures//histogram_mape.png  used on input line 10.
@@ -2489,17 +2508,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
  <./Pictures//histogram_mape.png>]
-<Pictures//serie1_model2.png, id=1268, 651.3936pt x 568.2831pt>
+<Pictures//serie1_model2.png, id=1262, 651.3936pt x 568.2831pt>
 File: Pictures//serie1_model2.png Graphic file (type png)
 <use Pictures//serie1_model2.png>
 Package pdftex.def Info: Pictures//serie1_model2.png  used on input line 60.
 (pdftex.def)             Requested size: 195.02219pt x 170.13939pt.
-<Pictures//serie2_model2.png, id=1269, 664.1613pt x 568.2831pt>
+<Pictures//serie2_model2.png, id=1263, 664.1613pt x 568.2831pt>
 File: Pictures//serie2_model2.png Graphic file (type png)
 <use Pictures//serie2_model2.png>
 Package pdftex.def Info: Pictures//serie2_model2.png  used on input line 64.
 (pdftex.def)             Requested size: 195.02219pt x 166.86163pt.
-<Pictures//serie3_model2.png, id=1270, 651.3936pt x 568.2831pt>
+<Pictures//serie3_model2.png, id=1264, 651.3936pt x 568.2831pt>
 File: Pictures//serie3_model2.png Graphic file (type png)
 <use Pictures//serie3_model2.png>
 Package pdftex.def Info: Pictures//serie3_model2.png  used on input line 68.
@@ -2508,19 +2527,19 @@ Package pdftex.def Info: Pictures//serie3_model2.png  used on input line 68.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//learning_rate_serie1_model2.png, id=1271, 673.0746pt x 538.8933pt>
+<Pictures//learning_rate_serie1_model2.png, id=1265, 673.0746pt x 538.8933pt>
 File: Pictures//learning_rate_serie1_model2.png Graphic file (type png)
 <use Pictures//learning_rate_serie1_model2.png>
 Package pdftex.def Info: Pictures//learning_rate_serie1_model2.png  used on inp
 ut line 78.
 (pdftex.def)             Requested size: 195.02219pt x 156.14348pt.
-<Pictures//learning_rate_serie2_model2.png, id=1272, 689.6967pt x 538.8933pt>
+<Pictures//learning_rate_serie2_model2.png, id=1266, 689.6967pt x 538.8933pt>
 File: Pictures//learning_rate_serie2_model2.png Graphic file (type png)
 <use Pictures//learning_rate_serie2_model2.png>
 Package pdftex.def Info: Pictures//learning_rate_serie2_model2.png  used on inp
 ut line 82.
 (pdftex.def)             Requested size: 195.02219pt x 152.37743pt.
-<Pictures//learning_rate_serie3_model2.png, id=1273, 673.0746pt x 538.8933pt>
+<Pictures//learning_rate_serie3_model2.png, id=1267, 673.0746pt x 538.8933pt>
 File: Pictures//learning_rate_serie3_model2.png Graphic file (type png)
 <use Pictures//learning_rate_serie3_model2.png>
 Package pdftex.def Info: Pictures//learning_rate_serie3_model2.png  used on inp
@@ -2533,34 +2552,34 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 tures//serie3_model2.png>] [80 <./Pictures//learning_rate_serie1_model2.png> <.
 /Pictures//learning_rate_serie2_model2.png> <./Pictures//learning_rate_serie3_m
 odel2.png>]
-<Pictures//serie1_model3.png, id=1293, 673.0746pt x 582.0144pt>
+<Pictures//serie1_model3.png, id=1287, 673.0746pt x 582.0144pt>
 File: Pictures//serie1_model3.png Graphic file (type png)
 <use Pictures//serie1_model3.png>
 Package pdftex.def Info: Pictures//serie1_model3.png  used on input line 133.
 (pdftex.def)             Requested size: 195.02219pt x 168.63776pt.
-<Pictures//serie2_model3.png, id=1294, 706.3188pt x 582.0144pt>
+<Pictures//serie2_model3.png, id=1288, 706.3188pt x 582.0144pt>
 File: Pictures//serie2_model3.png Graphic file (type png)
 <use Pictures//serie2_model3.png>
 Package pdftex.def Info: Pictures//serie2_model3.png  used on input line 137.
 (pdftex.def)             Requested size: 195.02219pt x 160.6983pt.
-<Pictures//serie3_model3.png, id=1295, 689.6967pt x 582.0144pt>
+<Pictures//serie3_model3.png, id=1289, 689.6967pt x 582.0144pt>
 File: Pictures//serie3_model3.png Graphic file (type png)
 <use Pictures//serie3_model3.png>
 Package pdftex.def Info: Pictures//serie3_model3.png  used on input line 141.
 (pdftex.def)             Requested size: 199.0pt x 167.92729pt.
-<Pictures//learning_rate_serie1_model3.png, id=1296, 668.9793pt x 538.8933pt>
+<Pictures//learning_rate_serie1_model3.png, id=1290, 668.9793pt x 538.8933pt>
 File: Pictures//learning_rate_serie1_model3.png Graphic file (type png)
 <use Pictures//learning_rate_serie1_model3.png>
 Package pdftex.def Info: Pictures//learning_rate_serie1_model3.png  used on inp
 ut line 151.
 (pdftex.def)             Requested size: 195.02219pt x 157.09734pt.
-<Pictures//learning_rate_serie2_model3.png, id=1297, 689.6967pt x 538.8933pt>
+<Pictures//learning_rate_serie2_model3.png, id=1291, 689.6967pt x 538.8933pt>
 File: Pictures//learning_rate_serie2_model3.png Graphic file (type png)
 <use Pictures//learning_rate_serie2_model3.png>
 Package pdftex.def Info: Pictures//learning_rate_serie2_model3.png  used on inp
 ut line 155.
 (pdftex.def)             Requested size: 195.02219pt x 152.37743pt.
-<Pictures//learning_rate_serie3_model3.png, id=1298, 689.6967pt x 538.8933pt>
+<Pictures//learning_rate_serie3_model3.png, id=1292, 689.6967pt x 538.8933pt>
 File: Pictures//learning_rate_serie3_model3.png Graphic file (type png)
 <use Pictures//learning_rate_serie3_model3.png>
 Package pdftex.def Info: Pictures//learning_rate_serie3_model3.png  used on inp
@@ -2584,12 +2603,12 @@ l3.png>]
 
 
 ]
-<Pictures//MAE_1_line.png, id=1323, 668.9793pt x 636.2169pt>
+<Pictures//MAE_1_line.png, id=1317, 668.9793pt x 636.2169pt>
 File: Pictures//MAE_1_line.png Graphic file (type png)
 <use Pictures//MAE_1_line.png>
 Package pdftex.def Info: Pictures//MAE_1_line.png  used on input line 8.
 (pdftex.def)             Requested size: 318.40121pt x 302.80806pt.
-<Pictures//MAE_2_line.png, id=1324, 668.9793pt x 636.2169pt>
+<Pictures//MAE_2_line.png, id=1318, 668.9793pt x 636.2169pt>
 File: Pictures//MAE_2_line.png Graphic file (type png)
 <use Pictures//MAE_2_line.png>
 Package pdftex.def Info: Pictures//MAE_2_line.png  used on input line 15.
@@ -2598,7 +2617,7 @@ Package pdftex.def Info: Pictures//MAE_2_line.png  used on input line 15.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Pictures//MAE_3_line.png, id=1325, 668.9793pt x 636.2169pt>
+<Pictures//MAE_3_line.png, id=1319, 668.9793pt x 636.2169pt>
 File: Pictures//MAE_3_line.png Graphic file (type png)
 <use Pictures//MAE_3_line.png>
 Package pdftex.def Info: Pictures//MAE_3_line.png  used on input line 22.
@@ -2638,11 +2657,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18502 strings out of 479799
- 291933 string characters out of 2879599
- 847220 words of memory out of 3000000
+ 18497 strings out of 479799
+ 291860 string characters out of 2879599
+ 846220 words of memory out of 3000000
  34502 multiletter control sequences out of 15000+200000
- 660239 words of font info for 211 fonts, out of 3000000 for 9000
+ 660120 words of font info for 210 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,86p,1872b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
@@ -2662,9 +2681,9 @@ iles/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1
 TeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic
 /uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (100 pages, 15604986 bytes).
+Output written on masterproef.pdf (100 pages, 15603487 bytes).
 PDF statistics:
- 1480 PDF objects out of 1728 (max. 8388607)
- 295 named destinations out of 1000 (max. 500000)
+ 1473 PDF objects out of 1728 (max. 8388607)
+ 292 named destinations out of 1000 (max. 500000)
  31934 words of extra memory for PDF output out of 35830 (max. 10000000)
 

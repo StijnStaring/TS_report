@@ -35,23 +35,23 @@
 \contentsline {subsection}{\numberline {3.1.5}GRU}{28}{subsection.3.1.5}%
 \contentsline {subsection}{\numberline {3.1.6}Performance of different parameter settings and variations of LSTM neural network models from literature}{29}{subsection.3.1.6}%
 \contentsline {section}{\numberline {3.2}Short-Term residential electrical load forecasting}{30}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Conclusion}{35}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Conclusion}{34}{section.3.3}%
 \contentsline {chapter}{\chapternumberline {4}Forecasting the electricity consumption of individual households}{37}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Preprocessing}{37}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Error metrics}{39}{section.4.2}%
 \contentsline {section}{\numberline {4.3}Microsoft Azure cloud}{39}{section.4.3}%
 \contentsline {section}{\numberline {4.4}Baseline models}{40}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Results of baseline models}{43}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.1}Results of baseline models}{42}{subsection.4.4.1}%
 \contentsline {section}{\numberline {4.5}Implementation deep LSTM neural network}{45}{section.4.5}%
 \contentsline {subsection}{\numberline {4.5.1}Different practical considerations of the models in Keras}{45}{subsection.4.5.1}%
 \contentsline {subsubsection}{Inputs}{45}{section*.42}%
 \contentsline {subsubsection}{Batch size}{46}{section*.43}%
 \contentsline {subsubsection}{Stateless versus Stateful}{46}{section*.44}%
-\contentsline {subsubsection}{Initialization}{49}{section*.47}%
+\contentsline {subsubsection}{Initialization}{48}{section*.47}%
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{49}{section*.48}%
 \contentsline {subsubsection}{Error metrics}{49}{section*.49}%
 \contentsline {subsection}{\numberline {4.5.2}Deep LSTM neural networks}{49}{subsection.4.5.2}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{50}{section*.51}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{49}{section*.51}%
 \contentsline {subsection}{\numberline {4.5.3}Model 2: Stateless with flatten layer}{50}{subsection.4.5.3}%
 \contentsline {subsection}{\numberline {4.5.4}Model 3: Stateful}{51}{subsection.4.5.4}%
 \contentsline {subsection}{\numberline {4.5.5}Parameter search}{52}{subsection.4.5.5}%

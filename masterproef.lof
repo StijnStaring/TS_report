@@ -31,9 +31,9 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces A GRU cell that is repeated over time (source: \cite {Olah}).\relax }}{28}{figure.caption.28}%
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Comparing different methods in \cite {Shi2018}.\relax }}{31}{figure.caption.29}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Influence of the number of layers and the pooling method in \cite {Shi2018}.\relax }}{32}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. \relax }}{33}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces The importance of the different inputs as based on the average class activation score. (source \cite {Kim2019})\relax }}{34}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{35}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Different approaches tried in \cite {Kong2019} and their performance in making $ 29,808 $ predictions.\relax }}{33}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Comparison between LSTM and CNN-LSTM. (source: \cite {Kim2019})\relax }}{34}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces The importance of the different inputs based on the average class activation score. (source \cite {Kim2019})\relax }}{35}{figure.caption.33}%
 \addvspace {10pt}
 \contentsline {figure}{\numberline {4.1}{\ignorespaces The electrical consumption in $ 2017 $ for the three selected series. \relax }}{38}{figure.caption.34}%
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Daily predictions of two baseline models. (Blue: True / Orange: Prediction) \relax }}{44}{figure.caption.40}%
