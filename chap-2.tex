@@ -145,71 +145,67 @@ There exists a lot of variations of the LSTM neural networks. Paper \cite{Greff2
 It was concluded that it can be assumed that there is no interaction between the different parameters. The largest interaction could be found between the learning rate and the amount of LSTM hidden states, which was still small. Therefore, parameters can be varied individually which can drastically reduce the amount of runs that had to be performed to see the effect on the model. Next, it was concluded that the learning rate was the most important parameter and could be tuned by setting it initially high e.g. to 1, and then let it decreases until the error on a validation set starts increasing. The use of a momentum term, which takes previous values of the weights into account when updating, was found to be unimportant in their setting of online gradient descent. The use of gaussian input noise to avoid overfitting was found to be not helpful. 
 
 \section{Short-Term residential electrical load forecasting}\label{s:Short-Term residential electrical load forecasting}
-\textbf{Pooling paper}
-%Things should get out of paper:
-%Problem that was solved.
-%Method
-%Result
-Classical ways to deal with uncertainty.\\
-Residential electrical load series have a high amount of volatility and uncertainty due to the contingency of the electrical consumption. Classical ways to deal with this are discussed in \cite{Shi2018} and listed as follows:
+
+%Classical ways to deal with uncertainty.\\
+%Residential electrical load series have a high amount of volatility and uncertainty due to the contingency of the electrical consumption. Classical ways to deal with this are discussed in \cite{Shi2018} and listed as follows:
+
+%\begin{enumerate}
+% \textbf{But the uncertainty on the whole is reduced --> on single household stays the same!!}
+%	\item Aggregating the residential loads to cancel out the uncertainties. The aggregated signal will show more regular patterns which means that is easier to predict.The downside is that the aggregated forecast will do a poor job of serving as forecast for a household
+%	\item A spectral analysis e.g. wavelet analysis, Fourier transforms and empirical mode decomposition aim at seperating a load serie into a regular pattern, an uncertain signal and noise. Because the amount of regularity is low in a residential load serie, this method is infeasible.
+%\end{enumerate}
+
+In paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which collects load profiles of neighbouring houses into a pool of training inputs. Pooling of neighbouring households historical load to serve as input of a deep LSTM neural network, is proposed to increase the data volume and diversity of the training set. The goal of using a pooled training set is to avoid overfitting present when using a deep LSTM neural network. Regarding notation, LSTM is used here instead of RNN with LSTM units as done in the paper. The idea is as quoted by \cite{Shi2018}, to use the interconnected spacial information to compensate insufficient temporal information. The pool of data allows to learn the correlations between neighbouring households and the shared uncertainties coming from external factors. Pools consisting out of $ 10 $ households are used. From the pool of inputs every epoch a randomly chosen batch is fed to the LSTM network. Training is stopped when the MSE on the training set is converged. When the training ends, performance is tested for each household in the pool.\\
+
+%An overview of the different steps that were done during the proposed method are: data cleaning and preprocessing $\rightarrow$ data pooling $\rightarrow$ data sampling $\rightarrow$ data training $\rightarrow$ benchmarking.\\
+
+Performance of the proposed method was evaluated based on a test set of $ 30 $ days and is twofold : 
 \begin{enumerate}
-	\item Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset. \textbf{But the uncertainty on the whole is reduced --> on single household stays the same!!}
-	\item Aggregating the residential loads to cancel out the uncertainties. The aggregated signal will show more regular patterns which means that is easier to predict.The downside is that the aggregated forecast will do a poor job of serving as forecast for a household
-	\item A spectral analysis e.g. wavelet analysis, Fourier transforms and empirical mode decomposition aim at seperating a load serie into a regular pattern, an uncertain signal and noise. Because the amount of regularity is low in a residential load serie, this method is infeasible.
+	\item Performance of the proposed method with respect to ARIMA, vanilla LSTM, SVR and DLSTM (without pooling)
+	\item The effect of the neural network depth and pooling
 \end{enumerate}
 
+For the first part of the method evaluation it was concluded that the proposed DLSTM with pooling, outperforms all other methods based on the metrics RMSE, NRMSE and MAE.
 
+%\begin{equation}\label{eq:RMSE}
+%	RMSE = \sqrt{\frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}},
+%\end{equation}
+%\begin{equation}\label{eq:NRMSE}
+%	NRMSE = \frac{RMSE}{y_{max}-y_{min}},
+%\end{equation}
+%\begin{equation}\label{eq:MAE}
+%	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N}.
+%\end{equation}
 
-In this paper \cite{Shi2018} a novel pooling-based deep recurrent neural network is proposed which collects load profiles of neighbouring houses into a pool of training inputs. Pooling of neighbouring households historical loads to serve as input of the ``Deep Recurrent neural network'', is proposed to increase the data volume and diversity of load forecasting, which mitigates the effect of overfitting present in a DRNN. The idea is as quoted by \cite{Shi2018} to use the interconnected spacial information to compensate insufficient temporal information.Thereby, the pool of data allows to learn the correlations between neighbouring households and the shared uncertainties coming from external factors e.g. temperature.  Also, due to the pooling of different households during training the DRNN is able to learn common uncertainties. In paper \cite{Shi2018} pools consisting of $ 10 $ households are used. From the pool of inputs every epoch a randomly chosen batch of load signals are fed to the network. LSTM is applied to mittigate the short term memory of the RNN. Additionally, there is been made use of early stopping to further avoid overfitting. To implement early stopping there has been looked at the ``MSE'' for k iterations, obtained by cross-validation. When the variance of this sequence gets smaller than a specified variable, training stops. When the training ends, performance is tested on each household by using the learned network to perform a feed-forward prediction of the electrical load.\\
-
-An overview of the different steps that were done during the proposed method are: data cleaning and preprocessing $\rightarrow$ data pooling $\rightarrow$ data sampling $\rightarrow$ data training $\rightarrow$ benchmarking.\\
-
-Performance of the proposed method was finally evaluated based on a test set of the last $ 30 $ days and consisting out of : 
-\begin{enumerate}
-	\item performance of the proposed method with respect to Vanilla RNN, SVR and DRNN (without pooling)
-	\item the effect of the neural network depth and pooling
-\end{enumerate}
-
-The proposed DRNN with pooling outperforms all other four methods based on following three metrics:
-
-\begin{equation}\label{eq:RMSE}
-	RMSE = \sqrt{\frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}}
-\end{equation}
-\begin{equation}\label{eq:NRMSE}
-	NRMSE = \frac{RMSE}{y_{max}-y_{min}}
-\end{equation}
-\begin{equation}\label{eq:MAE}
-	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N}
-\end{equation}
-\textbf{Actually LSTM network}
-The amount of which the PDRNN outperformed the other methods can be seen in Table \ref{tab:pooling_result}. The effect of the depth of the DRNN and the pooling method is depicted in Figure \ref{fig:Shi2018_result}. It can be seen that without the pooling method the DRNN only benefits from extra layers till three are used. This is because from that point, overfitting will reduce the generalization capacity of the DRNN. With the pooling technique, extra layers stays beneficial. It can thus be concluded that introducing extra hidden layers is a good choice to model the non-linear relations, but this can only be done efficiently when overfitting is mittigated by the use of a pooling strategy.The RNN with pooling used for benchmarking consisted out of five layers and thirty hidden units in each layer.
+The amount of which the PDLSTM outperformed the other methods can be seen in Table \ref{tab:pooling_result}. The effect of the depth of the DLSTM and the pooling method is depicted in Figure \ref{fig:Shi2018_result}. It can be seen that without the pooling method the DLSTM only benefits from extra LSTM layers till three. This is because from that point, overfitting will reduce the generalization capacity of the DLSTM. With the pooling technique, extra layers stays beneficial. It can thus be concluded that introducing extra hidden layers is a good choice to model the non-linear relations, but this can only be done efficiently when overfitting is mitigated by the use of a pooling strategy.The LSTM with pooling used for benchmarking consisted out of five layers and thirty hidden units in each layer.\\
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{pooling_result.png}
-	\caption{Results obtained in paper \cite{Shi2018} using the PDRNN method.}
-	\label{fig:Shi2018_result}
+	\caption{Comparing different methods in \cite{Shi2018}.}
+	\label{tab:pooling_result}
 \end{figure}
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{Shi2018_result.png}
-	\caption{Influence of the number of layers and the pooling method used in \cite{Shi2018}.}
+	\caption{Influence of the number of layers and the pooling method in \cite{Shi2018}.}
 	\label{fig:Shi2018_result}
 \end{figure}
 
-GRU (Gated Reset Update) or LSTM (Long Short Term Memory) can be implemented. They are both enhancements of the vanilla RNN which suffers from a vanishing gradient which causes it to to behave without a long term memory. In practise to know which one works often both are tried \cite{Teuwen2019}. Stochastic gradient descent means that the approximated gradient is calculated from a random subset of the available data instead from the entire dataset. \\
+%GRU (Gated Reset Update) or LSTM (Long Short Term Memory) can be implemented. They are both enhancements of the vanilla RNN which suffers from a vanishing gradient which causes it to to behave without a long term memory. In practise to know which one works often both are tried \cite{Teuwen2019}. Stochastic gradient descent means that the approximated gradient is calculated from a random subset of the available data instead from the entire dataset. \\
 
-\textbf{Short-term Residential load forecasting based on LSTM RNN paper}\\
-In \cite{Kong2019} it is chosen for a LSTM approach to forecast the complex temporal consumption pattern which characterises a single household electricity load. It is discussed that the diversity in the aggregated level of the individual electrical loads, smooths the daily load profile. This has as effect that the aggregated electrical load time-serie becomes more predictable, while a single household electrical load is more dependent on the human behaviour of its residents. This is substantiated by making use of a density based clustering technique where it was shown that the different daily consumptions of the aggregated signal could be described by one cluster and no outliers. An outlier means that a daily consumption could not be assigned to a cluster. On the other hand for individual time series the amount of outliers could range to over $ 80 $. To compare the consistency of different individual load signals the amount of outliers could therefore be used.\\
-Because the residents daily routine is characterizing the household load so much, this is tried to be learned directly inside the LSTM RNN.\\
-Inputs that are given to the LSTM are k past half hour load measurements, the time of when this measurements were taken, the day of the week of the measurements and if this day is a holiday or not. In table \ref{tab:LSTM_lit_result} the results are shown of the LSTM RNN method in comparison with other forecasting techniques. It can be noted that the proposed technique outperforms the rest based on the average performance of $ 29,808 $ individual forecasts of half an hour individual loads. Forecasting was performed on $ 69 $ different electrical loads coming from households in Australia.  However, for individual load series forecasting the MAPE minimization is also remarkable when considering its simplicity in comparison with LSTM. Next, it was concluded that learning methods that had good performance on aggregated time-series e.g. IS-HF and KNN, perform much worse when predicting individual loads. \\
-Further, by making use of a regresion technique in function of the amount of outliers it is shown that LSTM and BPNN (Back-Propagation neural network) perform similar for, as previously discussed, consistent individual loads. The LSTM only starts to differentiate in performance when inconsistency grows. To conclude things that lack in \cite{Kong2019} are practical useful forecasts of a timespan of $ 24 $h instead of only half an hour and making use of a rule of thumb when parameter tuning. Hyperparameters that can be tuned in LSTM are: learning rate, lag variable, amount of hidden layers and the amount of hidden nodes.\\
+%\textbf{Short-term Residential load forecasting based on LSTM RNN paper}\\
+
+In \cite{Kong2019} it is chosen for a deep LSTM approach to forecast the electricity load of a single household. A deep LSTM has multiple LSTM layers. It is first discussed that the aggregated electrical load serie shows more regularity than the load signal of an individual household.  This is substantiated by making use of a density based clustering technique, where it is shown that the different daily consumptions profiles of the aggregated signal could be described by one cluster and no outliers. An outlier means that a daily consumption profile could not be assigned to a cluster. On the other hand for individual household load series, the amount of outliers can range to over $ 80 $. The amount of outliers a load signal has, is a measure of the amount of regularity of the signal.\\
+Because the household load signals are characterized by the residents daily routines, this is tried to be learned directly by the deep LSTM.
+Inputs that are given to the LSTM are $ k $ past half hour load values, the time of when the measurements were taken, the day of the week and if the day is a holiday or not. In table \ref{tab:LSTM_lit_result} the results are shown of the LSTM method in comparison with other forecasting techniques. It can be seen that the proposed technique outperforms the rest based on the performance when making $ 29,808 $ predictions. Forecasting was performed on $ 69 $ different electrical load series coming from households in Australia. It was concluded that learning methods that had good performance on aggregated time series e.g. IS-HF and KNN (k-nearest neighbour), perform much worse when predicting individual households. \\
+By making use of linear regression in function of the amount of outliers, to obtain a measure for consistency, it is shown that LSTM and BPNN (Back-Propagation neural network) perform similar for consistent load signals. The LSTM only starts to differentiate in performance when inconsistency grows and the BPNN is then outperformed. Things that can be improved in \cite{Kong2019} are practical useful forecasts of a timespan of $ 24 $ hours instead of only half an hour and not making use of a rule of thumb during hyperparameter tuning but a hyperparameter search.\\
 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{prev_appr.png}
-	\caption{Different approaches tried in \cite{Kong2019} and their averaged performance of $ 29,808 $ individual forecasts of half an hour individual loads. }
+	\caption{Different approaches tried in \cite{Kong2019} and their performance in making $ 29,808 $ predictions.}
 	\label{tab:LSTM_lit_result}
 \end{figure}
 
