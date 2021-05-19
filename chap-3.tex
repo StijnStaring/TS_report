@@ -52,14 +52,23 @@ The corresponding average temperature series are also used. They don't contain a
 During this chapter the series containing the electrical consumption are not aggregated as was the case in Section \ref{s:Data Analysis} Therefore, the min-max normalization is a suitable normalization method for each serie. It is chosen to estimate the missing values in the training set and not leave them out. In other words, a larger trainings set with an additional estimation error is preferred. By imputing the missing values more training data is available but also time jumps are avoided. As discussed earlier, data that is missing are always complete days. These are estimated using baseline models that will be discussed in Section \ref{s:Baseline models} in following order: ``previous week forecast'', ``previous day forecast'' and ``mean forecast''. When the first baseline model can't make a prediction for the missing day i.e. the day during previous week is not available, the next baseline model is used and so on.\\
 
 \section{Error metrics}\label{s:Error metrics}
-The metrics that can be used to evaluate the performance of predictions are  RMSE (Eq. \ref{eq:RMSE}), NRMSE (Eq. \ref{eq:NRMSE}),  MAE  (Eq. \ref{eq:MAE}),  MSE (Eq. \ref{eq:MSE}) and MAPE (Eq. \ref{eq:MAPE}).
+The metrics that can be used to evaluate the performance of predictions are  RMSE Eq. \ref{eq:RMSE}, NRMSE Eq. \ref{eq:NRMSE},  MAE  Eq. \ref{eq:MAE},  MSE Eq. \ref{eq:MSE} and MAPE Eq. \ref{eq:MAPE}
 
+\begin{equation}\label{eq:RMSE}
+	RMSE = \sqrt{\frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}},
+\end{equation}
+\begin{equation}\label{eq:NRMSE}
+	NRMSE = \frac{RMSE}{y_{max}-y_{min}},
+\end{equation}
+\begin{equation}\label{eq:MAE}
+	MAE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}}{N},
+\end{equation}
 \begin{equation}\label{eq:MSE}
-	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N}
+	MSE = \frac{\sum_{t=1}^{N}(\hat{y}_t-y_t)^2}{N},
 \end{equation}
 
 \begin{equation}\label{eq:MAPE}
-	MAPE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}/y_t}{N}
+	MAPE = \frac{\sum_{t=1}^{N}\abs{\hat{y}_t-y_t}/y_t}{N}.
 \end{equation}
 
 
@@ -230,7 +239,7 @@ In Table \ref{tab:summ_data_rel_performance} the overall performance of the base
 
 
 \section{Implementation deep LSTM neural network}\label{s:Implementation deep LSTM neural network}
-In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forecast of the electrical consumption of an individual household. The advantage of using a ``deep'' architecture is that it can learn load features hierarchically as discussed in \cite{Shi2018}. This means that load features learned in a higher layer will be the combinations of features learned in lower layers.\\
+In this section deep LSTM models are presented in different variations. LSTM models are specialized in time series learning as discussed in Section \ref{s:LSTM}. The term ``deep'' refers to multiple LSTM layers that are stacked on top of each other. The goal of the developed models is to make a $ 24 $ hours ahead forecast of the electrical consumption of an individual household. The advantage of using a deep architecture is that it can learn load features hierarchically as discussed in \cite{Shi2018}. This means that load features learned in a higher layer will be the combinations of features learned in lower layers.\\
 First, practical considerations during the implementation of the models using Keras are discussed. Keras is a neural network library in Python which can be backend by Tensorflow which is an library for a number of various tasks in machine learning. This section covers the used inputs, batch size, choice between a stateless and stateful model, initialization, measures taken to avoid overfitting and the chosen error metrics. Next, the specific LSTM models developed are explained in Section \ref{s:Implementation deep LSTM neural network} Finally, the conducted parameter search is described in Section \ref{s:Parameter search}.
 
 \subsection{Different practical considerations of the models in Keras}
@@ -531,7 +540,7 @@ From Figure \ref{fig:sensitivity_model2} it follows that:
 Figure \ref{fig:learning_rate_model2} shows the sensitivity of the size of the learning rate in function of the MAE. Again an U-shape is observed.\\
 
 \textbf{Final model}\\
-The final parameters for Model 2 is displayed in Table \ref{tab:final_model2}.
+The final parameters for Model 2 are displayed in Table \ref{tab:final_model2}.
 
 \begin{table}[h]
 	\centering

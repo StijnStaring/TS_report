@@ -1,8 +1,43 @@
 \chapter{Conclusion}
 \label{cha:conclusion}
-\textbf{Say what you have done.}
 
-This master thesis focussed on the 
+The main contribution made with this thesis is that it is shown that by only using the past electrical consumption behaviour, daily average temperature values and calendar data, it is possible with LSTM neural networks to outperform the baseline models on 24 hours ahead forecasting, learn a non-linear relation between the inputs and electrical consumption and predict for peaks. This work aimed at implemented different versions of the LSTM neural network and investigated and compare them to give a developer a set of tools at hand.\\
+
+This master thesis focussed on the implementation of deep LSTM neural networks to make 24 hours ahead predictions of the electrical consumption of individual households. The task of forecasting the electricity consumption of an individual household was seen to be of a significant complexity due to the high uncertainty and volatility in the load signal. This is because the load signal is directly influenced by the decisions made by the residents.\\
+
+The first part of this research elaborated the exploratory data analysis. It started with the description of the used dataset that originates from the IEEE-CIS technical challenge on energy prediction from smart data. Preprocessing on the series with a full year of measurements is carried out. Two methods to impute missing data are compared and it was found that the Average Neighbours methods was more suitable for estimating the missing data than the Mean method available in the Scikit-learn library. Further, load signals with zero days and shifts in the rolling mean were identified and normalization was done using the total yearly consumption. Next, followed a data analysis on an aggregated load signal. Seasonality was investigated and the daily consumption profile showed a morning peak (07:30 am), an evening peak (06:00 pm) and a peak after midnight due to the use of heat storage systems. The consumption profiles of weekdays and weekend days are compared and it is observed that the morning peak is higher for a weekend day and decreases less. The influence of bank holidays is investigated and it was learned that a bank holiday behaves most similar to a Sunday. It was observed that there was a negative correlation between the temperature and the amount electrical consumption. Finally, different the difference of different household attributes is examined and it was seen that the order of dwelling types that is expected to consume more electricity is: Flat < Bungalow < Semi detached < Terraced < Detached. Further, when there are more bedrooms in the housing unit, the consumption is expected to be larger. \\ 
+
+In Chapter \ref{cha:State of the art short-term residential load forecasting techniques} first an introduction was given to neural networks and
+it was discussed that a vanishing gradient and overfitting are challenges for the vanilla recurrent neural network. A LSTM neural network can be used to mitigate the effect of a vanishing gradient and early stopping, adding the 2-norm of the weights in the objective function and dropout layers can be applied to mitigate overfitting. Next, it is discovered the learning rate is a very important parameter to tune in a LSTM and different variants of a LSTM e.g. GRU can't significantly outperform the conventional LSTM architecture. The second part of the literature study elaborated state of the art short-term residential electrical load forecasting. First a pooling method was introduced that combined the load signals of different neighbouring households in a pool of training data. It was shown that making use of pooling reduced the effect of overfitting. It was concluded that a deep LSTM is the most suitable model for short-term residential load forecasting with respect to ARIMA and SVR, and more LSTM layers can be beneficial. Further, the beneficial application of a CNN on the raw data is discussed, to extract features among several variables that effect electricity consumption and to remove noise that comes initially together with the raw inputs. The outputs of the CNN are afterwards feeded as inputs to a LSTM. It was found that especially the electric water heater and air conditioner had a big influence on the electrical consumption.\\
+
+In Chapter \ref{cha:Forecasting the daily electricity consumption} the development of baseline models and the LSTM neural networks is explained for the three load series with the least amount of missing data. The baseline model performing best on all error metrics except MAPE was the ``mean forecast'' and the baseline model performing best on the MAPE metric was the ``MAPE forecast''. Both baseline models predict the trend line and don't accurately forecast peaks. Two of the three LSTM models developed were stateless with Model 2 having an additional flatten layer in comparison with Model 1. Model 3 is a stateful model. A parameter search is conducted to improve model performance and it was found that the learning rate was the parameter that contributed often the most to the model performance.\\
+
+In Chapter \ref{cha:Model evaluation}, the models that were retrieved were evaluated on a test set consisting out of 30 days. It was found that the three LSTM models outperformed both the baseline models for Serie 2 and 3 based on the MAE metric. The flattening layer didn't lead to much improvement because the second model always performed slightly worse than Model 1 and 3. It was seen that all three LSTM models are able to predict peaks with a higher precision than the baseline models. It was noticed that the predictions are often an overestimation of the reference signal. Especially for Serie 1, the shape of the reference and prediction signals are similar, but there is an offset between the two signals. The offset could possibly be reduced with another choice of error metric during training. However, it can be a serie dependent effect due to the fact that only for Serie 1 there is a big offset at the start. Because of the overestimation on small values, it was found that the MAPE of the LSTM neural networks was worse than the baseline models. It can be argued that in practice it is better to overestimate, than underestimate. Also, the influence of adding regularization on the predicted signal could be seen which leads to more smooth signals. The ``mean forecast'' baseline model was not able to predict the peaks in the reference signal as good as the LSTM models, but it has a lower offset error in Serie 1. The ``MAPE forecast'' is focussed on predicting all the small consumption values correct to minimize the MAPE, but ignores all the peaks of the reference signal.
+
+The practical usefulness of the LSTM neural networks is the ability to better monitor the demand side of the low voltage grid. Scheduling of maintenance work on the grid can be optimized which needs detailed forecasting of the load signals of only a small amount of households. Expenses can be saved by implementing customized updates to the network and individual household forecasting can be used as part of an electrical congestion prediction where especially predicting the peaks in the electrical consumption is important. Because the thesis is developed together with the STADIUS Research Group at the KU Leuven, it is in line with their research and it can be used to build further on.\\
+
+
+In Chapter \ref{cha:Forecasting the daily electricity consumption} a parameter search is conducted which different manually chosen parameter values. In order to use a more automated approach which can lead to better results, a genetic algorithm can be developed with as objective function the performance of the candidate model on a validation set.\\
+
+
+- genetic algorithm to tune the parameters
+
+- Track down the influence of each of the inputs.
+- Do a more extensive parameter search --> not neglecting synergy between different regularizations. Better to simultaneously try all the different parameters.
+- As proposed in \cite{Shi2018}, the uncertainty on the load signal of an individual household can be reduced by making use of clustering.  Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset.
+
+
+
+
+
+
+ More detailed datasets about the consumption behaviour of residents is available with the installation of smart meters in households. The
+
+
+- to model the non-linear relations. 
+
+
+The practical usefulness
 
 it can 
 
@@ -17,23 +52,21 @@ Say what the mean objective of the thesis was.
 
 \textbf{What will do in the future.}
 
-
-The final chapter contains the overall conclusion. It also contains
-suggestions for future work and industrial applications.
-
 - say that because only use a small amount of simplistic inputs it found that after learning for a non-linear combination of previous consumptions the model was able to find a pattern in in the electricity consumption and make improvements with respect to the baseline models.
 
 - stress the difficulty of the task --> not much informative data --> really a lot of uncertainty --> say that could identify a pattern in this data --> clear prediction of peaks.
 
 - also look at comments of Swevers and build up of my previous thesis.
 
-\section{Future work}
-- because it was seen that much forecasts have the correct form with regard to the amount of peaks a first thing to try to solve this could be to adjust the error metric that is used during training from MSE to MAE. The peaks will be more proportional punished and this could lead that the model shifts down. 
-- genetic algorithm to tune the parameters
+\section{Main findings}
 
-- Track down the influence of each of the inputs.
-- Do a more extensive parameter search --> not neglecting synergy between different regularizations. Better to simultaneously try all the different parameters.
-- As proposed in \cite{Shi2018}, the uncertainty on the load signal of an individual household can be reduced by making use of clustering.  Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset.
+
+\section{Realation to the objective}
+
+
+\section{Practicul usefulness}
+
+
 
 %%% Local Variables: 
 %%% mode: latex
