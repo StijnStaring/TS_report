@@ -63,8 +63,38 @@
 \tableofcontents*
 
 \begin{abstract}
-  The \texttt{abstract} environment contains a more extensive overview of
-  the work. But it should be limited to one page.
+	Every year 40000 new solar panel installations take place in Flanders as explained in \cite{Lemmens2019} and the amount of electrical vehicles on the roads in Belgium is on the rise. Fluvius, which is a Belgian distribution grid operator, faces a challenge to deal with the increasing burden of large electrical devices on the low voltage grid. Therefore, it needs to carry out maintenance work to be sure that it can cope with the future demands. Expenses can be saved when implementing customized updates on the grid which are possible when the electrical consumption series of individual households can be accurately forecasted. On top of that, forecasts have to be made without intruding the privacy of the residents. Forecasts can be part of a congestion prediction, which means predicting when the low voltage grid can't handle the demand anymore which increases the reliability of the network and avoids the occurrence of blackouts and brownouts. Especially, predicting the peaks in the electrical consumption serie is in that case important.\\
+		
+	Therefore, the objective of this thesis is to implement short-term load forecasting for individual households when using only a limited amount of information. LSTM neural networks are used to predict a load signal of 24 hours ahead with time steps of 30 minutes. Information used about the household consists out of past load values, calendar information and the daily average temperature of tomorrow. Real-life data about households in the UK is used that originate form the IEEE-CIS technical challenge dataset. From this dataset, the three households are selected with the least amount of missing values in their consumption serie and they will be used to train and test the neural networks on. 
+	
+	
+	
+	first the question of how much electricity a certain household will consume tomorrow, is tried to be answered. For this, it is looked at LSTM neural networks to predict a load signal of 24 hours ahead with time steps of 30 minutes. Information used about the household only consists of past load values, calendar information and the daily average temperature of tomorrow. These inputs can easily be obtained in practise without intruding the privacy of the residents. The three households used, originate form the IEEE-CIS technical challenge dataset. Because of the use of real-life data, there is a direct link with reality, but the developing of the models is also more challenging due to the anomalies and missing values that are present in the data. The second part of the thesis objective is to evaluate the forecasting performance of the different developed models. Forecasting the electrical consumption of an individual household is a very complex task due to the high amount of uncertainty and volatility of the load signal. Uncertainty comprises the aperiodic part influenced by external factors e.g. customer behaviour and weather. Forecasting at the household level makes the load signal to be directly influenced on the decisions made by the residents. The LSTM neural networks 
+	
+	- say that it is an complex task. 
+	- directly learning the uncertainty.
+   
+  \textbf{Placing of the field and in short the importance.}
+  - say something about the increasing amount of electrical vehicles and solar panels --> need for changes to the low voltage grid --> need for forecasting of the electrical consumption series of individual households. 
+  
+  
+  
+  \textbf{The objective of the thesis.}
+  
+  
+  \textbf{Method that has done}
+  
+ 
+  \textbf{The results}
+  
+  
+  
+  \textbf{conclusions}
+
+
+- stand-alone text --> no references to tables/figures
+
+
 
 \end{abstract}
 
