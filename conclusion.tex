@@ -17,54 +17,8 @@ In Chapter \ref{cha:Model evaluation}, the models that were retrieved were evalu
 The practical usefulness of the LSTM neural networks is the ability to better monitor the demand side of the low voltage grid. Scheduling of maintenance work on the grid can be optimized which needs detailed forecasting of the load signals of only a small amount of households. Expenses can be saved by implementing customized updates to the network and individual household forecasting can be used as part of an electrical congestion prediction where especially predicting the peaks in the electrical consumption is important. Because the thesis is developed together with the STADIUS Research Group at the KU Leuven, it is in line with their research and it can be used to build further on.\\
 
 
-In Chapter \ref{cha:Forecasting the daily electricity consumption} a parameter search is conducted which different manually chosen parameter values. In order to use a more automated approach which can lead to better results, a genetic algorithm can be developed with as objective function the performance of the candidate model on a validation set.\\
+In Chapter \ref{cha:Forecasting the daily electricity consumption} a parameter search is conducted where manually parameter values are chosen for the model. In order to use a more automated approach which can lead to better results, a genetic algorithm can be developed with as objective function the performance of the candidate model on a validation set. An other option is to try a more extensive, manual parameter search where the synergy between different parameters is not neglected as was the case in Section \ref{s:Parameter search}.\\ The LSTM neural network is a black box model and it is not immediately clear which inputs contribute the most to good results. This is less of an issue in this thesis because of the simplicity of the used inputs, but it can still be a possible research direction. A final suggestion, of possible future work is investigating the effect of pooling neighbouring households as was described in \cite{Shi2018}. When spatial information about the households is absent, clustering could be done based on the exogenous variable e.g. temperature together with the assumption that two households with similar exogenous series lay close to each other. 
 
-
-- genetic algorithm to tune the parameters
-
-- Track down the influence of each of the inputs.
-- Do a more extensive parameter search --> not neglecting synergy between different regularizations. Better to simultaneously try all the different parameters.
-- As proposed in \cite{Shi2018}, the uncertainty on the load signal of an individual household can be reduced by making use of clustering.  Clustering to group similar houses based on historic load or exogenous consumption driving variables. Because the load or driving variables are similar in a cluster, the variance of uncertainty is also decreased. However, performance is very dependent of the dataset.
-
-
-
-
-
-
- More detailed datasets about the consumption behaviour of residents is available with the installation of smart meters in households. The
-
-
-- to model the non-linear relations. 
-
-
-The practical usefulness
-
-it can 
-
-
-Say what the mean objective of the thesis was. 
-
-
-\textbf{Say what this means --> what could be concluded}
-
-
-
-
-\textbf{What will do in the future.}
-
-- say that because only use a small amount of simplistic inputs it found that after learning for a non-linear combination of previous consumptions the model was able to find a pattern in in the electricity consumption and make improvements with respect to the baseline models.
-
-- stress the difficulty of the task --> not much informative data --> really a lot of uncertainty --> say that could identify a pattern in this data --> clear prediction of peaks.
-
-- also look at comments of Swevers and build up of my previous thesis.
-
-\section{Main findings}
-
-
-\section{Realation to the objective}
-
-
-\section{Practicul usefulness}
 
 
 
