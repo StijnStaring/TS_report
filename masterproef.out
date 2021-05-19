@@ -26,15 +26,11 @@
 \BOOKMARK [1][-]{section.5.2}{Performance on the test set}{chapter.5}% 26
 \BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 27
 \BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 28
-\BOOKMARK [1][-]{section.6.1}{Future work}{chapter.6}% 29
-\BOOKMARK [1][-]{section.6.2}{Main findings}{chapter.6}% 30
-\BOOKMARK [1][-]{section.6.3}{Realation to the objective}{chapter.6}% 31
-\BOOKMARK [1][-]{section.6.4}{Practicul usefulness}{chapter.6}% 32
-\BOOKMARK [0][-]{appendix.A}{Introduction to the dataset}{}% 33
-\BOOKMARK [1][-]{section.A.1}{Introduction to the dataset}{appendix.A}% 34
-\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 35
-\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 36
-\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 37
-\BOOKMARK [0][-]{appendix.C}{Extensions on the evaluation results}{}% 38
-\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 39
-\BOOKMARK [0][-]{appendix*.87}{Bibliography}{}% 40
+\BOOKMARK [0][-]{appendix.A}{Introduction to the dataset}{}% 29
+\BOOKMARK [1][-]{section.A.1}{Introduction to the dataset}{appendix.A}% 30
+\BOOKMARK [0][-]{appendix.B}{Forecasting the daily electricity consumption - extra}{}% 31
+\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 32
+\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 33
+\BOOKMARK [0][-]{appendix.C}{Extensions on the evaluation results}{}% 34
+\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 35
+\BOOKMARK [0][-]{appendix*.87}{Bibliography}{}% 36

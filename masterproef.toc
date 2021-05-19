@@ -64,10 +64,6 @@
 \contentsline {section}{\numberline {5.2}Performance on the test set}{64}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Conclusion}{67}{section.5.3}%
 \contentsline {chapter}{\chapternumberline {6}Conclusion}{71}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Future work}{72}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Main findings}{73}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Realation to the objective}{73}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Practicul usefulness}{73}{section.6.4}%
 \contentsline {appendix}{\chapternumberline {A}Introduction to the dataset}{77}{appendix.A}%
 \contentsline {section}{\numberline {A.1}Introduction to the dataset}{77}{section.A.1}%
 \contentsline {appendix}{\chapternumberline {B}Forecasting the daily electricity consumption - extra}{79}{appendix.B}%
