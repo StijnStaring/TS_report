@@ -141,19 +141,19 @@ It should be noted that this method expects a good prediction of the average tem
   
  \textbf{Model 4: ``Mean forecast''}\\
  This model again uses calendar information to group the same kind of days as was done for Model 3. For example, if the desired day is 19/12/2017, all the previous Tuesdays which are not holidays, are selected. Instead of looking to the most similar day based on the closest average temperature in euclidean distance, the mean is calculated and used as prediction for the desired day. In this model no extra Sundays are used when the desired day is a holiday.\\
-The choice of this model is inspired by \cite{Kong2019}. It is expected that it can identify frequently recurring behaviour. The model can be able to identify trends as for example an increased consumption around $ 8 $ am and $ 6 $ pm as shown in Figure \ref{fig:daily_filter}, but the performance on predicting correct peak values is expected to be lower due to the averaging of a large variation of peak sizes.\\
+The choice of this model is inspired by \cite{Kong2019}. It is expected that it can identify frequently recurring behaviour. The model can be able to identify trends as for example an increased consumption around $ 07:30 $ am and $ 06:00 $ pm as shown in Figure \ref{fig:average_signals}, but the performance on predicting correct peak values is expected to be lower due to the averaging of a large variation of peak sizes.\\
  
  \textbf{Model 5: ``MAPE forecast'' }\\
- This model solves a non-linear optimization problem for each step to be predicted. The objective function \ref{eq:model_mape} should be minimized to obtain an estimated load $ \hat{y} $. To obtain a 24 hour ahead prediction , $ 48  $ predictions are consecutively calculated. This model served as baseline model in \cite{Kong2019}. The same type of days as the desired day is selected as was done in Model 3. When calculating a prediction for time $ t $ of the desired day, an empirical probability mass function is derived using all the available historic predictions of time $ t $ originating from the selected days.
+ This model solves a non-linear optimization problem for each step to be predicted. The objective function \ref{eq:model_mape} should be minimized to obtain an estimated load $ \hat{y} $. To obtain a 24 hour ahead prediction , $ 48  $ predictions are consecutively calculated. This model served as baseline model in \cite{Kong2019}. The same type of days as the desired day is selected as was done in Model 3. When calculating a prediction for time $ t $ of the desired day, an empirical probability mass function is derived using all the available historic predictions of time $ t $ originating from the selected days
  
  \begin{equation}\label{eq:model_mape} 	
- 	\epsilon_{t}(p) = \sum_{i=1}^K \zeta_{t}(p_i)\abs{\frac{(p-p_{i})}{p_{i}}}
+ 	\epsilon_{t}(p) = \sum_{i=1}^K \zeta_{t}(p_i)\abs{\frac{(p-p_{i})}{p_{i}}}.
  \end{equation}
 
-Eq. \ref{eq:model_mape} shows the non-linear optimization with $ \epsilon_{t} $ the MAPE expectation for time $ t $, $\zeta_{t}(p_i)$ an empirical probability mass function in function of the $ p_i $th possible discretized consumption value and $ p $ a load value within the empirical range. $ \zeta_{t}(p_i) $ is calculated by making a histogram with the ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and $ p_i $ is taken as the midpoint of two bin edges. From the count in the histogram, the value of the probability mass function for each discretized consumption value is found. The prediction value $ p $, at time $ t $ of the desired day, is found by solving Eq. \ref{eq:model_mape_solve}. To solve the optimization an IPOPT solver is used in a casADi software environment. A practical consideration of using this model is that the calculation load due to solving each time an optimization is higher than in the previous models.
+Eq. \ref{eq:model_mape} shows the non-linear optimization with $ \epsilon_{t} $ the MAPE expectation for time $ t $, $\zeta_{t}(p_i)$ an empirical probability mass function in function of the $ p_i $th possible discretized consumption value and $ p $ a load value within the empirical range. $ \zeta_{t}(p_i) $ is calculated by making a histogram with the ``Freedman-Diaconis rule'' to decide the bin size. Figure \ref{fig:histogram_mape} shows an example of such an histogram. The amount of discretized values $ p_i $ is equal to the $ K $ bins and $ p_i $ is taken as the midpoint of two bin edges. From the count in the histogram, the value of the probability mass function for each discretized consumption value is found. The prediction value $ p $, at time $ t $ of the desired day, is found by solving Eq. \ref{eq:model_mape_solve}. To solve the optimization an IPOPT solver is used in a casADi software environment. A practical consideration of using this model is that the calculation load due to solving each time an optimization is higher than in the previous models
 
 \begin{equation}\label{eq:model_mape_solve} 	
-	\hat{y} = \argmin_{p}(\epsilon_{t}(p))
+	\hat{y} = \argmin_{p}(\epsilon_{t}(p)).
 \end{equation}
  
  
@@ -522,7 +522,7 @@ The final parameters for model one are displayed in Table \ref{tab:final_model1}
 	\label{tab:final_model1}
 \end{table}
 
-\clearpage
+
 \subsubsection{Model 2: Stateless with flatten layer}
 
 \textbf{Phase 1}\\
@@ -558,6 +558,7 @@ The final parameters for Model 2 are displayed in Table \ref{tab:final_model2}.
 	\label{tab:final_model2}
 \end{table}
 
+\newpage
 \subsubsection{Model 3: Stateful model}
 The model is trained by making use of a batch size of one, which means that the weights are updated by comparing each output immediately with its reference. Because this model is stateful, it is first seeded before predictions are done.\\
 

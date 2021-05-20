@@ -71,7 +71,7 @@ An alternative method to avoid gradient explosion is using gradient value clippi
 	\label{fig:grad_exp}
 \end{figure}
 
-
+\newpage
 \subsection{LSTM}\label{s:LSTM}
 
 \begin{figure}[ht]
@@ -189,7 +189,7 @@ The amount of which the PDLSTM outperformed the other methods can be seen in Tab
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{Shi2018_result.png}
-	\caption{Influence of the number of layers and the pooling method in \cite{Shi2018}.}
+	\caption{Influence of the number of layers and the pooling method(Source: \cite{Shi2018}).}
 	\label{fig:Shi2018_result}
 \end{figure}
 
@@ -226,11 +226,11 @@ Also an analysis is performed to investigate the influence of the different inpu
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=1\textwidth]{CNN-LSTM_results_F.png}
-	\caption{The importance of the different inputs based on the average class activation score. (source \cite{Kim2019})}
+	\caption{The importance of the different inputs based on the average class activation score. (source: \cite{Kim2019})}
 	\label{fig:LSTM_lit_results}
 \end{figure}
 
-
+\newpage
 \section{Conclusion}
 In this chapter the literature study was explained that started with an introduction to neural networks. It was seen that the vanilla recurrent neural network suffered from a vanishing gradient and that this can be mitigated by using a LSTM neural network. A LSTM can longer take important aspects of the presented time series into account, which can be used during prediction. A LSTM makes use of three gates: forget gate $ \textbf{f}_t $, input gate $ \textbf{i}_t $ and an output gate $ \textbf{o}_t $. Next, it was found that the conventional LSTM architecture couldn't be significantly outperformed by a LSTM variant e.g. GRU and it was discovered that the learning rate is one of the most important parameters to tune of the LSTM. During the literature study on short-term residential forecasting, it was found that load signals of different households can be pooled in one training set to counteract overfitting. It was seen that a deep LSTM is suitable for the task of short-term residential forecasting. Finally, it was discovered that applying a CNN on the raw data to extract features among several variables that affect electricity consumption and to remove the noise, after which the outputs are feeded to a LSTM enhances the prediction performance of the model in comparison to using LSTM alone.
 

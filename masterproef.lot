@@ -26,13 +26,13 @@
 \contentsline {table}{\numberline {4.10}{\ignorespaces The values of the parameters with the lowest average MAE on the validation set over three runs.\relax }}{56}{table.caption.59}%
 \contentsline {table}{\numberline {4.11}{\ignorespaces Final values found after the parameter search for model 1.\relax }}{59}{table.caption.62}%
 \contentsline {table}{\numberline {4.12}{\ignorespaces Final values found after the parameter search for model 2.\relax }}{60}{table.caption.64}%
-\contentsline {table}{\numberline {4.13}{\ignorespaces Final values found after the parameter search for model 3.\relax }}{62}{table.caption.66}%
+\contentsline {table}{\numberline {4.13}{\ignorespaces Final values found after the parameter search for model 3.\relax }}{61}{table.caption.66}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {5.1}{\ignorespaces The amount of training epochs for each selected model.\relax }}{64}{table.caption.67}%
 \contentsline {table}{\numberline {5.2}{\ignorespaces The MAPE for each Model and serie.\relax }}{66}{table.caption.72}%
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {A.1}{\ignorespaces Amount of response on the voluntary questionnaires. \relax }}{78}{table.caption.74}%
+\contentsline {table}{\numberline {A.1}{\ignorespaces Amount of response on the voluntary questionnaires. \relax }}{77}{table.caption.74}%
 \addvspace {10pt}
 \contentsline {table}{\numberline {B.1}{\ignorespaces Each value in this table shows the average error when the corresponding parameter value is used, normalized by the biggest error of the possible values of one parameter and finally subtracted by one. Therefore, each value shows a percentage of improvement with respect to the worst value for one parameter for each serie during phase $ 1 $ of the parameter search.\relax }}{80}{table.caption.76}%
 \contentsline {table}{\numberline {B.2}{\ignorespaces The values of the parameters with the lowest average MAE on the validation set over three runs.\relax }}{80}{table.caption.77}%
