@@ -43,7 +43,7 @@
 \contentsline {section}{\numberline {4.4}Baseline models}{40}{section.4.4}%
 \contentsline {subsection}{\numberline {4.4.1}Results of baseline models}{43}{subsection.4.4.1}%
 \contentsline {section}{\numberline {4.5}Implementation deep LSTM neural network}{45}{section.4.5}%
-\contentsline {subsection}{\numberline {4.5.1}Different practical considerations of the models in Keras}{45}{subsection.4.5.1}%
+\contentsline {subsection}{\numberline {4.5.1}Practical considerations of the models in Keras}{45}{subsection.4.5.1}%
 \contentsline {subsubsection}{Inputs}{45}{section*.42}%
 \contentsline {subsubsection}{Batch size}{46}{section*.43}%
 \contentsline {subsubsection}{Stateless versus Stateful}{47}{section*.44}%
@@ -51,12 +51,12 @@
 \contentsline {subsubsection}{Overfitting avoidance in Keras}{49}{section*.48}%
 \contentsline {subsubsection}{Error metrics}{49}{section*.49}%
 \contentsline {subsection}{\numberline {4.5.2}Deep LSTM neural networks}{49}{subsection.4.5.2}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{50}{section*.51}%
-\contentsline {subsection}{\numberline {4.5.3}Model 2: Stateless with flatten layer}{51}{subsection.4.5.3}%
-\contentsline {subsection}{\numberline {4.5.4}Model 3: Stateful}{51}{subsection.4.5.4}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{49}{section*.51}%
+\contentsline {subsection}{\numberline {4.5.3}Model 2: Stateless with flatten layer}{50}{subsection.4.5.3}%
+\contentsline {subsection}{\numberline {4.5.4}Model 3: Stateful}{50}{subsection.4.5.4}%
 \contentsline {subsection}{\numberline {4.5.5}Parameter search}{52}{subsection.4.5.5}%
-\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{55}{section*.57}%
-\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{59}{section*.63}%
+\contentsline {subsubsection}{Model 1: Stateless with no flatten layer}{54}{section*.57}%
+\contentsline {subsubsection}{Model 2: Stateless with flatten layer}{58}{section*.63}%
 \contentsline {subsubsection}{Model 3: Stateful model}{60}{section*.65}%
 \contentsline {section}{\numberline {4.6}Conclusion}{61}{section.4.6}%
 \contentsline {chapter}{\chapternumberline {5}Model evaluation}{63}{chapter.5}%
