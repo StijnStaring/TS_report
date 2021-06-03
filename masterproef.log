@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  3 JUN 2021 23:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  3 JUN 2021 23:13
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -2666,9 +2666,14 @@ either increase the head height or redesign the header
 
  (masterproef.aux (intro.aux) (chap-1.aux) (chap-2.aux) (chap-3.aux)
 (chap-4.aux) (conclusion.aux) (app-A.aux) (app-B.aux) (app-n.aux))
-Package rerunfilecheck Info: File `masterproef.out' has not changed.
-(rerunfilecheck)             Checksum: F62EC99697DF243F64CC757DBDC3C3D4;2327.
 
+Package rerunfilecheck Warning: File `masterproef.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `masterproef.out':
+(rerunfilecheck)             Before: 65A0A0CDA313CBD2B4EFAA4DD36A9F13;2328
+(rerunfilecheck)             After:  F62EC99697DF243F64CC757DBDC3C3D4;2327.
 
 LaTeX Warning: There were undefined references.
 
@@ -2677,11 +2682,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18337 strings out of 479799
- 287579 string characters out of 2879599
- 715788 words of memory out of 3000000
+ 18339 strings out of 479799
+ 287605 string characters out of 2879599
+ 715792 words of memory out of 3000000
  34346 multiletter control sequences out of 15000+200000
- 660138 words of font info for 210 fonts, out of 3000000 for 9000
+ 660239 words of font info for 211 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,86p,1872b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
@@ -2701,7 +2706,7 @@ iles/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1
 TeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic
 /uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (102 pages, 15613179 bytes).
+Output written on masterproef.pdf (102 pages, 15613396 bytes).
 PDF statistics:
  1488 PDF objects out of 1728 (max. 8388607)
  295 named destinations out of 1000 (max. 500000)
