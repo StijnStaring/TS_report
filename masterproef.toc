@@ -63,7 +63,6 @@
 \contentsline {section}{\numberline {5.1}Model selection}{63}{section.5.1}%
 \contentsline {section}{\numberline {5.2}Performance on the test set}{64}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Conclusion}{67}{section.5.3}%
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{71}{chapter.6}%
 \contentsline {appendix}{\chapternumberline {A}Different household attributes}{77}{appendix.A}%
 \contentsline {appendix}{\chapternumberline {B}Forecasting the electricity consumption of individual households - extra}{79}{appendix.B}%
 \contentsline {section}{\numberline {B.1}Baseline models}{79}{section.B.1}%
@@ -72,4 +71,4 @@
 \contentsline {subsection}{\numberline {B.2.2}Model 3}{83}{subsection.B.2.2}%
 \contentsline {appendix}{\chapternumberline {C}Model evaluation - extra}{87}{appendix.C}%
 \contentsline {section}{\numberline {C.1}Results on the testset}{87}{section.C.1}%
-\contentsline {chapter}{Bibliography}{91}{appendix*.87}%
+\contentsline {chapter}{Bibliography}{91}{appendix*.88}%

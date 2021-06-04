@@ -25,11 +25,10 @@
 \BOOKMARK [1][-]{section.5.1}{Model selection}{chapter.5}% 25
 \BOOKMARK [1][-]{section.5.2}{Performance on the test set}{chapter.5}% 26
 \BOOKMARK [1][-]{section.5.3}{Conclusion}{chapter.5}% 27
-\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 28
-\BOOKMARK [0][-]{appendix.A}{Different household attributes}{}% 29
-\BOOKMARK [0][-]{appendix.B}{Forecasting the electricity consumption of individual households - extra}{}% 30
-\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 31
-\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 32
-\BOOKMARK [0][-]{appendix.C}{Model evaluation - extra}{}% 33
-\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 34
-\BOOKMARK [0][-]{appendix*.87}{Bibliography}{}% 35
+\BOOKMARK [0][-]{appendix.A}{Different household attributes}{}% 28
+\BOOKMARK [0][-]{appendix.B}{Forecasting the electricity consumption of individual households - extra}{}% 29
+\BOOKMARK [1][-]{section.B.1}{Baseline models}{appendix.B}% 30
+\BOOKMARK [1][-]{section.B.2}{Parameter Search}{appendix.B}% 31
+\BOOKMARK [0][-]{appendix.C}{Model evaluation - extra}{}% 32
+\BOOKMARK [1][-]{section.C.1}{Results on the testset}{appendix.C}% 33
+\BOOKMARK [0][-]{appendix*.88}{Bibliography}{}% 34

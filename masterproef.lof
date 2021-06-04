@@ -53,13 +53,12 @@
 \contentsline {figure}{\numberline {5.5}{\ignorespaces The prediction results of the different models on 7th December. (True values: blue/ Prediction: orange)\relax }}{69}{figure.caption.73}%
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{79}{figure.caption.76}%
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE.(Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{81}{figure.caption.79}%
+\contentsline {figure}{\numberline {B.3}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{82}{figure.caption.80}%
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM and \textit {or}: best performing serie from phase one)\relax }}{84}{figure.caption.83}%
+\contentsline {figure}{\numberline {B.5}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{85}{figure.caption.84}%
 \addvspace {10pt}
-\contentsline {figure}{\numberline {B.1}{\ignorespaces An example histogram of the consumption in [kWh] versus count [-] used during MAPE forecast.\relax }}{79}{figure.caption.75}%
-\contentsline {figure}{\numberline {B.2}{\ignorespaces Results of the sensitivity analysis on the size of the regularization parameter and the dropout rate according to MAE.(Legend: \textit {r\_D}: regularization size of weights of DENSE layer, \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM, \textit {d\_L}: dropout rate of inputs LSTM, \textit {r\_d\_L}: dropout rate of hidden states LSTM, \textit {d\_D}: dropout rate of DENSE layer, \textit {or}: best performing serie from phase one)\relax }}{81}{figure.caption.78}%
-\contentsline {figure}{\numberline {B.3}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{82}{figure.caption.79}%
-\contentsline {figure}{\numberline {B.4}{\ignorespaces Results of the sensitivity analysis on the size of regulation parameter and the dropout rate with respect to the mean absolute error.(Legend: \textit {r\_r\_L}: regularization size of recurrent weight of LSTM, \textit {r\_L}: regularization size of input weights of LSTM and \textit {or}: best performing serie from phase one)\relax }}{84}{figure.caption.82}%
-\contentsline {figure}{\numberline {B.5}{\ignorespaces The evaluation of the error on the validation set in function of the learning rate size.\relax }}{85}{figure.caption.83}%
-\addvspace {10pt}
-\contentsline {figure}{\numberline {C.1}{\ignorespaces The MAE performance for the different days in the test set for Serie 1.\relax }}{87}{figure.caption.84}%
-\contentsline {figure}{\numberline {C.2}{\ignorespaces The MAE performance for the different days in the test set for Serie 2.\relax }}{88}{figure.caption.85}%
-\contentsline {figure}{\numberline {C.3}{\ignorespaces The MAE performance for the different days in the test set for Serie 3.\relax }}{89}{figure.caption.86}%
+\contentsline {figure}{\numberline {C.1}{\ignorespaces The MAE performance for the different days in the test set for Serie 1.\relax }}{87}{figure.caption.85}%
+\contentsline {figure}{\numberline {C.2}{\ignorespaces The MAE performance for the different days in the test set for Serie 2.\relax }}{88}{figure.caption.86}%
+\contentsline {figure}{\numberline {C.3}{\ignorespaces The MAE performance for the different days in the test set for Serie 3.\relax }}{89}{figure.caption.87}%
