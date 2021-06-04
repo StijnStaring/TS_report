@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  3 JUN 2021 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.2)  4 JUN 2021 10:50
 entering extended mode
 **./masterproef.tex
 (masterproef.tex
@@ -1482,12 +1482,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--15
  []
 
 
-Underfull \hbox (badness 1817) in paragraph at lines 22--25
+Underfull \hbox (badness 1817) in paragraph at lines 20--23
 []|\T1/lmr/m/n/10.95 (+20) Operational and main-te-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--30
+Underfull \hbox (badness 10000) in paragraph at lines 28--28
 []|\T1/lmr/m/n/10.95 (+20) Medium Term
  []
 
@@ -1495,7 +1495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--30
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \vbox (badness 2564) has occurred while \output is active []
+Underfull \vbox (badness 6078) has occurred while \output is active []
 
  [1
 
@@ -1505,17 +1505,17 @@ Underfull \vbox (badness 2564) has occurred while \output is active []
 Underfull \vbox (badness 1072) has occurred while \output is active []
 
  [2 <./Pictures//SmartGrid.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 55--56
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
 
  []
 
@@ -2474,11 +2474,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 13--14
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--17
-
- []
-
 ) [73] [74
 
 
@@ -2677,11 +2672,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 18339 strings out of 479799
- 287605 string characters out of 2879599
+ 18341 strings out of 479799
+ 287625 string characters out of 2879599
  715790 words of memory out of 3000000
  34346 multiletter control sequences out of 15000+200000
- 660239 words of font info for 211 fonts, out of 3000000 for 9000
+ 660322 words of font info for 212 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  80i,12n,86p,1872b,566s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Program Files/M
@@ -2701,7 +2696,7 @@ iles/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Program Files/MiKTeX/fonts/type1
 TeX/fonts/type1/public/lm/lmtt10.pfb><C:/Program Files/MiKTeX/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic
 /uhvb8a.pfb><C:/Program Files/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on masterproef.pdf (102 pages, 15613031 bytes).
+Output written on masterproef.pdf (102 pages, 15612956 bytes).
 PDF statistics:
  1488 PDF objects out of 1728 (max. 8388607)
  295 named destinations out of 1000 (max. 500000)

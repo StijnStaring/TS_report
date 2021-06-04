@@ -13,8 +13,6 @@ With the invention of the smart meter in 1974 by \textbf{Paraskevakos}, it becam
 component of their smart grid system, an avalanche of immensely useful energy usage information
 became available to the energy markets.'' From the availability of more detailed datasets comes the explosion of research in the area of electrical forecasting techniques and the applicability of more complex models. To tackle the electrical consumption forecasting problem neural networks are applied. These models allow for learning non-linear relations between the inputs and outputs.\\
 
-Depending on the forecasting horizon, different applications are considered, as is summarized in Table \ref{tab:prediciontypes} \cite{NarjesFallah2018}.
-
 \begin{table}[h!]
 	\centering
 	\begin{tabular}{@{}lp{3cm}p{3cm}p{4.5cm}@{}} \toprule
@@ -34,7 +32,7 @@ Depending on the forecasting horizon, different applications are considered, as 
 	\label{tab:prediciontypes}
 \end{table}
 
-The forecast horizon is chosen in consultation with the uncertainty that is contained in the signal. If the signal doesn't show clear patterns, forecasting will be more difficult which means that the forecasting horizon should be shorter. In this thesis the forecasting horizon falls in the category of ``VSTLF'' and ``STLF'' because the consumption is predicted with time steps of 30 minutes and 24 hours ahead. The practical application of the developed models in this thesis have as goal to monitor the demand side of the low voltage distribution grid. Figure \ref{fig:power_image} shows in green where the distribution grid is located in the whole electricity grid. The low voltage distribution grid is also called the secondary network and is the part of the distribution grid that carries electric energy from distribution transformers to the electrical appliances located in a house. Typical inputs that are used in literature for electrical load forecasting are past values of the load, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}. Often used inputs for electrical load forecasting are summarized here.
+Depending on the forecasting horizon, different applications are considered, as is summarized in Table \ref{tab:prediciontypes} \cite{NarjesFallah2018}. The forecast horizon is chosen in consultation with the uncertainty that is contained in the signal. If the signal doesn't show clear patterns, forecasting will be more difficult which means that the forecasting horizon should be shorter. In this thesis the forecasting horizon falls in the category of ``VSTLF'' and ``STLF'' because the consumption is predicted with time steps of 30 minutes and 24 hours ahead. The practical application of the developed models in this thesis have as goal to monitor the demand side of the low voltage distribution grid. Figure \ref{fig:power_image} shows in green where the distribution grid is located in the whole electricity grid. The low voltage distribution grid is also called the secondary network and is the part of the distribution grid that carries electric energy from distribution transformers to the electrical appliances located in a house. Typical inputs that are used in literature for electrical load forecasting are past values of the load, weather information, calendar information and error-correction terms \cite{loadforecastingmoor}. Often used inputs for electrical load forecasting are summarized here.
 
 \begin{itemize}
 	\item Historical data e.g. \cite{Kong2019}
